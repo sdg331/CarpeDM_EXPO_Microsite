@@ -1,0 +1,59 @@
+h1,
+h2,
+h3,
+p,
+li,
+dd {
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+.display-title {
+  font-size: clamp(2.65rem, 5.4vw, 5.25rem);
+  line-height: 1.14;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.7vw, 3.75rem);
+  line-height: 1.23;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.section-title--ko {
+  line-height: 1.28;
+  letter-spacing: -0.045em;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.body-copy {
+  color: var(--color-secondary);
+  font-size: clamp(1rem, 1.1vw, 1.0625rem);
+  line-height: 1.75;
+}
+
+.scope-note {
+  color: var(--color-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.75;
+}
+
+.muted {
+  color: var(--color-secondary);
+}

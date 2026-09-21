@@ -1,0 +1,248 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+summary,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+button,
+summary {
+  touch-action: manipulation;
+}
+
+button,
+a,
+summary {
+  outline-offset: 5px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+figure,
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+section[id],
+main[id] {
+  scroll-margin-top: calc(var(--header-height) + 1.5rem);
+}
+
+.container {
+  width: min(var(--content-width), calc(100% - var(--page-gutter) * 2));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-space);
+  border-top: 1px solid var(--color-border);
+}
+
+.section--light {
+  --color-bg: #fff;
+  --color-surface: #f5f7fa;
+  --color-text: #101828;
+  --color-secondary: #475467;
+  --color-subtle: #667085;
+  --color-border: #e4e7ec;
+  --color-border-strong: #d0d5dd;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.section-heading {
+  max-width: 54rem;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: var(--space-6);
+}
+
+.section-heading__number {
+  margin-right: var(--space-4);
+  color: currentColor;
+}
+
+.section-heading__description {
+  max-width: 39rem;
+  margin-top: var(--space-6);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  min-height: 44px;
+  padding-block: var(--space-3);
+  border-bottom: 1px solid currentColor;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: border-color var(--duration-short), color var(--duration-short);
+}
+
+.text-link:hover {
+  border-color: var(--color-text);
+  color: var(--color-accent);
+}
+
+.text-link:active {
+  color: var(--color-accent-hover);
+}
+
+.status-note {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, auto) minmax(0, 1fr);
+  gap: var(--space-4) var(--space-6);
+  max-width: 52rem;
+  margin-top: var(--space-8);
+  padding: var(--space-4) var(--space-6);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0;
+  background: #fff;
+  color: var(--color-secondary);
+}
+
+.status-note__label {
+  color: var(--color-accent-weak-text);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.status-note__body {
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.arrow-icon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  transform: translateY(-200%);
+  background: var(--color-dark);
+  color: #fff;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--duration-reveal) var(--ease-out),
+    transform var(--duration-reveal) var(--ease-out);
+}
+
+.reveal[data-reveal='pending']:not(:focus-within) {
+  opacity: 0.85;
+  transform: translateY(12px);
+}
+
+.noscript {
+  max-width: 44rem;
+  margin: 4rem auto;
+  padding: 1.5rem;
+  font-family: system-ui, sans-serif;
+  line-height: 1.8;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal[data-reveal='pending'] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-height: 4.25rem;
+  }
+
+  .status-note {
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+    padding: var(--space-4);
+  }
+}

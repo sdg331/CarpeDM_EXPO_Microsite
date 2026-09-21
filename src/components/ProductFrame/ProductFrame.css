@@ -1,0 +1,284 @@
+.product-frame {
+  min-width: 0;
+}
+
+.product-frame__stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1.12;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: var(--radius-lg);
+  background: var(--color-dark-surface);
+  isolation: isolate;
+}
+
+.product-frame--hero .product-frame__stage {
+  border-color: var(--color-border);
+  background: #eef2f6;
+  aspect-ratio: 0.86;
+  box-shadow: 0 28px 70px rgb(16 24 40 / 10%);
+}
+
+.product-frame__drawing {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.product-frame__stage--photo img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-frame__caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-4);
+  color: currentColor;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  opacity: 0.72;
+}
+
+.product-frame__caption > :first-child {
+  font-weight: 700;
+}
+
+.device {
+  position: relative;
+}
+
+.device--mirror {
+  width: 49%;
+  height: 82%;
+  transform: perspective(1100px) rotateY(-9deg);
+}
+
+.mirror-body {
+  position: absolute;
+  inset: 0 0 6%;
+  padding: 3%;
+  border: 1px solid #62676c;
+  border-right: 5px solid #34373b;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #323438, #121314 25%, #1d2023 80%, #393b3d);
+  box-shadow: 16px 12px 32px rgb(0 0 0 / 45%), inset 1px 0 1px #a0a4a6;
+}
+
+.mirror-surface {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 8%);
+  background: linear-gradient(120deg, #22272c 0%, #101418 33%, #090c0e 60%, #1f2327 100%);
+}
+
+.mirror-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(117deg, transparent 20%, rgb(199 209 216 / 10%) 42%, rgb(220 227 231 / 2%) 43%, transparent 64%);
+}
+
+.mirror-reflection {
+  position: absolute;
+  width: 78%;
+  height: 140%;
+  left: 30%;
+  top: -18%;
+  transform: rotate(26deg);
+  border-left: 1px solid rgb(255 255 255 / 9%);
+  background: linear-gradient(90deg, rgb(208 217 222 / 7%), transparent 62%);
+}
+
+.mirror-surface > svg {
+  position: absolute;
+  width: 13%;
+  height: auto;
+  left: 43.5%;
+  bottom: 10%;
+  color: #8e969c;
+}
+
+.mirror-sensor {
+  position: absolute;
+  z-index: 1;
+  top: 0.8%;
+  left: 49%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #050505;
+}
+
+.mirror-bottom-line {
+  position: absolute;
+  bottom: -2%;
+  width: 20%;
+  height: 3%;
+  left: 40%;
+  border: 1px solid #373b3f;
+  background: #161819;
+}
+
+.mirror-stand {
+  position: absolute;
+  z-index: -1;
+  width: 25%;
+  height: 10%;
+  bottom: 1%;
+  left: 38%;
+  background: linear-gradient(90deg, #151719, #363a3d, #111315);
+}
+
+.mirror-foot {
+  position: absolute;
+  width: 70%;
+  height: 2%;
+  left: 17%;
+  bottom: 0;
+  border-top: 1px solid #4c5155;
+  transform: skewX(-30deg);
+  background: #202326;
+  box-shadow: 6px 9px 19px #000;
+}
+
+.device--kiosk {
+  width: 60%;
+  height: 72%;
+  transform: perspective(1200px) rotateY(-10deg);
+}
+
+.kiosk-body {
+  position: absolute;
+  inset: 0 0 18%;
+  border: 1px solid #71767a;
+  border-right: 7px solid #2d3033;
+  border-radius: 7px 7px 4px 4px;
+  background: linear-gradient(135deg, #34373a, #17191b 60%, #26292c);
+  box-shadow: 15px 15px 30px rgb(0 0 0 / 50%), inset 1px 0 0 #8e9397;
+}
+
+.kiosk-camera {
+  position: absolute;
+  top: 6%;
+  left: 48%;
+  width: 5%;
+  aspect-ratio: 1;
+  border: 2px solid #53595f;
+  border-radius: 50%;
+  background: #06080a;
+}
+
+.kiosk-screen {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  inset: 17% 10% 32%;
+  border: 5px solid #08090a;
+  outline: 1px solid #484c4f;
+  background: linear-gradient(135deg, #272e34, #101419 70%);
+}
+
+.kiosk-screen svg {
+  width: 20%;
+  height: auto;
+  color: #89939b;
+}
+
+.kiosk-controls {
+  position: absolute;
+  inset: 75% 10% 9%;
+  display: flex;
+  align-items: center;
+  gap: 13%;
+}
+
+.kiosk-reader {
+  width: 27%;
+  aspect-ratio: 1.5;
+  border: 1px solid #626970;
+  background: #15181b;
+}
+
+.kiosk-reader::after {
+  content: '';
+  display: block;
+  width: 45%;
+  height: 50%;
+  margin: 14% auto;
+  border: 1px solid #626970;
+}
+
+.kiosk-slot {
+  width: 61%;
+  height: 5px;
+  border-bottom: 1px solid #72777d;
+  background: #020303;
+}
+
+.kiosk-paper {
+  position: absolute;
+  top: 83%;
+  left: 46%;
+  width: 37%;
+  height: 21%;
+  padding: 7% 6%;
+  transform: perspective(250px) rotateX(-15deg);
+  background: #adb1b1;
+  box-shadow: 0 5px 12px rgb(0 0 0 / 35%);
+}
+
+.kiosk-paper i {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 15%;
+  background: #727778;
+}
+
+.kiosk-paper i:last-child {
+  width: 55%;
+}
+
+.kiosk-pedestal {
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 27%;
+  width: 48%;
+  height: 26%;
+  background: linear-gradient(90deg, #131516, #34383b, #191c1e);
+}
+
+.kiosk-foot {
+  position: absolute;
+  bottom: -1%;
+  left: 9%;
+  width: 87%;
+  height: 3%;
+  transform: skewX(-25deg);
+  border-top: 1px solid #52575a;
+  background: #202427;
+  box-shadow: 8px 12px 22px #000;
+}
+
+@media (max-width: 639px) {
+  .product-frame--hero .product-frame__stage {
+    aspect-ratio: 1.06;
+  }
+
+.product-frame--hero .device--mirror {
+    width: 38%;
+    height: 86%;
+  }
+
+}

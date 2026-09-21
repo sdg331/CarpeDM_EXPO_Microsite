@@ -1,0 +1,87 @@
+.product-section {
+  --color-text: #f8fafc;
+  --color-secondary: #b7c0ce;
+  --color-subtle: #98a2b3;
+  --color-border: rgb(255 255 255 / 13%);
+  --color-border-strong: rgb(255 255 255 / 22%);
+  --color-accent: #7db2ff;
+  background: var(--color-dark);
+  color: var(--color-text);
+}
+
+.product-section--kiosk {
+  background: #101f34;
+}
+
+.product-section__grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
+  margin-top: var(--space-16);
+}
+
+.product-section__visual,
+.product-section__content { min-width: 0; }
+
+.product-section__lead {
+  max-width: 31rem;
+  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+  font-weight: 650;
+  line-height: 1.65;
+  letter-spacing: -0.03em;
+}
+
+.product-section__supporting {
+  max-width: 32rem;
+  margin-top: var(--space-6);
+  font-size: 0.9375rem;
+}
+
+.product-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--space-6);
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.product-features > div {
+  min-width: 0;
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-features dt {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.product-features dd {
+  margin: var(--space-2) 0 0;
+  color: var(--color-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.product-section__scope { margin-top: var(--space-6); }
+.product-section--kiosk .product-section__visual { order: 2; }
+.product-section--kiosk .product-section__grid { grid-template-columns: 0.92fr 1.08fr; }
+
+@media (max-width: 767px) {
+  .product-section__grid,
+  .product-section--kiosk .product-section__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    margin-top: var(--space-12);
+  }
+
+  .product-section--kiosk .product-section__visual { order: initial; }
+  .product-section__visual { width: 100%; max-width: 36rem; margin-inline: auto; }
+  .product-section__lead { max-width: none; }
+}
+
+@media (max-width: 479px) {
+  .product-features { grid-template-columns: 1fr; }
+}
