@@ -11,7 +11,8 @@ public/                    favicon and project-owned static media
 src/
   components/
     Header/                navigation and mobile disclosure
-    SectionHeading/        shared editorial index / label / heading
+    GlassIcon/             three original decorative SVG illustrations
+    SectionHeading/        optional editorial heading utility
     StatusNote.tsx         shared public-scope explanation
     Reveal/                optional native viewport reveal
     ProductFrame/          real-image slots and concept fallbacks
@@ -34,10 +35,10 @@ Native CSS imports with global tokens and prefixed component/section class names
 `docs/content.md` is the editorial authority. Typed TS data modules mirror the actual public copy and array-based rows without a CMS or runtime fetch. Keep product facts traceable to `docs/product.md`. Document updates accompany material copy changes. This static page has no asynchronous business data, so do not invent skeleton loaders, fake loading states, or an artificial API.
 
 ## Images
-`src/data/media.ts` holds optional `hero`, `mirror`, and `kiosk` asset slots with source, alt, and intrinsic dimensions. Use an omitted slot for absent photography, and a stateful `<img>` error fallback for broken files. Do not request nonexistent default URLs. Keep presentation aspect ratios stable. ProductFrame renders an original CSS illustration, visible concept caption, and accessible description when no photo is available. Configure future local assets using Vite imports or the configured base URL; noncritical photographs are lazy loaded.
+`src/data/media.ts` holds optional `hero`, `mirror`, and `kiosk` asset slots with source, alt, intrinsic dimensions, and a required concept/photograph kind. Loaded images use their intrinsic aspect ratio and contain fitting; hero/mirror edges use CSS masks to soften the background boundary without changing the supplied files; concept media retains its visible disclosure. Use an omitted slot for absent photography, and a stateful `<img>` error fallback for broken files. Do not request nonexistent default URLs. Keep presentation aspect ratios stable. ProductFrame renders an original CSS illustration, visible concept caption, and accessible description when no photo is available. Configure future local assets using Vite imports or the configured base URL; noncritical photographs are lazy loaded.
 
 ## Responsive and interaction strategy
-One DOM reading order with mobile-first CSS. Six steps become vertical on phones, three columns on intermediate widths, six on desktop. Architecture becomes vertical without changing its meaning. Mobile header uses a button controlling a navigation disclosure, closes on selection / Escape / desktop breakpoint, and never traps focus. The selected destination is available through native fragment links. Hardware details use native `details/summary`.
+The reading order is hero, introduction, mirror, kiosk, experience, architecture, technology, closing. Three experience scenes become vertical on phones; the original six steps remain in a native disclosure. Hardware and seven technology descriptions use native disclosures. Architecture becomes vertical without changing its meaning. Mobile header uses a button controlling a navigation disclosure, closes on selection / Escape / desktop breakpoint, and never traps focus. The selected destination is available through native fragment links. Hardware details use native `details/summary`.
 
 ## Motion
 IntersectionObserver only enhances offscreen sections with a short reveal. Default content is visible. Observe once, disconnect on cleanup, and avoid concealing focused content. Match reduced-motion preference in CSS and JavaScript; if the API or observer is unavailable, keep content visible. Avoid scroll listeners, page progress calculations, or per-frame JS unless a demonstrated need appears.

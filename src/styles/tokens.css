@@ -1,17 +1,17 @@
 :root {
   color-scheme: light;
   --color-bg: #ffffff;
-  --color-surface: #f5f7fa;
+  --color-surface: #f5f5f7;
   --color-surface-strong: #eef2f6;
-  --color-text: #101828;
-  --color-secondary: #475467;
+  --color-text: #1d1d1f;
+  --color-secondary: #606773;
   --color-subtle: #667085;
   --color-border: #e4e7ec;
   --color-border-strong: #d0d5dd;
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
-  --color-action: #1d4ed8;
-  --color-action-hover: #1e40af;
+  --color-action: #1963da;
+  --color-action-hover: #1453bc;
   --color-accent-weak: #eff6ff;
   --color-accent-weak-text: #1e40af;
   --color-dark: #0b1728;
@@ -34,9 +34,9 @@
   --radius-md: 14px;
   --radius-lg: 24px;
   --page-gutter: clamp(1.25rem, 4.45vw, 4rem);
-  --content-width: 80rem;
-  --section-space: clamp(5rem, 8vw, 8rem);
-  --header-height: 4.75rem;
+  --content-width: 72rem;
+  --section-space: clamp(5rem, 8vw, 7.5rem);
+  --header-height: 4rem;
   --duration-short: 180ms;
   --duration-reveal: 420ms;
   --ease-out: cubic-bezier(0.2, 0.65, 0.3, 1);

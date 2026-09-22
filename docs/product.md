@@ -81,6 +81,10 @@ The conceptual architecture is **ID Card Kiosk → Identity / Experience Link �
 - Internal TODO labels should stay in documentation/code. Public uncertainty should use clear explanatory wording such as “설계한 체험 흐름” and “실제 구현 범위는 확인 후 안내합니다.”
 - Do not expose visitor data, credentials, secret keys, network addresses, or private operational information.
 
+## Supplied visual assets
+
+On 2026-09-22 the owner supplied three concept renders for the hero, Smart Mirror, and ID Card Kiosk. They are authorized presentation assets, not photographs or evidence of enclosure specifications, implementation, or integration.
+
 ## TODO / NOT YET CONFIRMED
 
 - Current implementation and integration status of each exhibit capability.

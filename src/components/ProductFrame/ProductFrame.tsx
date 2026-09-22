@@ -41,13 +41,15 @@ function ConceptDevice({ kind }: Pick<ProductFrameProps, 'kind'>) {
 export function ProductFrame({ kind, variant = 'detail', media }: ProductFrameProps) {
   const [failedSource, setFailedSource] = useState<string>();
   const showPhoto = media && media.source !== failedSource;
+  const isConcept = !showPhoto || media.kind === 'concept';
   const description = kind === 'mirror'
     ? '대형 세로형 스마트 미러와 하단 센싱 영역을 단순화한 콘셉트 이미지'
     : '화면, 카메라와 출력구를 갖춘 사원증 발급 키오스크의 콘셉트 이미지';
 
   return (
     <figure className={`product-frame product-frame--${kind} product-frame--${variant}`}>
-      <div className={`product-frame__stage${showPhoto ? ' product-frame__stage--photo' : ''}`}>
+      <div className={`product-frame__stage${showPhoto ? ' product-frame__stage--photo' : ''}`}
+        style={media ? { aspectRatio: `${media.width} / ${media.height}` } : undefined}>
         {showPhoto ? (
           <img src={media.source} alt={media.alt} width={media.width} height={media.height}
             srcSet={media.srcSet} sizes={media.sizes}
@@ -64,7 +66,7 @@ export function ProductFrame({ kind, variant = 'detail', media }: ProductFramePr
       </div>
       <figcaption className="product-frame__caption">
         <span>{showPhoto ? (kind === 'mirror' ? 'SMART MIRROR' : 'ID CARD KIOSK') : '제품 형태 콘셉트'}</span>
-        {!showPhoto && <span>디바이스 콘셉트 · 실제 촬영 이미지가 아닙니다.</span>}
+        {isConcept && <span>디바이스 콘셉트 · 실제 촬영 이미지가 아닙니다.</span>}
       </figcaption>
     </figure>
   );

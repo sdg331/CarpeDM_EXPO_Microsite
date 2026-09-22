@@ -1,64 +1,35 @@
 .closing-section {
-  --color-text: #fff;
-  --color-secondary: rgb(255 255 255 / 74%);
-  --color-border: rgb(255 255 255 / 24%);
-  --color-border-strong: rgb(255 255 255 / 48%);
-  --color-accent: #fff;
-  --color-accent-hover: #e8f3ff;
-  padding-block: clamp(6rem, 10vw, 9rem);
-  background: var(--color-dark);
-  color: var(--color-text);
-}
-
-.closing-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: #f5f5f7;
+  padding-block: 88px;
   text-align: center;
 }
 
-.closing-mark {
-  width: 40px;
-  height: 40px;
-  margin-bottom: var(--space-8);
-  color: #7db2ff;
+.closing-content .section-kicker {
+  color: #6b7078;
+  font-size: 12px;
+  margin-bottom: 20px;
 }
 
-.closing-section .section-heading {
-  max-width: none;
+.closing-content h2 {
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 500;
+  letter-spacing: -.04em;
 }
 
-.closing-section .section-title {
-  font-size: clamp(2.15rem, 4.8vw, 4.75rem);
-  line-height: 1.2;
-  letter-spacing: -0.045em;
+.closing-content h2 span {
+  display: block;
+  font-size: clamp(64px, 9vw, 112px);
+  font-weight: 700;
+  letter-spacing: -.065em;
+  margin-top: 6px;
 }
 
-.closing-section .section-title span {
-  color: #a9c8ff;
+.closing-content .text-link {
+  margin-top: 24px;
 }
 
-.closing-description {
-  margin-top: var(--space-8);
-}
-
-.closing-attribution {
-  margin-top: var(--space-3);
-  color: var(--color-secondary);
-  font-size: 0.8125rem;
-  line-height: 1.8;
-}
-
-.closing-top-link {
-  margin-top: var(--space-12);
-}
-
-@media (max-width: 639px) {
-  .closing-section .section-title {
-    font-size: clamp(1.9rem, 8.3vw, 3.25rem);
-  }
-
-  .closing-description {
-    font-size: 0.9375rem;
+@media(max-width:767px) {
+  .closing-section {
+    padding-block: 64px;
   }
 }

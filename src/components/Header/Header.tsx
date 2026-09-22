@@ -3,11 +3,10 @@ import { BrandMark } from '../BrandMark';
 import './Header.css';
 
 const navigation = [
-  { href: '#project', label: '프로젝트' },
-  { href: '#experience', label: '체험 흐름' },
+  { href: '#project', label: '소개' },
   { href: '#mirror', label: '디바이스' },
-  { href: '#system', label: '시스템' },
-  { href: '#technology', label: '기술' },
+  { href: '#experience', label: '체험 흐름' },
+  { href: '#system', label: '기술 구성' },
 ];
 
 export function Header() {

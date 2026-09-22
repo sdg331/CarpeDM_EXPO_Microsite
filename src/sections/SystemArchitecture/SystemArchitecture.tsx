@@ -1,7 +1,5 @@
 import { Arrow } from '../../components/Arrow';
 import { Reveal } from '../../components/Reveal/Reveal';
-import { SectionHeading } from '../../components/SectionHeading/SectionHeading';
-import { StatusNote } from '../../components/StatusNote';
 import './SystemArchitecture.css';
 
 const hardwareGroups = [
@@ -33,28 +31,16 @@ export function SystemArchitecture() {
   return (
     <section id="system" className="section section--light system-section" tabIndex={-1} aria-labelledby="system-heading">
       <div className="container">
-        <Reveal>
-          <SectionHeading
-            id="system-heading"
-            label="SYSTEM"
-            korean
-            description="서로 다른 역할의 두 디바이스가 사용자 경험을 중심으로 연결됩니다."
-          >
-            두 디바이스를 연결하는<br />경험 구조.
-          </SectionHeading>
-        </Reveal>
-
-        <Reveal>
-          <StatusNote>
-            통신 방식과 기능별 구현 상태는 확인이 필요하며, 아래 도식은 장치의 역할과 연결 방향을 설명합니다.
-          </StatusNote>
+        <Reveal className="system-section__heading">
+          <div><p className="section-kicker">하나의 경험을 만드는 구조</p><h2 id="system-heading" className="section-title">역할은 다르게.<br /><span>연결은 하나로.</span></h2></div>
+          <p className="body-copy">키오스크는 체험의 시작을,<br />스마트 미러는 상호작용을 담당합니다.<br />두 장치를 사용자 경험으로 연결하는 구성입니다.</p>
         </Reveal>
 
         <Reveal className="system-diagram-wrap">
           <ol className="system-diagram">
             <li className="system-device">
-              <p className="eyebrow">ID CARD KIOSK</p>
-              <h3 className="system-device__title">Raspberry Pi 5</h3>
+              <p className="eyebrow">01 / ENTRY</p>
+              <h3 className="system-device__title">ID Card Kiosk</h3>
               <p className="system-device__role">체험 진입 · 사용자 연결</p>
               <ul className="system-device__parts">
                 <li>디스플레이</li>
@@ -66,13 +52,12 @@ export function SystemArchitecture() {
             <li className="system-link">
               <div className="system-link__path" aria-hidden="true"><Arrow /></div>
               <div className="system-link__copy">
-                <p className="eyebrow">IDENTITY /<br />EXPERIENCE LINK</p>
-                <p>사용자와 체험을<br />잇는 연결 개념</p>
+                <p>사용자 · 체험 연결</p>
               </div>
             </li>
             <li className="system-device">
-              <p className="eyebrow">SMART MIRROR SYSTEM</p>
-              <h3 className="system-device__title">Windows PC</h3>
+              <p className="eyebrow">02 / INTERACTION</p>
+              <h3 className="system-device__title">Smart Mirror</h3>
               <p className="system-device__role">메인 인터랙션</p>
               <ul className="system-device__parts">
                 <li>미러 디스플레이</li>
@@ -85,6 +70,7 @@ export function SystemArchitecture() {
           </ol>
         </Reveal>
 
+        <p className="scope-note system-section__scope">장치의 역할과 연결 방향을 설명하는 개념도입니다. 통신 방식과 기능별 구현 상태는 확인 후 안내합니다.</p>
         <details className="hardware-details">
           <summary>
             <span>하드웨어 구성 자세히 보기</span>

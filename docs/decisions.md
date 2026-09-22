@@ -80,3 +80,19 @@ Reason: The previous visual system combined dark backgrounds, large English stat
 Alternatives considered: Adding more generated imagery while keeping the existing dark layout, replacing the whole site with a generic component library, or removing the physical-device presentation.
 
 Consequences: The first screen now explains the product in Korean, information sections scan more like a corporate product page, and the physical hardware still receives a distinct premium stage. Real product photography remains the highest-impact future upgrade; generated imagery must stay labeled as concept media.
+
+## 2026-09-22 — Supplied concept renders
+
+Decision: Apply the three owner-supplied renders as local WebP assets, retaining full intrinsic proportions and visible concept captions. Light mirror imagery accompanies the bright hero; dark mirror and kiosk imagery accompany the navy device sections.
+
+Reason: The owner explicitly requested these images. This supersedes silhouette-only presentation, while preserving the rule that concepts cannot serve as evidence of completed hardware.
+
+Consequences: CSS silhouettes remain the error fallback; eager hero and lazy detail loading remain in place.
+
+## 2026-09-22 — Product storytelling and original glass iconography
+
+Decision: Reorder the page around the physical products, compress repeated descriptions, replace six always-visible experience cards with three illustrated scenes and a six-step disclosure, and make technology descriptions expandable. Use a pale unboxed hero, a dark mirror showcase, a white kiosk presentation and restrained project closing. Add three original glass SVG illustrations with no new dependency.
+
+Reason: The owner explicitly requested an Apple/Toss-level redesign after the earlier page still felt like a draft. This changes the editorial hierarchy instead of only recoloring cards. The explicit glass-icon request supersedes the former glass-effect ban for decorative icons; text surfaces stay simple and readable.
+
+Consequences: Hardware and six-step facts remain available. All supplied renders retain concept disclosure. Use React useId for SVG definitions; keep native keyboard interactions and motion-reduction behavior. No implementation-status claim changes.

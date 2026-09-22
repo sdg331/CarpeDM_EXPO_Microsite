@@ -1,41 +1,24 @@
 import { Reveal } from '../../components/Reveal/Reveal';
-import { SectionHeading } from '../../components/SectionHeading/SectionHeading';
 import { technologies } from '../../data/technologies';
 import './Technology.css';
 
 export function Technology() {
   return (
-    <section id="technology" className="section section--light technology-section" tabIndex={-1} aria-labelledby="technology-heading">
-      <div className="container">
-        <Reveal>
-          <SectionHeading
-            id="technology-heading"
-            label="TECHNOLOGY"
-            korean
-            description="각 기술은 그 자체를 보여주기 위한 것이 아니라 사용자가 자연스럽게 시스템과 상호작용하도록 만드는 역할을 합니다."
-          >
-            상호작용을 완성하는<br />핵심 기술.
-          </SectionHeading>
+    <section id="technology" className="technology-section" tabIndex={-1} aria-labelledby="technology-heading">
+      <div className="container technology-section__grid">
+        <Reveal className="technology-section__intro">
+          <p className="section-kicker">경험을 뒷받침하는 기술</p>
+          <h2 id="technology-heading" className="section-title">보이지 않는 곳까지,<br /><span>하나의 경험을 위해.</span></h2>
+          <p className="body-copy">입력에서 응답까지.<br />프로젝트에서 다루는 기술과 설계 역할을 소개합니다.</p>
         </Reveal>
-        <ul className="technology-list">
-          {technologies.map((technology, index) => (
-            <li key={technology.name}>
-              <Reveal className="technology-row">
-                <span className="eyebrow technology-row__number" aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <div className="technology-row__identity">
-                  <h3 lang="en">{technology.name}</h3>
-                  <p>{technology.role}</p>
-                </div>
-                <p className="technology-row__description">{technology.description}</p>
-              </Reveal>
-            </li>
+        <div className="technology-list">
+          {technologies.map(technology => (
+            <details className="technology-item" key={technology.name}>
+              <summary><span><strong lang="en">{technology.name}</strong><span>{technology.role}</span></span><span className="disclosure-plus" aria-hidden="true" /></summary>
+              <p>{technology.description}</p>
+            </details>
           ))}
-        </ul>
-        <p className="scope-note technology-scope-note">
-          프로젝트에서 다루는 기술과 설계 역할을 소개합니다.
-        </p>
+        </div>
       </div>
     </section>
   );

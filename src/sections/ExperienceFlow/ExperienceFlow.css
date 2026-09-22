@@ -1,64 +1,170 @@
 .experience {
-  background: var(--color-surface);
+  background: #f5f5f7;
+  padding-block: var(--section-space);
 }
 
-.experience__steps {
+.experience__heading {
+  text-align: center;
+}
+
+.experience__heading .section-title span {
+  color: #737780;
+}
+
+.experience__heading .body-copy {
+  margin-top: 22px;
+}
+
+.experience__scenes {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-4);
-  margin: var(--space-12) 0 0;
-  padding: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px;
   list-style: none;
+  margin: 64px 0 0;
+  padding: 0;
 }
 
-.experience__step {
-  min-width: 0;
-  min-height: 220px;
-  padding: var(--space-6);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: #fff;
-  transition: border-color var(--duration-short), transform var(--duration-short);
-}
-
-.experience__step:hover {
-  border-color: #b7c7e6;
-  transform: translateY(-2px);
+.experience__scenes .glass-icon {
+  margin-bottom: 24px;
 }
 
 .experience__number {
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  margin-bottom: var(--space-8);
-  border-radius: 50%;
-  background: var(--color-accent-weak);
-  color: var(--color-accent-weak-text);
-  font-size: 0.75rem;
-  font-weight: 700;
+  color: #676b73;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
-.experience__step h3 {
-  font-size: 1.0625rem;
-  line-height: 1.5;
+.experience__scenes h3 {
+  font-size: 25px;
+  letter-spacing: -.04em;
 }
 
-.experience__step p {
+.experience__scenes .body-copy {
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.85;
   max-width: 20rem;
-  margin-top: var(--space-3);
+}
+
+.experience__scope {
+  margin-top: 50px;
+}
+
+.experience__details {
+  margin-top: 24px;
+  border-top: 1px solid #d8dadd;
+  border-bottom: 1px solid #d8dadd;
+}
+
+.experience__details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 23px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.experience__details summary::-webkit-details-marker {
+  display: none;
+}
+
+.experience__details summary:hover {
+  color: var(--color-action);
+}
+
+.experience__steps {
+  list-style: none;
+  padding: 12px 0 32px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.experience__steps li {
+  display: flex;
+  gap: 18px;
+}
+
+.experience__steps li > span {
+  flex: 0 0 20px;
+  white-space: nowrap;
+  font-size: 11px;
+  color: var(--color-subtle);
+  padding-top: 5px;
+}
+
+.experience__steps h3 {
+  font-size: 15px;
+}
+
+.experience__steps p {
   color: var(--color-secondary);
-  font-size: 0.875rem;
-  line-height: 1.75;
+  font-size: 13px;
+  margin-top: 10px;
+  line-height: 1.8;
 }
 
-@media (max-width: 959px) {
-  .experience__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .experience__step { min-height: 210px; }
+@media(max-width:959px) {
+  .experience__scenes {
+    gap: 28px;
+  }
+  .experience__scenes h3 {
+    font-size: 22px;
+  }
+  .experience__steps {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-@media (max-width: 479px) {
-  .experience__steps { grid-template-columns: 1fr; gap: var(--space-3); }
-  .experience__step { min-height: 0; padding: var(--space-6); }
-  .experience__number { margin-bottom: var(--space-4); }
+@media(max-width:767px) {
+  .experience__heading {
+    text-align: left;
+  }
+  .experience__scenes {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+  .experience__scenes > li + li {
+    border-top: 1px solid #dedee3;
+    padding-top: 32px;
+  }
+  .experience__scenes .reveal {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 0 24px;
+  }
+  .experience__scenes .glass-icon {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    width: 100px;
+    margin: 0;
+  }
+  .experience__number {
+    grid-column: 2;
+    margin-bottom: 8px;
+  }
+  .experience__scenes h3, .experience__scenes .body-copy {
+    grid-column: 2;
+  }
+  .experience__scenes h3 {
+    font-size: 21px;
+  }
+  .experience__scenes .body-copy {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .experience__scope {
+    margin-top: 36px;
+  }
+  .experience__steps {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }

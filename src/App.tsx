@@ -20,9 +20,9 @@ export default function App() {
       <main id="main-content" tabIndex={-1}>
         <Hero />
         <Introduction />
-        <ExperienceFlow />
         <SmartMirror />
         <IdKiosk />
+        <ExperienceFlow />
         <SystemArchitecture />
         <Technology />
         <Closing />
