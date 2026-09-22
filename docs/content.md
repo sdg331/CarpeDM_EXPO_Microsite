@@ -1,21 +1,21 @@
-# CarpeDM — Public content source of truth
+# 4-Fit MirrorTing — Public content source of truth
 
 Korean is the main language; English is limited to product identity and established technology terms. This page describes a project and intended experience, not verified exhibit integration. Product facts remain governed by `product.md`.
 
 ## Metadata and navigation
 - Document language: `ko`
-- Title: `CarpeDM — Interactive AI Smart Mirror`
-- Description and Open Graph description: `AI와 인터랙션 기술을 통해 거울을 새로운 경험 공간으로 확장하는 동양미래대학교 EXPO 프로젝트 CarpeDM.`
+- Title: `4-Fit MirrorTing — Interactive AI Smart Mirror`
+- Description and Open Graph description: `AI와 인터랙션 기술을 통해 거울을 새로운 경험 공간으로 확장하는 동양미래대학교 EXPO 프로젝트 4-Fit MirrorTing.`
 - Open Graph type/locale: `website` / `ko_KR`. Theme: white.
 - No invented canonical URL, event dates, booth location, social links, booking or purchase actions.
-- No-JavaScript message: CarpeDM은 스마트 미러와 사원증 발급 키오스크를 연결하는 동양미래대학교 EXPO 프로젝트입니다. 전체 소개를 보려면 브라우저에서 JavaScript를 켜 주세요.
+- No-JavaScript message: 4-Fit MirrorTing은 스마트 미러와 사원증 발급 키오스크를 연결하는 동양미래대학교 EXPO 프로젝트입니다. 전체 소개를 보려면 브라우저에서 JavaScript를 켜 주세요.
 - Skip link: 본문으로 건너뛰기
-- Brand: CARPEDM. Accessible name: CarpeDM, 처음으로
+- Brand: 4-Fit MirrorTing. Accessible name: 4-Fit MirrorTing, 처음으로
 - Navigation: 소개 → #project; 디바이스 → #mirror; 체험 흐름 → #experience; 기술 구성 → #system
 - Mobile toggle: 메뉴 열기 / 메뉴 닫기. Navigation label: 주요 메뉴
 
 ## Hero
-- Product name: CarpeDM
+- Product name: 4-Fit MirrorTing
 - H1: 거울 너머, / 새로운 나를 만나다.
 - Body: 스마트 미러와 사원증 키오스크. / 두 디바이스로 설계한 하나의 전시 경험.
 - Primary CTA: 스마트 미러 만나보기 → #mirror
@@ -25,7 +25,7 @@ Korean is the main language; English is limited to product identity and establis
 ## Introduction
 - Label: 익숙한 일상에서 출발한 아이디어
 - H2: 나를 비추는 거울에서, / 나와 소통하는 거울로.
-- Body: 거울에 화면을, 공간에 센서를, 경험에 목소리를 더합니다. CarpeDM은 두 개의 디바이스로 사람과 기술이 만나는 방식을 탐구합니다.
+- Body: 거울에 화면을, 공간에 센서를, 경험에 목소리를 더합니다. 4-Fit MirrorTing은 두 개의 디바이스로 사람과 기술이 만나는 방식을 탐구합니다.
 
 ## Smart Mirror
 - Label: Smart Mirror
@@ -86,9 +86,9 @@ The six detailed steps remain in their original order:
 
 ## Closing and footer
 - Closing context: 동양미래대학교 EXPO
-- H2: 거울 앞, 그다음. / CarpeDM.
+- H2: 거울 앞, 그다음. / 4-Fit / MirrorTing.
 - Link: 처음부터 다시 보기 → #top
-- Footer: CARPEDM.; Interactive AI Smart Mirror + ID Card Kiosk; 처음으로
+- Footer: 4-Fit MirrorTing.; Interactive AI Smart Mirror + ID Card Kiosk; 처음으로
 - Attribution: 동양미래대학교 EXPO 프로젝트
 - Scope: 본 페이지는 프로젝트의 구성과 설계한 경험을 소개합니다.
 

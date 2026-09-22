@@ -1,4 +1,4 @@
-# CarpeDM — Product source of truth
+# 4-Fit MirrorTing — Product source of truth
 
 This document is authoritative for project facts. Public wording lives in `content.md`; visual rules live in `design.md`.
 
@@ -10,7 +10,7 @@ This document is authoritative for project facts. Public wording lives in `conte
 
 ## CONFIRMED — Summary and concept
 
-- Name: **CarpeDM**.
+- Name: **4-Fit MirrorTing**.
 - Project type: interactive AI Smart Mirror and companion ID Card Kiosk exhibition project.
 - Context: **동양미래대학교 EXPO**.
 - Repository purpose: an official, static, one-page microsite introducing the project to exhibition visitors and explaining it to judges, professors, developers, and later portfolio visitors.

@@ -1,4 +1,4 @@
-# CarpeDM EXPO Microsite
+# 4-Fit MirrorTing EXPO Microsite
 
 스마트 미러와 사원증 발급 키오스크가 연결되는 체험을 소개하는 동양미래대학교 EXPO 프로젝트의 한 페이지 웹사이트입니다. 방문자는 체험 흐름과 디바이스를, 심사위원과 개발자는 시스템 구성과 기술의 역할을 확인할 수 있습니다.
 

@@ -1,7 +1,7 @@
-# CarpeDM EXPO Microsite — repository instructions
+# 4-Fit MirrorTing EXPO Microsite — repository instructions
 
 ## Purpose and context
-Build the official one-page exhibition introduction to CarpeDM: a physical AI Smart Mirror and companion ID Card Kiosk. It is an exhibition / portfolio story, not a SaaS application. Inspect the existing checkout and working tree before changes. Preserve useful user work and avoid unnecessary rewrites or renaming.
+Build the official one-page exhibition introduction to 4-Fit MirrorTing: a physical AI Smart Mirror and companion ID Card Kiosk. It is an exhibition / portfolio story, not a SaaS application. Inspect the existing checkout and working tree before changes. Preserve useful user work and avoid unnecessary rewrites or renaming.
 
 Before substantial changes, read in order:
 1. `docs/product.md` — authority for product facts and unconfirmed information.

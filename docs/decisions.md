@@ -1,5 +1,13 @@
 # Decisions
 
+## 2026-09-22 — Public product name updated to 4-Fit MirrorTing
+
+Decision: Use **4-Fit MirrorTing** as the product name across the rendered site, metadata, accessibility labels, and current product/content/design documentation. Keep the existing repository path, npm package identifier, and historical QA path records unchanged.
+
+Reason: The project owner explicitly corrected the public-facing name from CarpeDM to 4-Fit MirrorTing.
+
+Consequences: Future public copy must use 4-Fit MirrorTing consistently. Technical identifiers tied to the existing repository remain stable unless a separate rename is requested.
+
 ## 2026-09-21 — Static React site with native styling
 Decision: Use Vite, React, TypeScript, npm, and CSS; limit production dependencies to React / React DOM.
 

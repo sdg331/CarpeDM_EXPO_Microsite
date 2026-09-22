@@ -9,7 +9,7 @@ export function Hero() {
     <section className="hero" aria-labelledby="hero-title">
       <div className="container hero__grid">
         <div className="hero__content">
-          <p className="hero__name">CarpeDM</p>
+          <p className="hero__name">4-Fit MirrorTing</p>
           <h1 id="hero-title" className="display-title">거울 너머,<br /><span>새로운 나를 만나다.</span></h1>
           <p className="hero__body">{copy.hero.body}</p>
           <div className="hero__actions">

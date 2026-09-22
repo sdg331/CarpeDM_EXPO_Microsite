@@ -30,7 +30,7 @@ export default function App() {
       <footer className="site-footer">
         <div className="container">
           <div className="site-footer__top">
-            <a className="brand" href="#top" aria-label="CarpeDM, 처음으로"><BrandMark /><span>CARPEDM<span className="brand__period">.</span></span></a>
+            <a className="brand" href="#top" aria-label="4-Fit MirrorTing, 처음으로"><BrandMark /><span>4-Fit MirrorTing<span className="brand__period">.</span></span></a>
             <p>Interactive AI Smart Mirror + ID Card Kiosk</p>
             <a className="text-link" href="#top">처음으로<Arrow direction="up" /></a>
           </div>

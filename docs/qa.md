@@ -226,3 +226,12 @@ npm run build
 - 콘솔: 편집 중 파일 저장 순서로 발생한 일시적인 HMR import 오류가 있었다. 소스 저장과 재로드 후 새 프로덕션 탭에서 warning/error 0개를 확인했다.
 - 모션 감소: 기존 CSS의 animation/transition/smooth-scroll 해제 및 reveal opacity 1, JS의 matchMedia·미지원·예외 처리를 코드 확인했다. 실제 OS 설정은 reduce=false였으며 설정 전환이나 강제 에뮬레이션은 하지 않았다.
 - 미검증: 실제 모바일 Safari/Android, 스크린리더, 200% 확대, 실제 OS 모션 감소 전환 및 공개 배포. 이번 변경에서는 저장소 하위 경로 호스팅을 다시 검사하지 않았다. 기본 relative base는 유지했다.
+
+## 2026-09-22 — 4-Fit MirrorTing 제품명 반영
+
+- 변경: 공개 제품명을 CarpeDM에서 `4-Fit MirrorTing`으로 변경했다. 화면 본문, 헤더·푸터 접근성 이름, 브라우저 제목, 검색·공유 설명과 제품·문구·디자인 문서를 함께 갱신했다.
+- 안정성: 기존 저장소 경로, npm 패키지 식별자와 과거 하위 경로 검증 기록은 변경하지 않았다.
+- 명령: `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 종료 코드 0. Vite 빌드는 47 modules transformed로 완료했다.
+- 반응형: Chrome DevTools Protocol의 정확한 viewport emulation으로 360, 390, 768, 1024, 1280, 1440 px를 측정했다. 모든 폭에서 문서 `scrollWidth`와 viewport width가 같아 가로 넘침이 없었다.
+- 시각 확인: 360 px Hero에서 헤더·Hero 제품명이 잘리지 않고, 마감 영역의 `4-Fit` / `MirrorTing.` 두 줄과 모바일 푸터가 정상 배치됨을 확인했다. 1440 px Hero에서도 헤더, 내비게이션, 제품명 배치가 겹치지 않았다.
+- 제한: 이번 명칭 변경에서는 실제 모바일 기기, 스크린리더, 200% 확대와 공개 배포 환경을 다시 확인하지 않았다.

@@ -7,7 +7,7 @@ export function Closing() {
     <section id="closing" className="closing-section" aria-labelledby="closing-heading">
       <Reveal className="container closing-content">
         <p className="section-kicker">동양미래대학교 EXPO</p>
-        <h2 id="closing-heading">거울 앞, 그다음.<span lang="en">CarpeDM.</span></h2>
+        <h2 id="closing-heading">거울 앞, 그다음.<span lang="en">4-Fit<br />MirrorTing.</span></h2>
         <a className="text-link" href="#top">처음부터 다시 보기<Arrow direction="up" /></a>
       </Reveal>
     </section>

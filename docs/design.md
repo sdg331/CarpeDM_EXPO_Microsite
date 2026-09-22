@@ -1,4 +1,4 @@
-# CarpeDM visual system
+# 4-Fit MirrorTing visual system
 
 ## Direction
 A product introduction with Apple-like restraint and Toss-like Korean clarity, using original assets and an original layout. Show the object before explaining the technology. No copied brand assets, fictitious product claims, metrics, dashboards, or interface simulations.

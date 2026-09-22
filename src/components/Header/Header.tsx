@@ -42,8 +42,8 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container site-header__inner">
-        <a className="brand" href="#top" aria-label="CarpeDM, 처음으로" onClick={() => followSection('#top')}>
-          <BrandMark /><span>CARPEDM<span className="brand__period">.</span></span>
+        <a className="brand" href="#top" aria-label="4-Fit MirrorTing, 처음으로" onClick={() => followSection('#top')}>
+          <BrandMark /><span>4-Fit MirrorTing<span className="brand__period">.</span></span>
         </a>
         <button ref={toggleRef} type="button" className="menu-toggle"
           aria-label={isOpen ? '메뉴 닫기' : '메뉴 열기'}
