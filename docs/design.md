@@ -99,3 +99,8 @@ Below 1024 px, use a white disclosure with larger 23 px navigation rows, thin di
 ## 2026-10-06 — Remove duplicate detail breadcrumbs
 
 At the owner's request, all five detail introductions begin directly with the section label and title, without the former home/page breadcrumb. Keep the existing introduction padding, contents and shared brand link to home. Remove breadcrumb markup and unused styles together.
+
+
+## 2026-10-06 — final navigation and dashboard connection
+
+Desktop GNB uses symmetric outer grid tracks so the four content links stay centered on the page independently of brand/service widths. Operations is introduced in Uses rather than competing in the GNB. Preserve the existing mobile disclosure, header heights, active underline and focus behavior. Uses adds an open two-column introduction with three operating tasks; narrow screens stack the content.

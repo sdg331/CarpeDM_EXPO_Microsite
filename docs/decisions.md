@@ -270,3 +270,8 @@ Consequences: The product blends directly into the graphite section. Image dimen
 ## 2026-10-06 — publish latest microsite through existing Pages branch
 
 Use the existing public GitHub Pages site and `gh-pages` root. Publish the verified static build with a normal push and preserve deployment history. Do not add an Actions workflow or deploy the dashboard as part of this microsite request. Keep the production dashboard URL blank until its public host is confirmed.
+
+
+## 2026-10-06 — final navigation and dashboard connection
+
+The owner requested a corrected GNB and a browsable dashboard in Uses, then a final repository-wide release check. Move the operations introduction into Uses, center GNB links with equal outer tracks, and publish the existing sample dashboard under the established microsite Pages host. This supersedes the earlier blank production dashboard default. Reuse the separate dashboard source and preserve its sample-data boundary. Main stores source/docs; gh-pages stores both static builds.

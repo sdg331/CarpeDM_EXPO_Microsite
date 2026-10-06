@@ -569,3 +569,18 @@ npm run build
 - Actual public browser: all seven routes rendered their expected H1 and `main-xJ7kFkbx.js`; no localhost links or horizontal overflow; browser error log empty.
 - Homepage widths checked: 360, 390, 768, 1024, 1280, 1440 px; no horizontal overflow. Desktop screenshot: `screenshots/pages-latest-home-1440.jpg`. Viewport override reset afterward.
 - This deployment check did not repeat the earlier full keyboard, reduced-motion, fallback and hardware animation interaction audit. Hero video remains in production; dashboard hosting and physical device integration are outside this deployment.
+
+
+## 2026-10-06 — final repository release audit and dashboard connection
+
+- Git: one active microsite checkout on main; prior deployment source matched the then-current `016189d`. New GNB/dashboard work was local and absent from that publication. Reviewed tracked structure, shared navigation/entry/media paths, application sections, scroll readiness/order/fallbacks, disclosure/tab interactions, deployment configuration, Git history and documentation. No claim of a line-by-line independent security review.
+- GNB: equal outer CSS grid tracks center the four content links within 1 px at desktop sizes. Removed the operations utility from the header; service CTA and brand home remain. Uses adds a separate organization dashboard introduction, sample/local-storage disclosure and new-tab CTA; home links to that introduction.
+- Microsite: lint, typecheck, build, `node --test tests/*.mjs` (3/3) and diff whitespace checks passed. Production URL test covers root and detail entries under the actual repository subpath, explicit blank and invalid protocols.
+- Latest dashboard source `46403fa` was copied without environment files to a temporary build directory. Its lint, typecheck, `npm test` (19/19) passed. `npm run build -- --configLoader runner` passed; runner avoided writing Vite config cache through the read-only node_modules symlink. Copied output into `dist/dashboard/`; no build output added to source main.
+- Built microsite: 7 routes × 360/390/768/1024/1280/1440 px = 42 checks. No horizontal overflow, duplicate IDs, missing same-page targets; one H1 on each entry. Native primary navigation remains in the rendered DOM.
+- Actual interaction checks: 390 px menu Enter → open, Escape → close/focus restored, service selection → correct active page/closed menu; FourFit End → Posture with one visible panel; practice selection → matching mistake example. Uses CTA opened same-site dashboard in a new tab; dashboard rendered current company overview and team comparison. Team action reached team management with the development-team selector.
+- Dashboard overview at all six widths: no document horizontal overflow. Normal release browser error logs empty.
+- System: mirror/camera/audio images loaded; mirror reached phase 2 / finish 1, camera reached phase 2 / finish 1; audio intermediate phase 1 observed. Scroll tests verify bounded ordered completion and hold.
+- Isolated failure copy: removed Hero, assembled mirror and complete camera media. Hero showed a concept fallback with zero broken image elements; camera showed fallback and aria-busy=false. Expected 404s in this isolated failure test are excluded from normal-page error checks.
+- Actual OS reduced-motion toggling, Safari/Android, screen reader, NFC, physical devices and real AI remain unverified. Hero video remains in production.
+- Representative Uses capture: `screenshots/final-dashboard-link-390.jpg`, with measured innerWidth=390. Viewport override reset. Public release confirmation follows below.

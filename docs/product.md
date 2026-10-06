@@ -195,3 +195,8 @@ The System page now connects the four confirmed perspectives to intended inputs:
 The independently running operations UI was inspected at its development destination and identifies fixed example records and no actual visitor information or device control. It belongs in the evidence inventory, alongside the authored website interactions, drawing-based generated concepts and local UI capture. Its public link is conditional on the existing validated destination; no production destination is invented.
 
 The nine owner-supplied drawing facts are now repeated in the hardware disclosure: upper-center camera, upper-left microphone, right-side NFC, rear PC BOX, two lower speakers and a mobile base. The 890 mm frame width, 1705 mm floor-to-top height and 950×600 mm base are drawing dimensions, not certified measurements of the generated render or assembled exhibit. The hardware section describes manufacturer specifications rather than claiming an undocumented selection rationale.
+
+
+## 2026-10-06 — final navigation and dashboard connection
+
+The public same-site dashboard is a browsable sample built from dashboard source `46403fa`. It contains illustrative records and browser-local edits, not live employees, AI inference or hardware integration. Uses presents this boundary before linking.

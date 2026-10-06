@@ -1,6 +1,6 @@
 import { Arrow } from '../components/Arrow';
 import { workplaceMoments } from '../data/experience';
-import { siteRoot } from '../data/paths';
+import { dashboardUrl, siteRoot } from '../data/paths';
 import './UseCases.css';
 
 const uses = [
@@ -52,6 +52,25 @@ export function UseCases({ detailed = false }: { detailed?: boolean }) {
         </div>
       </div>
 
+      <div id="use-dashboard" className="use-dashboard" tabIndex={-1} aria-labelledby="use-dashboard-title">
+        <div className="container use-dashboard__layout">
+          <div>
+            <p className="section-kicker">조직에서의 활용 · 샘플 대시보드</p>
+            <h3 id="use-dashboard-title">개인의 연습을,<br />팀의 관점에서 살펴봅니다.</h3>
+            <p className="body-copy">운영 개요에서 팀별 현황을 비교하고, 구성원과 체험 이력을 살펴보세요. 조직의 교육과 체험 운영을 설명하는 독립된 데모입니다.</p>
+            {dashboardUrl ? <a className="text-link" href={dashboardUrl} target="_blank" rel="noopener noreferrer" aria-label="대시보드 둘러보기, 샘플 워크스페이스 (새 탭)">대시보드 둘러보기<Arrow /></a> : <p className="scope-note">공개 대시보드 연결을 준비 중입니다.</p>}
+          </div>
+          <div>
+            <dl>
+              <div><dt>01 · 운영 개요</dt><dd>팀별 현황과 확인할 항목을 한눈에 비교합니다.</dd></div>
+              <div><dt>02 · 팀과 구성원</dt><dd>팀을 선택하고 소속 구성원과 기록을 살펴봅니다.</dd></div>
+              <div><dt>03 · 체험 이력</dt><dd>샘플 기록에서 대화 연습과 피드백 화면을 확인합니다.</dd></div>
+            </dl>
+            <p className="scope-note">예시 데이터로 구성한 샘플 워크스페이스입니다. 실제 직원 정보·AI 분석·현장 장치와 연결되지 않으며, 변경 사항은 사용 중인 브라우저에 저장됩니다.</p>
+          </div>
+        </div>
+      </div>
+
       <div id="use-expansion" className="container use-expansion" tabIndex={-1} aria-labelledby="use-expansion-title">
         <div className="use-detail__section-head"><h3 id="use-expansion-title">다음으로 넓혀볼 방향.</h3><p>현재 제공되는 서비스가 아닌 확장 구상입니다.</p></div>
         <div className="use-expansion__grid">
@@ -76,7 +95,7 @@ export function UseCases({ detailed = false }: { detailed?: boolean }) {
             </article>
           ))}
         </div>
-        <a className="text-link" href={`${siteRoot}service/#practice`}>직장 대화 예시 살펴보기<Arrow /></a>
+        <div className="section-end"><a className="text-link" href={`${siteRoot}service/#practice`}>직장 대화 예시 살펴보기<Arrow /></a><a className="text-link" href={`${siteRoot}use-cases/#use-dashboard`}>조직 대시보드 살펴보기<Arrow /></a></div>
       </div>
     </section>
   );

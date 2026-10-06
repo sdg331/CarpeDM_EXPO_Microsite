@@ -241,3 +241,8 @@ Technology introduction: `어떤 입력을 받고, 어떤 경험으로 이어갈
 ## 2026-10-06 — Global navigation presentation
 
 Navigation wording and order remain 시스템 / 4-Fit 분석 / 활용 / 팀 소개. Utility wording remains 운영 관리 (conditional) / 서비스 소개. The operations accessible name stays 운영 관리, 샘플 워크스페이스 (새 탭); the brand stays 4-Fit MirrorTing with by CarpeDM. Menu button labels stay 메뉴 열기 / 메뉴 닫기. All destinations and example-workspace scope are preserved. Styling and grouping changed; no new product promise or capability claim is introduced.
+
+
+## 2026-10-06 — final navigation and dashboard connection
+
+Header: brand → home; 시스템 / 4-Fit 분석 / 활용 / 팀 소개; 서비스 소개 action. Uses contents adds 조직 대시보드. New heading: 개인의 연습을, 팀의 관점에서 살펴봅니다. CTA: 대시보드 둘러보기, with accessible sample workspace/new-tab notice. Disclosure: 예시 데이터로 구성한 샘플 워크스페이스입니다. 실제 직원 정보·AI 분석·현장 장치와 연결되지 않으며, 변경 사항은 사용 중인 브라우저에 저장됩니다. Home adds 조직 대시보드 살펴보기 linking to use-cases/#use-dashboard.
