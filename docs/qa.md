@@ -603,3 +603,11 @@ npm run build
 - At 390×844, service action width is 350 px within 20 px gutters. At 390×400, menu clientHeight=337 / scrollHeight=414 with overflow-y:auto, no horizontal overflow. Normal browser error log empty.
 - Captures: `screenshots/gnb-refined-open-390.jpg`, `screenshots/gnb-refined-desktop-1024.jpg`. Viewport reset after checks.
 - Reduced-motion behavior was retained and source-reviewed; OS switching and physical Safari/Android were not repeated. Hardware/product content and dashboard remain unchanged. Public release verification is recorded after publication.
+
+
+### Refined GNB public release
+
+- UI source `e9c17c7`; Pages commit `f7ef44d8cbaa86bf055836ff6b5ec8914dee5b73`: built, error null. All 27 microsite output files matched the publication checkout by SHA-256. Existing dashboard files had no diff; `.nojekyll` is present.
+- Public latest bundle: `main-DEaenPt4.js`; CSS `main-FLtwYZGX.css`. Native reload confirmed the new markup after the existing Pages cache.
+- At public 1024 px: brand 22 px, menu 15 px, midpoint 511.996 px against 512 px; no overflow. At public 390 px: active Uses marker and 닫기 label visible, service action 350 px, unchanged public dashboard destination. Escape close and normal error log checked (empty).
+- Actual public screenshot `screenshots/gnb-refined-public-1024.jpg`; viewport override reset.
