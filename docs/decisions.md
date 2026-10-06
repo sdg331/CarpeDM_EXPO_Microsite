@@ -289,3 +289,12 @@ Decision: Remove Home’s mirror-only light background and corner-radius overrid
 Reason: The owner requested a transparent background for the Home product preview. The existing `sm-assembled-v1.webp` is RGBA with alpha 0–255 and fully transparent corners; the rectangle was CSS, not image pixels.
 
 Consequences: One CSS rule changes. Reuse the existing asset; retain dimensions, image fitting, mask removal, concept disclosure, fallback and device links. No generated replacement or dependency.
+
+
+## 2026-10-06 — Replace the final render handoff with a stable assembly hold
+
+Decision: Keep the closed raster layers visible after assembly. Reserve the separate complete render for reduced-motion, short-screen and error presentation. Add a shared 65ms time-based progress filter with a finite settling loop; remove vertical Reveal translation.
+
+Reason: Actual browser inspection showed double outlines when independently generated assembled/composed geometries blended, abrupt wheel-driven progress and clipped sensor descriptions at 390×640. This explicitly supersedes the earlier final-image handoff while retaining internals-before-covers and constant image scale.
+
+Consequences: Native scrolling and all existing assets/links remain. Active settling ends at the current target and stops offscreen/hidden. Viewports no taller than 740px (820px on widths below 768px) use static products with normal-flow copy. No dependency, regenerated image, scroll interception or hardware change. Generated anatomy is still illustrative; exact part geometry requires matched CGI or actual CAD passes.

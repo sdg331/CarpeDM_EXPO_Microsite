@@ -72,7 +72,8 @@ h3 {
 }
 
 section[id],
-main[id] {
+main[id],
+summary[id] {
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
@@ -266,14 +267,11 @@ details[open] > summary .disclosure-plus::after {
 
 .reveal {
   opacity: 1;
-  transform: none;
-  transition: opacity var(--duration-reveal) var(--ease-out),
-    transform var(--duration-reveal) var(--ease-out);
+  transition: opacity var(--duration-reveal) var(--ease-out);
 }
 
 .reveal[data-reveal='pending']:not(:focus-within) {
   opacity: 0.85;
-  transform: translateY(12px);
 }
 
 .noscript {

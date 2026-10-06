@@ -107,8 +107,8 @@ export function SystemArchitecture() {
           <div className="section-end"><p className="scope-note">센서 입력과 해석은 별도 단계입니다. 음성 인식, 표정·신체 분석, 모델과 판단 기준은 실제 동작 검증이 필요합니다.</p><a className="text-link" href={`${siteRoot}four-fit/`}>4-Fit 설명과 대화 예시 보기<Arrow /></a></div>
         </div>
 
-        <details id="hardware-details" className="hardware-details">
-          <summary>
+        <details className="hardware-details">
+          <summary id="hardware-details">
             <span>하드웨어 구성 자세히 보기</span>
             <span className="hardware-details__toggle" aria-hidden="true" />
           </summary>
