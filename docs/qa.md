@@ -632,3 +632,9 @@ npm run build
 - Isolated missing-image preview 4185 omitted only the mirror render: native error handling displayed the labeled mirror silhouette, background remained transparent, broken image count 0, no document overflow. Intentional missing-resource errors are excluded from normal preview logs. Original source and build assets were preserved.
 - Keyboard Enter on Home’s mirror detail link navigated to Service’s `#mirror` region. Motion remains unchanged; reduced-motion code was reviewed, but OS preference switching, physical mobile browsers and a full keyboard/screen-reader audit were not repeated for this one-rule change.
 - Captures: [desktop](screenshots/home-transparent-mirror-1024.jpg), [mobile](screenshots/home-transparent-mirror-390.jpg). Public publication verification follows below.
+
+
+### Public release confirmation
+
+- UI source `6d38cc1`; Pages commit `484b92df947f1b9ca1c661fe4fc11fa353c0ca8c`: built, error null. Existing dashboard’s 21 files retained identical SHA-256 hashes; `.nojekyll` preserved.
+- Public Home loaded `main-xeG_SNUa.css`; Smart Mirror at 1024 and 390 px measured transparent stage, zero corner radius, loaded image 1086px and no document overflow. Normal public browser error log empty. The old light backing plate is absent.
