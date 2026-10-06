@@ -213,3 +213,12 @@
   .site-nav .site-header__demo { justify-content: space-between; min-height: 44px; }
   .site-nav .site-header__cta { justify-content: space-between; width: 100%; margin-left: 0; min-height: 52px; }
 }
+
+@media (min-width: 1024px) {
+  .site-header__inner { display: grid; grid-template-columns: minmax(160px, 1fr) auto minmax(160px, 1fr); gap: 24px; }
+  .site-header .brand { justify-self: start; }
+  .site-nav { display: contents; }
+  .site-nav__links { flex: none; gap: clamp(24px, 2.5vw, 36px); }
+  .site-nav__actions { justify-self: end; padding-left: 0; }
+  .site-nav__actions::before { display: none; }
+}

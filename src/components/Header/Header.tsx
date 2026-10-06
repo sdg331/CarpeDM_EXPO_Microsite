@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { PageKind } from '../../App';
 import { Arrow } from '../Arrow';
-import { dashboardUrl, navigation, siteRoot } from '../../data/paths';
+import { navigation, siteRoot } from '../../data/paths';
 import './Header.css';
 
 export function Header({ page }: { page: PageKind }) {
@@ -46,10 +46,6 @@ export function Header({ page }: { page: PageKind }) {
             ))}
           </div>
           <div className="site-nav__actions">
-            {dashboardUrl && <a className="site-header__demo" href={dashboardUrl} target="_blank" rel="noopener noreferrer"
-              aria-label="운영 관리, 샘플 워크스페이스 (새 탭)" onClick={() => setIsOpen(false)}>
-              운영 관리<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3M10 3H3v18h18v-7" /></svg>
-            </a>}
             <a className="site-header__cta" href={`${siteRoot}service/`} aria-current={page === 'service' ? 'page' : undefined} onClick={() => setIsOpen(false)}>서비스 소개<Arrow /></a>
           </div>
         </nav>
