@@ -265,3 +265,8 @@ Decision: Remove the light gradient and corner radius from Service's mirror prod
 Reason: The owner requested a background-free product. Both the source PNG and runtime WebP already have alpha ranging from0 to255, including fully transparent corners; the visible grey rectangle came from products.css.
 
 Consequences: The product blends directly into the graphite section. Image dimensions, fitting, original reflections, concept caption, fallback and all other product stages remain unchanged. No new asset or dependency.
+
+
+## 2026-10-06 — publish latest microsite through existing Pages branch
+
+Use the existing public GitHub Pages site and `gh-pages` root. Publish the verified static build with a normal push and preserve deployment history. Do not add an Actions workflow or deploy the dashboard as part of this microsite request. Keep the production dashboard URL blank until its public host is confirmed.

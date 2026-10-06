@@ -559,3 +559,13 @@ npm run build
 - Actual development browser: Service #mirror at360×844,390×844,768×900,1024×900,1280×900,1440×900. At each width, stage background rgba(0,0,0,0), background-image none, image loaded with naturalWidth1086 and contain fitting, image horizontal clipping false, page overflow0 and existing concept caption present.
 - Visual proof: directly inspected full mirror, top sensors, lower speakers/base/casters at1440 and390. Saved docs/screenshots/service-mirror-transparent-1440.jpg and service-mirror-transparent-390.jpg. Enter on the device-configuration link reached the actual System page/H1. Normal console warn/error0; temporary viewport override reset.
 - Unchanged behavior: ProductFrame fallback, Reveal/reduced motion, header and System assembly code are untouched; earlier regression records cover those features and failure fixtures were not repeated for this CSS-only change. Physical browser/device checks and public deployment were not performed. No commit/push.
+
+
+## 2026-10-06 — latest GitHub Pages publication
+
+- Source: `016189d`; deployment: `fd2795439ebe90a7acb715693843f7562e8096b2`. Existing `gh-pages` root, normal push, `.nojekyll` retained.
+- Passed: `npm run lint`, `VITE_DASHBOARD_URL= npm run build` (includes typecheck), `node --test tests/*.mjs` (3/3).
+- GitHub Pages latest build: `built`, error message null, exact deployment commit matched.
+- Actual public browser: all seven routes rendered their expected H1 and `main-xJ7kFkbx.js`; no localhost links or horizontal overflow; browser error log empty.
+- Homepage widths checked: 360, 390, 768, 1024, 1280, 1440 px; no horizontal overflow. Desktop screenshot: `screenshots/pages-latest-home-1440.jpg`. Viewport override reset afterward.
+- This deployment check did not repeat the earlier full keyboard, reduced-motion, fallback and hardware animation interaction audit. Hero video remains in production; dashboard hosting and physical device integration are outside this deployment.
