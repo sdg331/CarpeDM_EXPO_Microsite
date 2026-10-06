@@ -611,3 +611,13 @@ npm run build
 - Public latest bundle: `main-DEaenPt4.js`; CSS `main-FLtwYZGX.css`. Native reload confirmed the new markup after the existing Pages cache.
 - At public 1024 px: brand 22 px, menu 15 px, midpoint 511.996 px against 512 px; no overflow. At public 390 px: active Uses marker and 닫기 label visible, service action 350 px, unchanged public dashboard destination. Escape close and normal error log checked (empty).
 - Actual public screenshot `screenshots/gnb-refined-public-1024.jpg`; viewport override reset.
+
+
+## 2026-10-06 — dashboard control spacing release
+
+- Dashboard source: local main commit `df38026` in `CarpeDM_EXPO_dashboard`. Changed only `src/index.css`, `src/styles/executive.css`, operations/QA documentation and two evidence screenshots. Native select interactions remain; CSS reserves 40px for text and places the arrow 12px from the right. Shared control height is 44px; panel gutters are 24px desktop and 18px mobile. Card headers, filters, record tables, settings actions and dialogs use the same spacing.
+- Dashboard source checks: lint, typecheck, Node tests (19/19), build and whitespace check passed both in the isolated validation copy and the real dashboard checkout. No new runtime dependencies or data/business-logic changes.
+- Final built preview: seven dashboard routes at 360, 390, 768, 1024, 1280 and 1440 px, 42 combinations, headings visible, no document overflow, no broken images. All rendered selects measured 44px high with 40px right padding. Browser error logs empty. Actual keyboard focus, settings saving, reduced-motion setting and dialog Escape/focus restoration verified.
+- Publication: `205318aa6c21937c790a189ece4a9c768b4fc43d` on existing `gh-pages`, normal push. Only `dashboard/` changed; `.nojekyll` and all microsite assets preserved. GitHub Pages latest build reported built with null error for this exact commit.
+- Public dashboard: new `index-DMhGuXBC.css` and `index-BRBpw7ZI.js` loaded. Seven routes at 390 and 1280 px (14 combinations) rendered with no document overflow, broken images or browser error logs. Public settings at 1024 px measured appearance none, padding `10px 40px 10px 12px`, height 44px and arrow inset 12px. Sample/local-storage disclosure is unchanged.
+- Capture: [public settings at 1024 px](screenshots/dashboard-spacing-settings-1024.jpg). This is a CSS layout repair; physical browser/device, screen-reader and operating-system forced-colors tests were not repeated.
