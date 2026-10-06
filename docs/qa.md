@@ -621,3 +621,14 @@ npm run build
 - Publication: `205318aa6c21937c790a189ece4a9c768b4fc43d` on existing `gh-pages`, normal push. Only `dashboard/` changed; `.nojekyll` and all microsite assets preserved. GitHub Pages latest build reported built with null error for this exact commit.
 - Public dashboard: new `index-DMhGuXBC.css` and `index-BRBpw7ZI.js` loaded. Seven routes at 390 and 1280 px (14 combinations) rendered with no document overflow, broken images or browser error logs. Public settings at 1024 px measured appearance none, padding `10px 40px 10px 12px`, height 44px and arrow inset 12px. Sample/local-storage disclosure is unchanged.
 - Capture: [public settings at 1024 px](screenshots/dashboard-spacing-settings-1024.jpg). This is a CSS layout repair; physical browser/device, screen-reader and operating-system forced-colors tests were not repeated.
+
+
+## 2026-10-06 — Home mirror transparent background
+
+- Root cause: Home’s mirror-only rule in `src/styles/pages.css` added `#edf0f3` and a 4px corner radius over an already transparent image. Removed those two overrides; retained maximum width, fitting, padding, mask removal, caption and links.
+- Actual asset check: `sm-assembled-v1.webp`, RGBA, 1086×1448, alpha range 0–255; all four corner alpha values 0. No image regeneration or asset alteration.
+- Commands: lint, typecheck, build, `node tests/site-build.mjs`, `node tests/dashboard-url.mjs` and whitespace check passed. The URL test’s existing Node TypeScript experimental warning remains informational.
+- Built preview 4184: Home’s mirror at 360, 390, 768, 1024, 1280 and 1440 px measured background rgba(0,0,0,0), corner radius 0, mask none and loaded image width 1086. No document overflow. Actual 1024/390 px images showed the product directly against the graphite section. Normal preview browser error log empty.
+- Isolated missing-image preview 4185 omitted only the mirror render: native error handling displayed the labeled mirror silhouette, background remained transparent, broken image count 0, no document overflow. Intentional missing-resource errors are excluded from normal preview logs. Original source and build assets were preserved.
+- Keyboard Enter on Home’s mirror detail link navigated to Service’s `#mirror` region. Motion remains unchanged; reduced-motion code was reviewed, but OS preference switching, physical mobile browsers and a full keyboard/screen-reader audit were not repeated for this one-rule change.
+- Captures: [desktop](screenshots/home-transparent-mirror-1024.jpg), [mobile](screenshots/home-transparent-mirror-390.jpg). Public publication verification follows below.

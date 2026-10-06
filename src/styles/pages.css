@@ -23,7 +23,7 @@
 .home-system__devices { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: end; gap: 80px; margin-top: 48px; }
 .home-system__devices article { min-width: 0; }
 .home-system__devices .product-frame__stage { max-width: 340px; margin-inline: auto; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
-.home-system__devices article + article .product-frame__stage { max-width: 390px; border-radius: 4px; background: #edf0f3; }
+.home-system__devices article + article .product-frame__stage { max-width: 390px; }
 .home-system__devices .product-frame__stage--photo { mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent); mask-composite: intersect; }
 .home-system__devices article + article .product-frame__stage--photo { mask-image: none; }
 .home-system__devices article + article .product-frame__stage img { padding: 12px; }

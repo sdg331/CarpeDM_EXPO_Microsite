@@ -280,3 +280,12 @@ The owner requested a corrected GNB and a browsable dashboard in Uses, then a fi
 ## 2026-10-06 — stronger GNB presentation
 
 The owner requested a stronger GNB after the release. Strengthen brand/menu typography, anchor active-location marks to the header rule, clarify mobile toggle labels and fill the mobile action row. Preserve the text identity, five existing destinations, sample-dashboard connection and header-height tokens. Keep the same native disclosure and avoid adding scroll-state or navigation frameworks.
+
+
+## 2026-10-06 — Unbox the Home mirror image
+
+Decision: Remove Home’s mirror-only light background and corner-radius overrides from `pages.css`; inherit the existing transparent stage.
+
+Reason: The owner requested a transparent background for the Home product preview. The existing `sm-assembled-v1.webp` is RGBA with alpha 0–255 and fully transparent corners; the rectangle was CSS, not image pixels.
+
+Consequences: One CSS rule changes. Reuse the existing asset; retain dimensions, image fitting, mask removal, concept disclosure, fallback and device links. No generated replacement or dependency.
