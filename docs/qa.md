@@ -650,3 +650,10 @@ npm run build
 - Forward mirror/camera and reverse audio scroll checks retained core-before-cover order and stable final layers (complete image opacity 0 during motion). Reveal computed transform is none. Captures: screenshots/motion-mirror-stable-1024.jpg and screenshots/motion-camera-short-390.jpg.
 - Isolated reduced-motion fixture activates the production preference branch in copied compiled JS/CSS: all three sections become static, layers hidden, no overflow/broken images. Actual OS preference switching was not performed. Isolated missing-media copy omits front mirror, complete camera and complete audio: mirror uses its existing complete render; both sensors show intentional labeled fallbacks with aria-busy=false. Source/build assets remain intact; expected fixture 404s are excluded from normal logs.
 - Physical Safari/Android, screen readers, device integration and AI accuracy remain unverified. Hero video still correctly shows 영상 제작 중; generated hardware concepts remain labeled. Public confirmation follows publication.
+
+
+### Stable motion public release confirmation
+
+- UI source `5ab15cb`; Pages commit `4e8f0658e9aa790c0efdeb4a52c65a3ac830bccb`: built, error null. All 27 microsite output files match the publication checkout; existing dashboard's 21 files retain identical SHA-256 hashes and .nojekyll remains present. Both branches used normal pushes.
+- Native reload confirmed public `main-DGE07AXQ.css` and `main-0jGBhyuE.js`. Public mirror scroll retained layer opacity 1 and complete opacity 0; camera and audio loaded when their lazy-loaded stages entered view. Keyboard source link focused SUMMARY and Enter opened the details.
+- Public 390×640 shows all three sections in normal-flow static mode without document overflow. Seven public routes at 390/1280px (14 combinations) load the current CSS with one H1, no document overflow or broken loaded images. Normal public browser error/warning logs empty. Public capture: screenshots/motion-public-system-1024.jpg. Viewport override reset.
