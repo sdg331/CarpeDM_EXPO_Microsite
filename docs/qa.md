@@ -580,7 +580,16 @@ npm run build
 - Built microsite: 7 routes × 360/390/768/1024/1280/1440 px = 42 checks. No horizontal overflow, duplicate IDs, missing same-page targets; one H1 on each entry. Native primary navigation remains in the rendered DOM.
 - Actual interaction checks: 390 px menu Enter → open, Escape → close/focus restored, service selection → correct active page/closed menu; FourFit End → Posture with one visible panel; practice selection → matching mistake example. Uses CTA opened same-site dashboard in a new tab; dashboard rendered current company overview and team comparison. Team action reached team management with the development-team selector.
 - Dashboard overview at all six widths: no document horizontal overflow. Normal release browser error logs empty.
-- System: mirror/camera/audio images loaded; mirror reached phase 2 / finish 1, camera reached phase 2 / finish 1; audio intermediate phase 1 observed. Scroll tests verify bounded ordered completion and hold.
+- System: mirror/camera/audio images loaded; mirror reached phase 2 / finish 1, camera reached phase 2 / finish 1; audio reached phase 2 / finish 1 after its completion hold. Scroll tests verify bounded ordered completion and hold.
 - Isolated failure copy: removed Hero, assembled mirror and complete camera media. Hero showed a concept fallback with zero broken image elements; camera showed fallback and aria-busy=false. Expected 404s in this isolated failure test are excluded from normal-page error checks.
 - Actual OS reduced-motion toggling, Safari/Android, screen reader, NFC, physical devices and real AI remain unverified. Hero video remains in production.
 - Representative Uses capture: `screenshots/final-dashboard-link-390.jpg`, with measured innerWidth=390. Viewport override reset. Public release confirmation follows below.
+
+
+### Public final release confirmed
+
+- UI source: `581e3ca89551945e1c249b2c2a3a06bc8bd9b738`; Pages commit: `7c5e2f38846e1c4b8f876730196faebcedf8f394`. GitHub Pages latest build reported built with null error. All 48 output files matched the temporary gh-pages checkout by SHA-256.
+- Existing normal URLs initially returned the previous `main-xJ7kFkbx.js` from browser cache; version query returned the current build. Response headers showed max-age=600. After native reload, all seven normal public routes loaded `main-BnjxBpNB.js`, with one H1 and no localhost links. Normal public error log empty.
+- Public Uses new-tab CTA opened `/dashboard/#/overview` with `index-CxblIys1.js` and the visible sample-data boundary. Reset the team filter to all, then keyboard-activated the development-team action and confirmed heading 개발팀 사원 관리. The dashboard service-introduction link opened the public microsite in a new tab and loaded the current main bundle.
+- Public 1024 px home GNB link midpoint: 511.996 px against viewport midpoint 512 px. Actual screenshot: `screenshots/final-public-home-1024.jpg`. Viewport override reset.
+- Code commits are pushed to main and the final static build to gh-pages. Subsequent documentation-only changes do not alter the published UI build.
