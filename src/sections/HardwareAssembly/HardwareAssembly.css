@@ -1,0 +1,136 @@
+.hardware-assembly { --panels: 0; --glass: 0; --finish: 0; --progress: 0; --object-scale: 1; --spread-core: -32%; --spread-front: -65%; position: relative; height: 280svh; min-height: 1500px; color: #22252a; background: #f5f5f3; }
+.hardware-assembly__sticky { position: sticky; top: var(--header-height); height: calc(100svh - var(--header-height)); min-height: 580px; display: flex; flex-direction: column; overflow: hidden; background: radial-gradient(ellipse at 52% 55%, #fff 0, #f7f7f5 52%, #f1f1ee 100%); }
+.hardware-assembly__top { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-top: 16px; }
+.hardware-assembly__top > p { font-size: 9px; letter-spacing: .16em; font-weight: 600; color: #666a70; }
+.hardware-assembly__top a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 11px; color: #535861; }
+.hardware-assembly__top a:hover { color: #17191d; text-decoration: underline; text-underline-offset: 4px; }
+.hardware-assembly__heading { display: flex; justify-content: space-between; align-items: end; gap: 32px; padding-top: 16px; padding-bottom: 12px; }
+.hardware-assembly__heading h2 { font-size: clamp(32px, 3.3vw, 48px); line-height: 1.19; font-weight: 600; letter-spacing: -.055em; }
+.hardware-assembly__heading h2 > span { color: #757980; }
+.hardware-assembly__heading > div { padding-bottom: 2px; }
+.hardware-assembly__heading > div > p { color: #60656d; font-size: 13px; line-height: 1.85; word-break: keep-all; }
+.hardware-assembly__hint { display: flex; align-items: center; gap: 12px; margin-top: 12px; color: #626772; font-size: 10px; }
+.hardware-assembly__hint i { font-style: normal; }
+.hardware-assembly__stage { flex: 1; position: relative; min-height: 300px; isolation: isolate; container-type: size; }
+.hardware-assembly__object { position: absolute; top: 50%; left: 50%; width: min(100cqw, 75cqh); aspect-ratio: 3 / 4; transform: translate(-50%, -50%) scale(var(--object-scale)); }
+.hardware-assembly__layers { position: absolute; inset: 0; opacity: 0; }
+.hardware-assembly--ready .hardware-assembly__layers { opacity: calc(1 - var(--finish)); }
+.hardware-assembly__layer, .hardware-assembly__complete { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.hardware-assembly__layer--body { z-index: 0; }
+.hardware-assembly__layer--display { z-index: 1; transform: translate(calc((1 - var(--panels)) * var(--spread-core) - 1.5%), calc((1 - var(--panels)) * 4% - 5%)) scale(.91); }
+.hardware-assembly__layer--front { z-index: 2; transform: translate(calc((1 - var(--glass)) * var(--spread-front) - .5%), calc((1 - var(--glass)) * 8% - 5%)) scale(.895); }
+.hardware-assembly__complete { z-index: 3; opacity: var(--finish); }
+.hardware-assembly__shadow { position: absolute; bottom: 1%; left: 17%; width: 68%; height: 7%; border-radius: 50%; background: #767978; filter: blur(20px); opacity: .12; transform: scaleX(calc(1 - var(--progress) * .35)); }
+.hardware-assembly__fallback { height: 100%; display: grid; place-items: center; }
+.hardware-assembly__fallback .product-frame { width: min(70%, 280px); }
+.hardware-assembly__fallback .product-frame__stage { background: transparent; border: 0; }
+.hardware-assembly__bottom { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding-top: 16px; padding-bottom: 22px; }
+.hardware-assembly__steps { min-width: 160px; display: grid; font-size: 10px; color: #555b65; }
+.hardware-assembly__steps span { grid-area: 1 / 1; visibility: hidden; }
+.hardware-assembly__steps b { font-weight: 500; font-size: 9px; margin-right: 14px; color: #7a7e85; }
+.hardware-assembly[data-phase="0"] [data-chapter="0"], .hardware-assembly[data-phase="1"] [data-chapter="1"], .hardware-assembly[data-phase="2"] [data-chapter="2"] { visibility: visible; }
+.hardware-assembly__bottom > p { font-size: 9px; color: #6c7077; line-height: 1.8; }
+.hardware-assembly__track { width: 90px; height: 1px; background: #d0d2d4; }
+.hardware-assembly__track i { display: block; height: 100%; background: #444a54; transform: scaleX(var(--progress)); transform-origin: left; }
+.hardware-assembly[data-motion="static"] { height: auto; min-height: 0; }
+.hardware-assembly[data-motion="static"] .hardware-assembly__sticky { position: relative; top: 0; height: 720px; min-height: 0; }
+.hardware-assembly[data-motion="static"] .hardware-assembly__layers, .hardware-assembly[data-motion="static"] .hardware-assembly__hint, .hardware-assembly[data-motion="static"] .hardware-assembly__track { display: none; }
+.hardware-assembly[data-motion="static"] .hardware-assembly__complete { opacity: 1; }
+
+@media (max-width: 767px) {
+  .hardware-assembly { --object-scale: .82; --spread-core: -17%; --spread-front: -34%; height: 260svh; min-height: 1500px; }
+  .hardware-assembly__sticky { min-height: 620px; }
+  .hardware-assembly__top { padding-top: 8px; }
+  .hardware-assembly__top > p { font-size: 8px; letter-spacing: .08em; }
+  .hardware-assembly__top a { font-size: 10px; gap: 6px; }
+  .hardware-assembly__heading { display: block; padding-top: 12px; padding-bottom: 4px; }
+  .hardware-assembly__heading h2 { font-size: 31px; }
+  .hardware-assembly__heading > div { margin-top: 18px; }
+  .hardware-assembly__heading > div > p { font-size: 11px; }
+  .hardware-assembly__hint { margin-top: 10px; font-size: 9px; }
+  .hardware-assembly__stage { min-height: 260px; }
+  .hardware-assembly__bottom { display: grid; gap: 10px; padding-top: 14px; padding-bottom: 14px; }
+  .hardware-assembly__bottom > p { font-size: 8px; }
+  .hardware-assembly__track { position: absolute; right: 20px; bottom: 48px; width: 55px; }
+  .hardware-assembly[data-motion="static"] .hardware-assembly__sticky { height: 740px; }
+}
+@media (max-height: 740px) and (min-width: 768px) {
+  .hardware-assembly__sticky { min-height: 0; }
+  .hardware-assembly__heading { padding-top: 4px; }
+  .hardware-assembly__heading h2 { font-size: 34px; }
+  .hardware-assembly__stage { min-height: 240px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hardware-assembly { height: auto; min-height: 0; }
+  .hardware-assembly__sticky { position: relative; top: 0; height: 720px; min-height: 0; }
+  .hardware-assembly__layers, .hardware-assembly__hint, .hardware-assembly__track { display: none; }
+  .hardware-assembly__complete { opacity: 1; }
+}
+
+.hardware-detail-assembly { --object-scale: .8; --spread-core: -10%; --spread-front: -22%; --core-separation-y: -20%; --front-separation-y: 24%; height: 220svh; min-height: 1400px; }
+.hardware-detail-assembly .hardware-assembly__object { width: min(100cqw, 133.3333cqh); aspect-ratio: 4 / 3; }
+.hardware-detail-assembly--audio .hardware-assembly__sticky { background: radial-gradient(ellipse at 65% 45%, #f9fafb, #eef0f2); }
+.hardware-detail-assembly__main { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 1.3fr); grid-template-rows: auto auto; column-gap: 28px; row-gap: 32px; flex: 1; min-height: 0; align-content: center; padding-top: 26px; padding-bottom: 22px; }
+.hardware-detail-assembly__copy { grid-area: 1 / 1; }
+.hardware-detail-assembly__copy > p:first-child { font-size: 11px; color: #666c75; margin-bottom: 18px; }
+.hardware-detail-assembly__copy h2 { font-size: clamp(28px, 3.2vw, 46px); letter-spacing: -.05em; line-height: 1.24; font-weight: 600; }
+.hardware-detail-assembly__copy h2 > span { color: #757980; }
+.hardware-detail-assembly__copy > p:last-child { font-size: 13px; line-height: 1.8; color: #60656f; margin-top: 20px; max-width: 25rem; word-break: keep-all; }
+.hardware-detail-assembly__stage { grid-area: 1 / 2 / 3 / 3; min-height: 380px; }
+.hardware-detail-assembly__features { grid-area: 2 / 1; list-style: none; padding: 0; margin: 0; }
+.hardware-detail-assembly__features li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; position: relative; padding: 16px 0; border-top: 1px solid #d4d7dc; }
+.hardware-detail-assembly__features li::before { content: ''; position: absolute; left: -12px; top: 16px; bottom: 16px; width: 2px; background: #303844; transform: scaleY(0); }
+.hardware-detail-assembly__features li > span { font-size: 10px; color: #626a75; padding-top: 4px; }
+.hardware-detail-assembly__features h3 { font-size: 17px; font-weight: 600; line-height: 1.5; letter-spacing: -.025em; }
+.hardware-detail-assembly__features p { font-size: 12px; line-height: 1.7; color: #60656f; margin-top: 5px; word-break: keep-all; }
+.hardware-detail-assembly[data-phase="0"] [data-feature="0"]::before, .hardware-detail-assembly[data-phase="1"] [data-feature="1"]::before, .hardware-detail-assembly[data-phase="2"] [data-feature="2"]::before { transform: scaleY(1); }
+.hardware-detail-assembly[data-phase="0"] [data-feature="0"] h3, .hardware-detail-assembly[data-phase="1"] [data-feature="1"] h3, .hardware-detail-assembly[data-phase="2"] [data-feature="2"] h3 { font-weight: 700; }
+.hardware-detail-assembly__layer--shell { z-index: 0; }
+.hardware-detail-assembly__layer--core { z-index: 1; transform: translate(calc((1 - var(--panels)) * var(--spread-core) + var(--part-x, 0%)), calc((1 - var(--panels)) * var(--core-separation-y) + var(--part-y, 0%))) scale(var(--part-scale, 1)); }
+.hardware-detail-assembly__layer--surface { z-index: 2; transform: translate(calc((1 - var(--glass)) * var(--spread-front) + var(--part-x, 0%)), calc((1 - var(--glass)) * var(--front-separation-y) + var(--part-y, 0%))) scale(var(--part-scale, 1)); }
+/* ponytail: raster perspectives need calibrated offsets; matched CGI passes can replace these approximations. */
+.hardware-detail-assembly--camera .hardware-detail-assembly__layer--core { --part-x: -14%; --part-y: -4.6%; --part-scale: .62; }
+.hardware-detail-assembly--camera .hardware-detail-assembly__layer--surface { --part-x: -8.6%; --part-y: -7.5%; --part-scale: .78; }
+.hardware-detail-assembly__unit--mic { clip-path: inset(0 45% 55% 0); transform-origin: 25% 23%; }
+.hardware-detail-assembly__unit--left { clip-path: inset(45% 62% 0 0); transform-origin: 16% 64%; }
+.hardware-detail-assembly__unit--right { clip-path: inset(45% 0 0 62%); transform-origin: 84% 76%; }
+.hardware-detail-assembly__layer--core.hardware-detail-assembly__unit--mic { --part-x: -4%; --part-y: 4%; --part-scale: .72; }
+.hardware-detail-assembly__layer--core.hardware-detail-assembly__unit--left { --part-y: 1.5%; --part-scale: .65; }
+.hardware-detail-assembly__layer--core.hardware-detail-assembly__unit--right { --part-x: -1.5%; --part-y: 1.5%; --part-scale: .69; }
+.hardware-detail-assembly__layer--surface.hardware-detail-assembly__unit--mic { --part-x: -.5%; --part-y: -.5%; --part-scale: .92; }
+.hardware-detail-assembly__layer--surface.hardware-detail-assembly__unit--left { --part-x: 1%; --part-y: -1%; }
+.hardware-detail-assembly__layer--surface.hardware-detail-assembly__unit--right { --part-x: -.8%; --part-y: -1%; --part-scale: .97; }
+/* ponytail: hide driver depth only as the grille seats; true occlusion needs matched 3D geometry. */
+.hardware-detail-assembly--audio .hardware-detail-assembly__layer--core { opacity: calc(1 - clamp(0, (var(--glass) - .75) * 4, 1)); }
+.hardware-detail-assembly .hardware-assembly__bottom { padding-top: 4px; padding-bottom: 14px; }
+.hardware-detail-assembly__scope { padding-bottom: 20px; font-size: 10px; line-height: 1.8; color: #60656f; }
+.hardware-detail-assembly__scope a { display: inline-flex; align-items: center; min-height: 44px; margin-left: 8px; color: #303844; text-decoration: underline; text-underline-offset: 3px; }
+.hardware-detail-assembly.hardware-assembly[data-motion="static"] .hardware-assembly__sticky { height: 820px; }
+.hardware-detail-assembly__fallback { height: 100%; display: grid; align-content: center; justify-items: center; gap: 30px; }
+.hardware-detail-assembly__fallback > div { position: relative; width: min(80%, 280px); height: 110px; border-radius: 24px; background: linear-gradient(135deg, #dfe2e5, #8f969e); box-shadow: inset 0 0 0 1px #828991; }
+.hardware-detail-assembly__fallback i { position: absolute; top: 26px; width: 55px; height: 55px; border: 10px solid #303740; border-radius: 50%; background: #111820; left: 28px; }
+.hardware-detail-assembly__fallback i:last-child { left: 112px; }
+.hardware-detail-assembly__fallback p { font-size: 12px; color: #60656f; }
+.hardware-detail-assembly--audio .hardware-detail-assembly__fallback > div { height: 72px; border-radius: 5px; }
+.hardware-detail-assembly--audio .hardware-detail-assembly__fallback i { top: 14px; width: 44px; height: 44px; border-width: 3px; background: #343b45; }
+.hardware-detail-assembly--audio .hardware-detail-assembly__fallback i:last-child { left: auto; right: 28px; }
+.hardware-detail-assembly--audio .hardware-detail-assembly__fallback span { position: absolute; top: -90px; left: 20px; width: 80px; height: 50px; border-radius: 50% 50% 6px 6px; background: #353b43; }
+
+@media (max-width: 767px) {
+  .hardware-detail-assembly { --core-separation-y: -12%; --front-separation-y: 16%; height: 230svh; min-height: 1450px; }
+  .hardware-detail-assembly .hardware-assembly__sticky { min-height: 710px; }
+  .hardware-detail-assembly__main { grid-template-columns: 1fr; grid-template-rows: auto minmax(220px, 1fr) auto; align-content: stretch; gap: 16px; padding-top: 16px; padding-bottom: 12px; }
+  .hardware-detail-assembly__copy h2 { font-size: 28px; }
+  .hardware-detail-assembly__copy > p:first-child { margin-bottom: 10px; font-size: 10px; }
+  .hardware-detail-assembly__copy > p:last-child { margin-top: 12px; font-size: 11px; }
+  .hardware-detail-assembly__stage { grid-area: 2 / 1; min-height: 220px; }
+  .hardware-detail-assembly__features { grid-area: 3 / 1; }
+  .hardware-detail-assembly__features li { padding: 8px 0; grid-template-columns: 20px 1fr; gap: 6px; }
+  .hardware-detail-assembly__features li::before { left: -8px; top: 8px; bottom: 8px; }
+  .hardware-detail-assembly__features h3 { font-size: 13px; }
+  .hardware-detail-assembly__features p { margin-top: 2px; font-size: 11px; }
+  .hardware-detail-assembly .hardware-assembly__bottom { gap: 8px; padding-bottom: 8px; }
+  .hardware-detail-assembly__scope { font-size: 9px; padding-bottom: 12px; }
+  .hardware-detail-assembly__scope a { margin-left: 0; }
+  .hardware-detail-assembly.hardware-assembly[data-motion="static"] .hardware-assembly__sticky { height: 800px; min-height: 0; }
+}

@@ -2,33 +2,29 @@ import { Arrow } from '../../components/Arrow';
 import { ProductFrame } from '../../components/ProductFrame/ProductFrame';
 import { copy } from '../../data/content';
 import { media } from '../../data/media';
+import { siteRoot } from '../../data/paths';
 import './Hero.css';
 
 export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="container">
-        <div className="hero__grid">
-          <div className="hero__content">
-            <p className="eyebrow hero__eyebrow"><span aria-hidden="true" />{copy.hero.label}</p>
-            <h1 id="hero-title" className="display-title">
-              <span>거울이 인터페이스가 되는 순간.</span>
-            </h1>
-            <p className="body-copy hero__body">{copy.hero.body}</p>
-            <div className="hero__actions">
-              <a className="hero__primary" href="#experience">{copy.hero.primaryCta}<Arrow /></a>
-              <a className="text-link" href="#system">{copy.hero.secondaryCta}<Arrow /></a>
-            </div>
-          </div>
-          <div className="hero__visual">
-            <ProductFrame kind="mirror" variant="hero" media={media.hero} />
+      <div className="container hero__grid">
+        <div className="hero__content">
+          <p className="hero__name">4-Fit MirrorTing <span>by CarpeDM</span></p>
+          <h1 id="hero-title" className="display-title"><span className="hero__lead">실전에서 처음 겪지 않도록,</span><span className="hero__promise">직장생활의 순간을<br />미리 경험하게 합니다.</span></h1>
+          <p className="hero__body">{copy.hero.body}</p>
+          <div className="hero__actions">
+            <span className="hero__video-wrap"><button className="hero__video-pending" type="button" disabled aria-describedby="hero-video-status"><span aria-hidden="true">▷</span> 영상 보기</button><small id="hero-video-status">영상 제작 중</small></span>
+            <a className="hero__primary" href={`${siteRoot}service/`}>{copy.hero.primaryCta}<Arrow /></a>
           </div>
         </div>
-        <dl className="hero__summary" aria-label="CarpeDM 구성 요약">
-          <div><dt>Smart Mirror</dt><dd>메인 인터랙션 디바이스</dd></div>
-          <div><dt>ID Card Kiosk</dt><dd>경험이 시작되는 접점</dd></div>
-          <div><dt>Connected Experience</dt><dd>두 장치를 잇는 체험 설계</dd></div>
-        </dl>
+        <div className="hero__visual">
+          <ProductFrame kind="mirror" variant="hero" media={media.hero} />
+        </div>
+      </div>
+      <div className="container hero__footnote">
+        <p>Smart Mirror <span>+ ID Card Kiosk</span></p>
+        <a href="#problem">이야기 살펴보기<Arrow direction="down" /></a>
       </div>
     </section>
   );

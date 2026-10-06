@@ -1,0 +1,12 @@
+.glass-icon {
+  width: 144px;
+  height: 130px;
+  overflow: visible;
+}
+
+@media (max-width: 767px) {
+  .glass-icon {
+    width: 110px;
+    height: 99px;
+  }
+}

@@ -56,14 +56,14 @@
 }
 
 .device--mirror {
-  width: 49%;
+  width: 57%;
   height: 82%;
   transform: perspective(1100px) rotateY(-9deg);
 }
 
 .mirror-body {
   position: absolute;
-  inset: 0 0 6%;
+  inset: 0 0 18%;
   padding: 3%;
   border: 1px solid #62676c;
   border-right: 5px solid #34373b;
@@ -99,25 +99,20 @@
   background: linear-gradient(90deg, rgb(208 217 222 / 7%), transparent 62%);
 }
 
-.mirror-surface > svg {
-  position: absolute;
-  width: 13%;
-  height: auto;
-  left: 43.5%;
-  bottom: 10%;
-  color: #8e969c;
-}
 
 .mirror-sensor {
   position: absolute;
   z-index: 1;
-  top: 0.8%;
-  left: 49%;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
+  top: -3%;
+  left: 45%;
+  width: 12%;
+  height: 3%;
+  border: 1px solid #62676c;
   background: #050505;
 }
+
+.mirror-microphone { position: absolute; top: -2%; left: 4%; width: 10%; height: 2%; background: #34373b; border: 1px solid #62676c; }
+.mirror-nfc { position: absolute; top: 50%; right: -5%; width: 4%; height: 7%; background: #34373b; border: 1px solid #62676c; }
 
 .mirror-bottom-line {
   position: absolute;
@@ -132,18 +127,22 @@
 .mirror-stand {
   position: absolute;
   z-index: -1;
-  width: 25%;
-  height: 10%;
-  bottom: 1%;
-  left: 38%;
+  width: 86%;
+  height: 16%;
+  bottom: 3%;
+  left: 7%;
   background: linear-gradient(90deg, #151719, #363a3d, #111315);
 }
 
+.mirror-stand::before, .mirror-stand::after { content: ''; position: absolute; top: 25%; width: 16%; height: 46%; border: 1px solid #62676c; background: #090c0e; }
+.mirror-stand::before { left: 13%; }
+.mirror-stand::after { right: 13%; }
+
 .mirror-foot {
   position: absolute;
-  width: 70%;
-  height: 2%;
-  left: 17%;
+  width: 108%;
+  height: 4%;
+  left: -4%;
   bottom: 0;
   border-top: 1px solid #4c5155;
   transform: skewX(-30deg);
@@ -188,11 +187,6 @@
   background: linear-gradient(135deg, #272e34, #101419 70%);
 }
 
-.kiosk-screen svg {
-  width: 20%;
-  height: auto;
-  color: #89939b;
-}
 
 .kiosk-controls {
   position: absolute;

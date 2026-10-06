@@ -1,21 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import { BrandMark } from '../BrandMark';
+import type { PageKind } from '../../App';
+import { Arrow } from '../Arrow';
+import { dashboardUrl, navigation, siteRoot } from '../../data/paths';
 import './Header.css';
 
-const navigation = [
-  { href: '#project', label: '프로젝트' },
-  { href: '#experience', label: '체험 흐름' },
-  { href: '#mirror', label: '디바이스' },
-  { href: '#system', label: '시스템' },
-  { href: '#technology', label: '기술' },
-];
-
-export function Header() {
+export function Header({ page }: { page: PageKind }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 768px)');
+    const desktop = window.matchMedia('(min-width: 1024px)');
     const onResize = () => { if (desktop.matches) setIsOpen(false); };
     desktop.addEventListener('change', onResize);
     return () => desktop.removeEventListener('change', onResize);
@@ -33,18 +27,11 @@ export function Header() {
     return () => document.removeEventListener('keydown', onEscape);
   }, [isOpen]);
 
-  const followSection = (href: string) => {
-    if (!isOpen) return;
-    setIsOpen(false);
-    // Focus the actual destination instead of leaving focus in the hidden menu.
-    document.getElementById(href.slice(1))?.focus({ preventScroll: true });
-  };
-
   return (
     <header className="site-header">
       <div className="container site-header__inner">
-        <a className="brand" href="#top" aria-label="CarpeDM, 처음으로" onClick={() => followSection('#top')}>
-          <BrandMark /><span>CARPEDM<span className="brand__period">.</span></span>
+        <a className="brand" href={`${siteRoot}index.html`} aria-label="4-Fit MirrorTing, 처음으로">
+          <span>4-Fit MirrorTing<small>by CarpeDM</small></span>
         </a>
         <button ref={toggleRef} type="button" className="menu-toggle"
           aria-label={isOpen ? '메뉴 닫기' : '메뉴 열기'}
@@ -53,11 +40,19 @@ export function Header() {
           <span aria-hidden="true" /><span aria-hidden="true" />
         </button>
         <nav id="primary-navigation" className={`site-nav${isOpen ? ' site-nav--open' : ''}`} aria-label="주요 메뉴">
-          {navigation.map(({ href, label }) => (
-            <a key={href} href={href} onClick={() => followSection(href)}>{label}</a>
-          ))}
+          <div className="site-nav__links">
+            {navigation.map(({ path, page: destination, label }) => (
+              <a key={path} href={`${siteRoot}${path}`} aria-current={page === destination ? 'page' : undefined} onClick={() => setIsOpen(false)}><span>{label}</span><Arrow /></a>
+            ))}
+          </div>
+          <div className="site-nav__actions">
+            {dashboardUrl && <a className="site-header__demo" href={dashboardUrl} target="_blank" rel="noopener noreferrer"
+              aria-label="운영 관리, 샘플 워크스페이스 (새 탭)" onClick={() => setIsOpen(false)}>
+              운영 관리<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M14 3h7v7M10 14 21 3M10 3H3v18h18v-7" /></svg>
+            </a>}
+            <a className="site-header__cta" href={`${siteRoot}service/`} aria-current={page === 'service' ? 'page' : undefined} onClick={() => setIsOpen(false)}>서비스 소개<Arrow /></a>
+          </div>
         </nav>
-        <span className="site-header__context">동양미래대학교 EXPO</span>
       </div>
     </header>
   );

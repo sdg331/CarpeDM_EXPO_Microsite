@@ -1,18 +1,213 @@
 # 검증 체크리스트
 
+## 2026-10-05 — 전시 소개 화면 고도화 (이번 작업)
+
+- 기존 미저장 작업을 보존하고 작업 시작 시점의 src/docs/HTML/설정을 `/tmp/mirrorting-before-exhibition-polish-20261005.tgz`로 저장했다. 기존 대표 이미지와 정확한 Hero 문구, 로고 제거 결정, 반응형 다중 진입점을 유지했다. Git 커밋·push·공개 배포는 수행하지 않았다.
+- 홈에 스마트 미러를 사용하는 이유와 재사용한 6단계 설계를 연결했다. 질문/답변의 시각 구분, 네 관점의 장식 SVG, 두 장치의 비율, 상세 페이지 breadcrumb, 공용 메뉴·하단 메뉴·마무리 CTA를 다듬었다. 대화/피드백/장치/AI의 실제 구현 증거 범위는 그대로 공개한다.
+- 환경: macOS, Node 24.15.0, npm 11.12.1, Codex 내장 브라우저. 기존 의존성을 사용했으며 새 런타임 패키지·원격 폰트·외부 API를 추가하지 않았다.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check`가 종료 코드 0으로 통과했다. 마지막 빌드는 58 modules, 7개 HTML, JS 263.58 kB / gzip 80.42 kB, CSS 42.15 kB / gzip 9.18 kB다. `build`의 내부 타입 검사도 통과했다.
+- **최종 빌드** 4175에서 홈/서비스/4-Fit/시스템/활용/팀/EXPO × 360/390/768/1024/1280/1440×900, 42개 조합을 다시 측정했다. 가로 넘침 0, H1 각 1개, 중복 ID 0, 누락된 페이지 내 앵커 0. 홈과 서비스는 각각 6단계다. 앞선 측정에서는 주요 제목·버튼·summary의 화면 밖 배치도 없었다.
+- 첫 화면을 360×800, 390×844, 768×1024, 1024×900, 1280×900, 1440×900에서 시각 확인했다. 각 폭에서 서비스 CTA가 첫 뷰포트 안에 들어간다. 전체 홈, 밝은 미러 설명, 4-Fit, 두 장치, 체험·활용·마무리와 모바일 대화/4-Fit도 실제 화면으로 확인했다.
+- 390 px에서 대화 4종을 실제 클릭했다. 각 질문이 대응하고 aria-pressed=true가 1개이며 넘침이 없다. 4-Fit ArrowLeft 첫→마지막, ArrowRight 마지막→첫, End/Home 및 Voice/Expression 선택을 검사했다. 선택과 포커스가 일치하며 노출 panel과 tabindex=0인 tab은 각각 1개다. 장식 SVG는 aria-hidden이며 네 관점의 텍스트는 그대로 접근 가능하다.
+- 360 px에서 첫 Tab이 건너뛰기 링크를 표시하고 Enter 뒤 main-content에 포커스가 이동했다. 모바일 메뉴 Enter 열기·Tab 첫 링크·Escape 닫기·버튼 포커스 복귀, 메뉴의 서비스 페이지 이동·aria-current를 확인했다. 열린 메뉴는 데스크톱 전환 시 닫히고 nav가 flex로 표시된다. 하드웨어와 기술 summary를 Enter로 열었고 360 px에서도 넘침이 없다.
+- 하단의 짧은 링크와 breadcrumb는 최소 44 px 너비/높이를 보장하도록 조정했다. 실제 하단 5개 링크의 높이는 44 px, 너비는 44 px 이상이다.
+- 빌드 복사본을 별도 로컬 정적 서버 4176의 `/CarpeDM_EXPO_Microsite/`에서 검수했다. 390×844에서 7개 진입점의 H1, 가로 넘침, 내부 링크와 script/CSS/img 경로를 확인했다. 경로 이탈 0. EXPO → 서비스 → breadcrumb 홈 이동과 Hero naturalWidth=1672를 확인했다. 정상 하위 경로 탭과 정상 최종 빌드 탭 console warn/error는 0이다.
+- 원본 src/public/dist를 변경하지 않고 별도 `/media-fallback/` 빌드 복사본에서 미디어 5개를 제외했다. 홈 img 0, 제품 대체 실루엣 4, 콘셉트 캡션 4, 메인 문구와 넘침 0을 확인했다. 시스템의 캡처 실패는 접근 가능한 안내로 대체되며 깨진 img는 0이다. 정상 복사본에서는 Hero 1672 및 세 상세 슬롯 1122가 로드됐다. 의도적인 실패 탭의 404는 정상 콘솔 집계에 포함하지 않는다.
+- 대비를 실제 색값으로 계산했다: 본문 #606773 / #F4F5F7 5.22:1, 회색 제목 #69717E / #F4F5F7 4.51:1, 관점 설명 #56677D / #E9EEF4 4.96:1, Hero 본문 #C4C8CF / #0B0C0E 11.66:1, 흰 CTA / #1963DA 5.47:1, 대화 보조 문구 #C5CDD9 / #111C2C 10.69:1.
+- 모션 감소의 전역 transition/animation/smooth-scroll 해제 및 Reveal의 matchMedia·설정 변경 분기를 코드 검토했다. 현재 브라우저 도구에는 모션 설정 에뮬레이션이 없으므로 **실제 OS 모션 감소 전환은 미검증**이다. 콘텐츠는 기본적으로 표시되며 추가 모션 엔진이나 스크롤 제어는 없다.
+- 캡처는 `docs/screenshots/home-{360,390,768,1024,1280,1440}.jpg`, `home-desktop.jpg`, `home-full-desktop.jpg`, `four-fit-desktop.jpg`, `practice-mobile.jpg`에 저장했다. 네이티브 JPEG이며 대표 폭의 실제 픽셀 크기도 확인했다. 화면 일부가 브라우저 패널 너비로 잘리는 캡처는 명시적 문서 좌표로 다시 저장했다.
+- 실제 모바일 Safari/Android, 스크린리더, 200% 확대, 저속망, 공개 배포 및 NFC/하드웨어/실제 AI 연동은 미검증이다. 실물 사진·영상·실제 분석 자료는 아직 필요하다. KES 참가·수상이나 학습 효과를 새로 주장하지 않았다.
+
+<details>
+<summary>이번 작업의 수정 파일 — 시작 시점 백업과 비교한 33개 파일</summary>
+
+```text
+README.md
+docs/architecture.md
+docs/content.md
+docs/decisions.md
+docs/design.md
+docs/product.md
+docs/qa.md
+src/App.tsx
+src/components/Header/Header.css
+src/components/Header/Header.tsx
+src/data/content.ts
+src/data/media.ts
+src/data/paths.ts
+src/sections/Closing/Closing.css
+src/sections/Closing/Closing.tsx
+src/sections/Evidence.tsx
+src/sections/ExperienceFlow/ExperienceFlow.css
+src/sections/ExperienceFlow/ExperienceFlow.tsx
+src/sections/FourFit.tsx
+src/sections/Hero/Hero.css
+src/sections/Hero/Hero.tsx
+src/sections/Introduction/Introduction.css
+src/sections/Introduction/Introduction.tsx
+src/sections/Problem.tsx
+src/sections/SystemArchitecture/SystemArchitecture.css
+src/sections/Technology/Technology.css
+src/sections/UseCases.tsx
+src/sections/WorkplacePractice.tsx
+src/styles/footer.css
+src/styles/globals.css
+src/styles/pages.css
+src/styles/story.css
+src/styles/tokens.css
+```
+
+`docs/screenshots/`에 이번 검수 JPEG 10개를 추가했다. 작업 전부터 수정된 파일과 미추적 파일은 보존했으며 위 목록은 Git 전체 변경 목록과 구분한다.
+
+</details>
+
+## 2026-10-05 — 모바일 선택 대신 반응형 홈 통합
+
+- 별도 EXPO 모바일 안내 링크와 ExpoPage·expo.css를 제거했다. 기존 /expo/ HTML은 data-page=home, data-site-root=../, main.tsx로 동일한 홈 App을 표시한다. NFC·QR 목적지는 배포된 홈 주소로 통일한다. 실제 NFC 연결·배포는 수행하지 않았다.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 통과. Vite 56 modules, 7개 HTML 진입점, 별도 EXPO JS/CSS 없음.
+- 빌드 미리보기 4175에서 7개 경로 × 360/390/768/1024/1280/1440×900, 42개 조합: 가로 넘침 0, H1 각 1개, 중복 ID 0, 누락된 페이지 내 앵커 0, 모바일 안내 선택 링크 0. /와 /expo/의 섹션 순서는 동일하다.
+- 동일한 /expo/의 1440×900 및 390×844 첫 화면을 캡처로 시각 확인했다. 작은 화면에서 자동으로 메뉴 버튼·세로 문구·미러 이미지 구도로 바뀐다. 기존 홈페이지 반응형 CSS를 그대로 공유하며 화면 모드 선택이나 기기 감지는 없다.
+- /expo/의 Hero 이미지 naturalWidth 1672, Hero·푸터의 서비스 목적지 /service/를 확인했다. 서비스 보기 클릭 후 /service/와 H1, 텍스트 홈 링크 Enter 후 /index.html과 메인 H1을 확인했다.
+- 모바일 메뉴 Enter 열기·Escape 닫기·메뉴 버튼 포커스 복귀, /expo/#practice에서 실수 설명 선택 시 예시 교체, 4-Fit End 키로 Posture 선택·포커스 일치를 확인했다. 정상 검수 탭 console warn/error 0.
+- 중지된 빌드 미리보기 서버를 재실행했다. 연결 오류 화면이 남은 탭에서는 검수를 진행하지 않고 새 탭에서 정상 응답과 모든 화면을 확인했다. 샌드박스 내부 curl 연결은 실패했으나 권한 있는 로컬 응답 확인은 HTTP 200이었다. 마지막에는 개발 홈으로 복귀했다.
+- 모션 감소·ProductFrame 실패 대체 코드는 기존 공유 구현이며 이번 변경에 새 분기를 추가하지 않았다. 기존 실패 대체 검증 기록을 유지한다. 실제 모바일 기기·스크린리더·OS 모션 설정 전환·공개 하위 경로 배포는 이번 변경에서 재검증하지 않았다.
+
+## 2026-10-05 — 로고 전체 제거
+
+- 요청에 따라 공용 BrandMark 컴포넌트와 SVG 심볼·조합 로고·favicon 파일을 제거했다. 헤더, Hero, 푸터, 4-Fit, Closing, EXPO, 기기 실패 실루엣에는 심볼이 없으며 작품명·CarpeDM은 일반 텍스트로 유지한다. 7개 HTML 진입점은 빈 data 아이콘을 사용한다.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 통과. Vite 58 modules, 7개 HTML. 새 의존성 없음.
+- 로컬 5174의 7페이지 × 360/390/768/1024/1280/1440×900, 42개 조합에서 가로 넘침 0, H1 각 1개, 로고 영역 SVG 0, icon href=data:,을 확인했다. src/public/HTML에서 BrandMark·기존 favicon·로고 자산 참조는 없다.
+- 1440×900 및 390×844 첫 화면을 실제 캡처로 확인했다. 작품명과 팀명 정렬, 기존 CTA와 대표 이미지 배치가 유지된다. 모바일 메뉴 Enter 열기·Escape 닫기·버튼 포커스 복귀를 확인했다. 빌드 미리보기 4175의 EXPO에서 텍스트 홈 링크를 Enter로 선택해 /index.html에 도착하고 심볼 0·빈 아이콘을 확인했다.
+- 실제 모바일 기기·스크린리더·OS 모션 감소 전환·공개 배포는 이번 변경에서 실행하지 않았다. 기존 모션 감소·미디어 실패 처리는 유지하고 대체 실루엣의 로고만 제거했다. 과거 로고 제작 기록은 이 제거 결정으로 대체된다.
+
+## 2026-10-05 — 소개 페이지 완성도와 핵심 선택 인터랙션
+
+- 홈의 상세 링크 모음을 상황 예시 → 4-Fit → 두 장치 → 활용 → 팀 목적 소개로 교체했다. 반복된 4-Fit 도식·카드를 탭과 하나의 패널로 바꾸고 상세 제목·여백을 조정했다. 설명용 대화와 분석 미검증 범위는 공개 문구로 유지한다.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 통과. Vite 59개 모듈, 7개 HTML 진입점. 새 의존성 없음.
+- 개발 서버 5174에서 7페이지 × 360/390/768/1024/1280/1440×900, 42개 조합: 가로 넘침 0, H1 각 1개, 중복 ID 0, 누락된 페이지 내 앵커 0. 빌드 미리보기 4175의 동일한 42개 조합에서도 가로 넘침 0, H1 각 1개.
+- 390×844에서 4개 상황을 선택해 각각의 질문이 교체되고 가로 넘침이 없는 것을 확인했다. 4-Fit에서 ArrowLeft 첫→마지막, ArrowRight 마지막→첫, Home/End, 순차 방향키 이동을 확인했다. 매번 포커스와 선택이 일치하며 노출 패널·tabindex=0인 탭은 각 1개였다. 빌드 화면에서도 Voice 선택 후 정의와 질문 교체를 확인했다.
+- 새 정상 빌드 탭에서 상황·4-Fit 선택과 Posture→Response 방향키 순환 후 console warn/error 0을 확인했다.
+- 빌드 모바일에서 메뉴 Enter 열기·Escape 닫기·버튼 포커스 복귀, 메뉴의 4-Fit 페이지 이동을 확인했다. 탭의 정의 텍스트는 접근성 트리에 포함하고 심볼만 장식으로 숨긴다.
+- 390 px 상황·4-Fit, 1440 px 4-Fit·장치 소개·팀 화면과 홈 전체 캡처를 시각 확인했다. 캡처: `/tmp/mirrorting-practice-mobile-finished.png`, `/tmp/mirrorting-fit-mobile-finished.png`, `/tmp/mirrorting-home-finished.png`, `/tmp/mirrorting-system-finished.png`.
+- 빌드 미리보기의 키오스크·미러 이미지 naturalWidth 1122. 두 빌드 자산을 일시 이동해 홈 장치 영역 img 0개·실루엣 2개·콘셉트 캡션 유지를 확인했고, 원복 후 둘 다 naturalWidth 1122로 복구했다. 실패 재현의 의도적인 404는 정상 콘솔 검사와 분리한다.
+- reduced-motion의 전역 CSS·Reveal 분기는 코드 검토했다. 이번 선택 UI에는 새 등장 애니메이션이나 지연을 추가하지 않았다. 실제 휴대폰·스크린리더·OS 설정 전환·200% 확대·공개 배포·NFC는 미검증이다. 영상·실물 사진·실제 분석 결과는 아직 필요하다.
+
+### 재실행 가능한 선택 회귀 확인
+
+홈에서 개발자 콘솔에 아래를 붙여넣는다. 설명용 선택만 변경하며 서버·AI·장치를 호출하지 않는다. 질문 교체, 양방향 순환, Home/End, 단일 패널과 탭 정지점을 검사한다. 실제 키보드 조작은 위 브라우저 확인 기록과 구분한다.
+
+```js
+(async () => {
+  const check = (ok, message) => { if (!ok) throw new Error(message); };
+  const render = () => new Promise(resolve => setTimeout(resolve, 0));
+  const options = [...document.querySelectorAll('.practice-options button')];
+  const questions = ['지금 업무는 어디까지 진행됐나요?', '이 방법을 선택한 이유가 무엇인가요?', '자료에서 누락된 부분을 발견했는데, 어떻게 된 건가요?', '저는 다른 방향이 더 나을 것 같은데, 어떻게 생각하세요?'];
+  check(options.length === 4, '상황 4개');
+  for (const [i, button] of options.entries()) {
+    button.click(); await render();
+    check(document.querySelector('.practice-dialogue p').textContent.includes(questions[i]), '상황별 질문');
+    check(document.querySelectorAll('.practice-options [aria-pressed="true"]').length === 1, '단일 상황 선택');
+  }
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  check(tabs.length === 4, '4-Fit 탭 4개');
+  tabs[0].click(); await render();
+  for (const [key, index] of [['ArrowLeft', 3], ['ArrowRight', 0], ['End', 3], ['Home', 0], ['ArrowRight', 1]]) {
+    document.querySelector('[role="tab"][aria-selected="true"]').dispatchEvent(new KeyboardEvent('keydown', {key, bubbles: true}));
+    await render();
+    check(tabs[index].getAttribute('aria-selected') === 'true' && document.activeElement === tabs[index], key + ' 선택·포커스');
+    check(document.querySelectorAll('[role="tabpanel"]:not([hidden])').length === 1, '노출 패널 1개');
+    check(document.querySelectorAll('[role="tab"][tabindex="0"]').length === 1, '탭 정지점 1개');
+  }
+  options[0].click(); tabs[0].click();
+  console.info('상황·4-Fit 선택 회귀 확인 통과');
+})();
+```
+
+## 2026-10-05 — 4-Fit MirrorTing 벡터 로고 제작·적용
+
+- 기존 얇은 괄호 심볼을 네 개의 미러 프레임 코너와 숫자 4로 구성한 채움형 SVG로 변경했다. BrandMark 공통 컴포넌트를 유지해 헤더·푸터·실루엣에 적용하고 Hero와 EXPO 헤더에도 연결했다. 파비콘과 공개 SVG 심볼·조합 로고를 같은 형태로 제작했다.
+- `npm run lint`, `npm run build`(내부 타입 검사 포함), `git diff --check` 통과. 최종 검사 명령은 변경 완료 후 다시 수행했다.
+- 로컬 홈·EXPO 안내 × 360/390/768/1024/1280/1440×900의 12개 조합에서 가로 넘침 0, H1 1개, 헤더 SVG viewBox 0 0 40 40, focusable=false, favicon 경로를 확인했다.
+- 390×844 모바일과 데스크톱 첫 화면에서 헤더의 파란 심볼, Hero의 흰 심볼과 작품명·팀명 배치를 시각 확인했다. SVG 조합 로고를 브라우저에서 직접 열어 글자와 심볼이 잘리지 않는 것을 확인했다. `/tmp/mirrorting-logo-preview.png`에 조합 로고 캡처를 저장했다.
+- EXPO 헤더의 로고 링크를 Enter로 선택해 `/index.html`로 이동하는 것을 확인했다. 정상 방문 탭 콘솔 warn/error 0.
+- 장식 SVG는 aria-hidden=true, focusable=false이며 링크의 접근 가능한 작품명은 유지했다. 외부 이미지·폰트·패키지를 추가하지 않았다.
+- 실제 모바일 기기, OS 모션 감소 전환, 스크린리더, 인쇄·16 px 파비콘 가독성 및 공개 배포는 미검증이다. 조합 SVG의 글자는 편집 가능한 시스템 폰트이므로 인쇄 최종본은 승인된 폰트를 윤곽선으로 변환해야 한다.
+
+## 2026-10-05 — 웅장한 대표 이미지 첫 화면 적용
+
+- 요청한 작품명·by CarpeDM·정확한 메인 카피를 HTML로 표시하고, 영상 보기 → 서비스 보기 순으로 배치했다. 영상은 비활성 상태에 제작 중 안내를 연결했다. 이미지는 AI 생성 콘셉트임을 캡션으로 공개한다.
+- 생성 PNG 1672×941은 원본으로 유지하고 런타임에는 WebP 50,642 bytes를 사용한다. 기존 ProductFrame을 재사용해 CSS 배경 배치, 읽기용 그라디언트와 모바일 크롭을 적용했다.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 통과. 7개 HTML 진입점 생성.
+- 개발 서버에서 360/390/768/1024/1280/1440×900의 홈 DOM을 검사했다. 가로 넘침 0, H1 1개, 누락된 내부 앵커 0, 대표 이미지 naturalWidth 1672. 서비스 CTA는 각 첫 뷰포트 안에 표시된다.
+- 360×800, 390×844, 768×1024, 1440×900을 캡처로 시각 확인했다. 모바일 문구·버튼은 상단, 전체 미러와 받침대는 아래에 표시되며 태블릿·데스크톱은 왼쪽 문구·오른쪽 미러 구도다. 캡처: `/tmp/mirrorting-hero-desktop.png`, `/tmp/mirrorting-hero-mobile.png`.
+- 키보드 Enter로 건너뛰기 링크 선택 후 main-content 포커스를 확인했고, 서비스 보기 선택 후 `/service/`와 올바른 H1을 확인했다. 정상 화면 콘솔 warn/error 0. 실패 주입 때 발생한 의도적 파일 404는 정상 검사 결과와 구분한다.
+- WebP를 일시적으로 이동한 뒤 새로고침해 Hero img 0개·대체 실루엣 1개·메인 문구·콘셉트 캡션 유지를 확인했다. 원본 경로 복구 후 새로고침에서 naturalWidth 1672로 정상 복구를 확인했다.
+- reduced-motion의 기존 전역 CSS·Reveal 처리를 코드 검토했다. 이번 Hero에는 새 애니메이션을 추가하지 않았다. OS 모션 감소 전환, 실제 휴대폰·스크린리더·200% 확대·공개 배포는 미검증이다.
+
+## 2026-10-05 — 서비스 소개 내용과 읽기 흐름 재구성
+
+- 홈: 짧은 직장 대화 연습 약속 → 문제 → 세 장면 체험 요약 → 상세 페이지 순서. 서비스: 소개와 목차 → 네 가지 대화 예시 → 6단계 체험 → 스마트 미러 → 키오스크 → 4-Fit 상세 연결. 상황 예시 데이터는 활용 페이지와 공유한다.
+- `npm run lint`, `npm run build`(내부 `npm run typecheck` 포함), `git diff --check` 통과. 7개 HTML 진입점이 생성되었다.
+- 개발 서버 127.0.0.1:5174에서 홈·서비스·활용 × 360/390/768/1024/1280/1440 × 900, 18개 조합의 DOM을 측정했다. 가로 넘침 0, 누락된 내부 fragment 0, 각 H1 1개. 서비스의 체험 단계는 각 폭에서 6개다.
+- 390×844 홈·서비스와 1440×900 홈 첫 화면, 1440 px 홈 전체 캡처를 시각 확인했다. 390 px에서 메뉴 Enter 열기·Escape 닫기·버튼 포커스 복귀를 확인했다. 홈 대화 예시 링크를 Enter로 선택했을 때 `/service/#practice`로 이동하고 대상 포커스 및 헤더 아래 top 약 84 px를 확인했다.
+- 홈의 6단계 링크 클릭 후 URL만 변경되고 상단에 머무는 문제를 재현했다. React 마운트 뒤 incoming fragment를 공통 App에서 처리했다. 수정 후 `/service/#experience`, 대상 포커스, top 약 84 px(화면 전환 직후 너비 변경 시 약 112 px)를 확인했다.
+- 홈 제품 이미지 naturalWidth 1122, 방문 탭 콘솔 warn/error 0을 확인했다. 늦게 로딩하는 서비스 이미지 전체·강제 실패 대체·OS 모션 감소 전환·실제 휴대폰·스크린리더·공개 배포는 이번에 재검증하지 않았다. 기존 이미지 fallback 및 reduced-motion 코드는 정적 검토했다.
+- 재현 가능한 앵커 회귀 확인: 홈에서 `전체 체험 순서`를 선택한 뒤 개발자 콘솔에서 아래를 실행한다. 목차/fragment 구조와 마운트 후 목적지 이동이 깨지면 실패한다.
+
+```js
+console.assert(location.hash === '#experience', '체험 목적지 URL');
+console.assert(document.querySelectorAll('.experience__steps > li').length === 6, '6단계 유지');
+console.assert(document.activeElement.id === 'experience', '체험 대상 포커스');
+const top = document.getElementById('experience').getBoundingClientRect().top;
+console.assert(top >= 60 && top < 150, '헤더 아래 체험 시작 위치');
+```
+
+## 2026-10-05 — 전체 페이지 제작 마무리
+
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check`가 통과했고 빌드 출력에 7개 HTML 진입점이 생성되었다.
+- 빌드 미리보기에서 홈·서비스·4-Fit·시스템·활용·팀·EXPO 안내를 직접 열었다. 360/390/768/1024/1280/1440 × 900의 42개 조합에서 H1은 각 1개, 가로 넘침·누락된 fragment·예상 밖 외부 링크는 0개였다.
+- 390 px에서 모바일 메뉴를 클릭으로 열고 Escape로 닫았을 때 버튼으로 포커스가 돌아왔다. 메뉴의 4-Fit 링크, 홈의 `서비스 보기`, EXPO 안내의 `서비스 자세히 보기`를 클릭해 각 목적지로 이동했다.
+- 홈·4-Fit·활용·팀·EXPO 모바일 화면과 4-Fit·활용·서비스 데스크톱 화면을 실제 캡처로 확인했다. 서비스의 지연 로딩 제품 이미지는 스크롤 후 `naturalWidth=1122`, 시스템의 DEMO UI는 `naturalWidth>0`으로 확인했다. 방문한 페이지의 콘솔 warn/error는 0개였다.
+- 활용 페이지에 업무 보고·질문 대응·실수 설명·의견 조율을 **상황 예시**로 추가했고, 모바일 4-Fit 네 축의 연결선을 확인했다. 개별 상황의 구현 상태는 미확인으로 표시한다.
+- OS 모션 감소 설정 전환, 강제 이미지 실패, 실제 휴대폰, 스크린리더, 공개 배포 및 NFC 카드 태그는 이번 검증에서 실행하지 않았다. 모션 감소와 이미지 실패 대체 코드는 정적 검토했다.
+
+## 2026-10-05 — 다중 페이지 전환 검증
+
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check`를 실행해 통과했다. 빌드에는 홈, 서비스, 4-Fit, 시스템, 활용, 팀, EXPO의 7개 HTML 진입점이 생성되었다.
+- 로컬 빌드 미리보기 `127.0.0.1:4175`에서 7개 경로를 직접 열어 각 페이지의 제목과 H1 1개, 내부 fragment 누락 0개를 확인했다. 홈 메뉴는 상세 페이지로 연결되고 `aria-current="page"`는 활성 상세 메뉴에 표시된다.
+- 360/390/768/1024/1280/1440 × 900에서 7개 페이지 총 42개 조합의 DOM 너비·H1·fragment를 확인했다. 가로 넘침과 누락된 대상은 없었다. 390 px에서 키보드 Enter로 모바일 메뉴를 열고 4-Fit 상세 페이지로 이동했다. 클릭 기반 브라우저 동작은 도구 시간 초과로 완료하지 못했다.
+- 마지막 CSS·EXPO 문구 변경 뒤 360/390 × 844에서 4-Fit과 EXPO 페이지의 가로 넘침 0개와 H1 1개를 다시 확인했다. 홈과 EXPO의 서비스 링크는 올바른 `/service/` URL을 가리키지만 해당 링크 클릭 자동화는 도구 시간 초과로 검증하지 못했다.
+- 하위 페이지에서 사용하는 WebP/JPG 파일은 빌드 출력에 존재했고 미리보기 서버에서 HTTP 200으로 응답했다. 지연 로딩 이미지의 모든 실제 표시와 강제 실패 대체 화면은 이번 변경에서 재검증하지 않았다.
+- 브라우저 화면 캡처 기능이 실패해 새 페이지의 시각적 스크린샷 검증은 완료하지 못했다. 실제 휴대폰, 스크린리더, OS 모션 감소 전환, 공개 하위 경로 배포, NFC 카드 태그도 미검증이다. `prefers-reduced-motion` 처리와 이미지 대체 코드는 기존 구조를 유지한다.
+- 실제 영상·완성 하드웨어 사진·기능별 분석 결과가 없으므로 `영상 보기`는 비활성화하고 콘셉트·DEMO UI 자료의 범위 표기를 유지했다. 공개 배포 및 NFC 카드 기록은 실행하지 않았다.
+
+
+## 2026-10-05 — 직장생활 역할극 구조와 EXPO 모바일 진입
+
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 모두 종료 코드 0. Vite 빌드는 홈페이지와 `dist/expo/index.html`을 포함해 53개 모듈을 처리했다.
+- 개발 서버 홈페이지에서 문제 → 4-Fit → 체험 → 기기 → 활용 → 시스템 → 구현 자료 → 기술 → 팀의 DOM 순서, H1 한 개, 네 개 상단 메뉴 및 모든 내부 fragment 대상 존재를 확인했다.
+- 브라우저 폭 360/390/768/1024/1280/1440×900에서 홈페이지의 `scrollWidth`가 뷰포트 폭과 일치하고, 검사 시 깨진 이미지가 0개였다. 390×844와 1440×900에서 Hero를 시각 확인했다. 390 모바일 Hero 이미지의 `naturalWidth`는 1122였다.
+- 390 px에서 메뉴를 Enter로 열고 Escape로 닫았으며, `4-Fit 분석` 메뉴 링크 선택 후 `#four-fit` 이동과 메뉴 닫힘을 확인했다.
+- `/expo/`를 390 px에서 열어 제목, 30초 소개, 네 관점, 체험, 시스템, 상세 홈페이지 링크를 확인했다. `scrollWidth` 390 px, 내부 fragment 누락 0개였다.
+- 빌드 미리보기 `127.0.0.1:4175`에서 `/expo/` 직접 진입, 홈페이지로 복귀, 홈페이지의 `EXPO 모바일 안내` 링크로 재진입을 확인했다. 두 페이지의 콘솔 warning/error는 0개였다.
+- 다른 로컬 Mirror-Ting 프런트엔드(`/Users/do_not_delay/Desktop/EXPO/mvp`)의 직장대화 소개 화면을 브라우저에서 확인해 `public/media/workplace-ui-example.jpg`로 캡처했다. 화면의 답변·코칭은 실제 분석 결과가 아닌 소개용 예시다. 개발 화면과 최종 빌드 미리보기에서 이미지 `naturalWidth` 1680과 실제 표시를 확인했다.
+- 프로젝트 소유자가 Response / Voice / Expression / Posture(응답·목소리·표정·자세)를 공식 명칭으로 확정했다. 화면의 명칭 확인 대기 문구를 제거하고 분석 구현 범위의 미확정 표시는 유지했다. 실제 사진과 소개 영상은 추후 제작 예정이라고 답했다.
+- 명칭 반영 후 `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check`를 다시 실행해 모두 통과했다. 최종 빌드 미리보기에서 홈페이지의 네 메뉴와 `/expo/`의 명칭 확인 대기 문구 제거를 확인했다.
+- 실제 모바일 기기, 스크린리더, 200% 확대, OS 모션 감소 설정 전환, 이미지 실패 주입, 공개 배포 및 NFC 카드 연결은 이번 변경에서 재검증하지 않았다. 실제 하드웨어 사진·체험 영상·분석 결과와 기능별 구현 증거는 현재 저장소에 없다.
+
 이 문서는 최초 구현과 이후 변경에 공통으로 사용하는 검증 기준이다. 체크 표시는 실제 실행·관찰한 항목에만 적용한다. 코드 검토, 브라우저 확인, 빌드 성공은 서로 다른 증거이며 한 가지로 다른 검증을 대체하지 않는다.
 
 ## 현재 검증 상태
 
-최근 UI 검증일: **2026-09-22**. 아래 상태는 실제 명령 실행, 브라우저 관찰 또는 코드 검토 결과를 구분해 기록한다. 하단 체크리스트는 이후 변경에도 재사용하는 절차이며, 완료 기록을 대신하지 않는다.
+최근 UI 검증일: **2026-10-05**. 이번 변경 기록은 아래에, 이전 제품 중심 재구성 기록은 하단에 둔다. 아래 상태는 실제 명령 실행, 브라우저 관찰 또는 코드 검토 결과를 구분해 기록한다. 하단 체크리스트는 이후 변경에도 재사용하는 절차이며, 완료 기록을 대신하지 않는다.
 
 | 검증 항목 | 상태 | 실행 환경·증거 |
 | --- | --- | --- |
-| 콘텐츠와 구현 상태 표현 | 확인 | 제품/문구 문서와 화면 대조. 개념도·콘셉트 캡션·설계 흐름 안내 표시 |
-| 반응형 화면 6개 폭 | 확인 | 2026-09-22 기업형 UI 기준 DOM 측정상 가로 넘침 없음. 모바일/태블릿/데스크톱 화면 관찰 |
-| 키보드·접근성·모션 | 부분 확인 | Tab/Enter/Escape, 건너뛰기 링크, 영문 제목 언어, 새 색 대비 확인. 모션 감소는 코드와 배포 CSS 규칙 검토; OS 설정 전환·스크린리더·200% 확대 미검증 |
-| 이미지 누락·실패 대체 화면 | 확인 | 임시 React fixture에서 미설정 → 정상 → 오류 → 정상 → 미설정 전환. 검증 후 fixture 삭제 |
-| 상대 경로 배포·링크·네트워크 | 확인 범위 아래 참조 | 루트/하위 경로 HTML·JS·CSS·favicon 200, 하위 경로 앵커 유지. 원격 정적 자산 참조 없음; 네트워크 throttling 미실행 |
+| 콘텐츠와 구현 상태 표현 | 확인 | 2026-10-05 설계·구상 문구와 콘셉트 캡션·증거 부족 상태를 화면에서 확인 |
+| 반응형 화면 6개 폭 | 확인 | 2026-10-05 여섯 폭 DOM 측정상 가로 넘침 없음. 390·1440 px Hero 시각 확인 |
+| 키보드·접근성·모션 | 부분 확인 | 2026-10-05 모바일 메뉴 Enter/Escape, 링크 이동, H1 및 내부 링크 확인. OS 모션 감소 전환·스크린리더·200% 확대 미검증 |
+| 이미지 누락·실패 대체 화면 | 확인 | 2026-10-05 Hero 및 홈의 두 장치 파일 실패·실루엣 대체·자산 복구 확인 |
+| 상대 경로 배포·링크·네트워크 | 부분 확인 | 2026-10-05 빌드 미리보기에서 홈페이지↔`/expo/` 이동과 콘솔 0개. 공개 하위 경로 배포와 네트워크 throttling 미실행 |
 | `npm run lint` | 통과 | ESLint, 경고 0, 종료 코드 0 |
 | `npm run typecheck` | 통과 | `tsc -b`, 종료 코드 0 |
 | `npm run build` | 통과 | TypeScript + Vite 프로덕션 빌드, 종료 코드 0 |
@@ -33,7 +228,7 @@
 - [ ] 프로젝트 명칭, 목적, 두 디바이스의 역할이 `docs/product.md`의 확인된 사실과 일치한다.
 - [ ] 구현 예정인 체험 흐름과 이미 구현된 기능을 구별한다. 초기 소개 문구가 구현 완료의 근거로 사용되지 않는다.
 - [ ] 사용자 수, 인식률, 지연 시간, 수상 실적, 제휴, 사용성 실험 결과 등을 근거 없이 주장하지 않는다.
-- [ ] 등록 → ID/NFC 연결 → Smart Mirror → 인식 → 음성·화면 상호작용 → 개인화의 의도된 순서가 명확하다.
+- [ ] 사원 등록/NFC → 스마트 미러 역할극 → AI 분석 → 4-Fit 피드백 → 결과 확인 → 재도전의 의도된 순서가 명확하다.
 - [ ] 확인되지 않은 기능은 목표·설계 방향으로 설명하고 내부 TODO를 확인된 사실로 바꾸지 않는다.
 - [ ] 대외 문구가 `docs/content.md`와 일치하며 한국어가 주 언어로 유지된다.
 - [ ] 정확한 하드웨어 모델은 기술 상세에서 확인할 수 있고 방문자 소개를 압도하지 않는다.
@@ -203,3 +398,164 @@ npm run build
 - 실행 확인: `npm run dev -- --host 127.0.0.1`에서 Vite가 `http://127.0.0.1:5174/`로 ready 상태가 되는 것을 확인한 후 서버를 종료했다.
 - 명령: `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 종료 코드 0.
 - 제한: 샌드박스 내부 `curl`은 별도 권한으로 실행된 로컬 서버에 연결할 수 없어 HTTP 응답 검사는 수행하지 않았다. Vite의 정상 기동 로그와 빌드 결과를 확인했다.
+
+## 2026-09-22 — 제공 이미지 적용
+
+- 밝은 미러(hero), 어두운 미러(detail), 키오스크 이미지를 로컬 WebP로 적용했다. 세 파일 모두 1122×1402이며 총 약 148 KiB다. 콘셉트 캡션과 기존 로드 실패 실루엣을 유지했다.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 통과.
+- 개발 서버 5174에서 세 이미지의 complete/naturalWidth를 확인했다. 모두 원본 크기로 정상 로드되며 hero는 eager, 상세는 lazy 설정을 유지한다.
+- 360/390/768/1024/1280/1440 px에서 문서 가로 넘침이 없고 이미지가 contain 및 원본 비율로 배치됨을 확인했다. 데스크톱 디바이스와 모바일 Hero 스크린샷을 확인했다.
+- 이번 변경에서 이미지 실패 주입, 키보드 전체 순회, OS 모션 감소 전환, 실제 기기 및 배포 검증은 다시 수행하지 않았다.
+
+
+## 2026-09-22 — 제품 중심 재구성 및 글래스 아이콘
+
+- 구성: 밝은 Hero → 짧은 소개 → 어두운 미러 → 밝은 키오스크 → 글래스 아이콘 3개와 체험 안내 → 시스템·기술 상세 → 프로젝트 마감. 원래 6단계와 하드웨어 정보는 native details로 유지했다. 문구·디자인·구조·결정 문서를 함께 갱신했다.
+- 자체 SVG: 사원증, 미러, 음성 3종. 추가 의존성 없이 gradient, 반투명 면, 윤곽과 drop-shadow로 표현하며 React useId로 정의 ID를 분리한다.
+- 최종 명령: `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 종료 코드 0. 47 modules, 프로덕션 JS 약 245 kB / gzip 76 kB, CSS 약 27 kB / gzip 6.5 kB.
+- 프로덕션 4175에서 360/390/768/1024/1280/1440×900을 DOM 측정했다. 체험 6단계·하드웨어·첫 기술 상세가 펼쳐진 상태에서도 문서 가로 넘침 0. 세 제품 이미지는 모두 naturalWidth 1122로 정상 로드. 닫힌 상태의 같은 6개 폭도 확인했다.
+- 시각 확인: 데스크톱 Hero, Smart Mirror, Kiosk, Experience 및 390×844/360×800 모바일 Hero·체험 상세를 관찰했다. 좁은 폭에서 CTA 줄바꿈과 상세 단계 번호가 세로로 분리되는 문제를 수정했다.
+- 상호작용: 모바일 메뉴 Enter 열기, Escape 닫기 및 버튼 포커스 복귀, 링크 선택 후 닫기 확인. 체험/하드웨어/기술 summary 자체에 Enter를 보내 펼침을 확인했다. summary 안의 일반 span에 Enter를 보내는 검증은 동작하지 않으므로 올바른 조작 대상으로 재확인했다.
+- 접근성: 건너뛰기 링크 Enter 후 main-content 포커스, H1 1개, DOM ID 중복 0, 누락된 내부 링크 대상 0. 주요 색 대비는 흰 CTA 글자/파랑 5.47:1, 본문/연회색 5.23:1, 큰 회색 제목/연회색 4.12:1, 어두운 제품 섹션 본문 9.56:1이다. 작은 단계 번호는 더 어두운 #676B73을 사용한다.
+- 이미지 대체: 임시 React fixture에서 정상 → 실패 → 정상 → 미설정을 확인했다. 오류 상태에 깨진 img 0개, 접근 가능한 실루엣 표시, 지정된 1122/1402 비율 유지. 정상 소스로 복구 후 naturalWidth 1122. fixture는 제거했다.
+- 콘솔: 편집 중 파일 저장 순서로 발생한 일시적인 HMR import 오류가 있었다. 소스 저장과 재로드 후 새 프로덕션 탭에서 warning/error 0개를 확인했다.
+- 모션 감소: 기존 CSS의 animation/transition/smooth-scroll 해제 및 reveal opacity 1, JS의 matchMedia·미지원·예외 처리를 코드 확인했다. 실제 OS 설정은 reduce=false였으며 설정 전환이나 강제 에뮬레이션은 하지 않았다.
+- 미검증: 실제 모바일 Safari/Android, 스크린리더, 200% 확대, 실제 OS 모션 감소 전환 및 공개 배포. 이번 변경에서는 저장소 하위 경로 호스팅을 다시 검사하지 않았다. 기본 relative base는 유지했다.
+
+## 2026-09-22 — 4-Fit MirrorTing 제품명 반영
+
+- 변경: 공개 제품명을 CarpeDM에서 `4-Fit MirrorTing`으로 변경했다. 화면 본문, 헤더·푸터 접근성 이름, 브라우저 제목, 검색·공유 설명과 제품·문구·디자인 문서를 함께 갱신했다.
+- 안정성: 기존 저장소 경로, npm 패키지 식별자와 과거 하위 경로 검증 기록은 변경하지 않았다.
+- 명령: `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check` 종료 코드 0. Vite 빌드는 47 modules transformed로 완료했다.
+- 반응형: Chrome DevTools Protocol의 정확한 viewport emulation으로 360, 390, 768, 1024, 1280, 1440 px를 측정했다. 모든 폭에서 문서 `scrollWidth`와 viewport width가 같아 가로 넘침이 없었다.
+- 시각 확인: 360 px Hero에서 헤더·Hero 제품명이 잘리지 않고, 마감 영역의 `4-Fit` / `MirrorTing.` 두 줄과 모바일 푸터가 정상 배치됨을 확인했다. 1440 px Hero에서도 헤더, 내비게이션, 제품명 배치가 겹치지 않았다.
+- 제한: 이번 명칭 변경에서는 실제 모바일 기기, 스크린리더, 200% 확대와 공개 배포 환경을 다시 확인하지 않았다.
+
+## 2026-10-05 — 공식 CAD 기반 스크롤 조립
+
+- 변경: System 페이지에 카메라·마이크·화면·거울·받침대가 스크롤에 따라 결합하는 3D 장면을 적용했다. Azure Kinect DK와 ReSpeaker XVF3800은 제조사 STEP에서 변환한 로컬 GLB이며, 프레임·받침대·장착 위치는 실제 도면이 없는 배치 콘셉트다. 제조사 사양·출처는 기존 하드웨어 details에 추가했다. 다른 페이지의 기존 사용자 작업은 보존했다.
+- 환경: macOS, Node 24, Codex 내장 브라우저. 개발 서버 5174와 같은 저장소의 프로덕션 미리보기 4175를 사용했다. 실제 모바일 기기 검사와 공개 배포는 수행하지 않았다.
+- 명령: `npm run lint`, `npm run typecheck`, `npm run build`, `node tests/hardware-motion.mjs`, `git diff --check` 성공. 모션 테스트는 진행도 상·하한, 연속 결합, 완료 시 위치 비율과 세 장면 경계를 확인했다.
+- 빌드: 70 modules. 기본 JS 약 270 kB / gzip 83 kB, 지연 로드 scene 약 621 kB / gzip 157 kB. Three.js를 포함한 scene의 500 kB 초과 경고가 남는다. 경고 한도를 숨기지 않았으며 System 섹션이 접근할 때만 로드한다. GLB는 약 810 / 1854 KiB다.
+- 반응형: 360×844, 390×844, 768×900, 1024×900, 1280×900, 1440×900에서 분해·중간·완성의 18개 상태를 DOM 측정했다. 진행도 0 / 0.5 / 1과 장면 0 / 1 / 2가 일치하고 가로 넘침이 없었다. 1440 px 데스크톱과 390 px 모바일의 실제 장면, 프로덕션의 768×900 중간 장면·360×844 분해 장면·1280×720 분해/완성 장면을 시각 확인했다. 360 px에서 하드웨어 details가 펼쳐진 상태도 가로 넘침이 없었다.
+- 프로덕션: 새 탭에서 카메라·마이크 모델과 반사면이 렌더링됨을 확인했다. 첫 장면에서 완료까지 네이티브 스크롤로 결합하고, 되돌아가면 다시 분리된다. 정상 페이지 console warn/error 0개. 초기 편집 중의 폐기된 shadow 설정 경고는 현재 PCFShadowMap 설정으로 수정했다.
+- 키보드: `구성도 바로 보기`에 Enter를 보내 `#system`과 해당 섹션 포커스로 이동했다. 하드웨어 summary는 Enter로 열고 닫혔으며 3개 제조사 출처가 표시됐다. 본문 건너뛰기에 Enter를 보내 main-content 포커스를 확인했다. H1 1개, 중복 ID 0개, 누락된 페이지 내부 해시 대상 0개였다.
+- 실패 대체: 카메라 GLB를 임시로 치워 fetch 실패를 주입했다. 기존 로컬 콘셉트 이미지가 naturalWidth 1122로 표시되고, sticky/긴 스크롤/스크롤 힌트가 제거되는 것을 확인했다. 원본 GLB를 복구했고 정상 프로덕션 검사를 다시 수행했다. 의도적인 실패 로그는 정상 오류 집계에서 제외한다. WebGL 자체 사용 불가와 GPU context loss는 직접 주입하지 않았다.
+- 모션 감소: 임시 소스 fixture에서 JS matchMedia 조건과 CSS media 조건을 모두 `screen`으로 바꿔 reduce 분기를 강제로 실행했다. 진행도 1, 장면 2, relative 위치와 약 700 px의 일반 섹션 높이를 확인한 뒤 원본 소스를 복원했다. 실제 OS 모션 감소 설정 전환을 검증한 것은 아니다.
+- 원본/권리: 공식 CAD 출처, 수정 내용, Microsoft MIT 원문과 Seeed 출처·라이선스를 `public/models/`에 함께 저장했다. GLB는 외부 텍스처·URL 없이 로컬로 로드한다. 첫 장면의 센서 확대와 조립 배치 콘셉트를 지속 캡션으로 안내하며, 모델은 하드웨어 연동이나 실제 완성 제품의 증거로 쓰지 않는다.
+- 남은 확인: 실제 완성 장치의 사진·치수·설치 위치, 실제 모바일 Safari/Android 및 GPU 성능, 스크린리더, 200% 확대, OS 모션 감소 설정 변경, 느린 망과 저장소 하위 경로의 실제 호스팅. 기존 상대 경로 규칙을 사용했으나 이번 변경에서 공개 호스팅을 검사하거나 commit/push하지 않았다.
+
+## 2026-10-05 — 도안 기반 AI 생성 제품 이미지 적용 (초기 이미지 구현)
+
+- 변경: 사용자가 제공한 9개의 1페이지 PDF를 모두 렌더링해 관찰했다. 넓은 캐스터 베이스, 상단 중앙 카메라와 좌측 마이크, 측면 NFC, 하단 두 스피커, 후면 PC BOX 구조를 반영한 AI 생성 3D 이미지 6개를 적용했다. 이전 CAD canvas는 이미지 레이어와 네이티브 CSS 스크롤 조립으로 대체했다. 카메라 및 마이크·스피커 확대 이미지는 별도 설명 섹션에 배치했다.
+- 표현 범위: 도안의 형상·배치를 참고하며 그래파이트·플래티넘 마감과 반사는 표현용이다. 모든 이미지에 AI 생성 콘셉트임을 안내한다. 실제 촬영 사진, 치수 인증 CAD, 완성·장치 연동의 증거로 표시하지 않는다. 생성 레이어의 정렬은 근사값이고 끝 구간에서 완성 이미지로 전환한다.
+- 파일: 선택된 투명 PNG 6개는 `output/hardware-renders/`, 런타임 WebP는 `public/media/hardware/`에 저장했다. 원본 PDF는 공개 폴더에 복사하지 않았다. 이전 제조사 CAD와 라이선스는 `output/hardware-cad/`로 보존했으며 웹 빌드에는 포함되지 않는다. 프롬프트는 `docs/hardware-render-prompts.md`에 기록했다.
+- 명령: `npm run lint`, `npm run typecheck`, `npm run build`, `node tests/hardware-motion.mjs`, `git diff --check` 성공. 모션 체크는 진행도 경계, 단조 증가, 장면 경계와 완성 이미지 전환 시점을 검증한다.
+- 빌드: 61 modules, 기본 JS 271.99 kB / gzip 82.86 kB, CSS 49.91 kB / gzip 10.54 kB. Three.js 의존성과 scene 청크를 제거했으며 500 kB 초과 경고가 없다. WebP 6개 합계 약 542 KiB, 조립 이미지 4개 약 260 KiB다.
+- 반응형: 개발 브라우저에서 360×844, 390×844, 768×900, 1024×900, 1280×900, 1440×900의 분해·중간·완성 18개 상태를 DOM 측정했다. 진행도 0 / 0.5 / 1과 장면 0 / 1 / 2를 확인했고 가로 넘침은 없었다. 프로덕션의 확대 이미지 섹션도 같은 6개 폭에서 넘침 없이 정상 로드되며, 360/390 px는 1열, 768 px 이상은 2열이다.
+- 시각 관찰: 360 px 분해 장면과 카메라 이미지, 기본 앱 패널 폭의 완성 장면, 데스크톱 분해 장면, 1024 px 확대 이미지 섹션을 관찰했다. 새 프로덕션 탭에서 1280×900 완성 장면과 카메라·오디오 확대 섹션을 다시 확인했다. 스크롤 직후 캡처는 직전 페인트가 남을 수 있어 다음 캡처에서 완료된 화면을 확인하고 최종 스크린샷을 저장했다.
+- 프로덕션: 같은 저장소의 4175 미리보기에서 조립 이미지 4개 naturalWidth 1086, 확대 이미지 2개 naturalWidth 1448을 확인했다. 새 정상 탭 console warn/error 0개. H1 1개, 중복 ID 0개, 누락된 내부 해시 대상 0개다. 키보드 Enter로 `시스템 구성 보기`를 실행하면 `#system`과 섹션 포커스로 이동한다. 하드웨어 summary는 Enter로 열고 닫히며 제조사 출처 3개가 표시된다. `본문으로 건너뛰기`는 main-content에 포커스를 옮긴다.
+- 이미지 실패: 분리 이미지 하나를 임시로 치우고 새로고침해 완성 이미지 대체를 확인했다. 실패 상태에서는 레이어 0개, 정적 모드·relative 위치·720 px 일반 섹션, 정상 완성 이미지가 표시된다. 완성 이미지 자체의 실패에서는 기존 ProductFrame 실루엣으로 대체되며 깨진 img가 없다. 오디오 확대 이미지 실패에서도 깨진 img 없이 안내 문구가 표시되고 카메라 이미지는 유지됐다. 임시 파일 이동은 모두 복원했으며 정상 프로덕션 검사를 다시 수행했다. 의도적인 실패 로그는 정상 오류 집계에서 제외한다.
+- 모션 감소: TSX와 CSS의 reduce 조건을 잠시 `screen`으로 바꿔 분기를 실행하는 fixture로 검증했다. 390×844에서 진행도 1, 장면 2, relative 위치, 740 px 일반 섹션, 완성 이미지 opacity 1, 레이어 display none과 넘침 0을 확인했다. 원본 파일을 복원했다. 실제 운영체제 설정을 바꾼 검증은 아니다.
+- 미검증: 실제 모바일 Safari/Android, 스크린리더, 200% 확대, 실제 OS 모션 감소 전환, 저속망과 공개 호스팅. 생성 이미지의 미세 형상과 재질은 실물 대조가 필요하다. 하드웨어 기능 검증·공개 배포·commit/push는 수행하지 않았다.
+
+## 2026-10-05 — 카메라·오디오 분해 조립과 장비 강점 (기능 추가 시점)
+
+- 요청/변경: 정적인 확대 이미지 두 장을 카메라와 오디오의 독립적인 스크롤 조립 장면으로 바꿨다. 카메라 외장/센서 코어/광학 전면부, 오디오 하우징/마이크 보드·두 스피커 유닛/음향 그릴을 표현하는 투명 3D 이미지 6개를 추가 생성했다. 기존 카메라·오디오 완성 이미지와 미러 조립은 유지한다. 내부 기판·센서 캐리어·스피커 유닛의 형상은 설명용 AI 콘셉트로 명시한다.
+- 강점/근거: Microsoft의 현재 공식 Kinect 페이지에서 12 MP RGB와 1 MP ToF 깊이 입력을, Seeed 공식 XVF3800 문서에서 4개의 마이크와 빔포밍·에코 제거·소음 억제를 다시 확인했다. 현재 단계의 설명은 짙은 선과 제목 굵기로 강조하고 세 설명 모두 항상 읽을 수 있다. 성능 측정, 실제 기능 활성화나 프로젝트 연동 완료로 표시하지 않는다. 정확한 모델명은 기존 기술 상세에 남겼다.
+- 범위: `HardwareDetailAssembly.tsx`와 `useAssemblyScroll.ts`를 추가하고 기존 HardwareAssembly/CSS, motion, Node 체크, Microsoft 출처와 관련 문서를 갱신했다. 이미지 PNG는 `output/hardware-renders/`, WebP는 `public/media/hardware/`, 실제 프롬프트는 `docs/hardware-render-prompts.md`에 저장했다. 새 런타임 의존성·장치 접근·외부 API는 없다. 이전 미저장 사용자 작업은 보존했다.
+- 명령/빌드: `npm run lint`, `npm run typecheck`, `npm run build`, `node tests/hardware-motion.mjs`, `git diff --check` 성공. 최종 빌드는 63 modules, JS 275.44 kB / gzip 83.70 kB, CSS 54.25 kB / gzip 11.33 kB이며 청크 크기 경고가 없다. WebP 12개 합계 약 1.18 MiB다. 추가 6개는 모두 1448×1086 RGBA, 알파 범위 0–255를 확인했다.
+- 최종 프로덕션 반응형: 4175의 새 정상 탭에서 360×844, 390×844, 768×900, 1024×900, 1280×900, 1440×900 × 미러/카메라/오디오 × 분해/중간/완성, 총 54개 상태를 검사했다. 진행도 0 / 0.5 / 1과 장면 0 / 1 / 2가 일치한다. 가로 넘침 0, 필요한 이미지 모두 로드, aria-busy=false이며 센서 두 장면의 강조 행도 장면 번호와 일치한다. 앞선 개발 검사에서 같은 54개 상태와 강조 보정 뒤 36개 센서 상태를 확인했다.
+- 시각 확인: 1280×900 카메라 분해와 결합 직전, 오디오 결합 직전, 360×844 오디오 분해를 직접 관찰했다. 카메라 광학부의 크기/위치를 맞추고 코어가 외장 내부로 들어가도록 깊이 순서와 크기를 보정했다. 생성 레이어 정렬은 여전히 근사값이며 마지막 구간의 완성 이미지 전환을 유지한다. 최종 빌드 캡처는 `docs/screenshots/hardware-camera-exploded-1280.jpg`, `docs/screenshots/hardware-audio-exploded-360.jpg`에 저장했다.
+- 키보드/구조: Enter로 카메라의 `오디오 살펴보기` → audio-assembly 포커스, 오디오의 `시스템 구성 보기` → system 포커스를 확인했다. 사양 링크는 #hardware-details로 이동하며 summary를 Enter로 열고 닫을 수 있고 공식 출처 3개를 표시한다. 본문 건너뛰기는 main-content에 포커스를 옮긴다. H1 1개, 중복 ID 0개, 누락된 내부 해시 대상 0개다. 모든 강점 제목/설명은 접근성 트리에 포함된다. 정상 프로덕션 console warn/error 0개.
+- 실패 대체: 카메라 코어 WebP를 임시 이동하고 새로고침해 정적 완성 카메라(naturalWidth 1448), relative 위치, 820 px 일반 높이와 분리 이미지 0개를 확인했다. 카메라와 오디오 완성 이미지를 각각 임시 이동해 해당 장비의 명명된 실루엣과 깨진 이미지 0개를 확인했다. 실패하지 않은 두 장면은 scroll 모드를 유지했다. 공유 준비 상태 수정 후 카메라 코어와 오디오 완성 실패를 다시 확인했으며 aria-busy=false다. 모든 원본 파일을 복구했다.
+- 모션 감소: hook과 CSS의 reduce 조건을 잠시 screen으로 바꿔 실제 분기를 실행하는 소스 fixture로 검사했다. 처음에는 오디오 완성 이미지만 보이고 숨겨진 lazy 레이어 3개를 기다려 render=loading/aria-busy=true가 남았다. 공유 hook에서 네이티브 이미지 load를 감지하고, 정적 모드는 완성 이미지만 준비되면 ready로 판단하도록 수정했다. 기존 작은 Node 체크에 이 실패의 회귀 조건과 정상 스크롤/실패 우선순위를 추가했다.
+- 수정 후 같은 fixture의 390×844에서 세 장면 모두 progress=1, phase=2, relative 위치, 완성 이미지 opacity=1, 레이어 display=none, render=ready, aria-busy=false, 가로 넘침 0을 확인했다. 미러 높이는 740 px, 카메라/오디오는 각각 800 px다. 특히 오디오 레이어 naturalWidth가 모두 0인 상태에서도 완성 이미지 1448로 준비가 끝나며 세 설명은 보인다. fixture 원본을 복원했고 정상 빌드 검사 54개 상태를 다시 수행했다. 실제 OS 모션 설정 전환은 수행하지 않았다.
+- 남은 확인: 실제 모바일 Safari/Android, 스크린리더, 200% 확대, 실제 OS 모션 감소 변경, 저속망 및 공개 호스팅. 내부 형상은 실물 내부 사진 또는 제조사 분해 자료가 확보되면 보정할 수 있다. 공개 배포·commit/push·하드웨어 검증은 수행하지 않았다.
+
+## 2026-10-05 — 조립 순서와 완성 이미지 정렬 보정 (현재 구현)
+
+- 원인: 내부 부품(.12–.75)과 앞면(.20–.86)이 동시에 움직였고, 기존 균등 장면 전환은 결합이 끝나기 전에 완성 단계로 넘어갔다. 카메라·오디오 코어가 불투명한 빈 하우징 뒤에 놓여 장착 전에 가려졌으며, 부품의 크기 변화와 다른 기준면이 완성 이미지 전환의 차이를 키웠다.
+- 수정: 후면/하우징을 기준으로 고정하고 내부 부품(.10–.40) → 앞면(.44–.76) → 완성 이미지(.84–.94) 순으로 나눴다. 마지막 6%는 완성 상태를 유지한다. 장면 경계는 .44/.84이며 미러 단계 문구도 후면 구조와 화면 → 미러 프레임 결합 → 하나의 스마트 미러로 맞췄다. 모든 레이어와 완성 이미지는 같은 원본 비율의 중앙 기준면을 사용하고 조립 중 크기는 유지한다. 센서 겹침 순서는 하우징 0 / 코어 1 / 앞면 2다. 오디오의 마이크·왼쪽 스피커·오른쪽 스피커는 기존 이미지를 클리핑한 영역으로 각각 정렬한다. 새 이미지·영상·런타임 의존성은 없다.
+- 명령: 최종 `npm run lint`, `npm run typecheck`, `npm run build`, `node tests/hardware-motion.mjs`, `git diff --check` 통과. 빌드 63 modules, JS 275.77 kB / gzip 83.81 kB, CSS 55.61 kB / gzip 11.69 kB, 청크 경고 없음. Node 체크는 1,001개 진행점에서 앞면이 내부 결합을 추월하지 않는지와 완성 전환의 순서, 장면 경계, 완성 유지, 기존 로딩/정적 분기를 검증한다.
+- 최종 프로덕션: 실제 innerWidth/innerHeight를 대조한 360×844, 390×844, 768×900, 1024×900, 1280×900, 1440×900에서 미러/카메라/오디오 × 진행도 0/.42/.60/.82/1, 총 90개 상태를 검사했다. 가로 넘침 0, aria-busy=false, 모든 필요한 이미지 로드, 장면 번호와 강조 행 일치, 단계별 움직임/완성 전환/센서 z-index 일치를 확인했다. 같은 폭·장면에서 기준면 크기는 모든 진행점에 걸쳐 일정하다. 오디오가 8개의 장식 이미지 노드를 사용해도 고유 이미지 URL은 네 개다. 정상 프로덕션 console warn/error 0개다.
+- 시각 확인: 1280×900 카메라 분해와 미러/오디오 .82 결합 직전, 미러 완성, 실제 360×844 오디오 분해를 직접 관찰했다. 미러의 전면 크기·위치와 최종 렌더를 맞춰 완료 직전의 큰 점프를 줄였다. 처음 모바일 캡처가 다른 데스크톱 탭에서 찍혀 대상을 바로잡았고, 모든 너비를 명시적으로 대조해 최종 검사를 다시 수행했다. 정확한 캡처는 `docs/screenshots/hardware-sequence-camera-1280.jpg`, `docs/screenshots/hardware-sequence-audio-360.jpg`다.
+- 키보드/문서 구조: Enter로 카메라→오디오와 오디오→시스템 앵커 이동 및 대상 포커스, #hardware-details 이동과 summary 열기/닫기, 본문 건너뛰기→main-content 포커스를 확인했다. 사양 상세 출처 3개, H1 1개, 중복 ID/누락된 해시 대상 0개다.
+- 모션 감소: hook/CSS의 reduce 조건을 잠시 screen으로 바꾼 소스 fixture에서 390×844의 세 장면 모두 정적 완성, progress=1, relative 위치, aria-busy=false, 레이어 display=none, 완성 이미지 opacity=1, 넘침 0을 확인했다. 미러 높이 740 px, 센서 각각 800 px. 원본 조건을 finally로 복원했고 정상 소스에서 최종 빌드를 수행했다. 실제 OS 설정 전환은 수행하지 않았다.
+- 실패 대체: 소스 이미지 대신 빌드된 dist 이미지 복사본만 일시 이동했다. 미러 display, 카메라 core, 오디오 core 실패는 정적 완성 이미지로 전환했다. 세 완성 이미지 실패는 각 장비 실루엣으로 전환했다. 여섯 경우 모두 레이어/깨진 이미지 0, aria-busy=false, 일반 높이(미러 720 px / 센서 820 px), 넘침 0이며 나머지 두 장면은 scroll 모드다. 모든 빌드 이미지도 finally로 복구했다. 404는 이 실패 fixture에서만 의도적으로 발생했다.
+- 범위/한계: 나머지 사용자 작업은 보존했다. 독립 생성 이미지의 투시·재질 차이는 정렬 근사와 그릴 장착 시 코어 가림으로 처리한다. 같은 카메라에서 만든 정확한 CGI 패스로 보완할 수 있으며 현재 표현을 실제 제조사 조립 절차로 주장하지 않는다. 실제 모바일 Safari/Android, 스크린리더, 200% 확대, OS 모션 설정 변경, 저속망, 공개 배포와 실물 장치 검증은 미수행이다. commit/push/영상 생성은 수행하지 않았다.
+
+## 2026-10-05 — 전체 상세 페이지 완성도 보강 (현재 구현)
+
+- 범위: App 상세 목차/구성, FourFit 및 전용 CSS, UseCases 및 전용 CSS, 신규 TeamStory/CSS, ExperienceFlow/CSS, SmartMirror·IdKiosk/products.css, Closing 포커스, ProductFrame/CSS, media 레지스트리, Evidence 문구, pages.css, 3개 상세 HTML 메타데이터, README/제품·디자인·문구·구조·결정 문서, 작은 빌드 체크를 수정했다. 기존 미저장 작업을 보존했고 commit/push/공개 배포는 하지 않았다.
+- 내용: 4-Fit 관점별 관찰점과 직접 작성한 답변 비교/재연습, 활용의 네 상황/대상별 맥락/확장 구분, 팀의 제작 관점/자료 구분을 추가했다. 홈페이지는 압축 설명을 유지한다. 서비스 장치는 키오스크→미러 순서이며 모바일은 제목·설명→제품 이미지→역할·범위 순서다. Home/Service/Team이 System과 같은 완성 미러를 재사용한다. Hero/키오스크 콘셉트는 유지한다. 새 이미지 생성·API·런타임 의존성·하드웨어 기능은 없다.
+- 정적 감사: 별도 읽기 전용 소스/SSR 점검에서 6개 페이지 H1 1개씩, 중복 ID/누락 hash/ARIA 참조/미디어 없음, 페이지 간 링크 108개 목적지 존재를 확인했다. 발견한 팀 #team 포커스 불가와 미러 02→키오스크 01 순서를 수정했다.
+- 명령: 최종 npm run lint, npm run typecheck(빌드에서도 실행), npm run build, node tests/site-build.mjs, node tests/hardware-motion.mjs, git diff --check 통과. 빌드 67 modules, JS 293.49 kB / gzip 87.39 kB, CSS 70.34 kB / gzip 13.85 kB. 청크 크기 경고 없음. 빌드 체크는 실제 dist의 7개 HTML/상대 자산/서로 다른 상세 제목/한국어 언어/description/필수 미디어를 확인한다.
+- 최종 반응형: 4175 프로덕션에서 실제 innerWidth/innerHeight를 대조한 360×844, 390×844, 768×900, 1024×900, 1280×900, 1440×900 × Home/Service/FourFit/System/Uses/Team/Expo 총 42개 화면. 가로 넘침 0, H1 1개, 중복 ID 0, 누락된 동일 페이지 hash 대상 0. Expo는 Home과 동일 콘텐츠다.
+- 이미지/연결: 1280×900에서 7페이지를 실제 스크롤해 lazy 미디어를 노출했다. 깨진 이미지/넘침 없음. 브라우저 DOM에서 수집한 고유 내부 링크 41개는 페이지/fragment 목적지가 모두 존재한다. System 세 조립은 scroll/ready/aria-busy=false다. 정상 프로덕션 console warn/error 0개.
+- 조립 회귀: 새 App 목차와 레이아웃에서도 360×844와 1440×900 × 미러/카메라/오디오 × 분해/중간/완성 총 18개 상태의 실제 진행도, 단계, 준비 상태, aria-busy=false, 넘침 0을 확인했다. 기존 순서 Node 체크도 통과했다. 순서 함수와 레이어 파일은 변경하지 않았다.
+- 키보드: 390에서 FourFit ArrowRight/End/Home/ArrowLeft의 선택·포커스·유일한 가시 패널·관점별 관찰점 일치를 확인했다. 대화 예시 목차→#fit-practice 포커스, 활용의 답변 details 4개 Enter 열기/닫기, 모바일 메뉴 Enter/Escape 복귀와 서비스 링크 이동/메뉴 닫힘, 서비스 4개 상황 선택, 본문 건너뛰기→main-content, 팀 incoming #team 포커스를 확인했다.
+- 모션 감소: dist JS/CSS 복사본의 reduce 조건을 일시 screen으로 바꾼 fixture를 사용했다. 390에서 7페이지 넘침 0, 전환 0s, 콘텐츠 가시성을 확인했다. System 세 장면은 static/relative/완성/ready/busy=false였다. 처음에는 노출되지 않은 audio lazy 완성 이미지를 바로 기다려 timeout이 났다. 실제로 섹션을 스크롤해 노출한 후 정상 준비를 확인했다. 최종 모바일 장치 배치 변경 후 Service/System을 다시 검사해 모든 Reveal opacity 1과 위 조건을 확인했다. 모든 빌드 복사본은 finally로 복원했고 소스는 수정하지 않았다. 실제 OS 모션 설정 전환은 미수행.
+- 이미지 실패: dist의 완성 미러 복사본만 임시 제거해 Home(두 군데)/Service/Team/System의 실루엣을 확인했다. System은 fallback/busy=false, 나머지도 깨진 img/넘침 0. Kiosk 복사본 실패는 Home/Service 실루엣으로 복구했다. 최종 모바일 배치의 Service에서도 미러 실루엣과 제목→이미지→역할 순서를 재확인했다. 모든 이미지 복사본은 finally로 복원했다. 404는 의도적인 실패 fixture에서만 발생했다.
+- 시각 확인/증거: 1440 제작팀/4-Fit 관찰 패널/활용 상황, 360 서비스 미러, 390 4-Fit 대화 비교를 직접 관찰했다. 모바일 제품 이미지를 역할 설명 뒤에 두던 문제를 발견해 이미지가 먼저 나타나도록 수정했다. 캡처: team-story-1440.jpg, four-fit-detail-1440.jpg, use-scenarios-1440.jpg, service-mirror-360.jpg, service-mirror-1440.jpg, four-fit-practice-390.jpg (docs/screenshots).
+- 미리보기 복구: 검사 중 기존 5174/4175 서버 종료를 확인했다. 포트가 비어 있음을 확인하고 로컬 실행을 재시작했다. 오래된 오류 탭은 탐색에 실패했으나 새 정상 탭에서 같은 로컬 페이지와 최종 fixture 검증을 완료했다. 서버 중단은 빌드 오류로 기록하지 않는다.
+- 한계: 실제 모바일 Safari/Android, 스크린리더, 200% 브라우저 확대, 실제 OS 모션 설정 변경, 저속망, 공개 호스팅은 미검증. 실물 장치/AI 분석/성능·학습 효과는 이 정적 사이트에서 검증하지 않는다. 완성 하드웨어 사진, 체험 영상, 실제 분석 결과와 팀원 소개 자료가 필요하다. 수상이나 심사 결과를 보장하지 않는다.
+
+
+## 운영 대시보드 진입 연결 · 2026-10-05
+
+- 데스크톱과 390px 모바일 메뉴에서 `운영 데모`를 클릭해 별도 대시보드의 4174 포트가 새 탭으로 열리는 것을 확인했다. 대시보드의 `서비스 소개`는 개발 중 5174로 복귀한다.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `node tests/site-build.mjs`, `node tests/dashboard-url.mjs`, `git diff --check` 통과.
+- 공개 배포 URL은 아직 설정하지 않았다. 배포 빌드에서 `VITE_DASHBOARD_URL`이 비어 있으면 링크를 숨긴다. 공개 배포 후 URL을 설정하고 원격 주소에서 확인해야 한다.
+- 대시보드는 고정 예시 데이터로 동작하는 별도 저장소의 공개 체험이다. 이 microsite가 운영 데이터·프린터·NFC를 제어한다는 의미가 아니다.
+
+
+## 2026-10-05 — System specificity and judging-evidence audit (current implementation)
+
+- Findings: the approved 3D assemblies and sourced component specifications were concrete, but the architecture repeated device names, technology disclosures were generic, and the evidence inventory did not show material-by-material limits. No award outcome is inferred from website quality.
+- Changes: four intended visitor phases; explicit context/audio/color/depth → Response/Voice/Expression/Posture reflection rows; more concrete two-device roles; drawing placement and dimensions within hardware details; five evidence rows; seven technologies with input/configuration, intended role and verification boundary. Operations reuses the existing independent fixed-example demo destination instead of implying an automatic final visitor stage. Rename unsupported equipment-selection rationale to manufacturer specifications and design role. Preserve all approved renders, motion and unrelated dashboard work.
+- Files: src/sections/SystemArchitecture/SystemArchitecture.tsx and .css; src/sections/Evidence.tsx; src/data/technologies.ts; src/sections/Technology/Technology.tsx and .css; src/styles/story.css; README; docs/product.md, design.md, content.md, architecture.md, decisions.md and this QA record. Four screenshots were added. No dependency, AI generation, hardware access, commit, push or deployment.
+- Commands: npm run lint, npm run typecheck, npm run build, node tests/site-build.mjs, node tests/hardware-motion.mjs and node tests/dashboard-url.mjs passed. The dashboard check emits Node's existing experimental stripTypeScriptTypes warning, not a test failure. Final build: 67 modules, JS 300.72 kB / gzip 89.21 kB, CSS 72.84 kB / gzip 14.20 kB; no chunk-size warning.
+- Final production layout: actual 360×844, 390×844, 768×900, 1024×900, 1280×900 and 1440×900 on port 4175. All seven technical summaries and the hardware summary opened with Enter at every width. Seven disclosures / 21 fields; four fit rows and five material rows. Horizontal overflow 0, clipped new prose 0, H1 1, duplicate IDs 0 and missing same-page hash targets 0. Three manufacturer sources remain. Final technical-detail padding is 12 px so the summary's keyboard focus outline does not overlap the first row; all six widths were rechecked after that adjustment.
+- Keyboard and links: native source anchor reaches the hardware summary, which Enter opens/closes; no extra hash listener is needed. Enter on the new 4-Fit explanation link reaches the real FourFit page. Skip link focuses main-content. Development evidence action opens the running 4174 operations UI in a separate tab with an explicit fixed-example/no-real-device-control footer. Production with no configured destination has zero evidence demo links. Focus outline is visible on native summaries.
+- Assembly regression: 360×844 and 1440×900 × mirror/camera/audio × progress 0/.5/1, 18 actual states. Progress, phases 0/1/2 and ready/scroll match; aria-busy=false, broken images 0 and horizontal overflow 0. Motion helper and layer geometry were not changed. Normal browser console warn/error 0.
+- Reduced motion: only dist JS/CSS copies were temporarily changed so their reduce conditions matched screen. At 390×844 all three stages became static, relative, progress=1, phase=2, complete opacity=1, layers display=none and aria-busy=false; new fit/material content remained, Reveal opacity=1 and native technical content was readable. Build copies were restored in finally. Actual OS preference switching was not performed. The later 12 px technical spacing change does not modify this branch.
+- Capture failure: temporarily moved only dist/media/workplace-ui-example.jpg. Native scroll exposed the lazy figure; its existing labeled fallback appeared, with all five material rows, broken images 0 and overflow 0. The build copy was restored in finally. Its intentional 404 is separate from the clean normal-console check. Source assets were never removed.
+- Visual evidence: directly inspected desktop input/reflection rows and the full evidence inventory, 390 px stacked inputs and expanded Computer Vision detail. Captures in docs/screenshots: system-inputs-1440.jpg, system-inputs-390.jpg, system-evidence-1440.jpg, system-technology-390.jpg. README links to the two desktop captures. The first technical capture was replaced with the actually expanded final state.
+- Independent audit: another agent found no blocking claim/structure issue and identified one ambiguous depth/body input phrase, corrected to depth video and distance input. A separate Node assert audit matched all seven technology names/roles and 21 detailed sentences to docs/content.md. Product/design/architecture/decision descriptions agree with the implementation.
+- Remaining evidence: actual end-to-end registration/NFC/printing/device linkage, real 4-Fit analysis output, assembled-device photos and an exhibit recording. The static site cannot establish those through design alone. Actual Safari/Android hardware, screen reader, 200% zoom, OS motion preference, low-speed network and public deployment remain unverified. These are separate from the local website checks above.
+
+## 2026-10-05 — 회사 운영 관리 화면 연결
+
+헤더와 자료 공개 영역의 대시보드 링크를 `운영 관리`로 변경하고 샘플 워크스페이스의 범위를 명시했다. 360·390·768·1024·1280·1440px에서 헤더의 링크 목적지와 가로 넘침이 없는 것을 확인했다. 모바일 메뉴에서 새 탭으로 실제 로컬 대시보드(4174)에 진입하는 것을 확인했다. lint·typecheck·build, dashboard-url·site-build 검사와 diff 공백 검사를 통과했다. 대시보드 자체의 회사 기능·18개 테스트·49개 화면 조합 기록은 별도 저장소 `dashboard-app/docs/QA.md`에 있다. 실제 회사 인증·DB·장비 연동 및 공개 배포는 수행하지 않았다.
+
+
+## 2026-10-06 — GNB visual refinement and responsive verification
+
+- Scope: Header.tsx/CSS plus design/content/architecture/decisions and this QA record. Preserve the dirty worktree, user's operations-management wording/destination, deleted logo, footer identity and all page content. No new asset generation, dependency, hardware behavior, commit/push or public deployment.
+- Presentation: larger, less heavy header-only text identity; centered content links; separated utility actions; charcoal compact service button; current-page underline; larger native mobile menu rows with existing Arrow. Keep shared header-height tokens. CSS max1023 / JS min1024 agree. Bound short-view menu height with native internal scrolling.
+- Commands: npm run lint, npm run typecheck, npm run build, node tests/site-build.mjs, node tests/dashboard-url.mjs and git diff --check passed. The URL check's existing Node stripTypeScriptTypes experimental warning is not a failure. Build: 67 modules; JS 300.97 kB / gzip 89.26 kB, CSS 75.15 kB / gzip 14.62 kB; no chunk-size warning.
+- Actual responsive checks: development 5174 (operations link present) and production 4175 (unconfigured operations link hidden), each at 360×844 / 390×844 / 768×900 / 1024×900 / 1280×900 / 1440×900. Mobile/tablet closed and expanded states checked. Header height remains 61 px including border below768 and 81 px at768+. Horizontal overflow 0, clipped menu links 0 and targets under44px 0. All six development links/five production links fit. Footer brand remains17px on narrow mobile and19px otherwise.
+- Short viewport: 390×320 and768×320. Tab visits System, FourFit, Uses, Team, Operations and Service in order; native focus scrolls the panel to reveal Service with its bottom at290px and panel bottom319px. Panel scrollTop is175/139px respectively. No horizontal overflow. Escape returns focus to the toggle and hides navigation.
+- Breakpoint/state: opened disclosure at1023; resize to1024 closes its state and displays desktop navigation. Returning to390 keeps it closed. Existing menu semantics and aria-controls/expanded preserved. Global focus indicator remains visible; current-page status uses aria-current and an underline.
+- Native navigation: all five local menu destinations reached their correct real pages/H1/current marker and closed the mobile menu. Operations opens4174 overview in a new tab and closes the menu; its existing sample-workspace accessible label and rel attributes remain. An initial test read the new document before React's H1 mounted; adding the documented native navigation/content wait resolved the inspection timing without changing application code.
+- Reduced motion: only compiled CSS was temporarily changed from @media reduce to @media screen. At390 the new link/icon transitions compute to0s, menu opens, Escape closes it/focuses toggle and overflow is0. CSS restored in finally. Actual OS preference switching is untested.
+- Media fallback: only compiled Hero WebP was temporarily moved. At390 the intentional ProductFrame silhouette replaces it (Hero image count0), header remains61px and the menu opens without overflow. Build copy restored in finally. Source media was untouched. The intentional404 is excluded from normal-console results.
+- Visual proof: inspect final desktop Service/Mirror composition and390 expanded menu. Captures: docs/screenshots/gnb-desktop-1440.jpg, gnb-header-1440.jpg (native browser clip), gnb-mobile-390.jpg. Normal browser warn/error0. An independent read-only audit found no additional code defect.
+- Remaining limits: physical Safari/Android, screen reader,200% zoom and actual OS reduced-motion setting not tested. Existing physical product/integration verification scope is unchanged.
+
+## 2026-10-06 — Remove duplicate detail breadcrumbs
+
+- Removed the shared `처음으로 / [page label]` breadcrumb from PageIntro and its four unused CSS rules. The section label, H1, global navigation and accessible brand home link remain. Updated design/content/architecture/decisions; preserved earlier QA records and existing user changes.
+- Commands: npm run lint, npm run typecheck, npm run build, node tests/site-build.mjs and git diff --check passed. Build: 67 modules; JS 300.75 kB / gzip 89.23 kB, CSS 74.77 kB / gzip 14.57 kB; no chunk-size warning.
+- Production browser: Service/System/FourFit/Uses/Team at actual 360×844, 390×844, 768×900, 1024×900, 1280×900 and 1440×900, 30 page/viewport combinations. Breadcrumb count0, H1 count1, section label present, clipped H1 false and horizontal overflow0 throughout. Each header brand resolves to ../index.html.
+- Directly inspected Service at1440 and390. At390, Enter on the brand reached the actual homepage/H1 with overflow0. Normal console warn/error0. Temporary viewport override reset afterward.
+- Scope: static markup and unused styles only; no changes to menu, scrolling, motion or media behavior. Earlier regression records cover those unchanged features; they were not repeated for this removal. No commit/push or public deployment.
+
+## 2026-10-06 — Transparent Service mirror stage
+
+- Scope: two values in products.css remove the light stage gradient and corner radius. Updated design/architecture/decisions and this record. Existing source and runtime images are reused; Pillow read-only inspection confirms1086×1448, alpha extrema(0,255), corner alpha0 for both sm-assembled-v1.png and sm-assembled-v1.webp. No image generation/editing or dependency added; original reflections and geometry remain.
+- Commands: npm run lint, npm run typecheck, npm run build, node tests/site-build.mjs and git diff --check passed. Build67 modules; JS300.75 kB / gzip89.23 kB, CSS74.73 kB / gzip14.55 kB, no chunk-size warning.
+- Actual development browser: Service #mirror at360×844,390×844,768×900,1024×900,1280×900,1440×900. At each width, stage background rgba(0,0,0,0), background-image none, image loaded with naturalWidth1086 and contain fitting, image horizontal clipping false, page overflow0 and existing concept caption present.
+- Visual proof: directly inspected full mirror, top sensors, lower speakers/base/casters at1440 and390. Saved docs/screenshots/service-mirror-transparent-1440.jpg and service-mirror-transparent-390.jpg. Enter on the device-configuration link reached the actual System page/H1. Normal console warn/error0; temporary viewport override reset.
+- Unchanged behavior: ProductFrame fallback, Reveal/reduced motion, header and System assembly code are untouched; earlier regression records cover those features and failure fixtures were not repeated for this CSS-only change. Physical browser/device checks and public deployment were not performed. No commit/push.

@@ -1,39 +1,15 @@
-.site-footer {
-  padding-block: var(--space-8);
-  border-top: 1px solid var(--color-border);
-  background: #fff;
-  color: var(--color-text);
-}
-
-.site-footer__top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-6);
-}
-
-.site-footer__top > p,
-.site-footer__bottom {
-  color: var(--color-secondary);
-  font-size: 0.75rem;
-  line-height: 1.8;
-}
-
-.site-footer__top .text-link { font-size: 0.75rem; }
-
-.site-footer__bottom {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-8);
-  margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border);
-}
-
+.site-footer { padding-block: 44px 28px; border-top: 1px solid var(--color-border); background: #fff; color: var(--color-text); }
+.site-footer__top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px 24px; }
+.site-footer__top > p, .site-footer__bottom { color: var(--color-secondary); font-size: 11px; line-height: 1.8; }
+.site-footer__top .text-link { font-size: 11px; }
+.site-footer__navigation { display: flex; flex-wrap: wrap; gap: 8px 32px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--color-border); }
+.site-footer__navigation a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; font-size: 12px; color: #475467; }
+.site-footer__navigation a:hover { color: var(--color-action); text-decoration: underline; text-underline-offset: 4px; }
+.site-footer__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 32px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-border); }
 @media (max-width: 639px) {
   .site-footer__top { display: grid; grid-template-columns: 1fr auto; }
+  .site-footer__top .brand { font-size: 17px; }
   .site-footer__top > p { grid-column: 1 / -1; grid-row: 2; }
+  .site-footer__navigation { gap: 4px 24px; }
   .site-footer__bottom { flex-direction: column; }
 }

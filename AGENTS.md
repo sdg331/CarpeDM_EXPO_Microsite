@@ -1,7 +1,7 @@
-# CarpeDM EXPO Microsite — repository instructions
+# 4-Fit MirrorTing EXPO Microsite — repository instructions
 
 ## Purpose and context
-Build the official one-page exhibition introduction to CarpeDM: a physical AI Smart Mirror and companion ID Card Kiosk. It is an exhibition / portfolio story, not a SaaS application. Inspect the existing checkout and working tree before changes. Preserve useful user work and avoid unnecessary rewrites or renaming.
+Build the official multi-page exhibition introduction to 4-Fit MirrorTing: a physical AI Smart Mirror and companion ID Card Kiosk. It is an exhibition / portfolio story, not a SaaS application. Inspect the existing checkout and working tree before changes. Preserve useful user work and avoid unnecessary rewrites or renaming.
 
 Before substantial changes, read in order:
 1. `docs/product.md` — authority for product facts and unconfirmed information.
@@ -15,7 +15,7 @@ Consult `docs/decisions.md` before reversing a decision. Explain conflicts, choo
 ## Engineering and design
 - Use Vite, React, TypeScript, semantic HTML, and native CSS. Runtime dependencies should stay limited to React and React DOM unless a concrete need is explained.
 - Keep components meaningful and small; use typed content data and CSS variables. Do not add state management, animation frameworks, UI libraries, WebGL, or routing without need.
-- Follow the restrained near-black editorial system: physical objects, large type, open spacing, thin rules. No neon, AI orbs, SaaS dashboards, fake terminals, repetitive rounded cards, or copied reference assets.
+- Follow the restrained white and cool-grey editorial system with dark product stages: physical objects, large type, open spacing, thin rules. No neon, AI orbs, SaaS dashboards, fake terminals, repetitive rounded cards, or copied reference assets.
 - Korean is the primary language. Keep public copy and `docs/content.md` synchronized when messaging changes.
 - Preserve keyboard navigation, visible focus, readable contrast, reduced-motion support, and complete content without reveal effects. Design specifically for narrow mobile screens.
 - Assets must work locally. Missing or failed product images must show the intentional concept silhouette, not a broken image. Never present a concept illustration as project photography.

@@ -1,64 +1,185 @@
 .experience {
   background: var(--color-surface);
+  padding-block: var(--section-space);
+}
+
+.experience__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 64px;
+}
+
+.experience__heading .section-title span {
+  color: #69717e;
+}
+
+.experience__heading .body-copy {
+  max-width: 36rem;
+  margin-top: 24px;
+  font-size: 15px;
+}
+
+.experience__loop {
+  padding-left: 28px;
+  border-left: 1px solid var(--color-border-strong);
+}
+
+.experience__loop > span {
+  color: var(--color-subtle);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.experience__loop > p {
+  margin-top: 16px;
+  font-size: clamp(21px, 2.1vw, 27px);
+  font-weight: 650;
+  line-height: 1.4;
+  letter-spacing: -.035em;
+}
+
+.experience__loop .text-link {
+  margin-top: 16px;
+  font-size: 13px;
 }
 
 .experience__steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-4);
-  margin: var(--space-12) 0 0;
-  padding: 0;
+  gap: 0 40px;
   list-style: none;
+  padding: 0;
+  margin: 52px 0 0;
 }
 
-.experience__step {
-  min-width: 0;
-  min-height: 220px;
-  padding: var(--space-6);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: #fff;
-  transition: border-color var(--duration-short), transform var(--duration-short);
-}
-
-.experience__step:hover {
-  border-color: #b7c7e6;
-  transform: translateY(-2px);
+.experience__steps li {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 18px;
+  padding: 28px 0 32px;
+  border-top: 1px solid #cbd1d9;
 }
 
 .experience__number {
-  display: inline-grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  margin-bottom: var(--space-8);
-  border-radius: 50%;
-  background: var(--color-accent-weak);
-  color: var(--color-accent-weak-text);
-  font-size: 0.75rem;
-  font-weight: 700;
+  color: #9099a5;
+  font-size: 32px;
+  font-weight: 450;
+  line-height: 1.1;
+  letter-spacing: -.05em;
 }
 
-.experience__step h3 {
-  font-size: 1.0625rem;
+.experience__role {
+  display: block;
+  color: var(--color-subtle);
+  font-size: 11px;
+  font-weight: 550;
   line-height: 1.5;
 }
 
-.experience__step p {
-  max-width: 20rem;
-  margin-top: var(--space-3);
+.experience__steps h3 {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+
+.experience__steps p {
+  margin-top: 12px;
   color: var(--color-secondary);
-  font-size: 0.875rem;
-  line-height: 1.75;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.experience__guide {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 36px;
+  padding: 28px 0;
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.experience__guide h3 {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.experience__guide p {
+  max-width: 43rem;
+  color: var(--color-secondary);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.experience__scope {
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+  font-size: 11px;
 }
 
 @media (max-width: 959px) {
-  .experience__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .experience__step { min-height: 210px; }
+  .experience__intro {
+    gap: 36px;
+  }
+
+  .experience__loop {
+    padding-left: 20px;
+  }
+
+  .experience__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 32px;
+  }
 }
 
-@media (max-width: 479px) {
-  .experience__steps { grid-template-columns: 1fr; gap: var(--space-3); }
-  .experience__step { min-height: 0; padding: var(--space-6); }
-  .experience__number { margin-bottom: var(--space-4); }
+@media (max-width: 767px) {
+  .experience__intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .experience__loop {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    padding-left: 16px;
+  }
+
+  .experience__loop > span {
+    flex-basis: 100%;
+  }
+
+  .experience__loop > p {
+    margin-top: 0;
+    font-size: 20px;
+  }
+
+  .experience__loop .text-link {
+    margin-top: 0;
+  }
+
+  .experience__steps {
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+  }
+
+  .experience__steps li {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 16px;
+    padding-block: 24px;
+  }
+
+  .experience__number {
+    font-size: 28px;
+  }
+
+  .experience__guide {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-block: 24px;
+  }
 }

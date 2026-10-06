@@ -1,0 +1,53 @@
+.page-intro { padding-block: 28px clamp(64px, 7vw, 100px); background: #fff; border-bottom: 1px solid var(--color-border); }
+.page-intro .section-kicker { color: var(--color-action); }
+.page-intro__content { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: end; gap: 64px; }
+.page-intro h1 { max-width: 20ch; font-size: clamp(36px, 4.5vw, 64px); font-weight: 700; letter-spacing: -.055em; line-height: 1.28; text-wrap: balance; }
+.page-intro__content > p { max-width: 30rem; padding-bottom: 4px; color: #606773; font-size: 16px; line-height: 1.85; }
+.page-next { padding-block: 40px; border-top: 1px solid var(--color-border); background: #fff; }
+.page-next .container { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.page-next span { color: var(--color-secondary); font-size: 12px; }
+.page-next a { display: inline-flex; align-items: center; gap: 20px; min-height: 44px; color: var(--color-action); font-size: clamp(18px, 2vw, 24px); font-weight: 600; letter-spacing: -.03em; }
+.page-next a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.page-contents { display: flex; align-items: center; justify-content: space-between; gap: 16px 32px; padding-block: 16px; }
+.page-contents > span { color: var(--color-secondary); font-size: 11px; white-space: nowrap; }
+.page-contents > div { display: flex; flex-wrap: wrap; gap: 4px 36px; }
+.page-contents a { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: #475467; font-size: 13px; font-weight: 550; }
+.page-contents .arrow-icon { width: 12px; height: 12px; color: #667085; }
+.page-contents a:hover { color: var(--color-action); text-decoration: underline; text-underline-offset: 5px; }
+.home-system { background: #101722; color: #fff; }
+.home-system .chapter-number { color: #a5c8ff; }
+.home-system .section-title > span { color: #aebaca; }
+.home-system .body-copy, .home-system .scope-note { color: #b9c4d3; }
+.home-system .text-link { color: #a5c8ff; }
+.home-system .section-end { border-color: #354050; }
+.home-system__devices { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); align-items: end; gap: 80px; margin-top: 48px; }
+.home-system__devices article { min-width: 0; }
+.home-system__devices .product-frame__stage { max-width: 340px; margin-inline: auto; border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.home-system__devices article + article .product-frame__stage { max-width: 390px; border-radius: 4px; background: #edf0f3; }
+.home-system__devices .product-frame__stage--photo { mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent), linear-gradient(to bottom, transparent, #000 8%, #000 92%, transparent); mask-composite: intersect; }
+.home-system__devices article + article .product-frame__stage--photo { mask-image: none; }
+.home-system__devices article + article .product-frame__stage img { padding: 12px; }
+.home-system__devices .product-frame__caption { color: #b9c4d3; font-size: 10px; opacity: 1; }
+.home-system__devices .product-frame__caption > :first-child { display: none; }
+.home-system__devices article > div { padding-top: 24px; margin-top: 24px; border-top: 1px solid #354050; }
+.home-system__devices .section-kicker { margin-bottom: 16px; color: #b8c8de; font-size: 11px; }
+.home-system__devices h3 { font-size: clamp(26px, 2.8vw, 36px); font-weight: 550; letter-spacing: -.04em; }
+.home-system__devices article > div > p { max-width: 25rem; margin-top: 16px; color: #b9c4d3; font-size: 14px; line-height: 1.8; }
+.home-system__devices article > div > .section-kicker { margin-top: 0; }
+.home-system__devices .text-link { margin-top: 14px; font-size: 12px; }
+@media (max-width: 959px) {
+  .page-intro__content { gap: 32px; }
+  .page-intro__content > p { font-size: 15px; }
+  .home-system__devices { gap: 40px; }
+}
+@media (max-width: 767px) {
+  .page-intro { padding-block: 16px 48px; }
+  .page-intro__content { grid-template-columns: 1fr; gap: 24px; }
+  .page-intro h1 { font-size: clamp(34px, 9vw, 48px); }
+  .page-contents { align-items: flex-start; flex-direction: column; gap: 4px; padding-block: 16px; }
+  .page-contents > div { gap: 0 20px; }
+  .page-contents a { gap: 8px; font-size: 12px; }
+  .page-next .container { align-items: flex-start; flex-direction: column; }
+  .home-system__devices { grid-template-columns: 1fr; gap: 44px; margin-top: 32px; }
+  .home-system__devices .product-frame__stage, .home-system__devices article + article .product-frame__stage { max-width: 300px; }
+}

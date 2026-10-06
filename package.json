@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "CarpeDM Smart Mirror and ID Card Kiosk exhibition microsite",
+  "description": "4-Fit MirrorTing Smart Mirror and ID Card Kiosk exhibition microsite",
   "engines": {
     "node": "^22.13.0 || >=24.0.0"
   },

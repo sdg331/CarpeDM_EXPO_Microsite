@@ -1,108 +1,101 @@
-# CarpeDM visual system
+# 4-Fit MirrorTing visual system
 
-## 1. Design objective
-Present CarpeDM as a credible university exhibition project with the finish of a large product company website. A visitor should understand within five seconds that this is a Smart Mirror and ID Card Kiosk experience. The page should feel calm, established, and easy to explain in a judging presentation.
+## Direction
+A product introduction with Apple-like restraint and Toss-like Korean clarity, using original assets and an original layout. Show the object before explaining the technology. No copied brand assets, fictitious product claims, metrics, dashboards, or interface simulations.
 
-## 2. Visual character
-Use a bright corporate editorial system for most of the page: white canvas, cool grey section surfaces, deep navy text, strong Korean headlines, and one functional blue. Reserve dark navy stages for the two physical devices and the closing message. The result should feel like a real product introduction, not an AI concept reel, futuristic dashboard, or fintech clone.
+The 2026-09-22 request authorizes a full editorial redesign and glassmorphism icons. This supersedes the earlier all-dark direction and the blanket ban on glass. Translucent depth is limited to the three experience icons and the navigation backdrop.
 
-## 3. Reference interpretation
-The supplied Toss reference informs direct Korean language, spacing discipline, functional blue, clear hierarchy, and explicit states. Large Korean corporate product sites inform the bright header, stable content grid, restrained navigation, calm section alternation, and product-first storytelling. Do not copy another brand's assets, layouts, fonts, or claims.
+## Page structure
+1. Home: the workplace rehearsal promise, labeled device concept, two visible hero actions, a short problem statement, selectable conversation examples, a mirror-interface explanation, interactive 4-Fit explanations, a two-device stage, the six-step designed journey, applications and team purpose, with detail links. “영상 보기” is disabled and marked as being produced until footage exists.
+2. Service: native contents, four selectable authored conversations, six designed steps and retry guidance, then Kiosk → Smart Mirror roles in experience order.
+3. Four Fit: four accessible tabs, dimension-specific reflection points, an authored answer comparison and three retry steps. No score or measured result.
+4. System: mirror → camera → audio scroll assembly and hardware strengths, four-part intended visitor journey, two device roles, four input/reflection relationships, material-by-material evidence and on-demand technical detail. Operations is a separate example demo, not a sequential visitor step.
+5. Uses: four workplace scenarios with native answer disclosures, three intended use contexts, then explicitly labeled interview/job-training expansion ideas.
+6. Team: CarpeDM's purpose, three design principles, the drawing-based device concept and an honest project-material inventory.
 
-## 4. Anti-patterns
-Avoid continuous black backgrounds, giant English slogans, monospaced interface decoration, corner brackets, scan-line annotations, neon, gradients used as spectacle, AI orbs, glass panels, fake dashboards, fake metrics, excessive pills, and repeated rounded cards. English remains a product label, not the main message.
+The header exposes four major destinations: 시스템, 4-Fit 분석, 활용, 팀 소개. The brand returns home and “서비스 보기” opens the service page. Every page adapts automatically to viewport width. Remove mobile-version selection links; `/expo/` is only a compatibility entry displaying the same responsive homepage. Labels can be refined after visitor testing.
 
-## 5. Color
-Foundations live in src/styles/tokens.css.
+## Foundations
+- Main text: #1D1D1F. Body: #606773. Muted heading fragments: #737780.
+- Canvas: white. Alternate surface: #F5F5F7. Hero: #0B0C0E with the monumental dark-space concept image and light HTML copy. Smart Mirror: #14181D, with the transparent product directly on the section background.
+- Primary action: #1963DA, hover #1453BC, with white text. Dark-section links: #93BDFF.
+- Blue indicates action. Soft blue, teal and violet distinguish the three decorative icons; meaning is always repeated in text.
+- Font: existing local Pretendard/system stack. No remote fonts or new runtime dependencies.
+- Hero promise: 29–64 px with a smaller lead-in; section titles roughly 30–60 px; body 15–17 px. Keep readable Korean line lengths and intentional line breaks.
+- Content width: 1216 px; fluid 20–80 px gutters. Shared section spacing: 72–112 px according to content rather than identical blocks.
 
-| Token | Value | Role |
-| --- | --- | --- |
-| Canvas | #FFFFFF | Main page and information sections |
-| Surface | #F5F7FA | Section alternation and quiet grouping |
-| Strong surface | #EEF2F6 | Hero product stage |
-| Foreground | #101828 | Main headings and readable content |
-| Body | #475467 | Supporting copy |
-| Border | #E4E7EC | Rules and component boundaries |
-| Accent | #2563EB | Focus, labels, active markers |
-| Action | #1D4ED8 | Primary CTA with white text |
-| Action hover | #1E40AF | Primary CTA hover |
-| Dark stage | #0B1728 | Smart Mirror product section and closing |
-| Dark surface | #111F33 | Device media stage |
+## Product imagery
+Use local WebP renders. Home, Service and Team share the drawing-based completed mirror used in System, with complete proportions. Service uses its existing alpha directly on the graphite section; Home, Team and System retain their neutral stages. The monumental Hero keeps its separately approved concept; Kiosk retains the supplied render. No fake screen content or assembled-device photography claim.
 
-Blue communicates action or structure. It is not ambient decoration. White text on blue uses the darker action token to preserve contrast.
+Always show the concept caption. Drawing-based media specifies “설계 도안 기반 AI 생성 3D 콘셉트 · 실제 촬영 이미지가 아닙니다.” Other concepts retain the generic caption. Missing media uses a labeled CSS silhouette; the mirror fallback reflects upper inputs, lower speakers and a broad base. Hero is eager-loaded; details are lazy-loaded. Intrinsic dimensions reserve space.
 
-## 6. Typography
-Use Pretendard Variable, Pretendard, Apple system fonts, Segoe UI, and Noto Sans KR without remote font requests. Korean is the main headline language. Product names and short category labels may remain English.
+## Original glass icons
+`GlassIcon` implements three SVG illustrations: identification card, mirror and voice bubbles. Overlapping translucent shapes, white edge highlights, gentle color gradients, and a small shadow convey glass without blurring text. SVG IDs use React `useId` so instances cannot collide. Icons are decorative, marked `aria-hidden`, and paired with meaningful text. No raster asset, WebGL, icon package or looping animation is needed.
 
-- Hero: 42–84 px, weight 700, line height around 1.14.
-- Section titles: 32–60 px, weight 700, line height around 1.25.
-- Body: 16–17 px, line height around 1.75.
-- Labels: 12 px, weight 700, modest tracking.
-- Monospace is reserved for actual technical strings if needed; section labels and numbers use the main sans-serif family.
+## Interaction and accessibility
+- Compact translucent sticky header, four real section links, and an accessible mobile disclosure.
+- Pill primary CTA; simple blue text links. At least 44 px action targets and visible keyboard focus.
+- The homepage shows the full introduction; the service page provides the six-step intended flow and device detail. Conversation selection uses native buttons with aria-pressed and a polite live region. 4-Fit uses roving-focus tabs, ArrowLeft/ArrowRight wrapping, Home/End, and hidden inactive panels. Both interactions explain authored content without simulating AI. Native `details/summary` remains for hardware and technology, with visible plus/minus affordances.
+- One-time progressive reveals only. Content stays visible before initialization; reduced-motion removes transitions and smooth scroll.
+- Semantic landmarks, one H1, logical headings, descriptive image alternatives and Korean document language.
+- Mobile stacks copy and devices; situation options form a 2×2 grid, while all four 4-Fit tabs remain visible above one stacked panel. Tablet preserves layout without truncating headlines or navigation.
+- Validate 360, 390, 768, 1024, 1280 and 1440 px. Record actual results and limitations in `qa.md`.
 
-## 7. Spacing and grid
-Use the existing 4–128 px spacing scale, with 16, 24, 32, 48, and 64 px as common layout intervals. Main sections use 80–128 px fluid vertical spacing. Content sits in a centered 1280 px container with 20 px mobile gutters and 48–64 px desktop gutters.
+## 2026-10-05 — Monumental Hero
 
-Hero and product sections use balanced two-column grids. Explanation sections use open editorial grids or clearly bounded functional groups. Cards are allowed for the six experience steps and device architecture because those are real grouped units; do not turn every paragraph into a card.
+Use the newly generated one-mirror dark-hall concept only in Hero. Desktop places copy on the left and mirror on the right. Mobile puts readable copy and buttons above the mirror scene; crop the empty space while keeping the entire mirror in frame. Artwork name, CarpeDM, the owner’s exact main promise and controls are real HTML. Button order is video then service; video remains disabled with its production status. Light body sections and header remain part of the editorial system.
 
-## 8. Header
-Use a white translucent sticky header with a fine grey rule. The logo mark and active interaction use blue. Navigation uses dark neutral text, visible hover/focus, and a full-width white mobile disclosure. The EXPO context is a quiet grey badge.
+## 2026-10-05 — Complete the introduction
 
-## 9. Hero
-Use a Korean value proposition: “거울이 인터페이스가 되는 순간.” The label, supporting copy, and two real section anchors follow. The mirror appears on a light grey product stage with no scan annotations or decorative corner marks. A three-column summary explains the confirmed roles of Smart Mirror, ID Card Kiosk, and their connected experience without invented metrics.
+Replace the homepage directory and duplicate 4-Fit diagram/cards with meaningful selectable content. Preserve the monumental Hero and light editorial body. A dark two-device stage separates explanation from physical objects. Detail H1s are smaller than Hero type and avoid repeating the section title. The closing pairs the artwork/team text with a specific project purpose rather than another oversized name. No new animation, external asset or package is required.
 
-At 768 px and below, stack copy before the product. The CTA must remain visible on common short laptop screens. Do not rely on photography for understanding.
+## 2026-10-05 — Remove the logo
 
-## 10. Product sections
-Smart Mirror and ID Card Kiosk use deep navy stages to separate physical hardware from the bright explanation sections. Headlines are Korean. Product media sits in a bounded navy panel, with supporting copy and a two-column feature list. The mirror remains visually dominant.
+At the owner’s request, remove the custom symbol everywhere and use plain artwork/team text. Remove the symbol from navigation, Hero, footer, 4-Fit, closing, concept silhouettes and the legacy EXPO entry, including its exported files. The browser tab has no custom icon (`data:,`). Home links retain readable names and 44 px targets.
 
-## 11. Experience and architecture
-The six designed steps use a three-column by two-row set of white cards on a cool grey field. Each card has one restrained numbered marker and clear Korean text. Mobile becomes one column.
+## 2026-10-05 — One responsive experience
 
-Architecture uses two bounded device groups and a blue connection group. The public-scope note appears before the diagram. Hardware details remain native details/summary.
+Keep the same content and actions on phones, tablets and desktops. Existing media queries adjust navigation, typography, columns and image crops automatically, without device detection or a version toggle. Remove the standalone EXPO summary and its styles. Footer links to service; closing links to service and system.
 
-## 12. Technology and closing
-Technology uses a grey section with one white ruled list. Rows may receive a subtle hover background but must remain readable without hover.
+## 2026-10-05 — Exhibition editorial polish
 
-Closing uses deep navy, a Korean statement, and a restrained blue secondary line. Footer returns to white to end like a corporate information page.
+Keep the owner's exact Hero promise and existing monumental concept. Give the lead-in a smaller size and the final two lines a stronger hierarchy. The header retains the plain artwork name and CarpeDM credit, and adds a real service link. Its mobile disclosure includes the same five destinations; no replacement logo is introduced.
 
-## 13. Product media
-There are no production photographs yet. Current CSS silhouettes are clearly labeled “제품 형태 콘셉트” and “디바이스 콘셉트 · 실제 촬영 이미지가 아닙니다.” Never present generated or conceptual media as the assembled project.
+Home has eight numbered story chapters after Hero: problem, conversation, mirror interface, 4-Fit, devices, experience, uses, team purpose. Chapter numbers are decorative and hidden on detail entries, where the section label and title supply context. Alternate white and cool-grey explanation sections with dark Hero/device stages. Use typography, thin rules and deliberate image proportions rather than repeating identical cards.
 
-src/data/media.ts is the asset registry. Missing or failed images fall back to the silhouette. Non-hero media is lazy-loaded and every slot preserves intrinsic dimensions.
+Conversation selection retains the four authored situations. The question has a dark stage and the answer a white inset, with an explicit authored-example label. Four Fit pairs native keyboard tabs with a single visible panel, a quiet blue-grey illustration area, and reflection text. Original speech, voice, expression and posture line drawings are decorative; none implies measured data or sensor geometry.
 
-Preferred future assets:
+Reuse the existing light mirror render for the interface section with an intact silhouette and visible concept caption. The two-device stage uses unequal columns and contains the full objects. Detail pages share a section label, split introduction, next-page link and footer navigation. The brand returns home. Native hover/focus feedback and existing Reveal are the only motion. No new library, generated media, fake score, live badge or hardware assembly animation is needed.
 
-| File | Ratio / minimum | Required content |
-| --- | --- | --- |
-| smart-mirror-hero.webp | 4:5, 1600×2000 | Full mirror product, front three-quarter view, clean light-grey studio |
-| smart-mirror-detail.webp | 4:5, 1600×2000 | Actual mirror assembly or meaningful interaction detail |
-| kiosk-front.webp | 4:5, 1600×2000 | Full kiosk showing screen, camera, NFC area, and output slot |
+## 2026-10-05 — Scroll-driven hardware assembly
 
-Real project photography is preferred. If AI-generated assets are supplied, describe them as concept renders and keep the public concept label.
+The owner rejected the CAD canvas and explicitly requested premium generated 3D images, then supplied nine SM_001–SM_008 engineering sheets. Those sheets now govern the silhouette and placement: top-center camera, top-left microphone housing, right-side NFC, two lower speakers, rear PC BOX, broad plinth and casters. The earlier slim stand and bottom-mounted input devices are withdrawn. Drawing colors are component identifiers, not finish requirements. Use graphite and satin platinum CGI materials, convincing glass reflection, optical details and woven speaker grilles. These remain AI-generated design visualizations, not photographs or fabrication drawings.
 
-## 14. Shape and effects
-Use 8 px controls, 14 px grouped cards, and up to 24 px product stages. Shadows appear only on the hero product stage and should be broad and low-opacity. Device silhouettes may retain physical depth. Do not add glow, blur overlays, or glass cards.
+System now opens with a bright, neutral sticky product stage. Three transparent generated images show the front mirror/frame with its inputs, internal LCD, and rear structure with speaker/base. The rear structure stays as the reference; the LCD seats first, then the front frame closes. Keep part sizes constant during movement. The complete product shares the same centered image plane, with the front registered against its finished silhouette. Images are genuine raster render assets; no code-drawn panels or CAD meshes are used on the page. Copy is short and subordinate to the object. Below the mirror, separate camera and audio sticky stages replace the static close-ups at the owner's request. Camera separates housing/mount, sensor core and optical front; audio separates housings, microphone board/two speaker drivers and three acoustic grilles. Empty housings stay behind the internals, and internals stay behind the front covers. Each stage seats its internals before closing the front and only then blends to the existing complete render. Audio uses individually aligned microphone, left-speaker and right-speaker regions of the existing images. No glowing waveform, orb, technical label overlay or fake screen content.
 
-## 15. Motion and interaction
-Keep the existing one-time reveal as progressive enhancement. Pending content remains readable, reduced-motion removes transitions, and the hero never waits for animation. Hover movement is limited to 2 px on experience cards and 1 px pressed feedback on the primary button.
+A native `시스템 구성 보기` link skips to architecture. Camera links onward to audio; audio links onward to architecture. Mobile places the generated parts between the short heading and three compact strength rows. On desktop, the image is beside the copy. All strength text remains visible, with the current step indicated by a dark rule and heavier heading. Reduced motion and failed layer loading show a static complete product with an ordinary section height; failure of the final image uses the intentional ProductFrame silhouette for the mirror or a labeled camera/audio silhouette for the inputs. The mirror keeps its drawing-based concept caption. Sensor-stage captions explicitly state `AI 생성 3D 구조 콘셉트 · 내부 형상은 설명용`; internal electronics are illustrative rather than certified teardown geometry. Manufacturer features are labeled as component specifications, with a native link to the existing technical disclosure.
 
-## 16. Accessibility
-Keep semantic landmarks, one H1, logical heading levels, Korean document language, descriptive media labels, skip link, visible focus, 44 px minimum controls, keyboard mobile navigation, and native details. Color never carries the only meaning. Anchored sections must remain visible below the sticky header.
+## 2026-10-05 — Detail depth and coherent imagery
 
-## 17. Responsive rules
-- Below 480 px: one-column experience cards and product features.
-- Below 768 px: mobile header, single-column hero and product sections.
-- 768–959 px: compact two-column hero, two-column experience cards.
-- 960 px and above: full product grids, three-column experience cards, horizontal architecture.
-- Check 360, 390, 768, 1024, 1280, and 1440 px without hiding overflow defects.
+Every detail introduction has compact native contents with downward links to real sections. Keep the shared split title/description, open spacing, thin rules and white/cool-grey palette. FourFit adds observation rows, a dark question stage and unboxed answer comparison. Uses gives four large questions in two columns, native answer disclosures, audience rows and separate expansion copy. Team pairs the drawing-based concept with three principles and a material inventory. Narrow screens stack these layouts; no dashboard or scores.
 
-## 18. Visual QA
-- Korean value proposition and Smart Mirror are clear in the first viewport.
-- The page reads as a credible product/exhibition site instead of an AI visual demo.
-- Bright and dark sections alternate deliberately.
-- No invented feature, metric, photograph, or completion claim appears.
-- All widths remain free of horizontal overflow and clipped controls.
-- Mobile menu, internal links, details, focus, reduced motion, and media fallback remain usable.
+Home retains compact FourFit/Uses. Service adds device roles and a restrained practice-loop note; entry kiosk precedes mirror. The graphite mirror section now uses an unboxed transparent product image. The new mirror is consistent across Home, Service, System and Team; older slim-mirror details remain archived locally. No new animation, generation or runtime package.
 
-Record actual checks in docs/qa.md.
+Service mobile device sections place heading/description, then product image, then role details. Desktop keeps the object beside both text rows. This avoids an entire mobile viewport of technical copy before the product.
+
+
+## 2026-10-05 — System evidence and input relationships
+
+Keep all approved mirror/camera/audio renders and assembly motion. Below them, four ruled rows connect each 4-Fit perspective to its intended input and reflection question. Use open spacing and typography instead of extra pictograms or cards. On narrow screens, each row stacks its perspective, input and reflection with explicit labels. The evidence inventory spans the container with material, current form and verification boundary; at 767 px and below it becomes one column. Seven existing native disclosures expose input/configuration, intended role and verification boundary. Exact hardware models and drawing dimensions remain within the native hardware disclosure.
+
+
+## 2026-10-06 — Refine the global navigation
+
+Use a white translucent header with a thin neutral rule. Strengthen only the header text identity (21 px / 650 on wide desktop) and keep the CarpeDM credit understated. Center the four content links; separate the optional operations link and service action with spacing and a short vertical rule. Current content links use a charcoal underline as well as color. The service action is compact charcoal with a 6 px corner radius, replacing the bright pill treatment. Preserve all label text and the owner's removed logo decision.
+
+Below 1024 px, use a white disclosure with larger 23 px navigation rows, thin dividers and the existing decorative Arrow. Keep 44 px minimum action targets. Constrain the panel to the available viewport height with internal scrolling. Shared 80/60 px header-height tokens and footer text styling stay unchanged; hardware sticky offsets therefore remain unchanged. No animation package, new asset or scroll-dependent header state.
+
+
+## 2026-10-06 — Remove duplicate detail breadcrumbs
+
+At the owner's request, all five detail introductions begin directly with the section label and title, without the former home/page breadcrumb. Keep the existing introduction padding, contents and shared brand link to home. Remove breadcrumb markup and unused styles together.
