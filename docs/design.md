@@ -104,3 +104,8 @@ At the owner's request, all five detail introductions begin directly with the se
 ## 2026-10-06 — final navigation and dashboard connection
 
 Desktop GNB uses symmetric outer grid tracks so the four content links stay centered on the page independently of brand/service widths. Operations is introduced in Uses rather than competing in the GNB. Preserve the existing mobile disclosure, header heights, active underline and focus behavior. Uses adds an open two-column introduction with three operating tasks; narrow screens stack the content.
+
+
+## 2026-10-06 — stronger GNB presentation
+
+Refine GNB visual weight: 24 px / 700 desktop wordmark (22 px at 1024–1199), 15 px / 550 content links with header-height hit areas and a 2 px indicator at the header rule. Keep equal outer grid tracks. Use a compact 4 px-radius charcoal service action; its current-page state is outlined. Mobile keeps the existing disclosure, adds visible 메뉴/닫기 wording, a 프로젝트 살펴보기 label and a subdued 현재 페이지 marker. Reset desktop justify-self for the mobile utility block so the service action fills the panel. This supersedes the earlier 21 px wordmark and text-adjacent underline styling.

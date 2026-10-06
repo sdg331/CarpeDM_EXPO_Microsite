@@ -275,3 +275,8 @@ Use the existing public GitHub Pages site and `gh-pages` root. Publish the verif
 ## 2026-10-06 — final navigation and dashboard connection
 
 The owner requested a corrected GNB and a browsable dashboard in Uses, then a final repository-wide release check. Move the operations introduction into Uses, center GNB links with equal outer tracks, and publish the existing sample dashboard under the established microsite Pages host. This supersedes the earlier blank production dashboard default. Reuse the separate dashboard source and preserve its sample-data boundary. Main stores source/docs; gh-pages stores both static builds.
+
+
+## 2026-10-06 — stronger GNB presentation
+
+The owner requested a stronger GNB after the release. Strengthen brand/menu typography, anchor active-location marks to the header rule, clarify mobile toggle labels and fill the mobile action row. Preserve the text identity, five existing destinations, sample-dashboard connection and header-height tokens. Keep the same native disclosure and avoid adding scroll-state or navigation frameworks.

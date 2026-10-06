@@ -133,3 +133,8 @@ Header's existing native nav contains two plain div groups for content links and
 ## 2026-10-06 — final navigation and dashboard connection
 
 Reuse the shared validated dashboardUrl for Uses and Evidence. Production resolves dashboard/#/overview against the entry baseURI and siteRoot; development retains port 4174. The independent React dashboard build is copied into dist/dashboard after the microsite build and published in the existing gh-pages root. No router or runtime dependency is added to the microsite. Header retains the native nav, disclosure state and keyboard handling; desktop uses CSS grid with display:contents on the nav to center its link group.
+
+
+## 2026-10-06 — stronger GNB presentation
+
+Header.tsx only changes presentation markup. Existing isOpen, Escape focus restoration, resize closing and link-close handlers remain. Header.css consolidates prior desktop/mobile overrides and removes unused operations selectors. Shared header-height tokens and footer brand styling are preserved. The mobile action resets justify-self to stretch and width to 100%; otherwise current browser block self-alignment shrinks it to its content width. No package, new listener, breakpoint or hardware-scroll change.

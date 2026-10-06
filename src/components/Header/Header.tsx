@@ -37,12 +37,14 @@ export function Header({ page }: { page: PageKind }) {
           aria-label={isOpen ? '메뉴 닫기' : '메뉴 열기'}
           aria-expanded={isOpen} aria-controls="primary-navigation"
           onClick={() => setIsOpen((open) => !open)}>
-          <span aria-hidden="true" /><span aria-hidden="true" />
+          <span className="menu-toggle__label" aria-hidden="true">{isOpen ? '닫기' : '메뉴'}</span>
+          <span className="menu-toggle__lines" aria-hidden="true"><i /><i /></span>
         </button>
         <nav id="primary-navigation" className={`site-nav${isOpen ? ' site-nav--open' : ''}`} aria-label="주요 메뉴">
+          <p className="site-nav__label" aria-hidden="true">프로젝트 살펴보기</p>
           <div className="site-nav__links">
             {navigation.map(({ path, page: destination, label }) => (
-              <a key={path} href={`${siteRoot}${path}`} aria-current={page === destination ? 'page' : undefined} onClick={() => setIsOpen(false)}><span>{label}</span><Arrow /></a>
+              <a key={path} href={`${siteRoot}${path}`} aria-current={page === destination ? 'page' : undefined} onClick={() => setIsOpen(false)}><span>{label}{page === destination && <small className="site-nav__current" aria-hidden="true">현재 페이지</small>}</span><Arrow /></a>
             ))}
           </div>
           <div className="site-nav__actions">

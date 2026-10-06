@@ -246,3 +246,8 @@ Navigation wording and order remain 시스템 / 4-Fit 분석 / 활용 / 팀 소�
 ## 2026-10-06 — final navigation and dashboard connection
 
 Header: brand → home; 시스템 / 4-Fit 분석 / 활용 / 팀 소개; 서비스 소개 action. Uses contents adds 조직 대시보드. New heading: 개인의 연습을, 팀의 관점에서 살펴봅니다. CTA: 대시보드 둘러보기, with accessible sample workspace/new-tab notice. Disclosure: 예시 데이터로 구성한 샘플 워크스페이스입니다. 실제 직원 정보·AI 분석·현장 장치와 연결되지 않으며, 변경 사항은 사용 중인 브라우저에 저장됩니다. Home adds 조직 대시보드 살펴보기 linking to use-cases/#use-dashboard.
+
+
+## 2026-10-06 — stronger GNB presentation
+
+Existing brand, destinations and order are unchanged. New mobile presentation labels: 메뉴 when closed, 닫기 when open; 프로젝트 살펴보기 above the destinations; 현재 페이지 beside the active content destination. Existing aria-labels remain 메뉴 열기 / 메뉴 닫기 and aria-current=page remains the accessible current-location indicator. Presentational duplicate labels are aria-hidden.

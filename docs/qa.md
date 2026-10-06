@@ -593,3 +593,13 @@ npm run build
 - Public Uses new-tab CTA opened `/dashboard/#/overview` with `index-CxblIys1.js` and the visible sample-data boundary. Reset the team filter to all, then keyboard-activated the development-team action and confirmed heading 개발팀 사원 관리. The dashboard service-introduction link opened the public microsite in a new tab and loaded the current main bundle.
 - Public 1024 px home GNB link midpoint: 511.996 px against viewport midpoint 512 px. Actual screenshot: `screenshots/final-public-home-1024.jpg`. Viewport override reset.
 - Code commits are pushed to main and the final static build to gh-pages. Subsequent documentation-only changes do not alter the published UI build.
+
+
+## 2026-10-06 — stronger GNB presentation checks
+
+- Passed lint, typecheck, build and all three `node --test tests/*.mjs` checks. No dependencies added.
+- Production preview: seven entries × 360/390/768/1024/1280/1440 px, 42 checks: zero horizontal overflow, five header destinations, desktop menu midpoint within 1 px of viewport midpoint. Header content tokens stay 60/80 px; measured total header height includes its 1 px rule.
+- Actual mobile Enter toggle, Escape close/focus restoration, selection navigation/current-page indication and resize-to-desktop closure passed. Nav stays semantic in the browser snapshot; closed mobile menu uses display:none.
+- At 390×844, service action width is 350 px within 20 px gutters. At 390×400, menu clientHeight=337 / scrollHeight=414 with overflow-y:auto, no horizontal overflow. Normal browser error log empty.
+- Captures: `screenshots/gnb-refined-open-390.jpg`, `screenshots/gnb-refined-desktop-1024.jpg`. Viewport reset after checks.
+- Reduced-motion behavior was retained and source-reviewed; OS switching and physical Safari/Android were not repeated. Hardware/product content and dashboard remain unchanged. Public release verification is recorded after publication.
