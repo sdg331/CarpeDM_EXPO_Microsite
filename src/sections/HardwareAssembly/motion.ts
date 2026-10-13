@@ -13,6 +13,10 @@ export function scrollProgress(top: number, sectionHeight: number, stickyHeight:
   return clamp((headerHeight - top) / Math.max(1, sectionHeight - stickyHeight));
 }
 
+export function cameraStageProgress(top: number, viewportHeight: number) {
+  return clamp((viewportHeight * .8 - top) / Math.max(1, viewportHeight * .25));
+}
+
 export function assemblyPose(progress: number) {
   const ease = (start: number, end: number) => {
     const value = clamp((progress - start) / (end - start));

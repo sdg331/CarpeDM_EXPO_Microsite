@@ -13,7 +13,7 @@ This document is authoritative for project facts. Public wording lives in `conte
 - Name: **4-Fit MirrorTing**.
 - Project type: interactive AI Smart Mirror and companion ID Card Kiosk exhibition project.
 - Context: **동양미래대학교 EXPO**.
-- Repository purpose: an official, static introduction for EXPO judges and visitors. The homepage explains the workplace problem, sample conversations, the mirror interface, 4-Fit perspectives, physical devices, the six-step intended journey, uses and team, with links to detail pages; all visitors use the same responsive home, including NFC/QR entrants. `/expo/` remains a compatibility entry to that home.
+- Repository purpose: an official, static introduction for EXPO judges and visitors. The mobile-first homepage is a one-minute reading target with a short project introduction, three proposed application contexts, three explicitly proposed technical development directions, and a compact four-icon 4-Fit visual; conversations, the mirror-interface rationale, six-step journey, uses and team materials are on their detail pages; all visitors use the same responsive home, including NFC/QR entrants. `/expo/` remains a compatibility entry to that home.
 - Central idea: a mirror can become an interface between a person and an intelligent system, beyond a reflective surface.
 - The exhibit comprises two related physical devices. The **Smart Mirror** is the main experience; the **ID Card Kiosk** is its entry point.
 - This is a physical-system exhibition microsite. It is not a SaaS product, account portal, registration service, or working remote control for the exhibit.
@@ -27,11 +27,11 @@ This document is authoritative for project facts. Public wording lives in `conte
 | Developer | What belongs to each device? | Device component lists and clear separation from the microsite stack |
 | Portfolio visitor | What was the project trying to achieve? | Durable project story without unverified event dates or live-demo claims |
 
-Present the workplace-conversation problem first, then role-play, the intended 4-Fit feedback and experience, physical devices, implementation evidence and technical detail. Hardware model numbers must not displace the experience in the hero or introductory copy.
+On the mobile Home, introduce workplace role-play in one sentence, then prioritize proposed applications and technical development. Put the intended journey, physical devices, implementation evidence and detailed technical roles on their detail pages. Hardware model numbers must not displace the experience in the hero or introductory copy.
 
 ## Owner-supplied 2026-10-05 editorial direction
 
-- The primary scenario is **직장 대화 연습**: first day, reporting, questions, explaining a mistake, and responding to feedback. Interview simulation and job training are expansion ideas, not the primary service.
+- The exhibition story originally emphasized **직장 대화 연습**: first day, reporting, questions, explaining a mistake, and responding to feedback. The 2026-10-14 owner correction and current repository evidence below supersede the earlier classification of interview and job training as future ideas.
 - The owner confirmed the official four perspectives as **Response / Voice / Expression / Posture** (응답 / 목소리 / 표정 / 자세) on 2026-10-05. The earlier cards for 표정 / 목소리 / 내용 / 상황 must not be mixed with this set. Names are confirmed; analysis algorithms and implementation are not.
 - A more detailed target journey is registration/NFC → Smart Mirror role-play → AI analysis → 4-Fit feedback → results → retry. This is **intended flow**, not proof that AI analysis or every transition works.
 - An extended system story includes ID Printer/NFC, Smart Mirror, 4-Fit, employee result screen/web and an administrator Dashboard. The System page separates the intended visitor journey from the independent fixed-example operations demo. Live employee/result/dashboard linkage has not been verified in this checkout.
@@ -40,6 +40,19 @@ Present the workplace-conversation problem first, then role-play, the intended 4
 - `IMPLEMENTED` and `DEMO` labels require direct evidence of that exact feature. The site currently labels the overall flow as a design/concept and lists missing evidence rather than inferring completion.
 
 ## CONFIRMED — Smart Mirror role and known hardware
+
+### 2026-10-14 — Software scope checked against the project repository
+
+The owner confirms interview and job-training work already exists and requests analysis of [DMUCarpeDM/2026CarpeDM_EXPO](https://github.com/DMUCarpeDM/2026CarpeDM_EXPO). Reviewed the default main branch at commit `adb9355b0da4ef69a6485811ec82ee46cf133239` through GitHub, independently of older and dirty local checkouts.
+
+- The [mode catalog](https://github.com/DMUCarpeDM/2026CarpeDM_EXPO/blob/adb9355b0da4ef69a6485811ec82ee46cf133239/mvp/src/data/setupCatalog.js) exposes interview, job training and workplace conversation. Interview profiles are full-stack developer, marketing and sales; the current training picker centers on cafe order-taking. Other legacy packs or profiles do not prove that every job is exposed as a complete training flow.
+- [Interaction](https://github.com/DMUCarpeDM/2026CarpeDM_EXPO/blob/adb9355b0da4ef69a6485811ec82ee46cf133239/poc/backend/app/services/interaction.py), interview/cafe analyzers, sessions API, analysis orchestration and report code exist. This is source-level implementation evidence, not a new end-to-end or physical-device test.
+- Browser MediaPipe pose/hand tracking and local expression ONNX inference feed aggregate features to the backend. Pose classification uses RF/LightGBM ONNX models. The inspected analysis path does not establish use of Kinect depth as a prerequisite; do not advertise depth-driven accuracy improvement without that evidence.
+- The current README excludes gaze measurement. Expression preprocessing, interpretation and some context scores remain experimental/provisional; insufficient input is distinguishable from successful measurement. Do not equate implemented pipelines with validated accuracy, coaching efficacy or hiring suitability.
+- NFC PC/SC and server-side IDPrinter bridge code exists; its configured physical integration remains untested in this review. A card-free static preview is not live dialogue/analysis, and a configured browser training session is distinct from that preview.
+- Old strategy documents contain claims of zero marginal cost, entirely local processing and a vacant competitive market. Current Chrome speech services and external dialogue/evaluation API paths do not support those blanket claims. Costs include hardware, installation, maintenance, connectivity and configured API usage. Old 55-inch BOM estimates are not current 65-inch deployment costs.
+
+Installation in a university shared training room, vocational-training center or enterprise classroom is a proposal pending demand, operator, space, budget and repeated-use checks. No installation, customer, price, cost saving or measured advantage is confirmed by this analysis. Hardware differentiation is a testable training-environment hypothesis, not proof of superiority over existing AI/VR coaching platforms.
 
 The main exhibit combines a large vertical display and mirror surface with depth/body sensing, computer vision, microphone input, speaker output, NFC interaction, a dedicated Windows PC, and an intended AI software interaction layer.
 
@@ -119,6 +132,12 @@ Never invent user counts, satisfaction figures, recognition rates, accuracy, lat
 Do not claim that a sensor identifies a particular person, that NFC stores a full visitor profile, that printed paper contains NFC, or that data is stored locally/in the cloud without evidence. Do not add fake dates, live status indicators, social URLs, operational routes, or event details.
 
 ## Change rule
+
+### 2026-10-14 — Detailed application proposals
+
+The owner requests substantially more detail on utilization. The Uses page now describes university career preparation, new-employee training and team workshops through authored situations, proposed education steps, four dimension-specific reflection questions, learner takeaways and educator checks, preparation and development needs. These are proposed uses, not evidence of deployed training, measured benefits, automatic reports or validated AI feedback.
+
+Learners are described as manually noting their practice sentences and next task. Educators check understanding and organization-specific procedures. The team proposal uses individual mirror rehearsal followed by human discussion; it does not assert simultaneous multi-user AI interaction. Personality, employment suitability, employee ranking and measured educational efficacy are not inferred from face, voice or posture. Future retrieval, voice and record-linking capabilities remain proposals with integration/validation requirements. Home's short summaries and all existing product-status boundaries remain.
 
 For a new product claim: identify the supporting owner confirmation or repository evidence, update its status here, then update `content.md` and the rendered copy together. If evidence is missing, preserve conservative language. Visual polish never justifies overstating the project's current state.
 
@@ -200,3 +219,81 @@ The nine owner-supplied drawing facts are now repeated in the hardware disclosur
 ## 2026-10-06 — final navigation and dashboard connection
 
 The public same-site dashboard is a browsable sample built from dashboard source `46403fa`. It contains illustrative records and browser-local edits, not live employees, AI inference or hardware integration. Uses presents this boundary before linking.
+
+
+## 2026-10-07 — Black silver-glass showroom reference
+
+Added an AI-generated silver-glass office conversation illustration as explanatory scene art. It is not a service screenshot, captured workplace, hardware photograph or evidence of analysis. The same conceptual setting accompanies all four authored conversation examples.
+
+
+## 2026-10-07 — Expanded silver-glass workplace scenes
+
+Six additional silver-glass workplace scene illustrations accompany the existing report scene: arrival, questions, mistake explanation, opinion alignment, reflection and collaboration. They are AI-generated conceptual artwork, not captured workplace photographs, actual team portraits, hardware evidence or service screenshots. The four authored conversation examples now select distinct explanatory scenes; product capability and implementation status remain unchanged.
+
+
+## 2026-10-07 — 4-Fit decorative icon revision
+
+The four explanatory icons use original SVG artwork, replacing the prior generated atlas. This changes presentation only; perspective names, intended analysis scope and evidence status remain unchanged.
+
+
+## 2026-10-07 — Dimensional 4-Fit icon preference
+
+Owner requested the earlier silver-glass 3D icon style with minor semantic refinements. The edited atlas is decorative conceptual artwork, not face/body capture, landmark mapping or analysis evidence. This supersedes the preceding native-only presentation note.
+
+
+## 2026-10-07 — Face mesh illustration scope
+
+The Expression illustration depicts an AI-generated conceptual face with surface-conforming mesh geometry. It does not implement detection, measured landmarks, emotion inference, scoring, camera capture or a running analysis process. Public artwork must remain visibly identified as a visualization concept; actual analysis evidence is still unconfirmed.
+
+
+## 2026-10-07 — Workplace doorway presentation
+
+The owner requested a less monotonous visual story with a closed door opening as visitors move onward. Home's existing first-day concept scene now receives a decorative silver-glass doorway overlay. This is an AI-generated exhibition illustration and native scroll effect, not a photograph, automatic physical door, exhibit entrance specification or hardware behavior. Product flow and implementation claims are unchanged.
+
+
+## 2026-10-07 — Short visual homepage, complete detail pages
+
+Owner requested fewer words and only major ideas on Main. Home now introduces the service through five visual sections; conversations, the mirror rationale and six-step designed journey belong to Service, reflection questions and examples to Four-Fit, applications to Uses, and extended team purpose to Team. The home overview uses all four approved icons without presenting an analysis result. Keep brief concept/verification labels and all existing evidence boundaries. Introduction was moved from Home to Service; no project capability or completed-video claim is added.
+
+
+## 2026-10-12 — Reference-based camera exploded view
+
+The owner supplied an Azure Kinect DK exploded reference on 2026-10-12. Camera presentation now follows its sleeve, upper microphone board, main chassis/PCB and optical modules. The derived illustration is AI-generated explanatory artwork, not project photography or manufacturing evidence. Microsoft hardware specifications confirm 12 MP RGB, 1 MP ToF and seven microphones; the Kinect array does not replace the separately specified ReSpeaker voice input.
+
+
+## 2026-10-12 — Camera parts join on scroll
+
+Camera visual now assembles on scroll, as clarified by the owner. This changes presentation only; sensor specifications and unverified device integration remain unchanged.
+
+
+## 2026-10-12 — Camera visibility and coherent assembly correction
+
+Camera artwork is now atlas v4 derived from the owner’s reference: an open chassis, separate upper module and optical face. All geometry remains explanatory CGI. Presentation changes do not verify device integration or analysis.
+
+
+## Owner direction — 2026-10-13
+
+The owner requested a clearer account of what the work is and how it could be used, ordinary Korean wording, restrained silver-glass styling, shorter screens, and Git publication after validation. The site now presents university/career-center preparation, new-employee education and team-conversation practice as proposed settings for the confirmed workplace-rehearsal concept. These are not customer deployments, validated educational results or newly implemented hardware/AI capabilities. Interview and role-specific training remain expansion ideas. Existing concept captions, authored-example labels and live-integration boundaries remain.
+
+## 2026-10-13 — Mobile introduction focused on use and development
+
+The owner prioritizes mobile web visitors arriving via NFC, readable type and a short main page. Home now foregrounds where the project could be used and how it could develop. Proposed directions are education-material retrieval for job-specific scenarios, voice conversation for follow-up questions, and facial/body landmarks with depth information for observable movement feedback. These are author proposals prompted by the owner, not selected providers, committed implementation, integrated models or validated training outcomes. No emotion, personality, identity or accuracy claim is added. Existing detail pages and hardware evidence boundaries remain accessible through the hamburger menu.
+
+Technical sources checked for feasibility context: https://developers.openai.com/api/docs/guides/retrieval ; https://developers.openai.com/api/docs/guides/realtime-conversations ; https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker . Additional facial-landmark source: https://developers.google.com/edge/mediapipe/solutions/vision/face_landmarker . Candidate technologies do not establish this project's capabilities. Source material rights, consent, reference quality, noise, latency and tracking reliability require validation before implementation.
+
+
+## 2026-10-13 — Korean wording pass
+
+The owner requested natural Korean copy using the im-not-ai reference. Revise abstract headings, repeated nominal endings and connector commas without adding product claims. Workplace rehearsal, the four confirmed Fit names, proposed applications, authored examples and unverified device/AI linkage retain their prior status. Concurrent Home/navigation work is preserved; this pass supplies no new hardware or model evidence.
+
+## 2026-10-13 — Preserve presentation effects in the short mobile introduction
+
+The owner's corrective instruction preserves the existing door-opening scene, glass visuals and cinematic product presentation. Reinstating these assets does not add implementation evidence: the scene and icons remain concept artwork. Home retains use and development as its central explanatory content. No new asset, model or hardware capability is introduced.
+
+## 2026-10-13 — Reading-first controls
+
+Reduce repeated page navigation and explanatory selection buttons per the owner's feedback. The site retains all intended-experience and capability boundaries; native selectors change authored explanation only. This is a presentation change, not a new AI, NFC, data or hardware feature. All five detail destinations remain accessible from the hamburger.
+
+## 2026-10-13 — Mobile layout and presentation audit
+
+Correct layout/readability throughout the existing microsite without adding capabilities. Mobile hardware scenes remain conceptual assembly illustrations and now animate in ordinary document flow, including short screens. This does not implement device control, sensors, recognition or AI. Physical-device, real mobile-browser and NFC validation remain separate from browser viewport checks.

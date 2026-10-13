@@ -8,8 +8,8 @@ export function Technology() {
       <div className="container technology-section__grid">
         <Reveal className="technology-section__intro">
           <p className="section-kicker">경험을 뒷받침하는 기술</p>
-          <h2 id="technology-heading" className="section-title">보이지 않는 곳까지,<br /><span>하나의 경험을 위해.</span></h2>
-          <p className="body-copy">어떤 입력을 받고, 어떤 경험으로 이어갈지.<br />기술별 구성과 설계 역할, 확인할 범위를 함께 소개합니다.</p>
+          <h2 id="technology-heading" className="section-title">대화 연습에 쓰는<br /><span>입력과 기술.</span></h2>
+          <p className="body-copy">어떤 입력을 받고 어떻게 활용할까요?<br />기술별 구성과 역할, 확인이 필요한 부분을 소개합니다.</p>
         </Reveal>
         <div className="technology-list">
           {technologies.map(technology => (

@@ -1,0 +1,13 @@
+.scene-figure { min-width: 0; background: #050506; color: #b8bdc5; }
+.scene-figure img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: contain; }
+.scene-figure figcaption { padding: 14px 20px 18px; color: #aeb5bf; font-size: 11px; text-align: center; line-height: 1.8; }
+.scene-figure__fallback { display: grid; align-content: center; gap: 16px; aspect-ratio: 3 / 2; padding: 28px; border: 1px solid #34373d; text-align: center; background: radial-gradient(ellipse, #252830, #08090b 70%); }
+.scene-figure__fallback span { color: #d2d7de; font-size: 12px; letter-spacing: .08em; }
+.scene-figure__fallback p { color: #b8bdc5; font-size: 14px; line-height: 1.8; }
+.problem-scene { grid-column: 1 / -1; width: min(100%, 960px); justify-self: center; }
+.experience-scene { width: min(100%, 860px); margin: 48px auto 36px; }
+.closing-scene { max-width: 1040px; margin-bottom: clamp(40px, 6vw, 72px); }
+@media (max-width: 767px) {
+  .scene-figure figcaption { padding-inline: 12px; font-size: 10px; }
+  .experience-scene { margin-block: 32px 28px; }
+}

@@ -83,8 +83,26 @@
 .hardware-detail-assembly__layer--core { z-index: 1; transform: translate(calc((1 - var(--panels)) * var(--spread-core) + var(--part-x, 0%)), calc((1 - var(--panels)) * var(--core-separation-y) + var(--part-y, 0%))) scale(var(--part-scale, 1)); }
 .hardware-detail-assembly__layer--surface { z-index: 2; transform: translate(calc((1 - var(--glass)) * var(--spread-front) + var(--part-x, 0%)), calc((1 - var(--glass)) * var(--front-separation-y) + var(--part-y, 0%))) scale(var(--part-scale, 1)); }
 /* ponytail: raster perspectives need calibrated offsets; matched CGI passes can replace these approximations. */
-.hardware-detail-assembly--camera .hardware-detail-assembly__layer--core { --part-x: -14%; --part-y: -4.6%; --part-scale: .62; }
-.hardware-detail-assembly--camera .hardware-detail-assembly__layer--surface { --part-x: -8.6%; --part-y: -7.5%; --part-scale: .78; }
+.hardware-detail-assembly--camera { --object-scale: .76; }
+.hardware-camera__tile { position: absolute; inset: 0; overflow: hidden; }
+.hardware-camera__sprite, .hardware-camera__tile .hardware-assembly__complete { position: absolute; width: 200%; height: 200%; max-width: none; object-fit: fill; pointer-events: none; }
+.hardware-camera__sprite { left: 0; top: 0; }
+.hardware-camera__tile.hardware-detail-assembly__layer--shell .hardware-camera__sprite { width: 190%; opacity: var(--panels); clip-path: polygon(0 18.5%, 24.75% 30.5%, 24.75% 50%, 0 50%); }
+.hardware-camera__tile.hardware-detail-assembly__layer--core .hardware-camera__sprite { top: -100%; }
+.hardware-camera__tile.hardware-detail-assembly__layer--core .hardware-camera__sprite { opacity: calc(1 - var(--panels)); clip-path: inset(78% 50% 0 0); }
+.hardware-camera__tray { position: absolute; top: 0; left: -100%; width: 200%; height: 200%; max-width: none; object-fit: fill; opacity: calc(1 - var(--panels)); clip-path: inset(0 0 0 52.5%); pointer-events: none; }
+.hardware-camera__tile.hardware-detail-assembly__layer--surface .hardware-camera__sprite { width: 190%; clip-path: polygon(52.63% 21.5%, 52.63% 50%, 24.75% 50%, 24.75% 30.5%); }
+.hardware-camera__roof { position: absolute; inset: 0; width: 190%; height: 200%; max-width: none; object-fit: fill; clip-path: polygon(0 0, 52.63% 0, 52.63% 21.5%, 24.75% 30.5%, 0 18.5%); pointer-events: none; }
+.hardware-camera__tile--complete { z-index: 5; pointer-events: none; }
+.hardware-detail-assembly--camera .hardware-assembly__complete { opacity: 1; }
+.hardware-camera__tile .hardware-assembly__complete { width: 190%; }
+.hardware-detail-assembly--camera.hardware-assembly--ready[data-motion="scroll"] .hardware-assembly__complete { opacity: 0; }
+.hardware-detail-assembly--camera.hardware-assembly--ready[data-motion="scroll"] .hardware-assembly__layers { opacity: 1; }
+.hardware-detail-assembly--camera[data-motion="scroll"] .hardware-assembly__layers { display: block; }
+.hardware-detail-assembly--camera .hardware-detail-assembly__layer--shell { z-index: 2; }
+/* shortcut: internal-board occlusion is illustrative; use CAD for manufacturing geometry. */
+.hardware-detail-assembly--camera .hardware-detail-assembly__layer--core { z-index: 3; transform: translateY(calc((1 - var(--panels)) * -40%)); }
+.hardware-detail-assembly--camera .hardware-detail-assembly__layer--surface { z-index: 4; transform: translateY(calc((1 - var(--glass)) * 32%)); }
 .hardware-detail-assembly__unit--mic { clip-path: inset(0 45% 55% 0); transform-origin: 25% 23%; }
 .hardware-detail-assembly__unit--left { clip-path: inset(45% 62% 0 0); transform-origin: 16% 64%; }
 .hardware-detail-assembly__unit--right { clip-path: inset(45% 0 0 62%); transform-origin: 84% 76%; }
@@ -92,8 +110,8 @@
 .hardware-detail-assembly__layer--core.hardware-detail-assembly__unit--left { --part-y: 1.5%; --part-scale: .65; }
 .hardware-detail-assembly__layer--core.hardware-detail-assembly__unit--right { --part-x: -1.5%; --part-y: 1.5%; --part-scale: .69; }
 .hardware-detail-assembly__layer--surface.hardware-detail-assembly__unit--mic { --part-x: -.5%; --part-y: -.5%; --part-scale: .92; }
-.hardware-detail-assembly__layer--surface.hardware-detail-assembly__unit--left { --part-x: 1%; --part-y: -1%; }
-.hardware-detail-assembly__layer--surface.hardware-detail-assembly__unit--right { --part-x: -.8%; --part-y: -1%; --part-scale: .97; }
+.hardware-detail-assembly__layer--surface.hardware-detail-assembly__unit--left { --part-x: -.35%; --part-y: -.2%; --part-scale: .94; }
+.hardware-detail-assembly__layer--surface.hardware-detail-assembly__unit--right { --part-x: -3.4%; --part-y: -1.4%; --part-scale: .94; }
 /* ponytail: hide driver depth only as the grille seats; true occlusion needs matched 3D geometry. */
 .hardware-detail-assembly--audio .hardware-detail-assembly__layer--core { opacity: calc(1 - clamp(0, (var(--glass) - .75) * 4, 1)); }
 .hardware-detail-assembly .hardware-assembly__bottom { padding-top: 4px; padding-bottom: 14px; }
@@ -111,6 +129,7 @@
 
 @media (max-width: 767px) {
   .hardware-detail-assembly { --core-separation-y: -12%; --front-separation-y: 16%; height: 230svh; min-height: 1450px; }
+  .hardware-detail-assembly--camera { --object-scale: .7; }
   .hardware-detail-assembly .hardware-assembly__sticky { min-height: 710px; }
   .hardware-detail-assembly__main { grid-template-columns: 1fr; grid-template-rows: auto minmax(220px, 1fr) auto; align-content: stretch; gap: 16px; padding-top: 16px; padding-bottom: 12px; }
   .hardware-detail-assembly__copy h2 { font-size: 28px; }

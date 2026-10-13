@@ -1,0 +1,32 @@
+.door-transition { background: #050506; color: #f4f5f7; scroll-margin-top: calc(var(--header-height) + 24px); }
+.door-transition__stage { position: relative; max-width: 960px; margin-inline: auto; overflow-x: clip; }
+.door-transition__leaves { position: absolute; inset: 0 0 auto; aspect-ratio: 3 / 2; display: none; perspective: 1400px; pointer-events: none; }
+.door-transition__leaf { position: absolute; inset-block: 0; width: 50%; overflow: hidden; backface-visibility: hidden; }
+.door-transition__leaf--left { left: 0; transform-origin: left center; }
+.door-transition__leaf--right { right: 0; transform-origin: right center; }
+.door-transition__leaf img { width: 200%; max-width: none; height: 100%; object-fit: fill; }
+.door-transition__leaf--right img { margin-left: -100%; }
+.door-transition .scene-figure figcaption { position: relative; z-index: 1; }
+
+/* The complete scene is the default; native scroll motion only enhances it. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .door-transition__stage { view-timeline-name: --workplace-door; view-timeline-axis: block; }
+    .door-transition__leaves { display: block; }
+    .door-transition__leaf { animation: door-open-left linear both; animation-timeline: --workplace-door; animation-range: entry 100% cover 65%; }
+    .door-transition__leaf--right { animation-name: door-open-right; }
+    .door-transition__stage:has(.scene-figure__fallback) .door-transition__leaves { display: none; }
+  }
+}
+@keyframes door-open-left {
+  /* Negative left rotation brings the center edge toward the viewer (+Z). */
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-100deg); }
+}
+@keyframes door-open-right {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(100deg); }
+}
+@media (max-width: 767px) {
+  .door-transition__leaves { perspective: 900px; }
+}

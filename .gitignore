@@ -143,6 +143,7 @@ vite.config.ts.timestamp-*
 .vite/
 
 # Local OS and editor files
+_workspace/
 .DS_Store
 ._*
 Thumbs.db

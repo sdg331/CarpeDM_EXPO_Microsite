@@ -26,8 +26,8 @@ export function HardwareAssembly() {
       <div className="hardware-assembly__sticky">
         <div className="hardware-assembly__top container"><p>4-FIT MIRRORTING · HARDWARE</p><a href="#system">시스템 구성 보기 <span aria-hidden="true">↗</span></a></div>
         <div className="hardware-assembly__heading container">
-          <h2 id="assembly-title">각각의 기술이,<br /><span>하나의 미러로.</span></h2>
-          <div><p>거울과 화면. 카메라와 오디오.<br />설계 도안을 바탕으로 구성한 하나의 스마트 미러.</p><span className="hardware-assembly__hint">스크롤하며 조립 과정을 살펴보세요 <i aria-hidden="true">↓</i></span></div>
+          <h2 id="assembly-title">화면과 센서를<br /><span>한 미러 안에.</span></h2>
+          <div><p>거울과 화면. 카메라와 오디오.<br />설계 도안에 따라 구성한 하나의 스마트 미러.</p><span className="hardware-assembly__hint">스크롤하며 조립 과정을 살펴보세요 <i aria-hidden="true">↓</i></span></div>
         </div>
         <div className="hardware-assembly__stage container" role="img" aria-label="설계 도안 기반 AI 생성 3D 콘셉트. 거울 프레임과 모니터, 스피커·PC BOX·베이스가 결합합니다." aria-busy="true">
           <div className="hardware-assembly__shadow" aria-hidden="true" />

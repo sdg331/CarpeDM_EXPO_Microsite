@@ -1,0 +1,90 @@
+/* Phone reading layout; hardware geometry keeps its own bounded stage. */
+@media (max-width: 767px) {
+  :root { --section-space: 40px; }
+  .hero__grid { min-height: clamp(590px, calc(100svh - var(--header-height) - 104px), 650px); }
+
+  .page-intro { padding-block: 20px 24px; }
+  .page-intro__content { gap: 16px; }
+  .page-intro h1 { font-size: 30px; line-height: 1.35; text-wrap: pretty; }
+  .page-intro__content > p { font-size: 16px; line-height: 1.75; }
+  #root:not([data-page='home']) .section-title { font-size: 28px; line-height: 1.35; }
+  #root .section-kicker { margin-bottom: 12px; font-size: 14px; }
+
+  .practice-section .section-editorial { text-align: left; }
+  .practice-section .section-kicker { justify-content: flex-start; }
+  .practice-section .section-editorial > p { margin: 16px 0 0; }
+  .practice-layout { margin-top: 24px; gap: 20px; }
+  #root .practice-options { margin-top: 0; }
+  .practice-example { padding: 24px 20px; }
+  .practice-example h3, .practice-dialogue p + p, .practice-reflection p { font-size: 16px; }
+  .practice-dialogue span, .practice-reflection > span { font-size: 14px; }
+
+  #root .fit-tabs { margin-top: 20px; }
+  #root .fit-tabs button { min-height: 56px; padding: 12px 8px; }
+  #root .fit-tabs button > span { display: none; }
+  #root .fit-tabs button strong { font-size: 20px; }
+  .fit-panel__copy > p:not(.section-kicker), .fit-panel__example p,
+  .fit-observation dd, .fit-observation__retry,
+  .fit-retry__comparison article > p:last-child, .fit-retry__steps p { font-size: 16px; }
+  .fit-panel__copy { padding: 24px 20px; }
+  .fit-panel__copy h3 { font-size: 23px; }
+  .fit-panel__name small { font-size: 14px; }
+
+  .use-detail, .use-scenarios, .use-dashboard, .use-expansion, .development { padding-block: 32px; }
+  .use-detail__intro { gap: 16px; }
+  .use-dashboard .body-copy, .use-dashboard dd { font-size: 16px; }
+  .use-detail__section-head > p { font-size: 16px; }
+
+  .introduction__content { gap: 24px; }
+  .introduction__points { margin-block: 24px 0; }
+  .introduction__points dd { font-size: 16px; }
+  .mirror-section, .kiosk-section { padding-block: 40px; }
+  .mirror-section__grid, .kiosk-section__grid { gap: 24px; }
+  .mirror-section__content .body-copy, .kiosk-section__content .body-copy { font-size: 16px; line-height: 1.75; }
+  .mirror-section__features > div, .kiosk-section__features > div { grid-template-columns: 1fr; gap: 8px; }
+  .mirror-section__features dt, .mirror-section__features dd,
+  .kiosk-section__features dt, .kiosk-section__features dd, .kiosk-section__detail p { font-size: 16px; }
+  .introduction__visual .product-frame__stage, .mirror-section__visual .product-frame__stage,
+  .kiosk-section__visual .product-frame__stage, .team-approach__device .product-frame__stage {
+    height: clamp(250px, 42svh, 340px);
+  }
+
+  .experience__heading .body-copy, .experience__steps p, .experience__guide p { font-size: 16px; }
+  .experience__intro { gap: 20px; }
+  .experience__steps { margin-top: 24px; }
+  .experience__steps li { padding-block: 20px; }
+  .team-approach__opening, .team-evidence__heading { gap: 24px; }
+  .team-approach__opening > div:first-child > .body-copy,
+  .team-principles p, .team-evidence__list dd > p { font-size: 16px; }
+  .team-principles { margin-top: 32px; }
+
+  #root main .scope-note, #root main figcaption { font-size: 14px; line-height: 1.75; }
+  #root[data-page='home'] main .scope-note, #root[data-page='home'] main figcaption { font-size: 16px; }
+  .technology-section__intro .body-copy, .technology-item__details dd,
+  .evidence-list p, .system-section dd, .system-device__role,
+  .system-feedback__heading .body-copy, .system-feedback__list dd p,
+  .system-journey small, .hardware-references > p { font-size: 16px; }
+  .technology-item summary > span > span, .technology-item__details dt { font-size: 14px; }
+  .technology-item__details > div { grid-template-columns: 1fr; gap: 8px; }
+  .system-device__parts li { font-size: 14px; }
+
+  .hardware-assembly { height: auto; min-height: 0; }
+  .hardware-assembly .hardware-assembly__sticky { position: relative; top: 0; height: auto; min-height: 0; }
+  .hardware-assembly .hardware-assembly__stage { flex: none; height: clamp(280px, 55svh, 520px); min-height: 0; }
+  .hardware-assembly__layers, .hardware-assembly__hint, .hardware-assembly__track { display: none; }
+  .hardware-assembly__complete { opacity: 1; }
+}
+
+/* Normal-flow scenes still animate on short phones; static mode remains for
+   reduced motion or failed media. Progress uses the existing camera curve. */
+@media (max-height: 740px), (max-width: 767px) {
+  .hardware-assembly[data-motion='scroll'] .hardware-assembly__layers { display: block; }
+  .hardware-assembly--ready[data-motion='scroll'] .hardware-assembly__complete { opacity: 0; }
+  .hardware-assembly__top > p { font-size: 12px; letter-spacing: .03em; }
+  .hardware-assembly__top a { font-size: 14px; }
+  .hardware-assembly__heading > div > p { font-size: 16px; }
+  .hardware-detail-assembly__copy > p:last-child { font-size: 16px; }
+  .hardware-detail-assembly__features h3 { font-size: 16px; }
+  .hardware-detail-assembly__features p { font-size: 16px; }
+  .hardware-assembly__bottom > p, .hardware-detail-assembly__scope { font-size: 14px; }
+}

@@ -1,21 +1,21 @@
 :root {
   color-scheme: light;
   --color-bg: #ffffff;
-  --color-surface: #f4f5f7;
-  --color-surface-strong: #eef2f6;
+  --color-surface: #f1f2f4;
+  --color-surface-strong: #e8eaed;
   --color-text: #1d1d1f;
   --color-secondary: #606773;
   --color-subtle: #667085;
   --color-border: #e4e7ec;
   --color-border-strong: #d0d5dd;
-  --color-accent: #2563eb;
-  --color-accent-hover: #1d4ed8;
-  --color-action: #1963da;
-  --color-action-hover: #1453bc;
+  --color-accent: #39465a;
+  --color-accent-hover: #202b3b;
+  --color-action: #39465a;
+  --color-action-hover: #202b3b;
   --color-accent-weak: #eff6ff;
   --color-accent-weak-text: #1e40af;
-  --color-dark: #0b1728;
-  --color-dark-surface: #111f33;
+  --color-dark: #101113;
+  --color-dark-surface: #1b1d21;
   --color-danger: #d92d20;
   --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system,
     BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
@@ -36,7 +36,10 @@
   --page-gutter: clamp(1.25rem, 5vw, 5rem);
   --content-width: 76rem;
   --section-space: clamp(4.5rem, 7.5vw, 7rem);
-  --header-height: 5rem;
+  --header-height: 4.25rem;
+  --surface-silver: linear-gradient(135deg, #ffffff, #e1e5eb);
+  --surface-glass: linear-gradient(135deg, rgb(255 255 255 / 92%), rgb(233 237 242 / 88%));
+  --shadow-glass: inset 0 1px 0 #fff, 0 8px 32px rgb(31 41 55 / 5%);
   --duration-short: 180ms;
   --duration-reveal: 420ms;
   --ease-out: cubic-bezier(0.2, 0.65, 0.3, 1);

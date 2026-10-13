@@ -9,21 +9,21 @@ const imageLayers = {
 };
 const content = {
   camera: {
-    label: '시각 입력', mark: 'CAMERA · COLOR + DEPTH',
-    title: <>컬러와 깊이.<br /><span>함께 보는 카메라.</span></>,
-    intro: '장면의 색과 디테일, 거리 정보를 함께 입력하는 센서 구성.',
-    description: '외장과 브래킷, 센서 코어, 광학 전면부가 결합하는 카메라 구조 콘셉트.',
-    chapters: ['컬러 영상', '깊이 정보', '두 입력의 결합'],
+    label: '시각 입력 · 센서 구조', mark: 'CAMERA · COLOR + DEPTH',
+    title: <>컬러 영상과 거리 정보,<br /><span>센서 구조 살펴보기.</span></>,
+    intro: '컬러 카메라와 깊이 센서, 마이크 어레이. 하나의 장치 안에 담긴 입력 구조를 살펴보세요.',
+    description: '제공된 Azure Kinect DK 분해 이미지를 참고한 외장, 상단 마이크 어레이, 내부 보드와 컬러·깊이 광학 모듈의 3D 구조 콘셉트.',
+    chapters: ['위아래로 펼쳐진 구조', '위쪽 센서가 내려오고', '아래쪽 전면부가 결합'],
     features: [
       ['12 MP 컬러', '장면의 색과 디테일을 담는 고해상도 컬러 영상 입력.'],
       ['1 MP ToF 깊이', '거리 정보를 깊이 영상으로 다루기 위한 센서.'],
-      ['컬러 + 깊이', '두 영상 입력을 한 장치에서 함께 제공하는 구성.'],
+      ['7개의 마이크', '상단에 배치된 마이크 어레이. 미러의 별도 음성 장비와는 구분합니다.'],
     ],
     next: '#audio-assembly', nextLabel: '오디오 살펴보기', fallback: '카메라 형태 콘셉트',
   },
   audio: {
     label: '음성 입력 · 소리 출력', mark: 'AUDIO · VOICE + SOUND',
-    title: <>목소리에 집중하고.<br /><span>대화를 이어가도록.</span></>,
+    title: <>음성을 받는 마이크,<br /><span>소리를 내는 스피커.</span></>,
     intro: '상단 마이크 어레이와 하단 두 스피커로 구성한 대화의 입력과 출력.',
     description: '마이크·스피커 하우징, 마이크 보드와 두 스피커 유닛, 음향 그릴이 결합하는 오디오 구조 콘셉트.',
     chapters: ['네 개의 마이크', '방향과 에코', '소음을 줄이는 처리'],
@@ -43,11 +43,12 @@ export function HardwareDetailAssembly({ kind }: { kind: keyof typeof content })
   const [failed, setFailed] = useState(false);
   const [completeFailed, setCompleteFailed] = useState(false);
   const section = useAssemblyScroll(failed, ready);
-  const asset = (part?: string) => siteAsset(`media/hardware/sm-${kind}${part ? '-' + part : ''}-v1.webp`);
+  const asset = (part?: string) => siteAsset(kind === 'camera' ? 'media/hardware/sm-camera-atlas-v4.webp' : `media/hardware/sm-${kind}${part ? '-' + part : ''}-v1.webp`);
   function imageLoaded(name: string) {
     loaded.current.add(name);
     if (loaded.current.size === 4) setReady(true);
   }
+  const completeImage = !completeFailed ? <img className="hardware-assembly__complete" src={asset()} alt="" width={1448} height={1086} loading="lazy" decoding="async" onLoad={() => imageLoaded('complete')} onError={() => { setCompleteFailed(true); setFailed(true); }} /> : <div className="hardware-detail-assembly__fallback"><div aria-hidden="true"><span /><i /><i /></div><p>{data.fallback}</p></div>;
 
   return <section ref={section} id={kind + '-assembly'} tabIndex={-1}
     className={`hardware-assembly hardware-detail-assembly hardware-detail-assembly--${kind}${ready ? ' hardware-assembly--ready' : ''}`}
@@ -59,9 +60,13 @@ export function HardwareDetailAssembly({ kind }: { kind: keyof typeof content })
         <div className="hardware-assembly__stage hardware-detail-assembly__stage" role="img" aria-label={'AI 생성 3D 콘셉트. ' + data.description} aria-busy="true">
           <div className="hardware-assembly__object">
             {!failed && <div className="hardware-assembly__layers" aria-hidden="true">
-              {imageLayers[kind].map(({ name, unit }) => <img key={name + unit} className={'hardware-assembly__layer hardware-detail-assembly__layer--' + name + (unit ? ' hardware-detail-assembly__unit--' + unit : '')} src={asset(name)} alt="" width={1448} height={1086} loading="lazy" decoding="async" onLoad={() => imageLoaded(name)} onError={() => setFailed(true)} />)}
+              {imageLayers[kind].map(({ name, unit }) => {
+                const className = 'hardware-assembly__layer hardware-detail-assembly__layer--' + name + (unit ? ' hardware-detail-assembly__unit--' + unit : '');
+                const image = <img key={name + unit} className={kind === 'camera' ? 'hardware-camera__sprite' : className} src={asset(name)} alt="" width={1448} height={1086} loading="lazy" decoding="async" onLoad={() => imageLoaded(name)} onError={() => setFailed(true)} />;
+                return kind === 'camera' ? <div key={name} className={className + ' hardware-camera__tile'}>{image}{name === 'core' && <img className="hardware-camera__roof" src={asset()} alt="" width={1448} height={1086} loading="lazy" decoding="async" />}{name === 'shell' && <img className="hardware-camera__tray" src={asset()} alt="" width={1448} height={1086} loading="lazy" decoding="async" />}</div> : image;
+              })}
             </div>}
-            {!completeFailed ? <img className="hardware-assembly__complete" src={asset()} alt="" width={1448} height={1086} loading="lazy" decoding="async" onLoad={() => imageLoaded('complete')} onError={() => { setCompleteFailed(true); setFailed(true); }} /> : <div className="hardware-detail-assembly__fallback"><div aria-hidden="true"><span /><i /><i /></div><p>{data.fallback}</p></div>}
+            {kind === 'camera' && !completeFailed ? <div className="hardware-camera__tile hardware-camera__tile--complete">{completeImage}</div> : completeImage}
           </div>
         </div>
         <ol className="hardware-detail-assembly__features">
@@ -74,6 +79,6 @@ export function HardwareDetailAssembly({ kind }: { kind: keyof typeof content })
       </div>
       <p className="hardware-detail-assembly__scope container">제조사 공개 사양을 소개합니다. 실제 프로젝트의 분석 성능·기능 활성화·장치 연동을 의미하지 않습니다. <a href="#hardware-details">장비 사양과 출처 보기 ↗</a></p>
     </div>
-    <p className="sr-only">{data.description} 스크롤하면 부품이 조립되며 컬러·깊이 입력 또는 음성 처리의 강점을 강조합니다. 내부 부품의 형상과 배치는 설명용 AI 생성 콘셉트이며 제조사의 실제 분해도나 제작 도면이 아닙니다.</p>
+    <p className="sr-only">{data.description} {kind === 'camera' ? '스크롤하면 위쪽 내부 센서는 내려오고 아래쪽 전면부는 올라와 가운데 외장에 결합합니다.' : '스크롤하면 부품이 조립되며 음성 처리의 강점을 강조합니다.'} 내부 부품의 형상과 배치는 설명용 AI 생성 콘셉트이며 제조사의 실제 분해도나 제작 도면이 아닙니다.</p>
   </section>;
 }

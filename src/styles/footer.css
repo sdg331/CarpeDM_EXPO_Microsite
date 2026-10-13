@@ -13,3 +13,8 @@
   .site-footer__navigation { gap: 4px 24px; }
   .site-footer__bottom { flex-direction: column; }
 }
+
+.site-footer--compact { padding-block: 24px; }
+.site-footer__brief { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; }
+.site-footer__brief p { color: var(--color-secondary); font-size: 16px; line-height: 1.7; }
+.site-footer__brief .text-link { font-size: 16px; }

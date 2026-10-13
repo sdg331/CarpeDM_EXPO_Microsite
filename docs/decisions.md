@@ -298,3 +298,119 @@ Decision: Keep the closed raster layers visible after assembly. Reserve the sepa
 Reason: Actual browser inspection showed double outlines when independently generated assembled/composed geometries blended, abrupt wheel-driven progress and clipped sensor descriptions at 390×640. This explicitly supersedes the earlier final-image handoff while retaining internals-before-covers and constant image scale.
 
 Consequences: Native scrolling and all existing assets/links remain. Active settling ends at the current target and stops offscreen/hidden. Viewports no taller than 740px (820px on widths below 768px) use static products with normal-flow copy. No dependency, regenerated image, scroll interception or hardware change. Generated anatomy is still illustrative; exact part geometry requires matched CGI or actual CAD passes.
+
+
+## 2026-10-07 — Silver, charcoal and restrained glass
+
+Owner approved the silver-product / charcoal-stage / restrained-glass direction. Refine existing CSS rather than switch all content to dark or introduce translucent body cards. Preserve authored content, product evidence, media fallbacks, keyboard controls and existing assembly work. The previous limitation of glass to icons/header is superseded for active selection controls.
+
+
+## 2026-10-07 — Black silver-glass showroom reference
+
+The owner’s screenshot requests stronger black/silver glass visual language than the prior light treatment. Apply it to Home and shared conversation presentation while preserving factual detail-page content and hardware motion. Reuse four authored selections with manual navigation; the single generated office setting is conceptual art, not distinct verified scenes. Add a clear image-failure text fallback rather than use a misleading hardware silhouette.
+
+
+## 2026-10-07 — Premium silver-glass 4-Fit icons
+
+Owner explicitly requested premium glass icons matching the silver office concept. Generate one coordinated decorative atlas for all four visible 4-Fit dimensions and reuse it across Home/detail/EXPO. Keep existing SVG geometry as a resilient fallback; unused GlassIcon artwork and small functional arrows are outside the requested large-illustration change.
+
+
+## 2026-10-07 — Expanded silver-glass workplace scenes
+
+Owner asked for several additional premium images distributed throughout the site. Generate six purposeful workplace scenes instead of inventing project hardware or photographs. Reuse existing authored interactions and a shared conceptual-figure renderer. Distinct conversation imagery supersedes the earlier single-office-for-all-situations decision. Native manual controls move above the image so a selection immediately reveals its new scene; unrelated assembly assets and current dirty work are preserved.
+
+
+## 2026-10-07 — Simplify the 4-Fit icon material and form
+
+Owner found the current icons unsatisfactory. Review showed heavy chrome reflections and mask/bust forms competing with the restrained glass-office scenes. After offering optional style choices, proceed with the stated default of minimal silver-glass symbols: reuse the native GlassIcon component, four clear geometries and one consistent material. Preserve all four labels, existing panels, keyboard behavior and earlier user work. This supersedes the generated atlas, per-icon sprite normalization and raster fallback decisions. Archived artwork remains local; no additional image generation or dependency is needed for these simple forms.
+
+
+## 2026-10-07 — Preserve the preferred dimensional icon design
+
+Owner explicitly preferred the previous 3D icons over the simplified SVG revision, asking for small refinements to each icon’s characteristics. Edit the original atlas rather than invent another style. Keep the material and silhouettes while clarifying dialogue, spoken voice, expression and upright posture. Restore image rendering and reuse the native symbols as error fallbacks. This supersedes the minimal-symbol decision and restores the earlier optical sizing contract. Other site images, authored copy, panels and hardware behavior remain intact.
+
+
+## 2026-10-07 — Change only Expression to a face mesh concept
+
+Owner asked for natural face mesh analysis imagery after approving the previous dimensional icon style. Use image_gen to extract/refine the Expression face into a separate transparent asset rather than regenerate the whole atlas and risk changing the other three icons. Preserve the face shape and silver material, use anatomy-aligned triangle connections and label it a concept. No simulated analysis workflow, new inference dependency or camera permission is introduced. Use per-icon image-error handling so one failed asset does not suppress unrelated icons.
+
+The owner subsequently requested gently closed eyes. Expression v2 retains the same silver-glass face, smile and anatomy-aligned mesh with both eyelids comfortably closed. The other three perspectives remain unchanged.
+
+
+## 2026-10-07 — Add motion to the existing first-day image
+
+Owner found the site monotonous and suggested closed doors opening as visitors move onward. Interpret this as a section-scroll transition and enhance the existing arrival scene, preserving all 4-Fit artwork and selectors. This avoids adding an extra section and repeating the same scene in consecutive stages. Use native CSS view-timeline enhancement with a generated silver-glass paired-door overlay. Retain immediately visible content when motion is reduced or timelines unsupported, and independent media-error fallbacks. No library, physical-door claim, new product flow, push or deployment.
+
+
+## 2026-10-07 — Make Main an introduction rather than repeat every detail
+
+Owner explicitly asked to move detail out of Main because long copy felt tiring. Replace the prior full introduction composition with five large visual sections and short native links. This reverses the 2026-10-05 decision to put every story chapter on Home. Conversations, experience steps, reflection detail, applications and team material remain available on their detail pages; move the unique mirror rationale to Service. Preserve the approved Hero wording, glass doorway, all four icons and physical-device images. Remove the unavailable video control from Home while keeping missing footage in the System evidence inventory. Add compatibility navigation for the four moved section fragments. No push, deployment or capability claim.
+
+## 2026-10-07 — Make the doors visibly open toward the visitor
+
+Owner clarified forward opening. Existing rotation signs already move the center edges toward the viewer; reversing them would open into the scene. Correct the visual cause instead: remove stage clipping that concealed the expanding corners, strengthen desktop perspective, retain horizontal clipping and start the swing later to protect preceding copy. Remove the solid leaf background so transparent image margins stay clean; keep the concept caption above the leaves. Reuse the approved asset, native scroll timeline and static/error fallbacks.
+
+
+## 2026-10-07 — Home glass, detail-page editorial clarity
+
+Owner explicitly requested a style boundary after the combined Apple/Toss and silver-glass treatments felt awkward. Home and EXPO keep the approved dark glass showroom. Service, Four-Fit, System, Uses and Team use a white/cool-grey editorial interface with opaque navigation, flat reading fields, restrained blue selections and thin dividers. Existing dark product/scene artwork is a bounded media exception, preserving approved assets and concept captions. This supersedes the 2026-10-07 shared glass selection and dark Service conversation decisions. Scope silver tokens and header blur to Home; change shared detail defaults and existing section CSS rather than add a second theme system or replace artwork. All public content, tab/selection logic, media fallbacks and hardware motion remain intact.
+
+
+## 2026-10-12 — Reference-based camera exploded view
+
+Owner requested a camera 3D section based on the supplied exploded reference. Use one faithful generated exploded illustration rather than the prior generic tripod sensor and independently generated mating parts. This supersedes the camera-only closed-layer hold, while preserving mirror/audio assembly. The internal drawing remains conceptual and all displayed sensor specifications link to Microsoft. No hardware access, simulated analysis or deployment is introduced.
+
+
+## 2026-10-12 — Camera parts join on scroll
+
+Owner corrected the prior interpretation: parts must naturally join, not remain exploded. Generate a coordinated atlas in built-in image_gen from the supplied-reference render, then reuse native assembly phases and settle on the closed tile. This supersedes the fixed camera illustration decision above. Calibration and staged enclosure occlusion address visible overlap; generated internal geometry stays conceptual.
+
+
+## 2026-10-12 — Vertical camera assembly
+
+Owner explicitly prefers the reference image’s upper/lower joining feel. Change only camera displacement to vertical, with fixed centered shell, descending core and ascending faceplate. Preserve completed silhouette, existing artwork and shared scroll logic. The previous diagonal movement is superseded.
+
+
+## 2026-10-12 — Camera visibility and coherent assembly correction
+
+Owner reported no visible application and unnatural joining. Fresh process inspection confirms Vite 4915 serves this checkout on 5174. The existing short-height rule explained a supported path with animation disabled; the user’s actual in-app tab could not be inspected because only Chrome is connected. Keep camera animated in short normal-flow sections, preserving reduced-motion. Replace independently sized mating surfaces with complementary masks from a single completed view and eliminate the final blend. This supersedes v3 registration and short-screen static-camera decisions. Keep generated interiors illustrative and do not claim real CAD geometry.
+
+
+## 2026-10-13 — Plain wording, proposed uses and silver-glass detail pages
+
+The current owner request explicitly changes the earlier exact Hero promise, omission of Home applications and flat-blue detail-page controls. Lead with the concrete AI smart mirror/workplace-rehearsal definition, show three proposed educational contexts on Home, and let visitors select one context on Uses. Replace repeated abstract future-language with short concrete descriptions, while keeping implementation uncertainty in visible scope notes. University, new-employee and team contexts are proposed uses, not verified installations or measured outcomes.
+
+Use pale silver glass for navigation and controls, graphite selection rules and opaque reading panels. Native disclosures bound scenario/expansion copy and preserve keyboard access. Preserve the approved assets, existing hardware assemblies and all entry paths. This request authorizes committing and pushing the resulting repository; source publication is distinct from updating the separately maintained gh-pages deployment.
+
+## 2026-10-13 — Make mobile use and future development the main story
+
+The owner's latest instruction explicitly prioritizes mobile web, a one-minute core introduction, large readable text and hamburger access to detail. This supersedes the six-section Home and desktop horizontal navigation. Use the same responsive home at / and /expo/, with three sections and a concise footer; keep every existing detail page. Prioritize application contexts and clearly proposed technology directions over duplicate problem/device/team sections. Reuse existing concept imagery and native CSS/React. Technical suggestions are documentation-backed proposals, not implementation evidence or provider commitments. Main's reading time is a design target that needs visitor testing. No public deployment or NFC-card write is part of this change.
+
+
+## 2026-10-13 — Natural Korean with product status preserved
+
+Use the owner's [im-not-ai reference](https://github.com/epoko77-ai/im-not-ai) for localized Korean editing. Replace abstract experience slogans and repeated `~하는 단계입니다` endings, and remove unnecessary connector commas. Preserve technical names, quantities, fictional-example labels and unverified implementation boundaries. Keep the latest concurrent Home and navigation work. This supersedes earlier exact wording where the current user request calls for revision, without reversing product scope or visual direction. Hide decorative 4-Fit tab ordinals on mobile to keep the full names legible. No commit, push or deployment is part of this request.
+
+## 2026-10-13 — Restore visual behavior after mobile redesign regression
+
+The user's feedback is explicit that the simplified UI lost its effects. Reconnect original DoorTransition and compact 4-Fit visuals, restore full-width cinematic Hero and glass surface, and withdraw the global typography floor. This reverses the flattened image-card/unboxed-list visual direction while retaining short mobile copy, use/development priorities and hamburger details. No return to the long duplicated problem/device/team narrative. Source changes are limited to Home composition, Hero/Uses/FourFit styles and scoped global typography. Verify actual door transforms and hardware progress, not only overflow counts.
+
+## 2026-10-13 — Consolidate navigation and reduce button density
+
+The owner finds the overall UI crowded by buttons. Move repeated page navigation to the existing hamburger instead of decorating it differently. Remove PageContents/PageNext, repeated footer/closing links and redundant section calls to action. Keep the single Home primary action, source/demo/skip links and necessary 4-Fit tabs. Replace repeated scene/context choices with single native selects, group authored examples under one disclosure and make brief expansion content static. Preserve section IDs, semantic content, image fallbacks and all restored effects. This supersedes the pill-contents and repeated navigation decisions. No runtime dependency, deployment, hardware hook or artwork change.
+
+## 2026-10-13 — Three-item icon-only hamburger
+
+Per the owner's explicit correction, show only the hamburger/X icon in a 48×48 px control; preserve aria-label, aria-expanded, Escape focus restoration and outside/focus-leave closure. Navigation is exactly 작품 소개 (/service/), 활용 장면 (/use-cases/) and 기술과 발전 방향 (/system/). 4-Fit and Team remain reachable from a quiet plain-text reference sentence on Service. This supersedes the five-item menu and visible 메뉴/닫기 label. No visual effects, hardware logic or dependencies changed.
+
+## 2026-10-13 — Phone-first detail reading and effect preservation
+
+The owner asks to review the whole UI because desktop-based composition remains awkward on phones. Actual 390 px inspection confirms oversized repeated heading/spacing, early controls near 600–665 px, crowded 4-Fit English labels, small reading copy, and a 69 px header calculated as 60 px. Correct these in a dedicated phone stylesheet and one shared header token. Use normal-flow hardware scenes on all narrow phones, keeping the existing assembly curve rather than disabling mirror/audio by phone height. This supersedes the short-screen static-mirror/audio decision but preserves reduced-motion and failed-media static output. Calibrated layer geometry, original art, three-menu navigation and limited button density remain. No framework, dependency, new visual asset or public deployment.
+
+## 2026-10-14 — Expand selected educational uses without crowding Home
+
+The owner requests very detailed utilization explanations. Expand the Uses page with context-specific situations, a proposed training sequence, four reflection questions, learner/educator follow-up, preparation and future needs. This supersedes the brief-only detail panel while preserving Home summaries, the three-item hamburger and the existing single context selector. Add readable editorial sections, with no new action buttons, media or motion. Retain one shared dialogue disclosure and the independently labeled operations demo. Do not imply proven training outcomes, automated learning records, hiring assessments or multi-user AI dialogue. The long selected article is outside the live region; only its short summary is announced. No deployment or Git publication is part of this request.
+
+## 2026-10-14 — Correct scope from current GitHub evidence
+
+The owner confirms interview/job-training implementations and asks to analyze the public repository in light of differentiation, unclear deployment/system and hardware cost. Pin the review to main adb9355b0da4ef69a6485811ec82ee46cf133239. Supersede the future-only mode classification and the sensor-first System presentation. Show actual modes and software input→dialogue→analysis→results before hardware, and describe future work as improving the existing paths. Do not infer Kinect depth usage, gaze tracking, proven advantages, zero marginal cost, complete offline operation or established buyers. Keep venue/low-cost proposals in the analysis, not as confirmed public installations. Runtime and physical acceptance remain separate. No backend change, commit, push or public deployment.

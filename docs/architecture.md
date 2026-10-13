@@ -1,7 +1,7 @@
 # Architecture
 
 ## Runtime and scope
-Static multi-entry React + TypeScript microsite built with Vite and npm. Use Node.js 22.13+ or 24 LTS; the initial workspace uses Node 24. The full toolchain's ESLint requirement is stricter than Vite's minimum. No backend, router, identity API, analytics, form submission, cookies, camera permissions, or hardware access is needed for the introduction page. UI state is limited to navigation, conversation selection, 4-Fit tab selection, progressive reveals, and media fallback.
+Static multi-entry React + TypeScript microsite built with Vite and npm. Use Node.js 22.13+ or 24 LTS; the initial workspace uses Node 24. The full toolchain's ESLint requirement is stricter than Vite's minimum. No backend, router, identity API, analytics, form submission, cookies, camera permissions, or hardware access is needed for the introduction page. UI state is limited to navigation, conversation selection, application selection, 4-Fit tab selection, progressive reveals, and media fallback.
 
 ## Source structure and responsibilities
 ```text
@@ -11,7 +11,7 @@ public/                    project-owned static media
 src/
   components/
     Header/                navigation and mobile disclosure
-    GlassIcon/             three original decorative SVG illustrations
+    GlassIcon/             four original decorative silver-glass 4-Fit symbols
     SectionHeading/        optional editorial heading utility
     StatusNote.tsx         shared public-scope explanation
     Reveal/                optional native viewport reveal
@@ -33,16 +33,21 @@ expo/index.html            legacy entry using main.tsx and the same home App
 Do not create placeholder files merely to fill a directory. Components represent real UI concepts. Section-local CSS may be colocated with sections; shared layout, interaction, and tokens belong in `styles/`.
 
 ## CSS strategy
+
+Visual scope: tokens.css supplies the light editorial defaults for all detail entries. showroom.css scopes silver surfaces, dark canvas and header blur to #root[data-page='home'], including the EXPO compatibility entry. Shared Header has a pale opaque fallback and translucent silver blur when supported; shared selection controls use silver surfaces, graphite rules and semantic selection attributes. WorkplacePractice.css keeps the existing one-column composition with light text surfaces; products.css uses a light Service mirror section. Dark source imagery and material gradients in device silhouettes remain bounded media, not reading surfaces. No theme switch, client router or runtime dependency.
 Native CSS imports with global tokens and prefixed component/section class names. Use fluid typography, grid, flex, responsive gutters, and content-driven media queries. No CSS framework. Public layout primitives are `.container`, section spacing, light section theme, status note, eyebrow, and text links; avoid generic abstraction when markup is not repeated. Dark product stages and light explanation sections share semantic token names so component copy and borders inherit the correct contrast without duplicate markup.
 
 ## Data and content
+
+`src/data/useCases.ts` supplies the three shared application summaries, detailed educational proposals and source-confirmed practice-mode descriptions to `UseCases.tsx`. Each typed application includes situations, proposed steps, reflection questions and preparation/development copy. Only the selected guide is rendered. The existing short summary remains a polite live region; the long guide stays outside it to avoid automatically reading the entire article on selection. All content is local and synchronous; no data collection, backend, generated feedback or new state system is added.
+
 `docs/content.md` is the editorial authority. Typed TS data modules mirror the actual public copy and array-based rows without a CMS or runtime fetch. Keep product facts traceable to `docs/product.md`. Document updates accompany material copy changes. These static pages have no asynchronous business data, so do not invent skeleton loaders, fake loading states, or an artificial API.
 
 ## Images
 `src/data/media.ts` holds optional `hero`, `reflection`, `mirror`, and `kiosk` asset slots with source, alt, intrinsic dimensions, and a required concept/photograph kind. Loaded images use their intrinsic aspect ratio and contain fitting; Hero places the existing ProductFrame under HTML copy with CSS cover positioning and a dark gradient; Service's mirror stage has a transparent CSS background to expose the existing WebP alpha; concept media retains its visible disclosure. Use an omitted slot for absent photography, and a stateful `<img>` error fallback for broken files. Do not request nonexistent default URLs. Keep presentation aspect ratios stable. ProductFrame renders an original CSS illustration, visible concept caption, and accessible description when no photo is available. Configure future public assets through `siteAsset()` so nested pages and subpath deployments resolve the same local media; noncritical photographs are lazy loaded.
 
 ## Responsive and interaction strategy
-The homepage contains hero, problem, selectable conversations, Introduction explaining the mirror interface, 4-Fit tabs, a two-device introduction, the reused six-step ExperienceFlow, uses and team purpose. Service contains contents, situation examples, six intended steps and Kiosk → Mirror introductions; Four Fit uses native buttons with tab semantics, roving focus and hidden inactive panels; System contains drawing-based image assembly, camera/audio scroll assemblies and strengths, architecture, evidence and technology. Uses contains four authored scenarios, intended audiences and expansion ideas. Team contains design principles and project materials. The mobile header closes on selection, Escape or the desktop breakpoint and never traps focus. Cross-page links are native relative links; the active menu destination uses `aria-current="page"`. Hardware and technology details use native `details/summary`.
+The homepage contains Hero, a three-context application overview with DoorTransition, proposed improvements and compact FourFit. Service contains situation examples, mirror rationale, six intended steps and Kiosk → Mirror introductions; Four Fit uses native buttons with tab semantics, roving focus and hidden inactive panels. System shows software flow first, then drawing-based hardware assemblies, evidence, improvements and technology. Uses shows three source-confirmed practice modes, one of three educational guides, one authored-dialogue disclosure and the separate operations demo. Team contains design principles and project materials. The mobile header closes on selection or Escape and never traps focus. Cross-page links are native relative links; the active menu destination uses `aria-current="page"`. Hardware and technology details use native `details/summary`.
 
 ## Motion
 IntersectionObserver only enhances offscreen sections with a short reveal. Default content is visible. Observe once, disconnect on cleanup, and avoid concealing focused content. Match reduced-motion preference in CSS and JavaScript; if the API or observer is unavailable, keep content visible. Avoid scroll listeners, page progress calculations, or per-frame JS unless a demonstrated need appears.
@@ -73,7 +78,7 @@ Output is static `dist/`, including five detail directories and `dist/expo/index
 
 Use actual package and Node engine metadata during dependency upgrades; do not assume an old version requirement still applies.
 
-Workplace situation examples live in `src/data/experience.ts`. Home and Service reuse `WorkplacePractice`, with a selected index and aria-pressed buttons updating an aria-live region. Uses links to the service selector. FourFit keeps one selected index and button refs for ArrowLeft/ArrowRight, Home and End focus. Inactive panels use native hidden plus a matching CSS rule. No runtime dependency or data service is added.
+Workplace situation examples live in `src/data/experience.ts`. Service renders `WorkplacePractice`, with a selected index and aria-pressed buttons updating an aria-live region. Home links to it. Uses links to the service selector. FourFit keeps one selected index and button refs for ArrowLeft/ArrowRight, Home and End focus. Inactive panels use native hidden plus a matching CSS rule. No runtime dependency or data service is added.
 
 The shared App restores an incoming fragment after React mounts, scrolls without animation and focuses the target. Same-page links continue to use native navigation. Unknown fragments are ignored.
 
@@ -140,3 +145,115 @@ Reuse the shared validated dashboardUrl for Uses and Evidence. Production resolv
 Header.tsx only changes presentation markup. Existing isOpen, Escape focus restoration, resize closing and link-close handlers remain. Header.css consolidates prior desktop/mobile overrides and removes unused operations selectors. Shared header-height tokens and footer brand styling are preserved. The mobile action resets justify-self to stretch and width to 100%; otherwise current browser block self-alignment shrinks it to its content width. No package, new listener, breakpoint or hardware-scroll change.
 
 The `#hardware-details` fragment targets the native summary so keyboard visitors arrive on the control that opens the technical disclosure. Summary anchors share the header scroll clearance.
+
+
+## 2026-10-07 — Audio surface registration
+
+`HardwareAssembly.css` corrects only the two speaker surface transforms: left (-.35%, -.2%) and right (-3.4%, -1.4%), both at .94 scale. Existing assets, scroll timing, static completed image and error fallback are reused.
+
+
+## 2026-10-07 — Silver, charcoal and restrained glass
+
+Visual update uses existing native CSS and three shared material tokens (glass, silver, edge). No runtime dependency, component state, route, media, hardware motion or content change. Existing assembly CSS edits are preserved.
+
+
+## 2026-10-07 — Black silver-glass showroom reference
+
+`WorkplacePractice.tsx` adds one local scene with intrinsic dimensions, lazy loading and onError fallback. `WorkplacePractice.css` styles the shared conversation section; `showroom.css` scopes the darker editorial palette to the Home root (including the EXPO compatibility entry). Imports follow base/component CSS so intentional overrides are deterministic. The 1536×1024 WebP is about 109 KiB. No dependency, route, timer, AI or hardware interaction added.
+
+
+## 2026-10-07 — Premium silver-glass 4-Fit icons
+
+FourFit renders four CSS-clipped quadrants from one locally hosted 1254×1254 alpha WebP (241780 bytes), preserving static relative asset paths for all entries. One shared image-error state restores the existing SVG paths. No image crop script, new runtime package, timer or tab behavior change.
+
+
+## 2026-10-07 — Expanded silver-glass workplace scenes
+
+`data/scenes.ts` is the typed source for seven local concept scenes. `SceneFigure` centralizes relative asset paths, intrinsic image dimensions, lazy loading, captions and source-specific error fallback; it is shared by Problem, WorkplacePractice, ExperienceFlow and Closing. Conversation selection reuses existing React state and maps four authored moments to four scenes. Controls precede the image/dialogue in both DOM and CSS order, and aria-controls references both outputs. A failed scene does not suppress another source when the selection changes. No dependency, timer, backend or route changes.
+
+
+## 2026-10-07 — Native 4-Fit icon refinement
+
+Reuse GlassIcon for four typed 4-Fit SVG variants; unique gradient/filter IDs come from React useId. FourFit no longer requests a bitmap icon or keeps shared image-error state. Native vector markup remains present without media requests, so there is no icon loading/failure branch. Remove obsolete fallback drawings and quadrant CSS. The build-media check covers assets still used by the site; archived atlas is preserved but no longer required. No runtime dependency, route, animation or tab-state change.
+
+
+## 2026-10-07 — Restore dimensional icon atlas with native fallbacks
+
+FourFit once again renders a local 1254×1254 transparent atlas, now `four-fit-silver-glass-v2.webp` (227166 bytes). Shared onError state switches all four illustrations to the existing GlassIcon variants. Native tab state/keyboard semantics are unchanged; relative media paths work for Home/detail/EXPO. FourFit.css clips and centers each source region using measured dominant alpha bounds; no bitmap cropping or pixel editing script is introduced. The built-media check requires v2. Preserve the original v1 and native source artwork.
+
+
+## 2026-10-07 — Separate Expression face mesh artwork
+
+Expression alone uses `expression-face-mesh-glass-v2.webp`, a 1254×1254 transparent conceptual image with gently closed eyes (152178 bytes). Other perspectives use the unchanged v2 atlas. The single-image Expression CSS override uses contain fitting and a .9376 scale to retain the approximately 160/80px visible sizing contract. Per-icon failure state selects existing GlassIcon fallbacks independently; a failed Expression does not suppress the other three images. Its explanatory concept label is outside the decorative aria-hidden artwork. No timer, capture, detector, geometry runtime or camera permission is added; the mesh is part of the illustration, not measured landmark data.
+
+
+## 2026-10-07 — Native doorway transition
+
+Problem reuses DoorTransition in place of its existing SceneFigure. The component wraps the same arrival SceneFigure, retaining its intrinsic 3:2 layout, lazy loading, alt text, concept caption and error fallback. One new local asset, workplace-doors-glass-v1.webp (1536×1024 RGBA, 89580 bytes), is referenced by two decorative half-width leaves. Native CSS named view timelines rotate leaves around their outside edges; no scroll listener, timer, animation dependency or WebGL. Default leaves are hidden. Only supported scroll timelines with no reduced-motion preference enable motion. A failed door asset removes both leaves; a failed arrival scene disables the overlay and retains SceneFigure's intentional fallback. Shared siteAsset preserves root/subpath compatibility; /expo/ uses the same home composition. The built-media check requires the new asset.
+
+Forward-opening clarification: left rotateY(-100deg), right rotateY(100deg) bring both center edges toward positive Z. Stage uses overflow-x: clip with overflow-y: visible to preserve projected top/bottom corners while preventing transformed leaves from widening the document, including after their backs become invisible. Perspective is 1400px desktop / 900px narrow screens; entry 100% → cover 65% delays opening until the scene enters. Concept caption remains above the decorative layer. No component logic or asset change.
+
+
+## 2026-10-07 — Compact Home and moved content
+
+App composes five Home sections. FourFit compact renders a semantic four-item list using the same typed names, artwork rendering and per-icon failure state as the detailed tabs. Closing compact omits the long narrative and shared team scene only on Home; Team retains the complete version. Service now renders Introduction after WorkplacePractice and exposes #project in PageContents. No second data inventory, runtime dependency, media regeneration or client router.
+
+The existing App fragment effect handles four moved Home section names with native location.replace to known relative detail destinations, both on mount and hashchange. Object.hasOwn restricts routing to the declared keys; unknown fragments remain normal document targets. Listener cleanup is included, and siteRoot keeps root and EXPO/subpath destinations portable. Retained #problem, #four-fit, #home-system and #team anchors continue to focus their sections. Source and built media remain local with existing fallback behavior.
+
+
+## 2026-10-12 — Reference-based camera exploded view
+
+HardwareDetailAssembly retains its shared component and useAssemblyScroll hook. Camera now requests only sm-camera-exploded-v2.webp (1448×1086, 203326 bytes, alpha preserved), marks ready after that single image loads, and renders no legacy assembly layers. Audio still requests four unique images and uses its existing calibrated layers. A camera-only CSS rule exposes the image and adds scroll-driven drift/scale; static preference/short-screen rules remove that transform. Existing role=img, loading state, relative siteAsset paths and silhouette fallback remain. The built-in image_gen tool generated the asset; cwebp -q 88 converted its PNG without cropping. No runtime package added.
+
+
+## 2026-10-12 — Camera parts join on scroll
+
+Camera now uses one 1448×1086 transparent 2×2 atlas sm-camera-atlas-v3.webp (194298 bytes). Four native img elements reuse that URL inside CSS-clipped tiles. Shell/core/front wrappers move using existing panels/glass variables; all four image load events establish readiness. A camera-only completion blend from progress .80 to .88 holds the closed upper-left tile. Core opacity approximates enclosure occlusion; exact geometry requires CAD rendering. Existing hook, audio calibration, fallback and short-screen/reduced-motion paths retained.
+
+
+## 2026-10-12 — Vertical camera assembly
+
+Camera shell transform is now constant (-1%, -.5%). Core x stays -2% and y is 11% − (1 − panels) × 52%; front x stays 4.5% and y is 13.7% + (1 − glass) × 40%. No image, hook, runtime dependency or audio changes. Registered final offsets and the existing completion blend remain intact.
+
+Mobile camera scale is .70 to reserve separation from the feature rows; desktop stays .76.
+
+
+## 2026-10-12 — Camera visibility and coherent assembly correction
+
+Camera uses sm-camera-atlas-v4.webp (1448×1086, 201986 bytes, alpha), four named loading events and two decorative same-URL images for roof/tray. Completed tile images are 190% wide to accommodate generated cell registration. Complementary clip-path masks divide completed roof/body/front. Repeated URL requests reuse the browser cache; no runtime dependency added. useAssemblyScroll identifies camera once. Short viewports no longer force camera static: cameraStageProgress maps normal-flow root position relative to the MEASURED header height over 25% of the viewport. Do not parse the rem-valued header CSS token as pixels. Reduced-motion and asset failure still select static mode. New pure progress bounds/continuity tests cover short heights.
+
+
+## 2026-10-13 — Compact applications and shared silver controls
+
+UseCases reuses its existing compact/detailed split and an authored local applications array. Home shows three short context rows with one detail-page link; Uses uses the existing WorkplacePractice button/aria-pressed/aria-live pattern to select one application. Native named details keep authored questions and answers accessible without additional accordion state. Existing section IDs and workplaceMoments are preserved, including /use-cases/#use-cases. No backend, router, runtime dependency, data collection or simulated AI interaction.
+
+Shared silver/glass/shadow tokens now also serve the detail header, contents links, 4-Fit and practice selections. showroom.css continues to scope the dark Home. Header blur progressively enhances its opaque fallback; body panels retain solid backgrounds. Shorter Hero and Uses spacing use native responsive CSS with content flow. Hardware hooks and calibration were not modified in this revision.
+
+FourFit uses a native details element for its existing observation rows, keeping the same content and tabs without extra state. The disclosure content retains the existing responsive grid; the summary is always visible.
+
+## 2026-10-13 — Mobile home and development content
+
+Home and legacy /expo/ share Hero → UseCases overview → Development overview. Unmounted HomeSystem and Problem imports were removed; detailed devices remain in Service/System. Development is a small native React component backed by typed `src/data/development.ts`; System renders its expanded disclosures before the existing hardware section. No API, identity collection, framework, state store or dependency was added. Existing relative siteRoot links remain portable. Header uses the existing disclosure state at all widths with Escape, outside-pointer and focus-leave closure; hidden navigation is removed from the tab sequence by display:none. Home has a short footer; detail footers remain. Removed home anchors redirect to existing detailed equivalents. Global explanatory copy uses a 1rem readability floor; small mobile application controls stack vertically. Public deployment and physical NFC recording are separate from this local change.
+
+
+## 2026-10-13 — Offline Korean copy review
+
+Public copy is extracted and reviewed offline with the owner-linked im-not-ai rules. Apply only changed strings to the latest source; compare non-copy source structure to prevent logic changes and preserve concurrent work. Run records and source backups live in ignored `_workspace/`, also excluded by ESLint. The reference checkout and one-off mapping utilities remain outside this repository in temporary storage. No runtime dependency or external text service is added.
+
+Home application links carry a known `context` key; the Uses state initializer matches it against the local typed applications list, with an unknown key falling back to index 0. No URL value is rendered as content. Query parameters affect only the initial local explanation panel.
+
+## 2026-10-13 — Restore effects without broad typography overrides
+
+Home/EXPO composes Hero → UseCases overview (with existing DoorTransition) → Development overview → FourFit compact. Reuse the existing CSS view-timeline door animation and existing image-failure behavior. Restore the backed-up cinematic Hero stylesheet with bounded corrections for 16–17 px copy, full-width media, and nonoverlapping flow/caption layout. A clipped door wrapper must use overflow:clip to avoid a new scroll container. Global all-paragraph typography overrides were removed; scope Home label sizes explicitly so hardware stage geometry stays calibrated. No hardware motion hook, device positions or animation framework changed.
+
+## 2026-10-13 — Consolidated navigation and native selectors
+
+Removed unused PageContents/PageNext implementations and their calls. Shared footer renders credit/top link only. Header retains its existing disclosure behavior and places Service in the same text list as other destinations. Home application rows are semantic articles; no new route or state. UseCases retains query-based initial context and aria-live content but replaces three pressed buttons with a labeled native select. WorkplacePractice replaces four choice buttons with one native select while preserving scene/content updates and the local state. Native select values are the rendered indices from each local data list. Uses wraps four unchanged authored examples in one details disclosure; brief expansion copy becomes ordinary articles. Existing section IDs remain compatible with external fragments. Removed redundant navigation imports without modifying product imagery, hardware hooks or fallbacks. Functional demo/source/skip links remain.
+
+## 2026-10-13 — Three-item icon-only hamburger
+
+Per the owner's explicit correction, show only the hamburger/X icon in a 48×48 px control; preserve aria-label, aria-expanded, Escape focus restoration and outside/focus-leave closure. Navigation is exactly 작품 소개 (/service/), 활용 장면 (/use-cases/) and 기술과 발전 방향 (/system/). 4-Fit and Team remain reachable from a quiet plain-text reference sentence on Service. This supersedes the five-item menu and visible 메뉴/닫기 label. No visual effects, hardware logic or dependencies changed.
+
+## 2026-10-13 — Dedicated mobile layout and normal-flow hardware
+
+main.tsx imports mobile.css last, providing bounded mobile overrides without replacing desktop component styles or applying blanket font overrides. Header uses the shared 4.25rem token including its border. Hardware's compact/static decision now depends on reduced motion or failed assets, not phone height. For max-width 767px or max-height 740px, the hook uses the existing cameraStageProgress curve and measured header; CSS provides normal-flow stages instead of desktop scroll tracks. Motion layers remain display:block in scroll mode during loading, with their existing opacity gating; only ready scenes hide the completed image. This prevents hidden lazy layers from waiting forever. Public helper functions and geometry are unchanged. FourFit tabs gain explicit accessible names so hidden phone English labels do not remove their full identity.

@@ -1,5 +1,17 @@
 import assert from 'node:assert/strict';
-import { assemblyPose, assemblyRenderState, dampedProgress, scrollProgress } from '../src/sections/HardwareAssembly/motion.ts';
+import { assemblyPose, assemblyRenderState, cameraStageProgress, dampedProgress, scrollProgress } from '../src/sections/HardwareAssembly/motion.ts';
+for (const height of [600, 700, 800]) {
+  assert.equal(cameraStageProgress(height * .8, height), 0, 'Camera enters expanded on short screens');
+  assert(Math.abs(cameraStageProgress(height * .55, height) - 1) < 1e-12, 'Camera closes while still in view');
+  assert.equal(cameraStageProgress(height, height), 0);
+  assert.equal(cameraStageProgress(-height, height), 1);
+  let previous = 0;
+  for (let top = height; top >= 0; top -= 1) {
+    const next = cameraStageProgress(top, height);
+    assert(next >= previous && next <= 1, 'Short-screen camera progress stays continuous');
+    previous = next;
+  }
+}
 assert.equal(scrollProgress(80, 3000, 920, 80), 0);
 assert.equal(scrollProgress(-2000, 3000, 920, 80), 1);
 assert.equal(scrollProgress(200, 3000, 920, 80), 0);

@@ -1,0 +1,20 @@
+.development { padding-block: 40px; background: #111318; color: #f4f5f7; }
+.development__heading .section-kicker { margin-bottom: 12px; }
+.development h2 { font-size: clamp(28px, 5vw, 40px); line-height: 1.35; letter-spacing: -.04em; }
+.development__heading > p:last-child { margin-top: 16px; color: #c4c9d1; font-size: 16px; line-height: 1.75; }
+.development__list { display: grid; margin-top: 24px; }
+.development__list article { padding-block: 20px; border-top: 1px solid #43474e; }
+.development h3 { font-size: 21px; line-height: 1.5; letter-spacing: -.03em; }
+.development__list article > p { margin-top: 8px; color: #c4c9d1; font-size: 17px; line-height: 1.75; }
+.development__link { margin-top: 8px; font-size: 17px; }
+.development--detailed { background: #f1f2f4; color: #1d1d1f; }
+.development--detailed .development__heading > p:last-child { color: #606773; }
+.development details { border-top: 1px solid #c3c9d2; }
+.development details:last-child { border-bottom: 1px solid #c3c9d2; }
+.development summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 22px; cursor: pointer; list-style: none; font-size: 21px; line-height: 1.5; font-weight: 600; }
+.development summary::-webkit-details-marker { display: none; }
+.development__detail { padding-bottom: 24px; font-size: 17px; line-height: 1.8; }
+.development dl { margin-block: 20px 0; }
+.development dt { font-weight: 600; }
+.development dd { margin: 8px 0 20px; color: #606773; }
+@media (min-width: 768px) { .development { padding-block: 56px; } .development:not(.development--detailed) .development__list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; } }

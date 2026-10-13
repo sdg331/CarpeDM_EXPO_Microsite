@@ -1,8 +1,6 @@
 import { Reveal } from '../../components/Reveal/Reveal';
 import { ProductFrame } from '../../components/ProductFrame/ProductFrame';
-import { Arrow } from '../../components/Arrow';
 import { media } from '../../data/media';
-import { siteRoot } from '../../data/paths';
 import './Introduction.css';
 
 export function Introduction() {
@@ -11,13 +9,13 @@ export function Introduction() {
       <Reveal className="container introduction__content">
         <div className="introduction__copy">
           <p className="section-kicker"><span className="chapter-number" aria-hidden="true">03</span>왜 스마트 미러인가</p>
-          <h2 id="project-title" className="section-title">대화하는 나를,<br /><span>함께 마주하는 연습.</span></h2>
-          <p className="body-copy">거울은 대답하는 나의 모습까지 함께 마주하는 공간입니다. 화면 속 상황과 자신의 모습을 한 자리에서 보고, 말과 태도를 함께 돌아보는 연습을 지향합니다.</p>
+          <h2 id="project-title" className="section-title">말할 때의 내 모습을<br /><span>보며 연습합니다.</span></h2>
+          <p className="body-copy">답변 내용만으로는 말할 때의 내 모습을 알기 어렵습니다. 미러 앞에서는 대화 상황과 자신의 모습을 같이 볼 수 있습니다. 그래서 말의 내용뿐 아니라 시선과 자세도 연습의 기준으로 삼았습니다.</p>
           <dl className="introduction__points">
-            <div><dt>상황을 마주하고</dt><dd>직장 대화를 역할극으로 경험하는 방향</dd></div>
-            <div><dt>나를 돌아보고</dt><dd>응답과 목소리, 표정과 자세를 함께 살피는 관점</dd></div>
+            <div><dt>상황을 마주하고</dt><dd>보고와 질문에 말로 답하는 역할극</dd></div>
+            <div><dt>나를 돌아보고</dt><dd>답변 내용과 목소리, 표정과 자세를 돌아보기</dd></div>
           </dl>
-          <a className="text-link" href={`${siteRoot}four-fit/`}>네 가지 피드백 관점<Arrow /></a>
+
         </div>
         <div className="introduction__visual"><ProductFrame kind="mirror" media={media.reflection} /></div>
       </Reveal>

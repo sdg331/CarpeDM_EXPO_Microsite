@@ -7,13 +7,7 @@ import './Header.css';
 export function Header({ page }: { page: PageKind }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const desktop = window.matchMedia('(min-width: 1024px)');
-    const onResize = () => { if (desktop.matches) setIsOpen(false); };
-    desktop.addEventListener('change', onResize);
-    return () => desktop.removeEventListener('change', onResize);
-  }, []);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -23,21 +17,29 @@ export function Header({ page }: { page: PageKind }) {
         toggleRef.current?.focus();
       }
     };
+    const onOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) setIsOpen(false);
+    };
     document.addEventListener('keydown', onEscape);
-    return () => document.removeEventListener('keydown', onEscape);
+    document.addEventListener('pointerdown', onOutside);
+    return () => {
+      document.removeEventListener('keydown', onEscape);
+      document.removeEventListener('pointerdown', onOutside);
+    };
   }, [isOpen]);
 
   return (
-    <header className="site-header">
+    <header ref={headerRef} className="site-header" onBlur={event => {
+      if (event.relatedTarget instanceof Node && !event.currentTarget.contains(event.relatedTarget)) setIsOpen(false);
+    }}>
       <div className="container site-header__inner">
         <a className="brand" href={`${siteRoot}index.html`} aria-label="4-Fit MirrorTing, 처음으로">
-          <span>4-Fit MirrorTing<small>by CarpeDM</small></span>
+          <span>4-Fit MirrorTing</span>
         </a>
         <button ref={toggleRef} type="button" className="menu-toggle"
           aria-label={isOpen ? '메뉴 닫기' : '메뉴 열기'}
           aria-expanded={isOpen} aria-controls="primary-navigation"
           onClick={() => setIsOpen((open) => !open)}>
-          <span className="menu-toggle__label" aria-hidden="true">{isOpen ? '닫기' : '메뉴'}</span>
           <span className="menu-toggle__lines" aria-hidden="true"><i /><i /></span>
         </button>
         <nav id="primary-navigation" className={`site-nav${isOpen ? ' site-nav--open' : ''}`} aria-label="주요 메뉴">
@@ -46,9 +48,6 @@ export function Header({ page }: { page: PageKind }) {
             {navigation.map(({ path, page: destination, label }) => (
               <a key={path} href={`${siteRoot}${path}`} aria-current={page === destination ? 'page' : undefined} onClick={() => setIsOpen(false)}><span>{label}{page === destination && <small className="site-nav__current" aria-hidden="true">현재 페이지</small>}</span><Arrow /></a>
             ))}
-          </div>
-          <div className="site-nav__actions">
-            <a className="site-header__cta" href={`${siteRoot}service/`} aria-current={page === 'service' ? 'page' : undefined} onClick={() => setIsOpen(false)}>서비스 소개<Arrow /></a>
           </div>
         </nav>
       </div>

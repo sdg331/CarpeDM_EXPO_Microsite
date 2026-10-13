@@ -1,102 +1,87 @@
+import { useState } from 'react';
 import { Arrow } from '../components/Arrow';
 import { workplaceMoments } from '../data/experience';
-import { dashboardUrl, siteRoot } from '../data/paths';
+import { dashboardUrl } from '../data/paths';
+import { applications, practiceModes } from '../data/useCases';
 import './UseCases.css';
-
-const uses = [
-  { label: '핵심', title: '직장 대화 연습', description: '첫 출근, 보고, 질문과 피드백처럼 일상적인 직장 대화를 미리 경험하는 방향입니다.' },
-  { label: '확장 구상', title: '면접 시뮬레이션', description: '질문과 답변을 연습하는 방식으로 확장할 수 있습니다.' },
-  { label: '확장 구상', title: '직무 교육', description: '직무별 대화 상황을 연습하는 방향을 검토합니다.' },
-] as const;
-
-const audiences = [
-  { title: '직장생활을 준비하는 사람', description: '첫 보고나 질문처럼 아직 낯선 대화를 구체적인 상황으로 마주해 봅니다.' },
-  { title: '새로운 역할을 맡은 구성원', description: '판단의 근거를 설명하고, 실수나 의견 차이를 전달하는 말을 연습해 봅니다.' },
-  { title: '교육과 체험을 설계하는 사람', description: '대화 상황과 돌아볼 관점을 함께 제시하는 교육 경험으로 검토할 수 있습니다.' },
-] as const;
+import { DoorTransition } from './DoorTransition/DoorTransition';
 
 export function UseCases({ detailed = false }: { detailed?: boolean }) {
-  if (detailed) return (
+  const [selected, setSelected] = useState(() => Math.max(0, applications.findIndex(item => item.id === new URLSearchParams(window.location.search).get('context'))));
+  const application = applications[selected]!;
+
+  if (!detailed) return (
+    <section id="home-uses" className="use-overview" tabIndex={-1} aria-labelledby="home-uses-title">
+      <div className="container use-overview__layout">
+        <div><p className="section-kicker">활용 제안</p><h2 id="home-uses-title" className="section-title">어디에 쓰일까요?</h2><p className="body-copy">대학에서, 회사에서, 팀 안에서.</p></div>
+        <DoorTransition />
+        <div className="use-overview__list">{applications.map(item => <article key={item.title}><h3>{item.title}</h3><p>{item.summary}</p></article>)}</div>
+      </div>
+    </section>
+  );
+
+  return <>
+    <section id="use-expansion" className="use-expansion" tabIndex={-1} aria-labelledby="use-expansion-title">
+      <div className="container"><div className="use-detail__section-head"><h2 id="use-expansion-title">프로젝트의 세 가지 연습.</h2><p>면접·직업훈련·직장대화로 구성했습니다.</p></div><div className="use-expansion__grid">{practiceModes.map(mode => <article key={mode.title}><h3>{mode.title}</h3><p>{mode.description}</p></article>)}</div><p className="scope-note use-detail__scope">현재 소프트웨어 구성을 기준으로 안내합니다. 실제 장치 연동과 분석 정확도·교육 효과는 별도 검증이 필요합니다.</p></div>
+    </section>
+
     <section id="use-cases" className="use-detail" tabIndex={-1} aria-labelledby="uses-title">
-      <div className="container use-detail__intro">
-        <div>
-          <p className="section-kicker">핵심 활용 · 직장 대화 연습</p>
-          <h2 id="uses-title" className="section-title">막연한 연습보다,<br /><span>마주할 상황을 구체적으로.</span></h2>
-        </div>
-        <p className="body-copy">좋은 말을 외우는 데서 멈추지 않고, 질문을 듣고 내 생각을 전달하는 장면을 연습하는 방향입니다. 대화의 내용과 전달하는 태도를 함께 돌아보는 경험을 설계합니다.</p>
-      </div>
-
-      <div id="use-scenarios" className="container use-scenarios" tabIndex={-1} aria-labelledby="use-scenarios-title">
-        <div className="use-detail__section-head"><h3 id="use-scenarios-title">이런 대화를 연습합니다.</h3><p>직접 작성한 설명용 대화 · 실제 AI 응답·분석 결과가 아닙니다.</p></div>
-        <div className="use-scenarios__grid">
-          {workplaceMoments.map((moment, index) => (
-            <article key={moment.title} className="use-scenario">
-              <div className="use-scenario__meta"><span aria-hidden="true">0{index + 1}</span><h4>{moment.title}</h4></div>
-              <p className="use-scenario__context">{moment.description}</p>
-              <blockquote>{moment.question}</blockquote>
-              <div className="use-scenario__focus"><span>돌아볼 포인트</span><p>{moment.focus}</p></div>
-              <details>
-                <summary>답변 예시 보기<span className="disclosure-plus" aria-hidden="true" /></summary>
-                <p className="use-scenario__answer">{moment.answer}</p>
-              </details>
-            </article>
-          ))}
-        </div>
-        <div className="section-end"><p className="scope-note">상황과 답변은 체험을 설명하는 예시입니다. 개별 역할극의 실제 구현과 분석 연동은 확인 중입니다.</p><a className="text-link" href={`${siteRoot}service/#practice`}>서비스에서 대화 예시 선택하기<Arrow /></a></div>
-      </div>
-
-      <div className="use-audiences">
-        <div className="container use-audiences__layout">
-          <div><p className="section-kicker">누구의 연습이 될까요</p><h3>각자의 상황에서,<br />필요한 대화부터.</h3><a className="text-link" href={`${siteRoot}four-fit/`}>대화를 돌아보는 네 관점<Arrow /></a></div>
-          <dl>{audiences.map(audience => <div key={audience.title}><dt>{audience.title}</dt><dd>{audience.description}</dd></div>)}</dl>
-        </div>
-      </div>
-
-      <div id="use-dashboard" className="use-dashboard" tabIndex={-1} aria-labelledby="use-dashboard-title">
-        <div className="container use-dashboard__layout">
-          <div>
-            <p className="section-kicker">조직에서의 활용 · 샘플 대시보드</p>
-            <h3 id="use-dashboard-title">개인의 연습을,<br />팀의 관점에서 살펴봅니다.</h3>
-            <p className="body-copy">운영 개요에서 팀별 현황을 비교하고, 구성원과 체험 이력을 살펴보세요. 조직의 교육과 체험 운영을 설명하는 독립된 데모입니다.</p>
-            {dashboardUrl ? <a className="text-link" href={dashboardUrl} target="_blank" rel="noopener noreferrer" aria-label="대시보드 둘러보기, 샘플 워크스페이스 (새 탭)">대시보드 둘러보기<Arrow /></a> : <p className="scope-note">공개 대시보드 연결을 준비 중입니다.</p>}
-          </div>
-          <div>
-            <dl>
-              <div><dt>01 · 운영 개요</dt><dd>팀별 현황과 확인할 항목을 한눈에 비교합니다.</dd></div>
-              <div><dt>02 · 팀과 구성원</dt><dd>팀을 선택하고 소속 구성원과 기록을 살펴봅니다.</dd></div>
-              <div><dt>03 · 체험 이력</dt><dd>샘플 기록에서 대화 연습과 피드백 화면을 확인합니다.</dd></div>
-            </dl>
-            <p className="scope-note">예시 데이터로 구성한 샘플 워크스페이스입니다. 실제 직원 정보·AI 분석·현장 장치와 연결되지 않으며, 변경 사항은 사용 중인 브라우저에 저장됩니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div id="use-expansion" className="container use-expansion" tabIndex={-1} aria-labelledby="use-expansion-title">
-        <div className="use-detail__section-head"><h3 id="use-expansion-title">다음으로 넓혀볼 방향.</h3><p>현재 제공되는 서비스가 아닌 확장 구상입니다.</p></div>
-        <div className="use-expansion__grid">
-          {uses.slice(1).map(use => <article key={use.title}><span>{use.label}</span><h4>{use.title}</h4><p>{use.description}</p></article>)}
-        </div>
-        <p className="scope-note">지금의 출발점은 직장 대화입니다. 면접과 직무별 교육은 상황 콘텐츠, 운영 방식과 검증 범위를 정한 뒤 확장을 검토합니다.</p>
-      </div>
-    </section>
-  );
-
-  return (
-    <section id="use-cases" className="story-section story-section--uses" tabIndex={-1} aria-labelledby="uses-title">
       <div className="container">
-        <p className="section-kicker"><span className="chapter-number" aria-hidden="true">07</span>활용의 방향</p>
-        <h2 id="uses-title" className="section-title">지금은 직장 대화에,<br /><span>다음은 더 다양한 상황에.</span></h2>
-        <div className="use-list">
-          {uses.map(use => (
-            <article key={use.title} className="use-list__item">
-              <span>{use.label}</span>
-              <h3>{use.title}</h3>
-              <p>{use.description}</p>
-            </article>
-          ))}
+        <div className="use-detail__intro"><div><p className="section-kicker">활용 제안</p><h2 id="uses-title" className="section-title">어디서, 누구와<br /><span>연습할까요?</span></h2></div><p className="body-copy">직장 대화가 필요한 세 가지 장면입니다.<br />교육 장소와 대상에 맞춰 활용을 제안합니다.</p></div>
+        <div className="use-contexts"><label htmlFor="use-context">활용 장면</label><select id="use-context" value={selected} onChange={event => setSelected(Number(event.target.value))}>{applications.map((item, index) => <option key={item.id} value={index}>{item.title}</option>)}</select></div>
+        <div id="use-application" className="use-application" aria-live="polite" aria-atomic="true">
+          <div className="use-application__question"><p className="section-kicker">{application.place}</p><h3>{application.question}</h3><p>{application.audience}</p></div>
+          <div className="use-application__copy"><p>{application.description}</p><dl><dt>연습 후 돌아볼 것</dt><dd>{application.focus}</dd></dl></div>
         </div>
-        <div className="section-end"><a className="text-link" href={`${siteRoot}service/#practice`}>직장 대화 예시 살펴보기<Arrow /></a><a className="text-link" href={`${siteRoot}use-cases/#use-dashboard`}>조직 대시보드 살펴보기<Arrow /></a></div>
+        <p className="scope-note use-detail__scope">작품의 활용 제안입니다. 실제 도입 사례나 교육 효과를 검증한 결과는 아닙니다.</p>
       </div>
     </section>
-  );
+
+    <section id="use-guide" className="use-guide" tabIndex={-1} aria-labelledby="use-guide-title">
+      <div className="container">
+        <div className="use-guide__heading"><p className="section-kicker">{application.title} · 교육 활용안</p><h2 id="use-guide-title">{application.title}에<br /><span>적용해 보기.</span></h2><p>{application.purpose}</p></div>
+
+        <div className="use-guide__block">
+          <h3>이 상황을 연습합니다.</h3>
+          <ol className="use-guide__situations">{application.situations.map(situation => <li key={situation.title}><h4>{situation.title}</h4><blockquote>{situation.question}</blockquote><p>{situation.description}</p></li>)}</ol>
+        </div>
+
+        <div className="use-guide__block">
+          <div><h3>교육에 이렇게 넣을 수 있습니다.</h3><p className="use-guide__note">미러 체험과 교육자의 설명을 함께 진행하는 예시입니다. 실제 장치·분석·결과 연결은 검증이 필요합니다.</p></div>
+          <ol className="use-guide__steps">{application.steps.map(step => <li key={step.title}><h4>{step.title}</h4><p>{step.description}</p></li>)}</ol>
+        </div>
+
+        <div className="use-guide__block">
+          <div><h3>4-Fit으로 돌아볼 질문.</h3><p className="use-guide__note">스스로 또는 교육자와 살펴볼 질문입니다. 실제 AI 분석 결과가 아니며, 표정과 자세로 성격이나 역량을 단정하지 않습니다.</p></div>
+          <dl className="use-guide__reflections">{application.reflections.map(reflection => <div key={reflection.perspective}><dt>{reflection.perspective}</dt><dd>{reflection.question}</dd></div>)}</dl>
+        </div>
+
+        <div className="use-guide__block">
+          <h3>연습 뒤에 남길 것.</h3>
+          <dl className="use-guide__outcomes"><div><dt>학습자가 정리할 내용</dt><dd>{application.takeaway}</dd></div><div><dt>교육자와 확인할 내용</dt><dd>{application.educatorCheck}</dd></div></dl>
+        </div>
+
+        <div className="use-guide__block">
+          <h3>교육 전에 준비할 것.</h3><p>{application.preparation}</p>
+        </div>
+
+        <div className="use-guide__block">
+          <div><h3>더 발전시킬 부분.</h3><p className="use-guide__note">추가로 검토할 기능과 기술입니다. 현재 기능에 포함됐다는 의미는 아닙니다.</p></div><p>{application.development}</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="use-scenarios" className="use-scenarios" tabIndex={-1} aria-labelledby="use-scenarios-title">
+      <div className="container">
+        <div className="use-detail__section-head"><h2 id="use-scenarios-title">이런 말을 연습합니다.</h2><p>보고와 질문, 실수 설명과 의견 조율의 예시입니다.</p></div>
+        <details className="use-examples"><summary>대화 예시 읽기<span className="disclosure-plus" aria-hidden="true" /></summary><div className="use-scenarios__grid">{workplaceMoments.map(moment => <article key={moment.title} className="use-scenario"><h3>{moment.title}</h3><div className="use-scenario__body"><blockquote>{moment.question}</blockquote><p>{moment.answer}</p><div className="use-scenario__focus"><span>연습 포인트</span><p>{moment.focus}</p></div></div></article>)}</div></details>
+        <p className="scope-note use-detail__scope">직접 작성한 설명용 대화입니다. 실제 AI 응답이나 분석 결과가 아닙니다.</p>
+      </div>
+    </section>
+
+    <section id="use-dashboard" className="use-dashboard" tabIndex={-1} aria-labelledby="use-dashboard-title">
+      <div className="container use-dashboard__layout"><div><p className="section-kicker">교육 운영 화면</p><h2 id="use-dashboard-title">연습하는 사람과<br />운영하는 사람을 위해.</h2><p className="body-copy">참여자와 팀별 체험 기록을 살펴보는 운영 화면도 준비했습니다.</p>{dashboardUrl && <a className="text-link" href={dashboardUrl} target="_blank" rel="noopener noreferrer" aria-label="운영 화면 데모 보기 (새 탭)">운영 화면 데모 보기<Arrow /></a>}</div><div><dl><div><dt>팀별 현황</dt><dd>팀을 비교하고 확인할 항목을 찾습니다.</dd></div><div><dt>구성원과 체험 이력</dt><dd>예시 참여자와 대화 연습 기록을 살펴봅니다.</dd></div></dl><p className="scope-note">예시 데이터로 만든 독립된 데모입니다. 실제 직원 정보·AI 분석·장치와 연결되지 않으며 변경 사항은 현재 브라우저에 저장됩니다.</p></div></div>
+    </section>
+
+  </>;
 }

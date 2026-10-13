@@ -9,8 +9,7 @@ export const dashboardUrl = URL.canParse(dashboardDestination)
   && /^https?:$/.test(new URL(dashboardDestination).protocol) ? dashboardDestination : '';
 
 export const navigation = [
-  { path: 'system/', page: 'system', label: '시스템' },
-  { path: 'four-fit/', page: 'four-fit', label: '4-Fit 분석' },
-  { path: 'use-cases/', page: 'use-cases', label: '활용' },
-  { path: 'team/', page: 'team', label: '팀 소개' },
+  { path: 'service/', page: 'service', label: '작품 소개' },
+  { path: 'use-cases/', page: 'use-cases', label: '활용 장면' },
+  { path: 'system/', page: 'system', label: '기술과 발전 방향' },
 ] as const;
