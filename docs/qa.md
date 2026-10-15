@@ -1276,3 +1276,30 @@ Seven HTML entries receive aligned metadata/no-script text. Updated AGENTS, READ
 Limits for competition submission: real assembled-device photos, actual analysis/result evidence and a cleared experience video remain unsupplied. This local UI revision does not establish hardware/AI acceptance, validated educational effects or an award.
 
 Final verification note: after the last no-script/metadata alignment and 16 px experience-step body correction, all six experience-flow widths were rechecked and replaced in the 144-state matrix (no overflow/contrast flags). Actual original-source 5174 /system/ was reloaded: correct title/H1 and all four map stages are present. Home's original-source tab also reloads successfully. Existing live previews remain available; temporary QA surfaces are separate.
+
+
+## 2026-10-15 — Verified public redeployment
+
+Owner explicitly requested redeployment of the current microsite. Published the complete current introduction and paired sample dashboard to the existing GitHub Pages host, preserving source changes and branch history.
+
+### Publication evidence
+
+- Public site: https://sdg331.github.io/CarpeDM_EXPO_Microsite/
+- Public sample dashboard: https://sdg331.github.io/CarpeDM_EXPO_Microsite/dashboard/#/overview
+- Feature source main: `3df8ed41615708427df9532861583063f895d02e`; prior local source `984fa08` is included. Publication used a temporary clone; the original checkout/working changes were preserved.
+- Static gh-pages: `1c7568d4b0ed2a2e5514883ca4fac97cc6f65633`. Normal push from `7df10c5`; latest Pages build reported this exact commit, status built and null error. Actual remote refs were verified.
+- Dashboard base `3c39618acf0b4241021357864ce77d0c5f0381ad` plus the current local source snapshot (91 files), manifest SHA-256 `eeb7ea3af9d175f0a6145f60f710584c1c1c42332f7de63c4360373c10fa19e8`. Its separate repository remains uncommitted/unpushed by this deployment. No environment file, dependency directory or cache was copied into the publishable source.
+- Fresh combined build: 64 files including .nojekyll; sorted build-manifest SHA-256 `46ffc4127a75d85649d5e06ed31b6c4bc6681788f7f157917dc2450d6b722191`. All 64 were HTTP 200 and byte-identical to the public files. Four prior hashed CSS/JS files remain for cached HTML, yielding 68 published files. Generated dist, dependencies and environment files were not committed to main.
+- Main bundles `main-XusuAFll.js` / `main-9_Eell8k.css`; dashboard `index-UT_Oq9ag.js` / `index-CbURgAbx.css`. Public DOM references exactly these files, and the home card computes backdrop-filter blur(24px) on #06080c.
+
+### Commands and browser checks actually run
+
+- Isolated microsite: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3), `git diff --check` passed. Existing Node stripTypeScriptTypes experimental notices remain; no browser error follows from them.
+- Isolated dashboard: `npm run lint`, `npm run typecheck`, `npm test` (19/19), `npm run build -- --configLoader runner` passed. The focused checked-JavaScript typecheck retains its existing scope.
+- Public browser: seven introduction entries (Home, EXPO, Service, FourFit, System, Uses, Team) and seven dashboard routes (overview, teams, sessions, reports, devices, incidents, settings), each at 360/390/768/1024/1280/1440 px: **84 combinations**. Height 844 at 390 px, 900 at other widths. Actual dimensions matched; one visible H1 each, no horizontal document overflow, visible broken image, duplicate ID or link to localhost/127.0.0.1. Console warning/error logs across the matrix and actual home/return tabs were empty.
+- Public Home 390x844 fits within one viewport. Primary action opens Service's 작품 이해. Its question reading link opens/focuses #service-practice; End selects/focuses 두 장치; menu Escape restores the toggle with aria-expanded=false.
+- Dashboard mobile menu exposes 프로젝트 명함; activating it opens the correct public card in a new tab, as authored. A first lookup while its mobile menu was closed did not match; opening the menu resolved the test without an application change.
+- Public screenshots: `docs/screenshots/redeploy-black-glass-public-390-20261015.jpg` and `docs/screenshots/redeploy-black-glass-dashboard-public-390-20261015.jpg`.
+- Before documentation updates, SHA-256 checks confirmed all 276 original microsite and 91 original dashboard snapshot files unchanged by staging, building and publication. Original branches/dirty changes were not reset or rewritten.
+
+Limits: browser viewport emulation is not physical iPhone/Android testing. No screen reader, 200% zoom, OS reduced-motion, physical NFC, camera/microphone/printer, actual model quality or live operational API acceptance was performed in this deployment. Existing image fallback and reduced-motion behavior are unchanged from the already verified local revision. The static exhibition introduction and sample browser-local dashboard remain distinct from real device integration.

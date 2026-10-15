@@ -42,3 +42,14 @@ The public homepage is a digital business card. Its `샘플 운영 화면` link 
 ## 2026-10-15 — Black-glass palette
 
 The latest owner direction replaces the light-silver material with black glass in both repositories. Dashboard changes are limited to its existing silver-mobile.css, browser theme-color metadata and documentation. The project-card link, hash routes, sample fixtures, CSV scope, local persistence and device safeguards remain unchanged. No live integration or publication is implied.
+
+
+## 2026-10-15 — Black-glass project card production release
+
+- Existing public destination retained: https://sdg331.github.io/CarpeDM_EXPO_Microsite/ and dashboard/#/overview.
+- Microsite feature source: `3df8ed41615708427df9532861583063f895d02e`; includes the prior local exhibition-content commit and the latest mobile card, guided pages and black-glass refinements. Source was published to the existing main with a normal fast-forward push.
+- Pages deployment: `1c7568d4b0ed2a2e5514883ca4fac97cc6f65633`, following `7df10c5`. GitHub Pages uses the existing gh-pages root; the latest build reported built with a null error. No workflow, permissions or host change.
+- Dashboard source was copied from its existing local checkout without environment files. Base: `3c39618acf0b4241021357864ce77d0c5f0381ad`. Sorted file-manifest SHA-256: `eeb7ea3af9d175f0a6145f60f710584c1c1c42332f7de63c4360373c10fa19e8`. The separate dashboard repository was not committed or pushed.
+- Microsite bundles: `main-XusuAFll.js`, `main-9_Eell8k.css`. Dashboard bundles: `index-UT_Oq9ag.js`, `index-CbURgAbx.css`. All 64 fresh build files matched the public HTTPS bytes by SHA-256; the published branch has 68 files because four previous hashed bundles remain for cached HTML during rollout.
+- Public browser checks: seven microsite entries and seven dashboard routes at 360, 390, 768, 1024, 1280 and 1440 px (84 combinations), plus native introduction/keyboard/menu and dashboard-to-card new-tab navigation. No checked horizontal document overflow, broken visible image, duplicate ID, local development link or console warning/error.
+- Deployment used isolated source/dashboard/publish copies under a temporary folder. Both original source snapshots were unchanged before adding this release record; original branches and dirty changes remain preserved. Sample data and browser storage scope remain unchanged; this release does not establish live hardware, NFC, AI or operational API integration.
