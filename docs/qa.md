@@ -1611,3 +1611,33 @@ This release verifies static delivery and browser behavior. Physical phones, scr
 이번 이미지 작업에서는 commit·push·공개 release를 실행하지 않았으며 새 이미지의 공개 배포 상태도 확인하지 않았다. 실제 iPhone/Android·Safari, 스크린리더, 실제 OS 모션 설정과 실물 장치·NFC·AI/API 연결은 이번 정적 시각 검사 범위에 포함하지 않는다.
 
 마무리에서 기존 5174 개발 서버가 종료된 상태임을 확인하고, 포트가 비어 있는 것을 확인한 뒤 이 체크아웃의 Vite를 다시 실행했다. 실제 `http://localhost:5174/`의 대표 링크를 클릭해 Service로 이동하고 두 장치를 선택했다. 기본 1280px 화면에서 두 최종 제품 이미지의 정상 로드와 가로 넘침 없음을 확인하고 해당 화면을 열어 두었다. 현재 화면 캡처는 `docs/screenshots/white-black-devices-current-20261016.jpg`다. 임시 viewport는 해제했다. 마지막 메타데이터 검사에서 cwebp 자동 축소 결과가 544×726임을 확인해 기록을 실제 치수로 정정했다.
+
+
+## 2026-10-16 — 최신 소스 업로드와 공개 사이트 통합 갱신
+
+### 범위와 보존
+
+- 사용자 요청에 따라 기존 GitHub main과 gh-pages를 모두 일반 fast-forward push했다. 원격 main의 한영 모바일 웹 이력을 이어 새 흰색 미러·검은색 키오스크 이미지, 조립 레이어, 한영 대체 설명, 관련 검사와 출처 문서를 반영했다. 대규모 코드 변경이나 새 의존성은 없다.
+- 원본 microsite와 dashboard는 미커밋 변경이 있어 기존 build:release로 330개·94개 소스 파일의 격리 snapshot을 만들었다. 원본 브랜치·HEAD·index는 그대로 유지했다. 배포용 source checkout은 원격 main 70e7926에서 시작해 검증한 파일을 복사했으며, 이전 이력이나 사용자 파일을 되돌리지 않았다. 별도 dashboard 저장소에는 commit/push하지 않았다.
+- 빌드 snapshot은 _workspace/release-k2y3dT/, 공개·브라우저 기록은 _workspace/publish-latest-20261016-yqqB54/에 있다. 배포 기록과 공개 캡처만 원본 문서에 추가했다. 미추적 프롬프트 문서 끝의 여분 빈 줄은 공개용 사본에서 정리했고 최종 문서에도 반영했다.
+
+### 명령과 산출물
+
+- npm run build:release -- --dashboard '/Users/do_not_delay/Desktop/EXPO_분석/dashboard-app' 통과. snapshot에서 microsite lint·typecheck·build·17개 테스트, dashboard lint·typecheck·19개 테스트·runner-loader build가 모두 종료 코드 0이었다. npm run verify:release와 최종 git diff --cached --check도 통과했다.
+- 새 통합 파일은 70개다. dashboard/와 .nojekyll을 포함한다. 캐시된 HTML의 과거 해시 자산 15개를 유지한 공개 후보 85개도 verifyRelease()를 통과했고, 새 70개는 경로·크기·SHA-256이 빌드 보고서와 모두 일치했다. .git, node_modules, 환경 파일과 로컬 보고서는 배포 파일에 들어가지 않는다.
+- 구현 소스: c1ea87f385971575f784d6e930d37550653de4ec. Pages: 09404ca24e4ccd0aa1206c1301b454d4b358a94c. Pages API에서 정확히 이 커밋에 대해 built와 error.message=null을 확인했다. 기존 gh-pages 루트·HTTPS 설정을 사용하며 호스팅이나 권한 설정을 바꾸지 않았다.
+- 소개 번들은 main-B2jWEGmw.js / main-bvxDBW-A.css다. dashboard는 index-C7fwX6C-.js / index-gtSEuF5V.css다. 공개 HTTPS 85개 파일의 SHA-256이 후보와 모두 일치했고, 캐시 구분 query 없는 일반 HTML 8개도 일치했다.
+
+### 실제 브라우저 검사
+
+- 로컬 배포 후보와 공개 HTTPS 각각 소개 7개 진입점 × 한국어/영어 × 실측 360, 390, 768, 1024, 1280, 1440 CSS px, 높이 900px의 84개 상태를 검사했다. 각 상태의 H1 하나·문서 언어·실측 너비, 가로 넘침 없음, 뷰포트에서 보이는 이미지 정상 로드, 중복 ID 없음, 누락된 같은 문서 fragment 없음을 확인했다.
+- 로컬 390px에서 장치 탭 실제 클릭, Home/End 키, 메뉴 Enter 열기·Escape 닫기·토글 초점 복귀와 solid 외곽선을 확인했다. 공개 1440px에서도 메뉴 키보드 동작을 확인했고, English로 이동한 최종 URL의 ?lang=en#service-devices와 Devices 선택 및 두 제품 이미지 로드를 확인했다. 언어 변경 직후 effect 적용 전의 기본 패널 표본은 최종 선택 확인에 사용하지 않았다.
+- 공개 대시보드 7개 hash 경로를 390·1440px의 14개 상태에서 확인했다. 경로별 H1·샘플 표시·실측 너비·가로 넘침 없음·이미지 정상 로드를 확인했다. 공개 Home의 샘플 운영 화면 링크가 새 대시보드 탭을 열고, 모바일 메뉴의 프로젝트 명함 링크가 같은 HTTPS Home을 새 탭으로 열어 제목·H1을 표시했다. 데이터 등록·삭제·초기화·CSV 출력은 실행하지 않았다.
+- 정상 로컬 소개와 공개 소개·대시보드의 warning/error 로그는 비어 있었다. 공개 브라우저 기록: public-browser-qa.json, public-dashboard-qa.json, public-interaction-qa.json. HTTPS 결과: https-verification.json과 ordinary-html-verification.json.
+- 실제 공개 캡처는 docs/screenshots/latest-release-public-home-{390,1440}-20261016.jpg다. 390px 캡처는 높이 844px, 1440px 캡처는 높이 900px다. 임시 검사 탭은 닫았고 최종 공개 Home은 기본 크기의 새 탭으로 표시했다.
+
+### 오류·모션 대체와 한계
+
+- 원본·공개 파일을 바꾸지 않은 복사본에서 390px Home·두 장치·미러 조립의 이미지 누락을 주입했다. 기존 흰 미러·검은 키오스크 대체 형태를 확인했고, 조립은 fallback·static·aria-busy=false였다. Home과 두 장치는 가로 넘침·보이는 깨진 이미지가 없었다. 의도적인 404는 정상 콘솔 집계와 구분한다.
+- 별도 복사본의 컴파일된 JS/CSS에서 모션 감소 조건을 강제로 일치시킨 미러 조립은 static·ready였다. 실제 OS 모션 감소 전환이나 실물 기기의 검증은 아니다.
+- 실물 iPhone/Android·Safari·스크린리더·실제 OS 접근성 설정·200% 확대, NFC·프린터·AI/API·실제 운영 데이터 연동은 이번 공개 갱신에서 검증하지 않았다. 샘플 대시보드와 생성 이미지가 실제 운영·하드웨어 완료의 증거를 뜻하지 않는다.

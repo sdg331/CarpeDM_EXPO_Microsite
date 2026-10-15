@@ -82,3 +82,11 @@ The latest owner direction replaces the light-silver material with black glass i
 - Microsite bundles: `main-XusuAFll.js`, `main-9_Eell8k.css`. Dashboard bundles: `index-UT_Oq9ag.js`, `index-CbURgAbx.css`. All 64 fresh build files matched the public HTTPS bytes by SHA-256; the published branch has 68 files because four previous hashed bundles remain for cached HTML during rollout.
 - Public browser checks: seven microsite entries and seven dashboard routes at 360, 390, 768, 1024, 1280 and 1440 px (84 combinations), plus native introduction/keyboard/menu and dashboard-to-card new-tab navigation. No checked horizontal document overflow, broken visible image, duplicate ID, local development link or console warning/error.
 - Deployment used isolated source/dashboard/publish copies under a temporary folder. Both original source snapshots were unchanged before adding this release record; original branches and dirty changes remain preserved. Sample data and browser storage scope remain unchanged; this release does not establish live hardware, NFC, AI or operational API integration.
+
+
+## 2026-10-16 — 한영 모바일 웹과 새 제품 이미지 공개
+
+- 구현 소스 main: c1ea87f385971575f784d6e930d37550653de4ec. 공개 gh-pages: 09404ca24e4ccd0aa1206c1301b454d4b358a94c. 기존 이력 위에 일반 fast-forward push했으며 정확한 Pages 커밋이 built임을 확인했다.
+- 최신 모바일 웹·흰색 미러·검은색 키오스크 이미지와 기존 샘플 dashboard를 함께 빌드했다. 새 파일 70개와 이전 캐시 호환 자산 15개를 합친 85개 파일이 공개 HTTPS SHA-256과 모두 일치했다. 일반 HTML 8개도 확인했다.
+- 소개 번들: main-B2jWEGmw.js / main-bvxDBW-A.css. dashboard 번들: index-C7fwX6C-.js / index-gtSEuF5V.css. dashboard 소스·데이터 동작은 이번에 수정하지 않았고 별도 저장소에도 push하지 않았다.
+- 소개 84개 공개 상태와 dashboard 14개 공개 상태, Home → dashboard → 프로젝트 명함의 실제 새 탭 왕복을 확인했다. 두 앱의 기존 검사도 모두 통과했다. 원본 checkout·index와 기존 작업을 보존했으며 세부 결과·한계는 qa.md의 같은 날짜 최신 소스 업로드 항목에 기록했다.

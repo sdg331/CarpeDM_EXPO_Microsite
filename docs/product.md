@@ -4,7 +4,7 @@ This document is authoritative for project facts. Public wording lives in `conte
 
 ## Evidence and status
 
-The owner requested a white Smart Mirror and black ID Card Kiosk on 2026-10-16. New generated presentation images and white mirror assembly layers are applied locally. This finish choice is not evidence of fabrication or hardware integration. This image-refresh pass does not perform or verify a public deployment; see `product-image-prompts-20261016.md` for provenance and `qa.md` for checks.
+The owner requested a white Smart Mirror and black ID Card Kiosk on 2026-10-16. The generated presentation images and white mirror assembly layers are now published with the bilingual mobile website in Pages release `09404ca24e4ccd0aa1206c1301b454d4b358a94c`. The release includes the separate sample dashboard. This finish choice is not evidence of fabrication or hardware integration; see `product-image-prompts-20261016.md` for provenance and `qa.md` for public delivery checks.
 
 The owner-requested light-glass theme is applied to the introduction and linked sample-dashboard source and publicly deployed as of 2026-10-16. This changes presentation only: product facts, intended functions, software evidence, data and hardware/integration status are unchanged. Browser/UI checks and public deployment are recorded separately in `qa.md`.
 
