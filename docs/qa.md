@@ -1572,3 +1572,10 @@ This release verifies static delivery and browser behavior. Physical phones, scr
 - 실제 최종 빌드 캡처 5개: `mobile-app-home-390-20261016.jpg`, `mobile-app-home-en-390-20261016.jpg`, `mobile-app-service-390-20261016.jpg`, `mobile-app-menu-390-20261016.jpg`, `mobile-app-home-1440-20261016.jpg` (`docs/screenshots/`).
 - 파일 manifest와 브라우저 기록은 `_workspace/mobile-app-publish-20261016-tdotbwak/`의 `artifact-manifest.json`, `browser-qa.json`, `tab-qa.json`, `hardware-qa.json`, `small-qa.json`, `interaction-qa.json`, `fixture-qa.json`, `dashboard-qa.json`에 보존했다. 이 자료는 소프트웨어 QA이며 방문자 분석 데이터가 아니다.
 - 이번 Git 공개는 소스 main 대상이다. 기존 gh-pages는 이 작업에서 변경하지 않으며, main push만으로 공개 웹사이트가 자동 갱신되지 않는다. 실제 iPhone/Android·Safari·스크린리더·실제 OS 접근성 설정·200% 확대·저성능 장치, AI/API/NFC/프린터 연결은 새로 검증하지 않았다.
+
+
+### 소스 Git 이력 병합 확인
+
+최초 source push는 작업 기준 `984fa08` 이후의 기존 원격 커밋 `3df8ed4`, `bcd42d0`이 로컬 이력에 없어 fast-forward 보호로 거절됐다. 원격이 이 작업 중 새로 바뀐 것이 아니라 원본의 원격 추적 참조가 오래된 상태였다. 두 기존 커밋을 정상 병합해 이력을 보존했다. 이전 한국어/검은 글라스와 현재 한영/밝은 모바일 버전이 겹치는 41개 파일은 검증한 현재 버전을 유지했다. `git diff --cached HEAD --exit-code`로 병합 직후 전체 파일 트리가 검사한 후보와 정확히 같음을 확인했다. 강제 push나 원본 checkout의 브랜치/index 변경은 하지 않는다.
+
+샘플의 프로젝트 명함 링크는 새 Home 탭을 열었으며, 새 탭의 URL·제목·H1을 읽어 정상 복귀를 확인했다. 최종 소스 push 결과와 원격 SHA는 로컬 publication 기록과 작업 완료 응답에 남긴다.
