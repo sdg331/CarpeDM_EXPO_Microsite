@@ -1006,8 +1006,569 @@ Files touched by this mobile revision (separate from pre-existing changes):
 - Owner requested redeployment including the dashboard. Kept the current microsite changes; copied the separate dirty dashboard checkout into `/private/tmp/mirrorting-dashboard-release-20261014` without environment files. Original dashboard source, dirty changes and branch remain untouched. Existing `gh-pages` history is preserved through a temporary clone and normal push.
 - Microsite: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3 test files) and `git diff --check` passed. Existing Node stripTypeScriptTypes experimental warning remains informational.
 - Dashboard copy: `npm run lint`, `npm run typecheck`, `npm test` (19/19), `npm run build -- --configLoader runner` passed. No new dependency or app feature was added for redeployment.
-- Combined output: 64 files including 21 dashboard files and `.nojekyll`. Microsite bundles `main-DeV0XBT5.js` / `main-DdCfdPHp.css`; dashboard bundles `index-Bw3mcNVk.js` / `index-BuD_RRWJ.css`. A SHA-256 output manifest was saved for checking the deployment checkout.
+- Combined output: 64 files including 21 dashboard files and `.nojekyll`. Microsite bundles `main-DgMtsyjB.js` / `main-DdCfdPHp.css`; dashboard bundles `index-Bw3mcNVk.js` / `index-BuD_RRWJ.css`. A SHA-256 output manifest was saved for checking the deployment checkout.
 - Final combined production build was served under `/CarpeDM_EXPO_Microsite/` on temporary local port 4186. Microsite's seven entries and dashboard's seven routes (overview/teams/sessions/reports/devices/incidents/settings) were each checked at 360, 390, 768, 1024, 1280 and 1440×900: 84 combinations, actual viewport widths matched, exactly one H1, no document overflow or broken loaded images. No missing microsite same-page anchors. Normal console warn/error logs were empty.
 - At 390×844, menu Enter opens and Escape closes/restores toggle focus. Uses' native select changes to the onboarding guide; Enter opens the dialogue disclosure. FourFit End selects Posture and ArrowRight wraps to Response. Uses' demo link targets the combined same-site dashboard. Dashboard team action opens the development-team employee view. Reduced-motion preference saves with `.reduce-motion` applied, then was restored. Service-introduction destination points to the existing public microsite.
 - In an isolated fallback copy, removed Hero and hardware images: Home displayed its concept silhouette; mirror/camera/audio displayed their fallback scenes with no visible broken images and no document overflow. Intentionally failed hidden layer requests were excluded from the normal-console check. Release/source assets were not removed. Microsite OS reduced-motion queries were reviewed in source; actual OS setting was not changed.
 - Physical mobile devices, screen reader, physical NFC, live device/API/AI integration and training effectiveness were not tested. The dashboard remains a fixed-example demo. Public release verification is recorded below after publication.
+
+### Public release result
+
+- Deployment commit: `7df10c5a8efb5fc237f19a7746d978438bb42983` on remote `gh-pages`, verified by `git ls-remote`. GitHub Pages latest build reports `built` with null error for this exact commit. All 64 deployment files match the final output SHA-256 manifest.
+- Public Home/Uses and all seven dashboard routes checked at 390 and 1280×900 (18 combinations): actual widths match, exactly one H1, no document overflow or broken loaded images, normal console warn/error logs empty. Public pages load `main-DgMtsyjB.js` and `index-Bw3mcNVk.js`. Uses has the correct absolute same-site dashboard destination; dashboard's service-introduction link targets the public microsite. The new-tab control was clicked, but the browser automation inventory did not expose a popup, so new-tab window creation is not claimed. Both destinations were verified directly.
+- Rebuild identified one concurrent disclosure wording correction (`아래 장치 구성` → `실물 장치`) in System. The committed build differs only by that phrase; final System was rechecked at all six required widths without overflow and the release manifest/bundle references updated.
+- Initial public navigation failed with a browser network error; recovered by opening a fresh background tab in the same browser. One later Pages API read hit automatic approval review timeout, then the permitted retry succeeded.
+- Public capture: `docs/screenshots/redeploy-dashboard-public-1280-20261014.jpg` (1280×900). Temporary viewport override reset.
+- Microsite UI/source snapshot is committed locally as `984fa08a87376f137cfe0b6b7f274a103311ffc5`. Automatic approval review rejected `git push origin main` because source publication to the default branch was not explicitly authorized by the deployment request. It was not retried or bypassed. The authorized deployment push to `gh-pages` succeeded; source commits stay local pending explicit approval. Separate dashboard source remains untouched and unpushed in this run.
+
+## 2026-10-14 — Current repository scope, software-first system and cost positioning
+
+- User confirms interview and job training exist, supplies DMUCarpeDM/2026CarpeDM_EXPO for analysis, and identifies hardware cost as a deployment concern. Read the public default main at adb9355b0da4ef69a6485811ec82ee46cf133239 through GitHub. Older local checkouts differed and Desktop/EXPO had dirty nonverbal changes; neither was used as the current published implementation. No source-repository writes or execution of its app/models/devices.
+- Source-confirmed modes: interview, training and workplace. Interview profiles include full-stack/marketing/sales; current training picker centers on cafe order-taking. Source review covers interaction, sessions, interview/cafe analyzers, analysis/report, voice/expression/posture and NFC/IDPrinter bridge. Presence of code is distinguished from E2E, model accuracy and physical acceptance. Expression remains provisional; current README excludes gaze. Browser pose/hand and local expression inference do not establish Kinect depth as a prerequisite.
+- Corrected future-only interview/training wording, moved the three-mode overview before educational proposals, and clarified Home scope. System now starts with software selection→input→dialogue/analysis→results, preserves hardware assemblies afterward, and distinguishes current software inputs from future/physical claims. Development is improvement/validation of existing capabilities, not a claim that voice/nonverbal paths are absent. No new controls, media, runtime dependencies, collection, backend or scoring logic.
+- Compared primary current Yoodli roleplay and VirtualSpeech interview/education descriptions. They already describe interview/roleplay/feedback. Institutional shared-space practice is a hypothesis to validate, not a proven market gap or competitive advantage. Old product-strategy zero marginal cost/entirely local claims do not describe current cloud/STT/API paths. Old 55-inch BOM estimates were not treated as current installed costs. Venue and lower-cost phased proposals remain analysis, not confirmed deployments/customers/prices.
+- Seven pages × 360/390/768/1024/1280/1440×900 (42) checked against actual dimensions: one H1, header 68 px, no overflow/missing fragment targets/bad loaded images. System's first content section is system; Uses has three current mode rows. At 390×844, context selection switched to onboarding, main button count remains zero, and menu has three links with Escape focus restoration.
+- Reordered mirror assembly checked at 390×844: scroll mode/ready and progress 0.000→1.000 without overflow. Other assembly geometry/hooks and Home door art unchanged. No new forced-media-failure or OS reduced-motion test; previous safeguards remain.
+- npm run lint, separate typecheck, build, three existing Node test files and final diff whitespace checks passed. Existing stripTypeScriptTypes experimental warning unchanged. Default-sandbox HTTP/dev attempts were unavailable; permitted launch reported the existing 5174 listener. Reused it and verified the exact updated page in the browser. No port switch or process termination.
+- Saved mobile-confirmed-practice-modes-390.jpg and mobile-software-system-390.jpg, both 390×844, under docs/screenshots/. Normal browser warn/error count checked separately. A browser approval review timed out; shorter read/capture/interaction calls succeeded. No rejected unsafe action or outstanding approval.
+- No physical NFC/camera/microphone capture, external AI calls, source-app test execution, education study, hardware costing, commit, push or public deployment. Tests above apply to the microsite only.
+- Changed code: src/App.tsx; src/data/content.ts, useCases.ts, development.ts; src/sections/UseCases.tsx/CSS, Development.tsx, SystemArchitecture/SystemArchitecture.tsx. Updated product/design/content/architecture/decisions/QA docs and two screenshots.
+
+### Concurrent UI integration and final refresh
+
+- During final verification, concurrent changes introduced PageTabs and native disclosures and changed the System H1 to “연습을 결과로 연결하는 구조.” Preserved that work. A wait for the prior H1 timed out; it was not a persistent blank-page error. Current full reload renders three practice modes with the correct default topic and no new console warnings/errors. One historical Vite HMR reload error remains from the editing period; total historical console count is not claimed as zero.
+- Fixed the Uses caller's exactOptionalPropertyTypes error by using explicit initialId=uses-practice when no context query is present. Behavior matches the prior default first tab. Final lint, build including typecheck and three existing Node test files passed after the integration.
+- Repeated all seven entries at six required widths (42): one H1, no overflow, valid fragment IDs, no bad loaded images, three Uses mode rows and System default 작동 흐름. ArrowRight selected 장치 구성 and focused its tab; direct #camera-assembly opened the owning topic and aligned its section near 92 px without overflow. The actor's nested hardware tabs are preserved.
+- Earlier software/motion checks describe the pre-tab snapshot. Final screenshots are refreshed against the current UI. This analysis turn did not issue Git commit/push/deploy commands; separate publishing recorded above belongs to concurrent work.
+
+
+## 2026-10-14 — All-page mobile silver glass
+
+- Owner asked to redesign all introduction pages and the separate dashboard for mobile, improve awkward imagery, use clean silver glass and shorten scrolling. Preserved initial dirty docs/screenshots and concurrent source-fact corrections. Initial source/docs backup: `/private/tmp/mirrorting-mobile-before-bpvna09e`. No Git commit, push or public deployment.
+- Unified pale silver canvas, graphite text, bounded full-proportion Hero product, native glass vectors, phone dock and touch controls. Removed generated office/person scenes and raster icon crops from primary reading; archived source assets remain. Service/System/Uses are topic-based; longer education, comparison, device and evidence text stays available in native disclosures.
+- Existing three-item hamburger is preserved. PageTabs supports roving keyboard focus, wrapping arrows, Home/End, one visible topic and fragment/popstate activation. Nested `#camera-assembly` opens both owning tabs and focuses the section at approximately 92 px. Native detail fragments open their ancestors; the skip link focuses main-content.
+- Assembly keeps calibrated assets and the existing curve in natural flow. The curve now follows the visible image stage so a short last section can finish before the document bottom. At 390×844: mirror 0.468→1.000, camera 0.318→1.000, audio 0.318→1.000, all ready. A root-based first attempt could not finish the short mirror topic and was corrected before completion.
+- Final microsite commands: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3), `git diff --check` passed. Node's existing experimental stripTypeScriptTypes warning remains. No dependency added. Final build: main-wuJuHpy3.js / main-RVCQHgGa.css.
+- Dashboard UI was staged and verified without environment files, then 13 reviewed files were applied with pre-write hash guards and backup at `/private/tmp/mirrorting-dashboard-before-mobile-bjiil3_k`. Existing src/components/UI.jsx, executive.css, data and state/model modules match the preserved staged originals. Actual original checkout then passed lint, typecheck, 19/19 tests, production build and diff whitespace check. Its build matches index-BctRIR4u.js / index-DN_bwuum.css. Dashboard typecheck covers existing checked JS modules, not every JSX screen.
+- Combined production output was served locally under `/CarpeDM_EXPO_Microsite/`. Seven introduction entries and seven dashboard routes at 360/390/768/1024/1280/1440×900: 84 combinations, actual dimensions matched, one H1, no document overflow, duplicate IDs, missing same-page fragments or broken loaded images. An early viewport batch affected the other tab and was discarded; only the corrected actual-width matrix is counted.
+- Additional Service/System/Uses/Four-Fit topic states at all six widths: 72 combinations, no overflow or broken loaded images. Visual screenshots were inspected at all six representative widths. Final static pages were fully reloaded after bundle changes; dashboard wordmark computes to rgb(45,64,90). Checked browser console warning/error capture was empty.
+- Interactions: Service arrows/Home and authored-situation selection; Four-Fit End and one visible panel; incoming onboarding query, team guide selection and situation disclosure; three-link menu Enter/Escape/focus restoration; dashboard modal menu/scroll lock/Escape, development-team disclosure→directory, all-team select, employee detail close/focus restoration, 1–4→5–8 pagination, session empty search and recovery, device/output switching, output pagination and report-average disclosure. No stored employee/operation records were edited.
+- Forced-media-failure build copy removes all hardware media, kiosk image and UI capture without touching source assets. Home uses its concept silhouette. Mirror/camera/audio report static/fallback, kiosk uses its silhouette, with no broken visible images or overflow. Reduced-motion CSS/hook handling was reviewed; actual OS preference switching was not emulated.
+- Calculated representative contrast: body #25303e/#f6f8fb 12.56:1; secondary #616d7b/#edf1f6 4.65:1; small Hero caption #586575/#e9edf2 5.05:1; dock #647183/#f1f5fa 4.53:1; dashboard secondary #53657d on silver 4.64–5.39:1. Targeted palette checks, not a full accessibility certification.
+
+Default 390×844 document heights (all detail content remains available through selection/disclosure):
+
+| Entry | Before | After |
+| --- | ---: | ---: |
+| Home | 2817 px | 2019 px |
+| Service | 7117 px | 1429 px |
+| Four-Fit | 2945 px | 1520 px |
+| System | 9564 px | 1638 px |
+| Uses | 6601 px | 1233 px |
+| Team | 3764 px | 2190 px |
+
+- Screenshots in docs/screenshots/: mobile-silver-home-390-20261014.jpg, mobile-silver-dashboard-390-20261014.jpg, silver-home-360-20261014.jpg, silver-service-768-20261014.jpg, silver-fit-1024-20261014.jpg, silver-dashboard-1280-20261014.jpg. Dashboard has its own two screenshots in its docs/screenshots/. Existing unrelated captures are preserved.
+- Local final output also contains the verified dashboard under dist/dashboard, ready for the existing manual combined-release workflow. Original dev addresses remain 5174 (introduction) and 4174 (dashboard); temporary QA server is separate. No deployment step was performed.
+- Limits: actual iPhone/Android, screen reader, 200% text zoom and OS reduced-motion switch remain untested. Hardware/NFC, live AI, real operational data and new education-effect validation were outside this UI work.
+
+Source changes (20 microsite files, compared with the initial backup):
+
+```text
+src/App.tsx
+src/components/MobileNav.tsx
+src/components/PageTabs/PageTabs.tsx
+src/components/PageTabs/PageTabs.css
+src/data/media.ts
+src/main.tsx
+src/sections/Development.tsx
+src/sections/ExperienceFlow/ExperienceFlow.tsx
+src/sections/FourFit.tsx
+src/sections/HardwareAssembly/HardwareAssembly.tsx
+src/sections/HardwareAssembly/HardwareDetailAssembly.tsx
+src/sections/HardwareAssembly/useAssemblyScroll.ts
+src/sections/Hero/Hero.tsx
+src/sections/Hero/Hero.css
+src/sections/SystemArchitecture/SystemArchitecture.tsx
+src/sections/TeamStory.tsx
+src/sections/UseCases.tsx
+src/sections/WorkplacePractice.tsx
+src/styles/showroom.css
+src/styles/silver.css
+```
+
+Product/design/content/architecture/decisions/dashboard-integration/QA documentation was synchronized. Separate dashboard: App.jsx, main.jsx, Overview/Teams/Sessions/Reports/Devices/Incidents pages, new silver-mobile.css, README/QA and two screenshots.
+
+## 2026-10-15 — Digital business card correction
+
+The owner reported awkward UI and explicitly clarified business-card usage. Home/EXPO now mount one compact silver card, with project/team identity, a plain purpose, three primary detail links and a secondary sample-operations link. Detail H1s are short, topic selections use thin underlines and Team folds its design/material explanations without repeating the device or closing pitch. The separate dashboard uses one divided metric panel and simpler filters. No contact details, product facts, measured results or hardware/live integration were invented.
+
+### Commands actually run
+
+- Microsite: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3), `git diff --check` — passed. The last build also re-runs TypeScript.
+- Dashboard staged and original checkout: `npm run lint`, `npm run typecheck`, `npm test` (19/19), `npm run build -- --configLoader runner`, `git diff --check` — passed. Existing typecheck covers the JS helper modules; JSX also passed ESLint and Vite's build. Original App/style hashes match the tested staging source.
+- No new dependencies, commit, push or public deployment. Dependencies were already installed. Original edits were backed up and hash-guarded before applying; company/storage/model/fixture and device-action code were untouched.
+
+### Browser results
+
+- Final combined production preview: `/CarpeDM_EXPO_Microsite/` and `/CarpeDM_EXPO_Microsite/dashboard/` on a temporary loopback QA server. Final bundles: microsite `main-B1fkolDy.js` / `main-GHGH6n9L.css`; dashboard `index-BCrLr7un.js` / `index-B32Kr1HI.css`.
+- Seven introduction entries plus seven dashboard routes, each at 360, 390, 768, 1024, 1280 and 1440 px: **84 combinations passed**. Actual viewport widths verified; no horizontal document overflow, duplicate IDs, missing native fragment targets, visible broken images or multiple H1s.
+- Eleven expanded detail/fragment states at those six widths: **66 combinations passed**, before the final Hero-only contrast/short-height refinement. Included Service journey/devices, 4-Fit comparison, three hardware stages, evidence/future, educational/operations uses and Team material disclosure. These detail styles/logic did not change afterward.
+- Home links to Service/Uses/System and CarpeDM tested by actual clicks. Three removed Home fragments (`home-uses`, `four-fit`, `development`) reach their detail destinations. Header Escape returns visible focus to the menu toggle; topic ArrowRight moves selection and focus. Team design-principle disclosure opens with Enter.
+- Dashboard drawer opens as an accessible dialog, closes with Escape and restores focus; underlying main loses its inert attribute when closed. AI-team and recent-seven-day filters, restoration to all teams/today, priorities/team switching and sample-data dialog work. CSV export and global team selector have explicit accessible names.
+- Dashboard `화면 움직임 줄이기` checked/saved: root `reduce-motion` class and 0s dock transition verified, then restored in the isolated QA origin. OS reduced-motion emulation was unavailable; microsite reduced-motion/static logic remains covered by existing source/tests.
+- Final 360×640 Home: document height **640 px**, all three primary links visible, card bottom at 629 px, horizontal overflow 0. Normal scrolling remains available on even shorter screens and larger text.
+- Existing mirror media removed only in an isolated copy: Home shows the intentional labeled concept silhouette, with no broken img and no horizontal overflow. Original asset preserved. Hero small-text color is #5C6876; it clears 4.5:1 against the conservative darkest #E9EDF2 card surface.
+- Normal production page checks captured no browser console warnings/errors. The intentionally missing fallback media is a separate expected failure test.
+
+390×844 default document heights, previous silver version → this revision:
+
+| Page | Before | After |
+| --- | ---: | ---: |
+| Home / EXPO | 2019 | 844 |
+| Service | 1429 | 1310 |
+| 4-Fit | 1520 | 1451 |
+| System | 1638 | 1529 |
+| Uses | 1233 | 1096 |
+| Team | 2190 | 844 |
+| Dashboard overview | 1740 | 1601 |
+
+### Files and evidence
+
+Source changes for this revision, relative to the turn-start backup:
+
+```text
+src/App.tsx
+src/components/MobileNav.tsx
+src/components/PageTabs/PageTabs.css
+src/data/content.ts
+src/data/media.ts
+src/data/paths.ts
+src/sections/Hero/Hero.css
+src/sections/Hero/Hero.tsx
+src/sections/TeamStory.css
+src/sections/TeamStory.tsx
+src/styles/mobile.css
+src/styles/silver.css
+```
+
+Also updated Home/EXPO HTML metadata, AGENTS.md and product/design/content/architecture/decisions/dashboard-integration/QA documentation. Separate dashboard: App.jsx, silver-mobile.css, README.md, docs/QA.md and one screenshot. The business-card requirement was also saved as a user-requested personal memory note.
+
+Screenshots: `business-card-home-360-20261015.jpg`, `business-card-home-390-20261015.jpg`, `business-card-home-1440-20261015.jpg`, `business-card-team-390-20261015.jpg`, `business-card-dashboard-390-20261015.jpg` under docs/screenshots.
+
+Limits: no real iPhone/Android device, screen reader, 200% browser/text zoom, OS reduced-motion switch, hardware/NFC/live AI, real operations data or new education-effect validation. Contact details and a verified public QR destination remain unsupplied. Local implementation is complete; public hosting was not changed.
+
+## 2026-10-15 — Remove image captions and reduce arrows
+
+- Owner request: remove `도안 기반 AI 콘셉트 / 실물 사진 아님` and similar visible text; use fewer arrows. Shared ProductFrame/SceneFigure and mirror/camera/audio image captions are deleted at the render source. Unused Media.caption data is removed. Neutral design-material wording replaces repeated image-origin warnings in the evidence/team inventory. Image kind/alternatives, asset files, load/error handling and assembly calibration are preserved.
+- Home decorative arrows: **5 → 1**, retained only on `작품 알아보기`. Ordinary menu/footer/detail links omit decorative SVG/Unicode arrows. The technical connection diagram retains its meaningful direction. Secondary card links are centered. Expression subtitle: `표정으로 전하는 태도`.
+- Commands: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3), `git diff --check` — passed. No dependency change or new feature/state.
+- Production preview under `/CarpeDM_EXPO_Microsite/`: seven base entries plus eight expanded device/evidence states at 360, 390, 768, 1024, 1280 and 1440 px — **90 combinations passed**. Verified actual viewport width, no horizontal document overflow, one H1, no duplicate IDs or visible broken images, target visibility, zero shared/hardware captions and at most one Home arrow. Final bundle: `main-BKY70iFJ.js` / `main-rlvEiIO2.css`.
+- Actual interactions: Home primary link navigates correctly; Tab moves to the secondary link with visible focus; the three-item menu has zero link arrows and Escape restores toggle focus; ArrowRight still changes topic selection/focus; Expression selection shows the revised subtitle.
+- Final 360×640 Home: document height 640, one arrow, zero captions, three 50 px primary/secondary touch targets visible by y=491.
+- Missing mirror asset in an isolated copy: intentional ProductFrame silhouette appears, no broken image and no caption/overflow. Original media is untouched.
+- Normal page console warnings/errors: none captured before the intentional missing-media test. Existing reduced-motion source paths and pure hardware-motion tests remain unchanged; no OS preference emulation claimed.
+- Source hashes confirm useAssemblyScroll.ts, motion.ts, HardwareAssembly.css and scenes.ts unchanged. Separate dashboard source was not edited; its existing production output was restored under ignored dist/dashboard after the microsite build.
+- Screenshots: docs/screenshots/quiet-card-home-390-20261015.jpg and quiet-card-home-1440-20261015.jpg. Prior screenshots are preserved.
+
+Source files changed in this revision:
+
+```text
+src/App.tsx
+src/components/Header/Header.tsx
+src/components/ProductFrame/ProductFrame.css
+src/components/ProductFrame/ProductFrame.tsx
+src/components/SceneFigure/SceneFigure.css
+src/components/SceneFigure/SceneFigure.tsx
+src/data/media.ts
+src/sections/Development.tsx
+src/sections/Evidence.tsx
+src/sections/FourFit.tsx
+src/sections/HardwareAssembly/HardwareAssembly.tsx
+src/sections/HardwareAssembly/HardwareDetailAssembly.tsx
+src/sections/Hero/Hero.css
+src/sections/Hero/Hero.tsx
+src/sections/Problem.tsx
+src/sections/SystemArchitecture/SystemArchitecture.tsx
+src/sections/TeamStory.tsx
+src/sections/UseCases.tsx
+src/styles/silver.css
+```
+
+Updated README.md, AGENTS.md and product/design/content/architecture/decisions/QA records to supersede the earlier visible-caption requirement. No commit, push or public deployment. Real device, screen-reader and 200% zoom checks were not run in this refinement.
+
+## 2026-10-15 — Black-glass visual refinement
+
+- Owner requested a black-background glassmorphism UI after reviewing Service. Changed only seven existing CSS files and theme-color metadata in seven HTML entries. Digital-card dimensions, readable topic/disclosure flow, no image captions and one Home primary arrow remain. Existing dirty work was backed up under `/private/tmp/mirrorting-black-glass-before-ze2hgy38`; no TS/TSX or media changed in this refinement.
+- Material: #06080c canvas, dark translucent gradients, thin silver edges, #f2f4f8 text and #b0b8c6 secondary text. Main action has dark ink on silver. Reading panels and native controls use the same dark palette. Dashboard mirrors this through its existing final stylesheet, with status colors retained semantically.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3) and `git diff --check` passed. Final microsite bundle: `main-GPP5UoSQ.js` / `main-Cc5-7uac.css`. Existing Node stripTypeScriptTypes experimental warnings are not app/browser errors.
+- Combined production preview: 21 microsite states (seven base entries plus 14 expanded topics/targets) and seven dashboard routes × 360, 390, 768, 1024, 1280, 1440 × 900: **168 combinations passed**. Actual widths matched; one H1, no horizontal document overflow, duplicate IDs, visible broken images, missing selected fragment targets or repeated image captions. Home arrow count remains one.
+- Inspected material/foreground styles, including below-fold rendered text and expanded device explanations. Fixed the remaining dark specification link, assembly hint/feature labels, white incident cards, selected incident filter and muted report labels. A read-only contrast screen found no flagged rendered HTML text in the matrix; gradient blending was approximated, so this is not a complete WCAG audit. Targeted flat pairs: #b0b8c6 / #1c222c = 8.00:1; #9ba6b7 / #1c222c = 6.49:1; #151a23 / #c8d0dc = 11.22:1.
+- Production CSS initially retained only the WebKit backdrop alias. Put the prefixed declaration before the standard declaration, keep valid feature queries and confirm the compiled standard property. After rebuilding, actual computed effects: card blur(24px), header blur(24px) saturate(1.3), dialogue panel blur(16px). Post-build representative screenshots and the dashboard guide dialog were rechecked; its step counter was corrected to the shared readable color.
+- Actual interactions at 390 px: native conversation select, topic ArrowRight/focus ring, menu opening/Escape/focus return, Expression tab and observation disclosure, dashboard drawer modal semantics/Escape/focus return, data dialog/Escape/focus return, session empty search/clear recovery and page 1–4 → 5–8. Dashboard data/privacy settings and desktop guide dialog also retain dark surfaces/readable text. No operational record edits or resets.
+- Dashboard QA-origin movement preference was enabled/saved, computed transition duration 0s verified, then disabled/saved back to the original state. Microsite hardware source paths for reduced motion/failure and all calibrated transforms remain unchanged; motion tests pass. No OS preference test is claimed.
+- Final 360×640 card: document height 640; three action targets 50 px high, all visible by y=491. Isolated missing mirror asset: intentional CSS silhouette, zero visible broken images/captions/overflow. Original media is preserved. Normal-page console warn/error capture was empty before the expected missing-asset 404.
+- Screenshots: `black-glass-home-360-20261015.jpg`, `black-glass-home-390-20261015.jpg`, `black-glass-home-1440-20261015.jpg`, `black-glass-service-390-20261015.jpg`, `black-glass-dashboard-390-20261015.jpg`, `black-glass-dashboard-1440-20261015.jpg` under docs/screenshots.
+- Updated current design/architecture, content/product scope, decisions, dashboard-integration, README and repository instructions. No contact details or capability claims added. No commit, push or public deployment.
+- Limits: no physical iPhone/Android, screen reader, 200% zoom or OS reduced-motion test; no hardware/NFC/live AI/API validation. Browser checks cover the local static introduction and sample dashboard.
+
+Files in this refinement: `src/styles/{tokens,globals,showroom,silver}.css`, `src/sections/{Hero/Hero,WorkplacePractice}.css`, `src/components/PageTabs/PageTabs.css`, seven HTML entries, the documents listed above and new screenshots. Separate dashboard source changes: `src/styles/silver-mobile.css`, `index.html`, README and QA record.
+
+Original dashboard validation: applied four reviewed files/two screenshots with pre-write hashes and backup `/private/tmp/mirrorting-black-dashboard-before-vyi8clt8`. Original lint/typecheck/19 tests/build/diff checks passed; source and bundle bytes match the reviewed stage. Kept the tested dashboard output under ignored `dist/dashboard/`. Original-source 5174 Home/Service and 4174 overview were inspected after applying: dark canvas, dark color-scheme and computed glass materials are active. No public hosting changed.
+
+## 2026-10-15 — Guided exhibition introduction and implementation evidence
+
+### Problem and scope
+
+Owner feedback: the simplified presentation is too sparse and unfriendly. Keep the compact digital business card, black-glass palette, no repeated image-origin captions and one Home primary arrow, while restoring purpose, first-visit guidance, meaningful process detail and verifiable sources. Existing src/docs/README/instructions were backed up at `/private/tmp/mirrorting-friendly-before-sxwhwsb0`; prior dirty work is preserved. No dashboard source or runtime dependency changed.
+
+### What changed
+
+- Home explains speaking at the mirror and reflecting through four perspectives. Each of its three destinations has a helper describing what the visitor can read.
+- Service defaults to `작품 이해`: purpose, a three-step visual practice loop, mirror rationale, a suggested reading path and two optional FAQs. The two-device topic shows device roles/images before detailed disclosures. Old fragments including #project/#practice/#kiosk/#mirror still open the owning topic.
+- Outer topic descriptions explain the selected subject and supply aria-describedby. Menus describe their destinations; one quiet onward-reading link connects the details. Existing tab focus/history/fragment code stays.
+- System combines the existing mirror illustration and four software stages in one bounded panel. Detailed input/processing/output stays accessible in a native disclosure. The visible source-versus-onsite scope is clear.
+- Evidence links directly to setupCatalog.js, interaction.py and report.py at the reviewed commit adb9355b0da4ef69a6485811ec82ee46cf133239. The three files were read through the GitHub connector on 2026-10-15; a services directory listing confirmed the exact report path. Source structure is distinct from hardware/accuracy validation. The general web opener was unavailable; no runtime/source claim relies on its failed fetch.
+- Authored answer explanations follow all four conversation choices. FourFit exposes existing retry guidance. Uses adds authored mode questions/practice goals. Team's three design criteria are visible by default with references. No invented people, contact, customer, outcome or award data.
+- Browser/OG titles and descriptions match the visible detail subjects; no-script copy covers all three source-confirmed software modes.
+
+### Checks actually run
+
+- `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3) and `git diff --check` passed. Final bundle: `main-XusuAFll.js` / `main-9_Eell8k.css`; 78 modules. No added package. Node's existing stripTypeScriptTypes experimental notices are separate from browser errors.
+- Final combined static preview under `/CarpeDM_EXPO_Microsite/`: 24 public states × 360/390/768/1024/1280/1440×900 = **144 combinations**. Seven default entries plus 17 selected/expanded/legacy targets. Actual viewport dimensions matched; each had one H1, no horizontal document overflow, duplicate IDs, visible broken images or missing/hidden URL targets. Shared/hardware origin captions remain absent; Home retains one arrow.
+- Read-only foreground/surface screening covered rendered HTML, including expanded sections; no low-contrast flag in that screen. Gradient blending is approximate, so this is not a complete WCAG audit. Existing dark/silver palette is retained.
+- 390×844 reading flow: Home primary link → Service's `작품 이해` → `질문 하나부터 읽어보기` opens/focuses #service-practice. All four native situation options change the question and matching three-part explanation, with no overflow. PageTabs End/Home selects/focuses the correct topic and exposes its description. Menu descriptions are present; links are at least 87 px high; Escape returns focus to the toggle.
+- System source link opens the evidence topic; three direct code URLs match the reviewed files/commit. Source inventory disclosure opens the capture. The four stage explanations each include 입력/처리/결과. FourFit End selects Posture and its concrete next-practice text. All three education contexts update the selected guide.
+- Final fresh production tab captured **zero console warnings/errors** across defaults, evidence, capture and the full 144-state matrix. Earlier development HMR briefly reported the not-yet-written DeviceOverview export during incremental editing; completed source, clean build and final production tab resolve it.
+- Home at 360×640: document height 640, one arrow; all three 67 px action targets are visible by y=505. The 390×844 card also stays within one screen. No copy clipping or fixed-height reading container added.
+- Isolated fallback build omitted the assembled mirror, kiosk and workplace capture. Home, Service overview/device topic, System overview and capture target show the intended silhouettes or accessible capture fallback, with no visible broken image, overflow or flagged text. Original media is intact; expected 404s are separate from normal console checks.
+- SHA comparison against the current-task backup confirms ProductFrame.tsx, media.ts and every file under HardwareAssembly are unchanged. Existing reduced-motion/static/failure paths and calibrated transforms stay; motion tests pass. New explanation panels are static. OS reduced-motion, real phone browsers, screen reader and 200% zoom were not exercised.
+- Existing dashboard build was restored under ignored `dist/dashboard/` after the main build. No new dashboard behavior or live integration check is claimed. No commit, push or public release.
+
+### Files in this refinement
+
+```text
+src/App.tsx
+src/components/Header/Header.tsx
+src/components/PageTabs/PageTabs.tsx
+src/components/PageTabs/PageTabs.css
+src/data/content.ts
+src/data/experience.ts
+src/data/paths.ts
+src/data/projectEvidence.ts
+src/data/useCases.ts
+src/sections/Evidence.tsx
+src/sections/ExperienceFlow/ExperienceFlow.tsx
+src/sections/FourFit.tsx
+src/sections/Hero/Hero.tsx
+src/sections/Hero/Hero.css
+src/sections/Introduction/Introduction.tsx
+src/sections/Introduction/Introduction.css
+src/sections/SystemArchitecture/SystemArchitecture.tsx
+src/sections/SystemArchitecture/SystemArchitecture.css
+src/sections/TeamStory.tsx
+src/sections/UseCases.tsx
+src/sections/WorkplacePractice.tsx
+src/styles/silver.css
+```
+
+Seven HTML entries receive aligned metadata/no-script text. Updated AGENTS, README and product/design/content/architecture/decisions/QA records. Screenshots: `project-guide-{home,service,system,evidence,team,uses}-390-20261015.jpg` and `project-guide-{home,system}-1440-20261015.jpg`.
+
+Limits for competition submission: real assembled-device photos, actual analysis/result evidence and a cleared experience video remain unsupplied. This local UI revision does not establish hardware/AI acceptance, validated educational effects or an award.
+
+Final verification note: after the last no-script/metadata alignment and 16 px experience-step body correction, all six experience-flow widths were rechecked and replaced in the 144-state matrix (no overflow/contrast flags). Actual original-source 5174 /system/ was reloaded: correct title/H1 and all four map stages are present. Home's original-source tab also reloads successfully. Existing live previews remain available; temporary QA surfaces are separate.
+
+
+## 2026-10-15 — Verified public redeployment
+
+Owner explicitly requested redeployment of the current microsite. Published the complete current introduction and paired sample dashboard to the existing GitHub Pages host, preserving source changes and branch history.
+
+### Publication evidence
+
+- Public site: https://sdg331.github.io/CarpeDM_EXPO_Microsite/
+- Public sample dashboard: https://sdg331.github.io/CarpeDM_EXPO_Microsite/dashboard/#/overview
+- Feature source main: `3df8ed41615708427df9532861583063f895d02e`; prior local source `984fa08` is included. Publication used a temporary clone; the original checkout/working changes were preserved.
+- Static gh-pages: `1c7568d4b0ed2a2e5514883ca4fac97cc6f65633`. Normal push from `7df10c5`; latest Pages build reported this exact commit, status built and null error. Actual remote refs were verified.
+- Dashboard base `3c39618acf0b4241021357864ce77d0c5f0381ad` plus the current local source snapshot (91 files), manifest SHA-256 `eeb7ea3af9d175f0a6145f60f710584c1c1c42332f7de63c4360373c10fa19e8`. Its separate repository remains uncommitted/unpushed by this deployment. No environment file, dependency directory or cache was copied into the publishable source.
+- Fresh combined build: 64 files including .nojekyll; sorted build-manifest SHA-256 `46ffc4127a75d85649d5e06ed31b6c4bc6681788f7f157917dc2450d6b722191`. All 64 were HTTP 200 and byte-identical to the public files. Four prior hashed CSS/JS files remain for cached HTML, yielding 68 published files. Generated dist, dependencies and environment files were not committed to main.
+- Main bundles `main-XusuAFll.js` / `main-9_Eell8k.css`; dashboard `index-UT_Oq9ag.js` / `index-CbURgAbx.css`. Public DOM references exactly these files, and the home card computes backdrop-filter blur(24px) on #06080c.
+
+### Commands and browser checks actually run
+
+- Isolated microsite: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3), `git diff --check` passed. Existing Node stripTypeScriptTypes experimental notices remain; no browser error follows from them.
+- Isolated dashboard: `npm run lint`, `npm run typecheck`, `npm test` (19/19), `npm run build -- --configLoader runner` passed. The focused checked-JavaScript typecheck retains its existing scope.
+- Public browser: seven introduction entries (Home, EXPO, Service, FourFit, System, Uses, Team) and seven dashboard routes (overview, teams, sessions, reports, devices, incidents, settings), each at 360/390/768/1024/1280/1440 px: **84 combinations**. Height 844 at 390 px, 900 at other widths. Actual dimensions matched; one visible H1 each, no horizontal document overflow, visible broken image, duplicate ID or link to localhost/127.0.0.1. Console warning/error logs across the matrix and actual home/return tabs were empty.
+- Public Home 390x844 fits within one viewport. Primary action opens Service's 작품 이해. Its question reading link opens/focuses #service-practice; End selects/focuses 두 장치; menu Escape restores the toggle with aria-expanded=false.
+- Dashboard mobile menu exposes 프로젝트 명함; activating it opens the correct public card in a new tab, as authored. A first lookup while its mobile menu was closed did not match; opening the menu resolved the test without an application change.
+- Public screenshots: `docs/screenshots/redeploy-black-glass-public-390-20261015.jpg` and `docs/screenshots/redeploy-black-glass-dashboard-public-390-20261015.jpg`.
+- Before documentation updates, SHA-256 checks confirmed all 276 original microsite and 91 original dashboard snapshot files unchanged by staging, building and publication. Original branches/dirty changes were not reset or rewritten.
+
+Limits: browser viewport emulation is not physical iPhone/Android testing. No screen reader, 200% zoom, OS reduced-motion, physical NFC, camera/microphone/printer, actual model quality or live operational API acceptance was performed in this deployment. Existing image fallback and reduced-motion behavior are unchanged from the already verified local revision. The static exhibition introduction and sample browser-local dashboard remain distinct from real device integration.
+
+
+## 2026-10-16 — Combined-build tooling and source preservation
+
+Owner requests the highest-priority reliability improvements while preserving existing changes. Scope: package commands, Node build/verification scripts, tooling regression tests and operational documentation. This tooling task does not edit runtime UI, public wording, assets or the separate dashboard source. Concurrent language work is recorded separately below.
+
+### Reusable local gates
+
+- `npm run check`: microsite lint, strict typecheck/build and all Node tests; generates microsite-only dist.
+- `npm run build:release -- --dashboard /path/to/dashboard-app`: current-source snapshots, both apps' checks, combined artifact validation and guarded output/report replacement.
+- `npm run verify:release`: eight HTML entries, referenced HTML/CSS assets, no development URL or forbidden filename/symlink, then file-set/SHA-256 comparison with the local report.
+- Keep the responsive/keyboard/media/reduced-motion and public-HTTPS checks separate from static artifact verification. Actual results for this change are recorded below.
+
+### Checks actually run
+
+- `npm run lint` and the 13 new tooling tests passed before the first real integrated build. Missing `--dashboard` exits with an actionable usage message before changing output.
+- `npm run build:release -- --dashboard ../EXPO_분석/dashboard-app` passed: microsite lint + strict typecheck/build + **16 Node tests**; dashboard lint + its existing scoped JS typecheck + **19 tests** + runner-loader build. No dependency installation was needed. Existing Node stripTypeScriptTypes experimental notices are tooling notices.
+- Combined artifact: **64 files**, including all seven microsite entries, dashboard/index.html and .nojekyll. `npm run verify:release` passed with the local file-set/SHA-256 report. Main bundle remains main-XusuAFll.js / main-9_Eell8k.css. Integrated dashboard is index-Z5IDUt49.js / index-CbURgAbx.css; its return link is compiled as ../.
+- Initial route checks at the domain root loaded all seven introduction entries and seven dashboard routes. Actual Home → sample dashboard and Dashboard → project card clicks opened new tabs at the same local origin; both destination H1s were read from the new tabs.
+- Repository-subpath preview: `npm run preview -- --host 127.0.0.1 --base /CarpeDM_EXPO_Microsite/`. **112 route/viewport combinations** (14 routes × 8 measured CSS widths) passed: **360, 389, 767, 769, 1024, 1279, 1280, 1440 px**. Each checked document had one H1, no horizontal document overflow, duplicate ID or broken visible loaded image. Captured browser warning/error logs were empty.
+- The in-app browser retains 67% page zoom. Initial nominal viewport requests did not equal the actual CSS widths and are not counted as exact requested-width QA. A first mobile-menu lookup at an unexpectedly wide viewport had no match; reading innerWidth exposed the mismatch. Corrected physical viewport inputs were measured again, including both sides of the 768px layout boundary. Exact 390px/768px CSS checks are not claimed for this run.
+- At measured 389×843, both introduction/dashboard mobile menus closed on Escape and returned focus to the menu toggle. Service End selected/focused the device topic. The evidence-capture fragment opened its owning topic/disclosure and focused the visible capture. Subpath Home links to /CarpeDM_EXPO_Microsite/dashboard/#/overview; the dashboard return resolves to /CarpeDM_EXPO_Microsite/.
+
+### Preservation and limits
+
+- Before edits, backed up and hashed 277 existing microsite files and 90 dashboard files, excluding environment files. The backup is ignored under `_workspace/before-release-tooling-20261016/`, including its manifest.json. The initial preservation check showed changes only in the seven planned tooling/documentation files: package.json, eslint.config.js, README.md, docs/architecture.md, docs/dashboard-integration.md, docs/decisions.md and docs/qa.md. At that point all other 270 original microsite files and all 90 dashboard files retained their initial hashes. Existing untracked UI source was included in the successful snapshot.
+- Added only scripts/build-release.mjs, scripts/verify-release.mjs and tests/release-tooling.mjs. Existing _workspace/dist ignore rules already cover generated artifacts; no ignore, dependency, lockfile or runtime component change was needed. Git index, branches and remotes were not changed.
+- Public GitHub Pages was not redeployed. No physical phone, screen reader, 200% text zoom, OS reduced-motion switch, new missing-media fault injection, live AI/API or hardware/NFC/printer acceptance was performed. Existing media-fallback/reduced-motion code is unchanged; the pure motion readiness/failure tests pass. Static filename checks do not constitute a complete secret-content audit.
+
+## 2026-10-16 — 라이트 글래스 디자인 MD와 조사
+
+### 작업 범위
+
+- 사용자가 선택한 밝은 회백색·프로스트 글래스 방향을 `docs/light-glass-design-system.md`에 상세 명세로 작성했다. 현재 블랙 글래스 구현과 차기 설계 상태를 분리했다.
+- 제공된 Apple 참고 MD의 형식을 참고하고, NN/g·Apple 공식 가이드와 WWDC·MDN·W3C·web.dev에서 원칙을 조사했다. Apple HIG 일부 HTML은 JavaScript 안내만 보여 공개 Markdown 표현을 읽었다. Apple 웹 컴포넌트의 실시간 CSS 실측은 하지 않았다.
+- 명세에는 프로젝트 제안 토큰, 재질의 역할, 전체 페이지 브리프, 모바일·컨트롤 상태·텍스트·이미지·접근성·성능·파일별 책임·구현 후 검증 기준을 포함했다. Apple의 네이티브 규격·CSS px·프로젝트 제안값을 구분했다.
+- 기존 AGENTS.md와 디자인·결정·QA 문서는 작업 전 원문과 SHA-256을 무시되는 `_workspace/before-light-glass-design-20261016/`에 보관했다. 기존 사용자 작업·애플리케이션 소스·자산·배포 산출물은 변경하지 않았다.
+
+### 실제 확인
+
+- Ruby `YAML.safe_load`: 20개 최상위 필드와 색·재질·타입·레이아웃 등의 구조, `design specification; not implemented` 상태를 확인했다.
+- Node assert 문서 검사: 최초 명세 799줄, 번호가 있는 24개 섹션, 문서 간 로컬 링크 6개, 중복 제외 외부 출처 URL 18개, 닫힌 코드 블록과 문서 공백을 확인했다.
+- 설치된 PostCSS로 CSS 참고 블록 1개의 구문을 파싱했다. 기존 파일·컴포넌트·제품 자산 경로가 존재함을 확인했다. 이 검사는 CSS를 사이트에 적용하거나 실제 효과를 렌더링한 검사가 아니다.
+- sRGB 대비 계산은 흰색/검정 21:1, 동일 색 1:1 자체 확인 후 수행했다. 주요 조합: 본문/캔버스 15.457:1, 보조 글자/캔버스 7.265:1, 부가 글자/캔버스 5.080:1, 링크/캔버스 5.112:1, 흰 글자/기본 파란 버튼 4.697:1. 불투명 조합 계산이며 실제 반투명 면의 모든 배경 통과를 주장하지 않는다.
+- 기존 결정 기록이 작업 전 내용으로 시작함을 확인해 이전 기록이 보존됐는지 검사했다.
+- `git diff --check -- AGENTS.md docs/design.md docs/decisions.md docs/qa.md` 통과. 새 MD의 줄 끝 공백·코드 블록은 별도 Node 검사로 확인했다. 로컬 보존 폴더가 Git ignore에 포함됨을 확인했다.
+- 전체 원문의 접두 동일성을 확인하는 보존 검사 첫 실행은 QA 문서에서 실패했다. 원문과 비교해 동시 진행된 릴리스 작업의 기존 설명 두 곳 수정과 언어·빌드 후속 기록 추가를 확인했다. 그 내용을 보존하고 이번 디자인 QA와 후속 빌드 기록의 제목 경계를 분리했다. QA 전체가 작업 전과 동일하다고 주장하지 않는다.
+
+### 수행하지 않은 검증
+
+이번 변경은 문서와 문서 참조뿐이다. lint·typecheck·build·앱 테스트·반응형 브라우저·실제 모바일·스크린리더·유리 성능·하드웨어·AI 연동을 새로 실행하지 않았다. 제안 수치와 QA 매트릭스는 구현 시 확인할 기준이며 완료된 검증 결과가 아니다. commit·push·공개 배포를 수행하지 않았다.
+
+## 2026-10-16 — Combined-build follow-up with concurrent language changes
+
+### Concurrent-source guard exercised
+
+A later final-build attempt passed the two apps' checks but detected new LanguageSwitch, en.json and i18n source files arriving while it was running. The guard rejected publication to dist and released its lock; verify:release confirmed that the prior 64-file output/report remained byte-identical. Subsequent runtime edits from that separate language task are preserved and are not attributed to this tooling change. Regression coverage also verifies a new file and a content edit that leaves the Git status text unchanged. A subsequent stable current-source build is recorded below.
+
+The concurrent language task corrected its literal-type and data-module URL issues. Current-source tests then exposed Node ERR_IMPORT_ATTRIBUTE_MISSING for en.json. This tooling task added only the standard `with { type: 'json' }` import attribute in src/i18n.ts, preserving the dictionary and language behavior. The earlier module-resolution and parse failures are recorded as transient integration failures, not passed checks. Compatibility baselines are kept under ignored `_workspace/before-language-build-compatibility/`.
+
+### Final stable current-source result
+
+- After the concurrent language changes and the JSON import-attribute compatibility fix, `npm run build:release -- --dashboard ../EXPO_분석/dashboard-app` **passed again**, including microsite lint/typecheck/build/16 tests, dashboard lint/typecheck/19 tests/build and the original-source stability guard. Final snapshots contain 285 microsite files and 90 dashboard files. The pipeline included the new language files without resetting or staging them.
+- Final output is 64 files. `npm run verify:release` independently passed the file set and SHA-256 comparison. Current bundles: main-DRIttnJB.js / main-DIvEej43.css; dashboard index-Z5IDUt49.js / index-CbURgAbx.css. All 90 dashboard baseline file hashes still match. Final job/previous output: `_workspace/release-KSYdsE/`; current provenance report: `_workspace/release-report.json`.
+- Repeated the entire 112-combination repository-subpath matrix against the **final** bundle, in Korean, at measured CSS widths 360/389/767/769/1024/1279/1280/1440. One H1 per checked document; no horizontal document overflow, duplicate ID, broken visible loaded image or captured console warning/error. The new language source was preserved; translation completeness is outside this tooling task's acceptance.
+- Runtime contribution by this tooling task is limited to the en.json import attribute. The concurrent language task's type correction, data-module test URL updates and UI changes remain intact and are not counted as this task's implementation.
+
+After that successful build, the separate language/design work continued changing runtime/test/documentation files. Those changes are left intact; the 64-file dist and its report certify the recorded stable snapshot, not arbitrary later working-tree edits. Run build:release again after the desired source changes settle and before publication. No additional public deployment was performed.
+
+### Last combined-output refresh
+
+A separate microsite-only build subsequently removed .nojekyll from the working dist; verify:release correctly rejected it. Reran build:release after the concurrent language tests settled: **17 microsite tests and 19 dashboard tests**, both lint/typecheck/build gates and source-stability checks passed. The new report covers 286 microsite source files and the same 90 dashboard files. Current 64-file output is main-DMBrmRPX.js / main-DIvEej43.css plus dashboard index-Z5IDUt49.js / index-CbURgAbx.css, with .nojekyll restored. The job is `_workspace/release-9FFMBY/`; the intervening single-app dist is preserved as its previous-dist. The 112 browser checks above apply to the preceding main-DRIttnJB.js snapshot; the last refresh was statically verified and includes the concurrent language test. No additional full browser matrix is claimed for this last refresh.
+
+## 2026-10-16 — Korean / English choice from the project card
+
+### Scope and implementation
+
+- Owner request: let international visitors choose Korean or English on the initial business card. Added native `한국어 / English` links on the card and inside the detail menu. The selected language applies throughout the six introduction page types and the legacy EXPO entry.
+- New files: `src/i18n.ts`, `src/data/en.json` (724 entries, including metadata), `src/components/LanguageSwitch/LanguageSwitch.tsx` and its CSS, and `tests/language.mjs`.
+- Existing changes: Home credit/control layout; translated copy calls in active App/section/data/media components; language-aware `sitePage()` links and legacy redirects; client document language/metadata; English 4-Fit labels without repeated Korean labels. The two existing data-URL tests resolve the new i18n import. Product/design/content/architecture/decision documents describe the behavior and limits.
+- No new dependency, backend, translation service, routing library or exhibit-language claim. The separate dashboard and original screenshot remain Korean, explicitly indicated in English copy. Original Korean copy and product facts remain. No commit, push or public deployment from this language task.
+- Initial current-source backup: `/var/folders/ht/32qqwlgx4jdgmmtckbml3s240000gn/T/mirrorting-language-before-fJADzL`. Unrelated dirty source and concurrent tooling/design work are preserved. Hash comparisons confirm the existing assembly motion/calibration/CSS, scene data and unused sections remain unchanged by this task.
+
+### Commands and regression checks
+
+- `npm run lint`, `npm run typecheck`, `npm run build`, `npm test` (17 passing tests), and `git diff --check` passed. Runtime bundles checked in the browser: `main-DMBrmRPX.js` / `main-DIvEej43.css`.
+- The language regression test exercises explicit-query priority, saved preference/default, replacement of a saved preference, blocked storage reads/writes, selected-language translation/fallback, subpath links with existing queries/fragments and English coverage for source calls and all HTML metadata. Existing dashboard URL, portable-build and assembly tests also pass.
+- Literal-type substitution, data-URL import resolution and the JSON import attribute were corrected before final passing checks; intermediate HMR/parse failures are not counted as passed validation. The separate build-tooling task supplied the standard JSON import attribute, as recorded above.
+
+### Browser results
+
+- Fresh production preview at `http://127.0.0.1:5180/CarpeDM_EXPO_Microsite/`. **192 combinations**: seven default entries in both languages, plus 18 English detailed/fragment states, at six representative viewport sizes. Measured CSS widths were **361, 391, 769, 1025, 1280 and 1440**, height 900. The in-app browser's inherited 67% zoom offsets some requested widths; exact 360/390/768/1024 checks are not claimed.
+- Every combination had one H1, no horizontal document overflow, duplicate IDs, visible broken loaded images, hidden/missing fragment targets or lost cross-page language parameters. English content, including mounted hidden panels, had no untranslated Korean after excluding the intentionally bilingual language control. The only clipping flags were the existing intentionally clipped `.sr-only` assembly paragraphs; direct follow-up confirmed no clipped visible text on mirror/camera/audio screens.
+- Actual keyboard activation changed Home to Korean; clicking English changed the card body and metadata. The primary link and a reload retained English. Entering Service without a query restored the saved English preference. Language links retained `#service-devices`; waiting for the restored panel after reload confirmed its selected state. The menu closes on Escape and returns focus to its toggle.
+- Language links measured approximately 56/64 × 44 CSS px. The four conversation choices all updated their English content. All three education choices updated the English guide; all six disclosures were opened for each without document overflow or untranslated copy. Switching language retained `context=team#uses-education`. Four-Fit End selected/focused Posture. The legacy Home `?lang=en#practice` redirect retained English and opened Service's example topic.
+- An isolated copy omitted mirror/kiosk/camera/audio media and the UI capture. Six English fallback states (Home, Service devices, mirror, camera, audio and capture) displayed the intended labelled fallback, without visible broken images or document overflow. Expected missing-media 404s belong to that separate tab; the normal production tab captured **zero console warnings/errors**.
+- Screen records: `docs/screenshots/language-home-ko-391-20261016.jpg` and `docs/screenshots/language-home-en-391-20261016.jpg`. Their names refer to the measured CSS viewport; the in-app capture includes its scaled frame.
+
+### Limits
+
+Actual phones, screen readers, 200% zoom and OS reduced-motion switching were not exercised. The browser currently reported reduced motion off; the language control introduces no animation, and existing motion/static-fallback code and tests are preserved. Original Korean UI pixels, external documents and the separate dashboard are outside the English translation. Static HTML/social crawler metadata remains Korean until client code runs. Changing language reloads the page: URL topic/context survives, while transient selections/disclosures reset. Public HTTPS deployment, NFC tags, devices and live AI integration were not tested by this language change.
+
+## 2026-10-16 — Public redeployment including Korean / English
+
+Owner explicitly requests redeploying the microsite with language selection. Published the tested current-source introduction and integrated sample dashboard to the existing legacy Pages branch. Source checkouts, their indexes and source branches were preserved; no source-main or dashboard-repository push was made. The documented future light-glass specification is not a new runtime theme in this release.
+
+### Build and publication
+
+- `npm run build:release -- --dashboard ../EXPO_분석/dashboard-app` passed from fresh isolated snapshots: 288 microsite source files and 90 dashboard source files. Microsite lint, strict typecheck/build and **17 tests** passed; dashboard lint, scoped typecheck, **19 tests** and runner-loader build passed. No dependency installation or runtime edit was needed.
+- `npm run verify:release` passed the 64-file fresh artifact and SHA-256 manifest. The final candidate retained seven already-published hashed assets for cached older HTML, giving **71 public files**; that complete candidate also passed `verifyRelease()`. Both source snapshots were checked unchanged before committing the isolated Pages checkout.
+- Fast-forward Pages commit: [`54a3cf7c7ef172014bd0cb9ef5dc29917a1ac87a`](https://github.com/sdg331/CarpeDM_EXPO_Microsite/commit/54a3cf7c7ef172014bd0cb9ef5dc29917a1ac87a), `feat: deploy bilingual microsite and dashboard`. Previous Pages commit: `1c7568d4b0ed2a2e5514883ca4fac97cc6f65633`. No history rewrite.
+- The Pages API returned **built** for that exact new commit, with no build error. Remote source `main` remained `bcd42d034b8609252e97481167c5b7cfd960f6df`. Original local microsite HEAD remained `984fa08a87376f137cfe0b6b7f274a103311ffc5`; dashboard HEAD remained `3c39618acf0b4241021357864ce77d0c5f0381ad`. Current uncommitted work was included in build snapshots without staging it in either original checkout.
+- Fresh runtime assets: `main-DMBrmRPX.js` / `main-DIvEej43.css`; dashboard `index-Z5IDUt49.js` / `index-CbURgAbx.css`. Public URLs: [project card](https://sdg331.github.io/CarpeDM_EXPO_Microsite/), [English card](https://sdg331.github.io/CarpeDM_EXPO_Microsite/?lang=en), [sample dashboard](https://sdg331.github.io/CarpeDM_EXPO_Microsite/dashboard/#/overview).
+
+### Public HTTPS and browser verification
+
+- All **71 public files**, including the 64 fresh files and seven retained cache assets, matched the publication candidate byte-for-byte over HTTPS by SHA-256. All eight ordinary HTML URLs also matched without a cache-busting query. GitHub's Pages status, published branch SHA and asset contents were independently checked.
+- **126 public route/viewport combinations** passed: seven introduction entries in both languages plus seven dashboard routes, at exact measured CSS widths **360, 390, 768, 1024, 1280 and 1440**, height 900. Each had one H1, no horizontal document overflow, duplicate IDs, visible broken loaded images, development links, clipped visible introduction text or lost cross-page language query. English introduction content had no untranslated Korean except the intentional native-language selector. Public origin zoom was 100%, so these are exact CSS-width checks, distinct from the earlier local 67% run.
+- On the public card, keyboard activation of English updated the body, accessible descriptions and document metadata. The primary link reached English Service; a reload retained English. The mobile Service menu closed on Escape and returned focus to its toggle.
+- Native public link flow: English Home → `Sample dashboard (Korean)` opened the real dashboard; its mobile menu exposed `프로젝트 명함`; that link opened the bare public Home URL and restored the saved English preference. The dashboard menu also returned focus on Escape. Korean selection on the returned Home restored Korean content.
+- Captured warning/error logs were empty for the 126-state tab, the separately opened dashboard and the returned Home. The dashboard remains a Korean, browser-local sample; no live employee/device/AI claim is added.
+- Public screen records: `docs/screenshots/bilingual-public-en-20261016.jpg` and `docs/screenshots/bilingual-public-ko-20261016.jpg`. They capture the native return tab frame; the responsive dimensions above were measured on the controlled QA tab.
+
+### Evidence and limits
+
+Local evidence: `_workspace/deploy-bilingual-20261016-7271cxpt/` contains source/artifact reports, publication manifest, HTTPS comparison and browser records. Build snapshot/previous output: `_workspace/release-1naNpz/`. Original source files are unchanged apart from this QA addition and the two new public screenshots; original indexes/HEADs are preserved.
+
+This release verifies static delivery and browser behavior. Physical phones, screen readers, OS reduced-motion switching, NFC tag writes, printers, sensors and live AI/API integration were not newly tested. Static/social metadata is still Korean before client code runs. Source-main publication and the separate dashboard's English translation remain outside this deployment.
+
+## 2026-10-16 — 라이트 글래스 전체 구현과 로컬 검증
+
+### 범위와 보존
+
+- 사용자 요청: 디자인 MD를 기준으로 실제 웹 전체에 라이트 글래스를 적용하고, 기존 콘텐츠·기능을 유지한 채 모바일·데스크톱을 검증해 보여주기. 기존 명함을 유지하는 프로스트 구성을 적용했다. 이전 블랙 글래스와 명세-only 상태를 현재 로컬 구현으로 대체한다. 공개 배포는 이번 요청 범위에 포함하지 않았다.
+- 수정 전 290개 microsite 파일과 90개 dashboard 파일을 SHA-256과 함께 `_workspace/before-light-glass-ui-20261016-vPfEeh/`에 보관했다. dashboard 원본은 그 안의 `dashboard-app/`에 있다. 환경/비밀 파일은 복사하지 않았다. 기존 dirty/untracked 사용자 작업과 Git index·HEAD·브랜치를 유지했다.
+- 런타임 변경: microsite CSS 9개(`tokens`, `globals`, `showroom`, `silver`, Hero, Header, LanguageSwitch, PageTabs, ProductFrame), HTML 진입점 7개의 theme-color; dashboard는 `src/styles/silver-mobile.css`와 `index.html` theme-color. 기존 TS/TSX·JS/JSX·한영 콘텐츠/데이터·미디어·기능/저장/라우팅 로직·의존성은 변경하지 않았다.
+- 디자인: 회백색 캔버스·흰 읽기 면·짙은 글자·파란 대표 행동, Home 프로스트와 제한된 탐색 블러. 불투명 메뉴·콘텐츠·팝업과 명시적인 선택/초점 표시. 영어 4-Fit의 모바일 빈 이름 문제를 CSS 두 열 배치로 해결했다. 검수 중 발견한 조립 장면 0px 높이는 기존 flex 부모 안에서 `flex: none`으로 해결했다. 하드웨어 설명은 16px, 보조 표시는 13px부터 읽도록 조정했다.
+- 현재 방향과 적용 상태를 AGENTS, product/design/content/architecture/decisions, 상세 디자인 MD에 동기화했다. dashboard README와 QA도 현재 라이트 방향으로 갱신한다. 공개 문구와 제품 사실은 바꾸지 않았다.
+
+### 실제 실행한 검사
+
+- `npm run lint`, `npm run typecheck`, `npm run build`, `npm test` 통과. 최종 `npm run build:release -- --dashboard ../EXPO_분석/dashboard-app`에서도 microsite lint·엄격한 typecheck/build·**17개 테스트**, dashboard lint·기존 범위 typecheck·**19개 테스트**·runner-loader build가 모두 통과했다. 새 의존성 설치는 필요하지 않았다. Node stripTypeScriptTypes 실험 안내는 기존 도구 알림이다.
+- 최종 통합 산출물: **64개 파일**, 일곱 소개 HTML·dashboard/index.html·.nojekyll 포함. `npm run verify:release`로 파일 세트·참조 자산·SHA-256 검증 통과. 최종 snapshot/이전 산출물은 `_workspace/release-Z8ZOX9/`, 보고서는 `_workspace/release-report.json`이다. 두 저장소 `git diff --check` 통과.
+- 최종 소개 번들: `main-CQMevn51.js` / `main-6IB8mH2k.css`; dashboard: `index-B9iMXcUc.js` / `index-B2XHhCBg.css`. JS 번들 이름은 CSS 연결에 따라 바뀌며 소스 JS/TS를 수정했다는 뜻이 아니다.
+- 초기 검수 도중 한 통합 빌드를 중단하면서 남은 빈 자체 lock 때문에 다음 실행이 차단됐다. 동작 중인 빌드가 없음을 확인하고 해당 lock만 제거한 뒤 정상 완료했다. 중단/차단된 실행은 성공 검사에 포함하지 않는다. 최종 빌드는 위의 완료본이다.
+
+### 최종 빌드 브라우저 검사
+
+- 실제 통합 production preview: `http://localhost:4175/CarpeDM_EXPO_Microsite/`. 최초 개발 서버는 보존하고 통합 미리보기를 별도로 실행했다. `localhost`의 실제 CSS 너비를 읽어 **360, 390, 768, 1024, 1280, 1440px**, 높이 900px를 확인했다. 67% 확대가 남아 있던 다른 host의 요청 크기를 검사값으로 사용하지 않았다.
+- **126개 경로/너비 조합**: 소개 7개 진입점 × 한영 2종과 dashboard 7개 경로를 여섯 너비에서 순회했다. 모두 H1 1개, 가로 document overflow 없음, 중복 ID 없음, 보이는 로드 실패 이미지 없음, 빈 탭 이름 없음, 누락된 같은 페이지 fragment 없음, 밝은 theme-color 유지. dashboard의 `#/...`는 문서 fragment가 아닌 기존 라우트로 검사했다.
+- 최종 빌드에서 **72개 상세 탭 상태**를 실제 클릭했다. Service 4종, System 4종과 내부 장치 3종, Uses 3종, Four-Fit 4종을 한영/390·1440px에서 확인했다. 선택 상태와 표시, 넘침·ID·미디어·fragment 검사 통과. 준비 완료된 장치 장면은 기존 `data-render=ready`도 기다려 확인했다.
+- 장치 세 종류를 여섯 너비에서 별도로 확인한 **18개 상태**에서 높이가 200px 이상이고 준비 완료/가로 넘침 없음. 수정 후 명시 높이는 화면에 따라 280–420px다. 390px의 네이티브 PageDown과 맨 위로 링크에서 조립 진행도가 약 .437 → 1.000 → .437로 변하고 제자리 스크롤로 돌아옴을 확인했다. 조립 수식/이미지를 바꾸지 않았다.
+- 추가 **320×568px 5개 상태**: 한영 Home, 영문 Service/Four-Fit, dashboard 개요에 가로 넘침·빈 탭·깨진 이미지 없음. 짧은 화면은 자연스러운 세로 스크롤을 사용한다.
+- 영문 교육 활용의 세 선택을 변경하고 각 7개 설명을 Enter로 펼쳐 보았다. 총 21개 펼침과 문구/레이아웃이 유지됐고 가로 넘침이 없다. 공개 예시/제안/검증 범위 문구도 유지했다.
+- 실제 키보드: 메뉴 Enter 열기, Escape 닫기/토글 초점 복귀와 outline 표시; PageTabs Home/End/ArrowRight; 언어 전환의 hash/선택 주제 보존; 네이티브 뒤로/앞으로의 주제 복구. Home의 샘플 링크가 새 dashboard 탭을 열고 그곳의 프로젝트 명함 링크가 같은 origin의 Home으로 돌아옴을 실제 클릭해 확인했다.
+- dashboard의 검색 결과 없음/검색 해제, 명부 다음·이전 페이지, 사원 등록 창 표시와 Escape 닫기/버튼 초점 복귀를 확인했다. 등록 제출·삭제·초기화·출력 조치 등 데이터 변경 동작은 수행하지 않았다.
+- 정상 production QA 탭, 실제 새 dashboard 탭, 복귀 Home 탭의 warning/error 로그가 비어 있었다. targeted 색 조합은 sRGB 상대 휘도로 계산했고 본문/보조/링크/대표 행동/선택 글자의 검사 조합은 모두 4.5:1 이상이다. 임의 이미지 배경의 모든 조합이나 전체 WCAG 적합성 감사로 주장하지 않는다.
+
+### 이미지·설정 대체 검사
+
+- production 출력의 별도 복사본을 `_workspace/light-glass-fixtures-20261016/`에 만들었다. 원본 `dist/`와 소스는 실패 주입에 사용하지 않았다.
+- broken 복사본에서 미러 완성 이미지·키오스크·카메라 atlas를 제외했다. Home/두 장치는 기존 CSS 실루엣을 보이고, 미러/카메라 조립은 `data-render=fallback`, `data-motion=static`, `aria-busy=false`와 의미 있는 대체 형태/이름을 보였다. 보이는 깨진 이미지·가로 넘침 없음.
+- reduced 복사본은 기존 CSS reduced-motion/reduced-transparency/increased-contrast 조건과 JS matchMedia의 모션 감소 분기를 강제 실행했다. Home은 흰 배경·blur none·transition 0s, 장치는 progress 1.000·정적 완성 장면·레이어 none, 소개/dashboard 탐색은 blur none을 확인했다. 실제 OS 설정을 바꾼 테스트가 아니다.
+- no-blur 복사본은 backdrop enhancement 조건을 비활성화했다. Home의 흰 불투명 배경과 blur none을 확인했다. 실제 구형 브라우저의 엔진 호환성을 검증한 것으로 기록하지 않는다. forced-colors의 시스템 색/테두리는 소스에 제공하지만 실제 OS 전환은 미검증이다.
+
+### 화면과 남은 범위
+
+- 실제 production 화면 10개: `docs/screenshots/light-glass-{home,service,dashboard}-{390,1440}-20261016.jpg`, `light-glass-four-fit-en-390-20261016.jpg`, `light-glass-team-390-20261016.jpg`, `light-glass-camera-{390,1440}-20261016.jpg`. 주요 원본 viewport는 390×844, 1440×1000이다. 최종 캡처는 network-idle 후 화면 안 이미지가 complete/naturalWidth > 0인 것을 확인해 저장했다. 도구가 캡처한 프레임 해상도와 CSS viewport 측정은 구분한다.
+- 상세 브라우저 기록: `_workspace/light-glass-browser-qa-20261016.json`. 실행 중 얻은 검사 기록이며 사용자 데이터나 서비스 분석 결과가 아니다.
+- 실제 iPhone/Android·Safari, 스크린리더, 200% 브라우저/텍스트 확대, 실제 OS 모션/투명도/강제 색상 변경, 저속 장치 GPU와 배터리는 미검증이다. 정적 페이지 검사로 AI·API·하드웨어·NFC·프린터·실제 운영 데이터 통합을 입증하지 않는다. 공개 배포·commit·push는 수행하지 않았다.
+
+## 2026-10-16 — 폭·글래스 재질 보정과 공개 재배포
+
+### 확인한 문제와 수정
+
+- 사용자는 라이트 글래스 버전을 운영 샘플과 함께 다시 배포하고 공개 모바일·데스크톱·한영 전환 검증을 요청했다. 동시에 전체 폭과 비율의 어색함을 지적했다. 실제 열린 CSS viewport는 644×855px였고 Home은 420px로 제한된 반면 상세는 604px를 사용했다. Home 제품 열도 88px에 불과했다. 가로 overflow 없음만으로 시각적 비율이 올바르다고 판단하지 않았다.
+- `tokens.css`의 공통 최대 폭을 65rem(기본 1040px), 여백을 `clamp(20px, 2.5vw, 40px)`로 통일했다. 전화기 20px·320px 16px 여백을 유지하고 767/768px 경계의 여백 점프를 없앴다. Hero는 같은 공통 폭을 사용하며 420px 고정 제한을 제거했다. 제품 열도 가용 폭에 따라 늘린다. 644px Home과 상세는 모두 폭 604px·좌우 20px로 맞는다.
+- 영문 학교명은 언어 컨트롤 옆에서 줄바꿈한다. 낮은 높이의 넓은 화면에는 제품/제목/여백을 조정해 카드 비율을 유지한다. 청회색·진주색 배경, 흰색 88%→60% 그라데이션과 얇은 안쪽 하이라이트, 낮은 그림자로 유리 층을 드러낸다. 탐색 재질은 흰색 82%로 조정하고 긴 본문/운영 표는 불투명하게 유지했다. 폰트·이미지·공개 문구·기능 코드는 그대로다.
+- 이번 런타임 변경은 microsite CSS 4개(`tokens`, Hero, PageTabs, `silver`)와 dashboard `silver-mobile.css`뿐이다. 현재 디자인 MD/디자인·아키텍처·제품 상태·결정 기록과 QA를 동기화했다. 수정 전 전체 소스와 Git 상태는 `_workspace/before-glass-width-release-20261016-726jwR/`에 보존했다(microsite 300개, dashboard 92개 파일). 원본 index·HEAD·작업 브랜치는 유지했다.
+
+### 빌드와 배포
+
+- `npm run build:release -- --dashboard ../EXPO_분석/dashboard-app` 통과. microsite lint·엄격한 typecheck/build·**17개 테스트**, dashboard lint·기존 범위 typecheck·**19개 테스트**·runner-loader build가 통과했다. 의존성/도구/런타임 JS 변경은 없다. Node 실험 알림은 기존 도구 안내다.
+- `npm run verify:release`로 새 통합 출력 **64개 파일**과 SHA-256 manifest를 검증했다. 검수한 snapshot은 `_workspace/release-DrsDWD/`이며 두 소스 snapshot이 그대로인지 다시 확인한 뒤 배포했다. 원본 저장소에 파일을 stage하지 않았다.
+- 격리한 기존 `gh-pages` 복사본에 검증한 출력을 덮어 배포했다. 캐시된 과거 HTML을 위해 기존 해시 자산 11개를 보존했으며 최종 **75개 파일**도 `verifyRelease()`를 통과했다. 기존 공개 파일의 불필요한 삭제나 강제 push 없이 fast-forward로 배포했다.
+- 공개 커밋: [`32e38c397824b3e0f24458871c7d22b9946d3161`](https://github.com/sdg331/CarpeDM_EXPO_Microsite/commit/32e38c397824b3e0f24458871c7d22b9946d3161), `style: deploy responsive light glass website`. 직전 Pages 커밋은 `54a3cf7c7ef172014bd0cb9ef5dc29917a1ac87a`다. Pages API가 정확히 새 커밋에 대해 **built**, error 없음으로 응답했다. 원격 main은 `bcd42d034b8609252e97481167c5b7cfd960f6df`로 유지했다.
+- 최신 소개 자산은 `main-z8A7EnYG.js` / `main-lOlg2U5E.css`, dashboard는 `index-C7fwX6C-.js` / `index-gtSEuF5V.css`다. [한국어](https://sdg331.github.io/CarpeDM_EXPO_Microsite/?lang=ko) · [English](https://sdg331.github.io/CarpeDM_EXPO_Microsite/?lang=en) · [운영 샘플](https://sdg331.github.io/CarpeDM_EXPO_Microsite/dashboard/#/overview).
+- 공개 HTTPS에서 **75개 파일 모두**가 배포 후보의 SHA-256과 일치했다. cache-busting query가 없는 일반 HTML 주소 **8개도** 최신 파일과 일치했다. 배포 증거는 `_workspace/deploy-light-glass-20261016-BEntE9/`의 build report, publication manifest, Pages build 응답과 HTTPS 비교에 보관한다.
+
+### 실제 브라우저 결과
+
+- 배포 전 통합 production preview의 **147개 상태** 통과: 소개 7개 진입점×한영 2종과 dashboard 7개 경로를 **360, 390, 644, 768, 1024, 1280, 1440px**에서 확인했다. 실제 innerWidth를 읽었으며 H1 1개, 가로 넘침/보이는 로드 실패 이미지/중복 ID/가시 텍스트 잘림/상단 공통 컨테이너의 폭·좌측 정렬 불일치가 없다.
+- 상세 **72개 상태**도 한영/390·1440px에서 실제 탭을 클릭해 확인했다. Service 4종, System 4종과 장치 3종, Uses 3종, Four-Fit 4종이며 위 레이아웃 검사 통과. 장치는 `data-render=ready`를 기다렸다. 개발 중 320/360/390/599/600/644/767/768/1024/1280/1440px의 Home·Service 영문 폭/잘림 탐침 22개도 통과했다.
+- **공개 HTTPS에서도 147개 경로/너비 상태**를 다시 확인했다. 위 항목에 더해 문서 언어, 각 앱의 최신 stylesheet 이름, localhost 링크 부재를 확인했다. 옛 CSS를 받아 통과한 것으로 기록하지 않았다. 정상 페이지의 warning/error 로그는 비어 있었다.
+- 공개 사이트의 390px와 1440px에서 네이티브 한국어→English 키보드 선택, 영어 대표 링크로 Service 이동, Devices 선택, 메뉴의 한국어 전환을 실제로 조작했다. `?lang=ko#service-devices`와 `두 장치` 선택을 보존했다. 두 너비 모두 메뉴 Escape가 닫히고 토글에 초점이 돌아왔다.
+- 공개 영어 Four-Fit에서 End로 Posture 선택/이름 표시를 확인했다. English Home의 실제 운영 샘플 링크가 한국어 dashboard 새 탭을 열고 그곳의 프로젝트 명함 링크가 공개 Home으로 돌아왔다. 돌아온 기본 URL은 저장한 영어 선택을 유지했으며 한국어 링크로 정상 복귀했다. dashboard의 실측 390px 메뉴도 Escape 닫기/토글 초점 복귀를 확인했다. 새 dashboard/복귀 Home의 warning/error도 비어 있었다.
+- 공개 샘플은 기존 한국어·합성 데이터·브라우저 저장 범위를 유지했다. 사원 등록 제출·삭제·초기화·실제 출력/장치 조치나 데이터 내용 변경은 수행하지 않았다.
+- 공개 캡처 7개: `docs/screenshots/public-light-glass-home-{390,644,1440}-20261016.jpg`, `public-light-glass-home-en-390-20261016.jpg`, `public-light-glass-service-390-20261016.jpg`, `public-light-glass-dashboard-{390,1440}-20261016.jpg`. 화면 내 이미지는 complete/naturalWidth > 0을 확인했다. QA 도구의 일시적 크기 지정은 마무리 때 해제한다.
+
+### 보존과 한계
+
+원본 microsite HEAD `984fa08a87376f137cfe0b6b7f274a103311ffc5`, dashboard HEAD `3c39618acf0b4241021357864ce77d0c5f0381ad`와 작업 브랜치를 보존했다. 소스 main이나 dashboard 저장소의 push는 하지 않았다. 실제 코드/번역/데이터/이미지의 SHA-256 보존 검사를 별도로 남긴다. 공개 정적 배포와 브라우저 검증은 완료했지만 실제 휴대폰/Safari·스크린리더·200% 확대·OS 모션/투명도/강제 색상 전환·저전력 GPU, 실물 NFC/프린터/AI/API 연결은 새로 검증하지 않았다. 수상이나 교육 효과를 보장하지 않는다.
+
+## 2026-10-16 — 공개 모바일 직접 순회와 Service 읽기 폭 보정
+
+### 관찰과 변경 범위
+
+- 공개 사이트를 실제 CSS viewport **390×844px**로 열고 Home → 작품 소개 → 4-Fit → 활용(직업훈련 선택) → 기술 → 작품 소개의 두 장치를 실제 링크와 탭으로 이동했다. Home은 좌우 20px·카드 폭 350px로 균형을 유지했지만 Service 제품/설명의 좁은 두 열에서는 제품이 작고 본문 14px가 조밀했다. 제작팀 페이지도 통합 production preview에서 실제 링크로 이동해 확인했다.
+- 이번 런타임 수정은 `src/styles/silver.css`의 **480px 미만** 규칙뿐이다. 작품 이해는 제품을 위에, 번호가 있는 세 단계 설명을 아래에 배치했다. 제품 영역 200px·본문 16px/1.75·제목 18px·카드 여백 20px를 사용한다. 두 장치도 카드 하나씩, 설명 16px로 표시한다. Home·480px 이상 배치·기능·문구·이미지·샘플 대시보드 소스는 그대로다.
+- `docs/design.md`와 상세 디자인 MD에 실제 결정을 동기화했다. 수정 전 소스와 SHA-256/Git 상태는 `_workspace/before-mobile-walkthrough-20261016-1DTiyW/`에 보관했다(microsite 307개·dashboard 94개 파일).
+
+### 빌드와 공개 배포
+
+- `npm run build:release -- --dashboard ../EXPO_분석/dashboard-app` 통과: microsite lint·엄격한 typecheck/build·**17개 테스트**, dashboard lint·기존 범위 typecheck·**19개 테스트**·runner-loader build. 의존성 추가가 없다. snapshot과 이전 산출물은 `_workspace/release-wkWtc1/`에 있다.
+- `npm run verify:release`로 통합 출력 **64개 파일**을 확인했다. 두 원본 소스가 빌드 snapshot과 동일함을 다시 검사한 뒤 격리한 Pages checkout에 반영했다. 캐시된 과거 HTML에 필요한 이전 해시 자산을 보존한 최종 **77개 파일**도 `verifyRelease()`를 통과했다.
+- fast-forward 공개 커밋: [`e8767bb0fd9f1763f2a0a530c658a92adc72276c`](https://github.com/sdg331/CarpeDM_EXPO_Microsite/commit/e8767bb0fd9f1763f2a0a530c658a92adc72276c), `style: refine mobile service card readability`. 직전 Pages는 `32e38c397824b3e0f24458871c7d22b9946d3161`이다. Pages API는 정확히 새 커밋에 대해 **built**, error 없음으로 응답했다.
+- 최신 소개 자산은 `main-BcPkfh_0.js` / `main-C66BJFCH.css`다. JS/TS 소스 수정 없이 CSS 연결로 JS 해시도 바뀐다. dashboard 자산 `index-C7fwX6C-.js` / `index-gtSEuF5V.css`는 이전과 같다.
+- 공개 HTTPS **77개 파일**의 SHA-256과 일반 HTML 주소 **8개**가 모두 후보 파일과 일치했다. 배포·원본 보존·브라우저 기록은 `_workspace/deploy-mobile-polish-20261016-Ht5jbp/`에 저장한다. 원본 소스 저장소의 index·HEAD와 원격 main은 변경하지 않고 Pages 산출물만 push했다.
+
+### 실제 화면 검사
+
+- 로컬 개발 서버의 **44개 상태**: Service 작품 이해·두 장치 × 한영 × **320, 360, 390, 430, 479, 480, 644, 768, 1024, 1280, 1440px**. 가로 넘침·가시 본문 잘림·로드 실패 이미지·중복 ID·공통 컨테이너 정렬 문제 없음. 480px 미만 한 열·본문 16px와 480px 이상 기존 두 열을 확인했다. 통합 production preview에서도 390px의 새 CSS·한 열·16px·이미지 로드를 별도로 확인했다.
+- **공개 Service의 같은 44개 상태**를 최신 stylesheet 이름까지 확인하며 다시 검사했고 모두 통과했다. 탭은 실제 클릭했다. 공개 Home/Four-Fit/Uses/System/Team은 한영·**360, 390, 1440px의 30개 상태**를 추가 확인했다. 합계 **74개 공개 화면 상태**에서 H1 1개·언어·실측 너비·정렬·본문·이미지 검사가 통과했다. 이 수치는 이전 배포의 147개 검사와 구분한다.
+- 배포 직후 이미 열려 있던 Service에 이전 HTML/CSS 캐시가 남아 있음을 실제로 발견했다. 일반 새로고침 후 `main-C66BJFCH.css`·한 열·16px를 확인하고 최종 검사를 진행했다. 이전 CSS 화면을 새 배포 검증에 포함하지 않았다.
+- 공개 390px에서 Home의 English를 Enter로 선택 → 영어 대표 링크 → Devices → 메뉴의 한국어를 실제로 조작했다. `?lang=ko#service-devices`와 선택된 ‘두 장치’가 보존됐다. 메뉴 Enter 열기/Escape 닫기·토글 초점 복귀·solid outline도 확인했다. 정상 공개 순회와 언어/메뉴 조작의 warning/error 로그는 비어 있었다.
+- 공개 Home → Service 직접 이동과 PageDown, 두 장치 탭을 다시 확인하고 이미지의 complete/naturalWidth > 0을 읽어 캡처했다. 기록: `docs/screenshots/mobile-polish-public-{home,intro,service,devices}-390-20261016.png`. Home/intro는 상단, service는 스크롤한 설명, devices는 장치 탭이다.
+- 사용자 요청대로 공개 Home을 **390×844px 모바일 크기로 표시한 채** 남겼다. 이번에는 모바일 화면이 납품 결과이므로 임시 크기 지정을 해제하지 않았다.
+
+실제 휴대폰·Safari·스크린리더·OS 접근성 설정과 실물 장치 연결은 새로 검사하지 않았다. 이번 변경은 CSS 배치 보정이며 등록·삭제·출력 등 샘플 데이터를 바꾸는 조작은 수행하지 않았다.
+
+
+## 2026-10-16 — 모바일 앱 감각의 반응형 웹과 소스 Git 공개
+
+### 범위와 보존
+
+- 사용자 요청: 모바일 웹 우선, 태블릿·데스크톱 반응형, Apple 앱을 연상시키는 마감, Git 업로드. 기존 밝은 실버/글라스와 한영 문구·페이지·이미지·4-Fit/장치 상태를 유지했다.
+- 이번 수정은 Hero의 소개 문장을 모바일에서 전체 폭으로 배치하는 마크업과 CSS, 시스템 글꼴 우선순위, 34px 상세 제목, 불투명 주제 세그먼트, 둥근 안쪽 메뉴·최대 440px 하단 도크, 일곱 HTML의 안전영역 viewport와 빌드 검사, 관련 문서다. 패키지·라우터·서비스워커·네이티브 앱·제품 기능을 추가하지 않았다.
+- 수정 전 파일 311개·HEAD `984fa08a87376f137cfe0b6b7f274a103311ffc5`와 Git 상태를 `_workspace/before-mobile-app-20261016-7UMk6K/`에 보존했다. 기존 미커밋 한영·라이트 글라스 구현은 현재 화면 재현에 필요한 소스 전제이므로 함께 검토한 공개 범위에 포함한다.
+- 통합 빌드 중 원본에 별도 제품 이미지 파일과 관련 수정이 추가돼 소스 일치 보호 검사가 출력을 교체하지 않고 종료했다. 이 실행 전체를 통과로 기록하지 않는다. 해당 작업은 덮어쓰거나 되돌리지 않고, 그 직전 검증 소스 `_workspace/release-3L85CY/microsite/`를 별도 Git checkout `_workspace/mobile-app-publish-20261016-tdotbwak/source/`에 고정해 마무리했다. 원본 Git index·브랜치와 별도 이미지 작업은 보존했다.
+
+### 실제 검사와 산출물
+
+- 고정된 최종 소스에서 `npm run check` 완료: `npm run lint`, `npm run typecheck`를 포함한 `npm run build`, `npm test`의 **17개 테스트 모두 통과**. 일곱 HTML의 `viewport-fit=cover`와 확대 제한 부재를 기존 빌드 검사에 추가했다. `git diff --check` 통과. 의존성 설치/추가는 없다.
+- 앞선 통합 빌드의 별도 dashboard lint/typecheck/19개 테스트/runner-loader build는 모두 완료됐다. dashboard 소스는 이번에 수정·커밋하지 않았다. 별도 통합 빌드에서 검사한 dashboard 출력을 보존해 고정 microsite 재빌드에 합쳤다.
+- `verifyRelease()`로 일곱 소개 HTML·dashboard/index.html·.nojekyll·참조 자산과 **64개 파일**을 검증했다. 고정 소스 재빌드 후 64개 파일의 경로·SHA-256이 브라우저로 확인한 출력과 모두 동일함을 assert로 확인했다. 최종 소개 자산은 `main-DddvI_pd.js` / `main-Cn9s90QG.css`; dashboard는 기존 `index-C7fwX6C-.js` / `index-gtSEuF5V.css`다.
+- 통합 production preview는 `http://localhost:4186/CarpeDM_EXPO_Microsite/`다. 기존 개발/미리보기 프로세스는 종료하지 않았다. 원본에서 같은 시기에 쓰기 시작한 4187 포트도 종료하지 않고, 오류 주입용 HTTP 서버는 별도 자동 할당 포트를 사용했다.
+
+### 실제 브라우저 검사
+
+- **84개 기본 상태**: 소개 7개 진입점 × 한국어/영어 × 실측 **360, 390, 768, 1024, 1280, 1440px**. H1 한 개, 가로 넘침·보이는 깨진 이미지·중복 ID·가시 텍스트 잘림·누락된 같은 페이지 fragment 없음. 주요 행동·언어·메뉴·하단 링크의 높이는 48px 이상이다. 로컬 개발 서버의 저장소 이름 하위 경로를 처음 잘못 연 탐색과 67% 배율의 127.0.0.1 화면은 이 검사에 포함하지 않았다.
+- **72개 탭 상태**: Service 네 주제, System 네 주제와 장치 세 종류, Four-Fit 네 관점, Uses 세 주제를 한영/390·1440px에서 실제 클릭했다. 첫 측정에서 장치의 1px `.sr-only` 설명이 잘림으로 집계돼 DOM의 `clip-path: inset(50%)`를 확인했다. 접근성 숨김 설명을 가시 텍스트 검사에서 제외하고 관련 **16개 장치 상태**를 재검사했으며 넘침·잘림·깨진 이미지가 없었다. 숨김 설명을 실제 본문 잘림으로 보고하거나 숨김 문구를 제거하지 않았다.
+- 추가 **6개 작은/가로 상태**: 320×568px의 한영 Home·영어 Service·영어 카메라, 844×390px의 한국어 Home·영어 Service. 가로 넘침·가시 텍스트 잘림·보이는 로드 실패 이미지 없음. 짧은 화면에서는 정상 세로 스크롤을 허용한다.
+- 실제 키보드: 메뉴 Enter 열기/Escape 닫기와 버튼 초점 복귀·solid 외곽선, PageTabs End로 마지막 주제·ArrowRight 처음으로 순환, 네이티브 뒤로 가기에서 두 장치 복구를 확인했다. 메뉴의 English를 Enter로 선택하면 `?lang=en#service-devices`와 Devices 선택이 보존됐다.
+- Home의 운영 샘플 링크가 같은 하위 경로의 새 dashboard 탭을 실제로 열었다. dashboard 개요는 실측 390·1440px에서 H1 한 개·샘플 데이터 표시·가로 넘침 없음이다. 명함 복귀 링크의 목적지는 같은 origin의 Home이다. 데이터 등록·삭제·초기화·실제 출력은 실행하지 않았다. 정상 소개/샘플 QA 탭의 warning/error 로그는 비어 있었다.
+
+### 별도 실패·설정 검증 복사본
+
+원본/납품 소스를 수정하지 않고 통합 출력의 별도 복사본으로 CSS 환경 분기와 미디어 실패를 주입했다. 실제 iPhone 또는 OS 설정 검사가 아니다.
+
+- 상단 47px·하단 34px의 안전영역 상수를 적용한 390×844px Service: 헤더 전체 115px, 내부 행 67px와 경계 1px, 하단 도크 아래 34px, 가로 넘침 없음. 안전영역을 헤더에 두 번 더하지 않는다.
+- 좌우 59px의 가로 화면 복사본은 실측 844px에서 컨테이너 왼쪽 59px·폭 726px, 가로 넘침 없음이다.
+- CSS의 모션/투명도 감소 분기와 JS matchMedia 감소 분기를 강제한 카메라는 `data-motion=static`, progress `1.000`, 헤더 blur `none`이다.
+- 미러 완성 이미지·키오스크·카메라 atlas를 제외한 복사본: Home은 기존 미러 실루엣, 두 장치는 두 대체 형태를 표시했다. 보이는 깨진 이미지/넘침 없음. 카메라는 `data-render=fallback`, `data-motion=static`, `aria-busy=false`를 확인했다.
+
+### 화면·기록·한계
+
+- 실제 최종 빌드 캡처 5개: `mobile-app-home-390-20261016.jpg`, `mobile-app-home-en-390-20261016.jpg`, `mobile-app-service-390-20261016.jpg`, `mobile-app-menu-390-20261016.jpg`, `mobile-app-home-1440-20261016.jpg` (`docs/screenshots/`).
+- 파일 manifest와 브라우저 기록은 `_workspace/mobile-app-publish-20261016-tdotbwak/`의 `artifact-manifest.json`, `browser-qa.json`, `tab-qa.json`, `hardware-qa.json`, `small-qa.json`, `interaction-qa.json`, `fixture-qa.json`, `dashboard-qa.json`에 보존했다. 이 자료는 소프트웨어 QA이며 방문자 분석 데이터가 아니다.
+- 이번 Git 공개는 소스 main 대상이다. 기존 gh-pages는 이 작업에서 변경하지 않으며, main push만으로 공개 웹사이트가 자동 갱신되지 않는다. 실제 iPhone/Android·Safari·스크린리더·실제 OS 접근성 설정·200% 확대·저성능 장치, AI/API/NFC/프린터 연결은 새로 검증하지 않았다.

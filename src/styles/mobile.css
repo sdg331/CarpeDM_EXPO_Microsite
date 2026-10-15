@@ -1,7 +1,6 @@
 /* Phone reading layout; hardware geometry keeps its own bounded stage. */
 @media (max-width: 767px) {
   :root { --section-space: 40px; }
-  .hero__grid { min-height: clamp(590px, calc(100svh - var(--header-height) - 104px), 650px); }
 
   .page-intro { padding-block: 20px 24px; }
   .page-intro__content { gap: 16px; }

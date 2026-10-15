@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { stripTypeScriptTypes } from 'node:module';
 
-const source = stripTypeScriptTypes(await readFile(new URL('../src/data/paths.ts', import.meta.url), 'utf8'));
+const source = stripTypeScriptTypes(await readFile(new URL('../src/data/paths.ts', import.meta.url), 'utf8'))
+  .replace("'../i18n'", JSON.stringify(new URL('../src/i18n.ts', import.meta.url).href));
 globalThis.document = { getElementById: () => ({ dataset: { siteRoot: '../' } }), baseURI: 'https://sdg331.github.io/CarpeDM_EXPO_Microsite/use-cases/', };
 const cases = [
   [{ DEV: true }, 'http://127.0.0.1:4174/#/overview'],

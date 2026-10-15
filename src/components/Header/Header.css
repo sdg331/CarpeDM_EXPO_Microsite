@@ -1,5 +1,5 @@
-.site-header { position: sticky; top: 0; z-index: 20; background: rgb(244 246 248 / 94%); border-bottom: 1px solid var(--color-border); color: var(--color-text); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-.site-header__inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: calc(var(--header-height) - 1px); }
+.site-header { position: sticky; top: 0; z-index: 20; padding-top: env(safe-area-inset-top); background: var(--color-surface); border-bottom: 1px solid var(--color-border); color: var(--color-text); }
+.site-header__inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: calc(var(--header-height) - env(safe-area-inset-top) - 1px); }
 .brand { display: inline-flex; align-items: center; min-height: 44px; font-size: 21px; font-weight: 700; letter-spacing: -.045em; }
 .menu-toggle { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; min-width: 48px; min-height: 48px; padding: 8px; border: 0; background: transparent; color: inherit; cursor: pointer; }
 .menu-toggle__lines { position: relative; width: 22px; height: 20px; }

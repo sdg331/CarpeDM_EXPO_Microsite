@@ -4,16 +4,24 @@ This document is authoritative for project facts. Public wording lives in `conte
 
 ## Evidence and status
 
+The owner-requested light-glass theme is applied to the introduction and linked sample-dashboard source and publicly deployed as of 2026-10-16. This changes presentation only: product facts, intended functions, software evidence, data and hardware/integration status are unchanged. Browser/UI checks and public deployment are recorded separately in `qa.md`.
+
 **CONFIRMED** means the project owner supplied the concept, system role, or known hardware in the initialization brief. It does **not** mean a capability has been implemented, integrated, tested, or demonstrated. The microsite repository contains the explanatory website, not evidence of the exhibit's implementation.
 
 **TODO / NOT YET CONFIRMED** means information requires owner confirmation or verifiable project evidence. Do not silently promote an intended capability to an implemented capability. Update this document when evidence changes.
 
+## 2026-10-16 — Korean and English visitor access
+
+The digital card offers `한국어 / English` for international visitors. The choice applies to the introduction site's six page types, including explanatory examples, evidence notes and accessible image descriptions. Korean remains the initial default. This translates the introduction only; it does not establish English speech, analysis or hardware support in the exhibit. The separate sample operations dashboard and the original captured UI remain Korean and are identified as such in English copy.
+
 ## CONFIRMED — Summary and concept
+
+The 2026-10-16 mobile-app presentation is a responsive website in the same seven HTML entries. It uses the device's system font, larger phone headings, safe-area spacing and a four-link bottom navigation on detail pages. It does not establish a native iOS application, Apple affiliation, offline support or additional exhibit capabilities. Source publication and the separately served public Pages release are recorded independently in `qa.md`.
 
 - Name: **4-Fit MirrorTing**.
 - Project type: interactive AI Smart Mirror and companion ID Card Kiosk exhibition project.
 - Context: **동양미래대학교 EXPO**.
-- Repository purpose: an official, static introduction for EXPO judges and visitors. The mobile-first homepage is a one-minute reading target with a short project introduction, three proposed application contexts, three explicitly proposed technical development directions, and a compact four-icon 4-Fit visual; conversations, the mirror-interface rationale, six-step journey, uses and team materials are on their detail pages; all visitors use the same responsive home, including NFC/QR entrants. `/expo/` remains a compatibility entry to that home.
+- Repository purpose: an official, static introduction for EXPO judges and visitors. The mobile-first homepage is a compact digital project card with the project/team identity, purpose and primary detail links; conversations, the mirror-interface rationale, six-step journey, uses and team materials are on their detail pages; all visitors use the same responsive home, including NFC/QR entrants. `/expo/` remains a compatibility entry to that home.
 - Central idea: a mirror can become an interface between a person and an intelligent system, beyond a reflective surface.
 - The exhibit comprises two related physical devices. The **Smart Mirror** is the main experience; the **ID Card Kiosk** is its entry point.
 - This is a physical-system exhibition microsite. It is not a SaaS product, account portal, registration service, or working remote control for the exhibit.
@@ -297,3 +305,28 @@ Reduce repeated page navigation and explanatory selection buttons per the owner'
 ## 2026-10-13 — Mobile layout and presentation audit
 
 Correct layout/readability throughout the existing microsite without adding capabilities. Mobile hardware scenes remain conceptual assembly illustrations and now animate in ordinary document flow, including short screens. This does not implement device control, sensors, recognition or AI. Physical-device, real mobile-browser and NFC validation remain separate from browser viewport checks.
+
+
+## 2026-10-14 — Mobile silver-glass interface scope
+
+The owner requests one mobile-first treatment for the introduction and the separate dashboard, improved imagery and shorter screens. Home now uses the existing drawing-based mirror as a contained concept visual, replacing the monumental room in the active Hero. Generated people/office scenes and cropped icon atlases are removed from the primary reading flow; existing source assets remain. All product-status notices remain. Topic tabs and native disclosures reorganize existing explanations without adding AI, identity, NFC or hardware interaction. The dashboard continues to use the existing sample workspace and browser-local edits. This revision is local; no new public release or physical-device validation is asserted.
+
+## 2026-10-15 — Digital business card purpose
+
+The owner explicitly clarified that the microsite is used as a business card. Its entry must immediately identify 4-Fit MirrorTing, CarpeDM and the AI smart mirror project, then offer a few clear links. The operations dashboard remains a secondary, explicitly sample destination. This changes the presentation hierarchy, not product capabilities, hardware evidence or implementation scope. No personal contact details, QR destination, new deployment or verified performance were supplied by this request.
+
+## 2026-10-15 — Remove repeated image captions
+
+The owner explicitly requested removing AI/concept/non-photograph text from the visitor UI and reducing arrows. Remove per-image captions and use neutral design-material wording in the evidence inventory. The assets, their concept classification and descriptive alternatives are unchanged; no image is newly classified as photography and no physical completion or analytical performance is confirmed by this display change.
+
+## 2026-10-15 — Black-glass visual refinement
+
+Owner requested a black-background glassmorphism UI. Home remains a mobile digital project card; detailed subjects and the separate sample dashboard retain their existing scope. This is a visual-only refinement: no new AI, hardware, identity, data or integration claim. Local artwork and truthful alternatives/metadata remain unchanged.
+
+## 2026-10-15 — Friendly project explanation and source evidence
+
+Owner requests fuller, more welcoming exhibition UI suitable for competition presentation. Home remains the digital card, with a concrete mirror/four-perspective explanation and destination helpers. Service opens with purpose and reading guidance; System shows a compact process map and meaningful evidence links. This is a communication/design improvement, not evidence of an award or new runtime capability.
+
+Rechecked public source at the already-reviewed adb9355b0da4ef69a6485811ec82ee46cf133239 through the GitHub connector: setupCatalog.js exposes interview/training/workplace modes; interaction.py manages mode-specific progress; report.py constructs observed/interpretation/suggestion segments and distinguishes unmeasured voice/expression/posture. The pinned source links are now directly accessible in the evidence topic. This review does not run the exhibit or validate accuracy, efficacy, identity or physical integration.
+
+New situation questions and answer-structure explanations are authored teaching examples. Static product/process panels reuse existing project artwork and error silhouettes. No customer, efficacy metric, member identity/contact, event detail, live endpoint or completed-hardware claim is added.

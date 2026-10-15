@@ -3,9 +3,10 @@ import { readFile, access } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { stripTypeScriptTypes } from 'node:module';
 
+const i18nUrl = new URL('../src/i18n.ts', import.meta.url).href;
 const sceneSource = stripTypeScriptTypes(await readFile(new URL('../src/data/scenes.ts', import.meta.url), 'utf8'));
 const { scenes, conversationScenes } = await import(`data:text/javascript;base64,${Buffer.from(sceneSource).toString('base64')}`);
-const momentSource = stripTypeScriptTypes(await readFile(new URL('../src/data/experience.ts', import.meta.url), 'utf8'));
+const momentSource = stripTypeScriptTypes(await readFile(new URL('../src/data/experience.ts', import.meta.url), 'utf8')).replace("'../i18n'", JSON.stringify(i18nUrl));
 const { workplaceMoments } = await import(`data:text/javascript;base64,${Buffer.from(momentSource).toString('base64')}`);
 assert.equal(conversationScenes.length, workplaceMoments.length, 'Every conversation has a scene');
 assert.equal(new Set(conversationScenes).size, workplaceMoments.length, 'Conversation scenes are distinct');
@@ -17,6 +18,9 @@ for (const entry of entries) {
   const path = resolve('dist', entry);
   const html = await readFile(path, 'utf8');
   assert.match(html, /<html lang="ko">/, `${entry}: Korean document language`);
+  const viewport = html.match(/name="viewport" content="([^"]+)"/)?.[1];
+  assert(viewport?.includes('viewport-fit=cover'), `${entry}: device safe areas enabled`);
+  assert(!/maximum-scale|user-scalable/.test(viewport), `${entry}: visitor zoom remains available`);
   const root = entry === 'index.html' ? './' : '../';
   assert(html.includes(`data-site-root="${root}"`), `${entry}: portable site root`);
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];

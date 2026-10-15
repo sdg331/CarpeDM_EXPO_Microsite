@@ -414,3 +414,82 @@ The owner requests very detailed utilization explanations. Expand the Uses page 
 ## 2026-10-14 — Correct scope from current GitHub evidence
 
 The owner confirms interview/job-training implementations and asks to analyze the public repository in light of differentiation, unclear deployment/system and hardware cost. Pin the review to main adb9355b0da4ef69a6485811ec82ee46cf133239. Supersede the future-only mode classification and the sensor-first System presentation. Show actual modes and software input→dialogue→analysis→results before hardware, and describe future work as improving the existing paths. Do not infer Kinect depth usage, gaze tracking, proven advantages, zero marginal cost, complete offline operation or established buyers. Keep venue/low-cost proposals in the analysis, not as confirmed public installations. Runtime and physical acceptance remain separate. No backend change, commit, push or public deployment.
+
+
+## 2026-10-14 — All-page mobile silver glass and bounded reading
+
+The latest owner asks for the dashboard and all introduction pages to use mobile UI, clean futuristic silver glass, better images and less scrolling. Use pale silver throughout, superseding the earlier mandatory dark Home, monumental Hero placement and raster icon atlas. Preserve those source assets but stop placing generated people/office scenes in the primary flow. Reuse the drawing-based product and native vectors.
+
+Keep the three-item hamburger and add a phone dock for direct access. This intentionally supersedes the previous prohibition on repeated navigation because switching between introduction and operations is now a primary mobile task. Divide long detail pages into topics; keep every explanation available via tabs/disclosures and preserve incoming fragments. Preserve assembly motion within one bounded selected stage; the existing curve replaces tall sticky tracking on desktop too. The dashboard retains its local sample data and operational safeguards, with shorter lists and optional detail. No framework, dependency, back-end work or deployment is required by this visual request.
+
+## 2026-10-15 — Make the entry a digital business card
+
+The owner explicitly clarified business-card usage after finding the overall UI awkward. This supersedes the 2026-10-14 Home section stack and five-destination Home dock. Use one compact project card: project/team identity, clear purpose, contained concept mirror and three detail destinations. Put the sample dashboard link below the primary actions. Detail pages retain a simpler four-destination dock, topic tabs and all substantive explanations. Shorten H1s and remove Team's repeated product/closing composition. This follows the newest owner direction while preserving old Home fragments and the accessible local demo. Contact identity/QR generation and public deployment remain separate because no new contact data or publication request was supplied.
+
+## 2026-10-15 — Remove visible image disclaimers and repetitive arrows
+
+The owner explicitly requests removing `도안 기반 AI 콘셉트 / 실물 사진 아님` and similar visitor text and asks for fewer arrows. This supersedes the prior always-visible caption requirement. Remove captions at their shared rendering sources and from hardware stages; use neutral design-material descriptions. Preserve provenance in internal records, media kind and descriptive alternatives, with no new photography or completion claim. Retain one Home primary-action arrow and meaningful connection direction, while ordinary links keep legible labels, touch targets and focus without repeated arrows. Image failures and assembly calibration are unchanged. No public deployment requested.
+
+## 2026-10-15 — Use black glass across the project card and dashboard
+
+Decision: Replace the pale canvas/white panels with a near-black canvas, light type, dark translucent surfaces and fine silver edges. Keep the digital card, responsive dimensions and native topic/disclosure controls; update the separate dashboard palette through its existing final stylesheet.
+
+Reason: The owner reviewed Service and explicitly requested a black background with glassmorphism. This supersedes the earlier pale-silver material direction, while retaining the compact business-card hierarchy and caption/arrow cleanup.
+
+Consequences: No new package, theme switch, generated artwork, behavior/data change or deployment. Existing assets, assembly calibration and truthful product scope remain.
+
+## 2026-10-15 — Restore explanation and a guided reading sequence
+
+Decision: Keep the mobile digital card and black glass, while exposing core project understanding before optional depth. Add Service's default project-understanding topic; show device roles, a four-stage software map, verified source links, direct retry guidance and Team's design criteria. Explain each selected topic and menu destination, with a quiet next-subject footer link.
+
+Reason: The owner reports that the simplified UI is too sparse and unfriendly, and asks for competition-quality completeness. This supersedes treating short screens as a reason to hide all basic rationale/team explanation or remove every onward reading hint. Short copy and bounded layouts remain; no return to a long repeated Home or dense button directory.
+
+Consequences: No guarantee/claim of an award or newly completed AI/device linkage. Preserve one Home arrow, no image-origin captions, existing media/calibration, all legacy fragment targets, native controls and accessible state. Main input/process/output presentation is static; authored examples are distinct from verified source. No dashboard behavior, dependency, commit or publication change.
+
+
+## 2026-10-16 — Reproduce the combined release without changing source checkouts
+
+Decision: Add a local Node-standard-library build:release command and an independent verify:release gate. Require an explicit dashboard source path, snapshot current tracked/untracked work, reuse installed dependencies and run both apps' existing checks before combining output. Preserve old dist/report and roll back normal replacement failures. Record source and artifact SHA-256 outside public output.
+
+Reason: The source checkouts contain useful unfinished work, and the manual dashboard-copy step can be omitted after a microsite rebuild. Current working files must be included without silently staging/committing unrelated changes. The integrated dashboard returns via ../ so local and repository-subpath previews use the same origin.
+
+Consequences: No Git index/branch/remote changes, public publication, runtime dependency, UI restyle, data change or live-device claim. Ambient VITE settings and environment/private files are excluded from the snapshot build. Existing single-app commands remain available; only build:release generates a verified combined artifact. Committing reviewed untracked inputs and browser/physical acceptance remain explicit steps in the release procedure.
+
+## 2026-10-16 — Offer Korean and English from the project card
+
+Decision: Add native `한국어 / English` links to Home and the detail menu. Translate the introduction's existing content locally, using the same page entries and interactions. Prioritise an explicit language query over a saved preference, then default to Korean. Preserve queries/fragments and put the language in cross-page links so storage failures do not break navigation.
+
+Reason: The owner expects many international visitors and wants language choice from the initial business card. The choice must also carry through to the linked introductions. Native multi-entry navigation fits the current site without a new dependency or state architecture.
+
+Consequences: English copy preserves source-evidence, proposed-use and integration limits. The separate dashboard and original UI capture remain Korean and are labelled accordingly. Exhibit software language support and public publication are outside this change. Language switching reloads the entry and preserves URL topic/context, while transient selections reset. Static/social metadata remains Korean until client code runs; separate indexed language pages are not introduced.
+
+## 2026-10-16 — Specify the owner-selected light-glass direction
+
+Decision: Record the owner's selection of a bright gray/frosted light-glass direction in `docs/light-glass-design-system.md`, using the supplied Apple reference's structured format. Research general glassmorphism, Apple's native material/navigation guidance, CSS capabilities and web accessibility. Define project-specific tokens, materials, component states, all page briefs, mobile layouts, fallbacks, implementation ownership and verification gates.
+
+Reason: The owner requests a complete, polished exhibition website and a detailed design MD before implementation. This is the next visual target, superseding black glass for future styling work. The compact digital-business-card purpose and substantive detail explanations remain. The exact finish and the earlier comparison mockup are not treated as final approval of every layout value.
+
+Consequences: Current UI/source/deployment remain black glass. No public copy, product fact, asset, hardware behavior, dashboard data, dependency or release output is changed. Keep Apple guidance, unverified observations in the supplied reference, proposed MirrorTing values and actually implemented/tested behavior separate. In particular, transparency has no fixed contrast without its backdrop, CSS pixels are distinct from Apple's platform points, and web blur does not establish native Liquid Glass rendering. Update the implementation status and run the documented checks when visual work is performed.
+
+## 2026-10-16 — Apply light glass across the actual website
+
+Decision: The owner now explicitly requests implementation of the light-glass MD on the whole website, preserving all content and functions and showing the verified result. Apply the frosted-card direction to the actual microsite and the linked sample-dashboard styling. This supersedes the black-glass runtime direction and the earlier specification-only status.
+
+Reason: A coherent bright canvas, stable white reading surfaces, dark text and restrained navigation glass support the selected visual character across the full visitor journey. Keep the digital business card compact and the evidence/details readable. Existing destination tiles retain their rounded rectangular shape, while English 4-Fit labels use two columns on small phones so no label disappears.
+
+Consequences: Change CSS, theme-color metadata and current documentation only. Preserve all TS/TSX, JS/JSX, copy/translation data, media, routes, state, persistence, hardware assembly math and sample-data limits. Correct the normal-flow assembly stage's collapsed flex height in the existing CSS and keep its explicit bounded height. Use opaque fallbacks, reduced-motion/transparency branches and visible focus. Run both applications' existing gates and actual subpath browser checks; publish only under a separate explicit request. Local implementation, fixture tests, physical acceptance and public delivery remain distinct evidence categories.
+
+
+## 2026-10-16 — Align page widths and publish the light-glass release
+
+Decision: In response to the owner’s width/proportion feedback, unify Home and detail containers at 1040px maximum with the same fluid gutters. Remove the 420px card cap, scale the product column, and keep long English credit text beside the language control. Make the glass layer visible through a restrained blue/pearl backdrop, translucent white gradient, fine highlight and bounded navigation blur. Preserve opaque reading/data panels and all content/interaction logic.
+
+The owner explicitly requests redeployment including the sample dashboard and public mobile/desktop/language verification. Build current dirty source snapshots and publish the combined static artifact to the existing gh-pages branch. This request authorizes the deployment commit/push; original source branches and indexes remain preserved. Record the exact public commit, Pages build state, HTTPS file hashes and browser evidence.
+
+## 2026-10-16 — Prioritize mobile web and publish the source
+
+Decision: The owner asks for a responsive mobile website with an Apple-app feel and Git upload. Preserve the approved light-glass visual identity and static multi-page structure. Refine phone typography, put the Home description across the full card, use opaque topic segments and a rounded inset menu, and bound the existing bottom navigation. Enable device safe-area handling across all entries while keeping zoom and natural scrolling.
+
+Reason: Larger readable headings, clear grouped selection and predictable native links improve the phone experience without rebuilding the exhibition site as a native application or adding dependencies.
+
+Consequences: Reuse Hero, Header, PageTabs and the existing material styles. Keep product claims, Korean/English copy, media, hardware calibration and dashboard source unchanged. Preserve a complete pre-edit snapshot in ignored workspace storage. Review and publish the current source prerequisites together with this refinement; keep Git source publication distinct from the existing gh-pages deployment. Run existing gates and rendered viewport/interaction checks before pushing.

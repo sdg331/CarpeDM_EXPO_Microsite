@@ -8,7 +8,7 @@ import tseslint from 'typescript-eslint'
 export default defineConfig([
   globalIgnores(['dist', 'node_modules', 'coverage', '_workspace']),
   {
-    files: ['**/*.{js,ts,tsx}'],
+    files: ['**/*.{js,mjs,ts,tsx}'],
     extends: [js.configs.recommended],
     linterOptions: {
       reportUnusedDisableDirectives: 'error',
@@ -26,7 +26,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['*.config.{js,ts}'],
+    files: ['*.config.{js,ts}', 'scripts/**/*.mjs', 'tests/**/*.mjs'],
     languageOptions: {
       globals: globals.node,
     },

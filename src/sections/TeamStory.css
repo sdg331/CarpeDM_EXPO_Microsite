@@ -1,12 +1,14 @@
 .team-approach { padding-block: var(--section-space); background: #fff; }
-.team-approach__opening { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: 64px; }
-.team-approach__opening > div:first-child > .body-copy { max-width: 29rem; margin-top: 32px; font-size: 16px; line-height: 1.85; }
+.team-approach__opening { display: grid; grid-template-columns: 1fr; gap: 0; }
+.team-approach__opening > div:first-child > .body-copy { max-width: 42rem; margin-top: 18px; font-size: 16px; line-height: 1.85; }
 .team-approach__credit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-top: 40px; font-size: 19px; font-weight: 600; letter-spacing: -.035em; }
 .team-approach__credit > span { color: var(--color-secondary); font-size: 12px; font-weight: 400; letter-spacing: 0; }
 .team-approach__device { padding: 24px 32px; background: #f4f5f7; }
 .team-approach__device .product-frame__stage { max-width: 330px; margin-inline: auto; border: 0; border-radius: 0; background: transparent; }
 .team-approach__device .product-frame__caption { margin-top: 14px; color: var(--color-secondary); opacity: 1; font-size: 10px; }
 .team-approach__device .product-frame__caption > span:first-child { display: none; }
+.team-approach__principles { margin-top: 24px; }
+.team-approach__principles .team-principles { margin-top: 0; }
 .team-principles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin: 80px 0 0; padding: 0; list-style: none; }
 .team-principles li { display: flex; flex-direction: column; align-items: flex-start; padding-top: 24px; border-top: 1px solid var(--color-border-strong); }
 .team-principles__number { color: var(--color-subtle); font-size: 11px; }

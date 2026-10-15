@@ -2,49 +2,65 @@
 
 Korean is primary. Quoted wording is maintained against the current source; dated entries record scope and layout decisions rather than verbatim historical copy. This site describes an EXPO project and its intended experience. Product facts and unresolved claims remain governed by `product.md`.
 
+## 2026-10-16 — Korean / English edition
+
+The subsequent light-glass styling retains this entire Korean/English edition, its links and scope wording. No public message, translation entry, image alternative, example, count or product claim is changed by the theme implementation. English 4-Fit labels are explicitly visible at phone widths; the dashboard remains Korean.
+
+The card's `한국어 / English` links change the language of the introduction, including menus, page topics, practice/education examples, evidence notes, disclosures, image alternatives and client-rendered titles/descriptions. Korean remains the default; language is not inferred from nationality or browser settings. Existing Korean wording is retained in `t(...)` calls; the corresponding English wording is maintained in `src/data/en.json`. Update both when public copy changes. Do not present intended functions, authored examples or provisional values as verified outcomes in translation.
+
+| Card element | Korean | English |
+| --- | --- | --- |
+| Definition | AI 스마트 미러 프로젝트 | AI smart mirror project |
+| Body | 거울 앞에서 말하고, / 네 관점으로 돌아봅니다. | Speak at the mirror. / Reflect in four ways. |
+| Main action | 작품 알아보기 | Explore the project |
+| Other actions | 활용 장면 / 기술과 자료 | Uses / Technology |
+| Action helpers | 작품과 체험 방식 / 연습과 교육 / 구조와 구현 근거 | Purpose and experience / Practice and training / Structure and evidence |
+| Practice modes | 면접 / 직업훈련 / 직장대화 | Interviews / Job training / Workplace conversations |
+| Four perspectives | 응답 / 목소리 / 표정 / 자세 | Response / Voice / Expression / Posture |
+| Secondary link | 샘플 운영 화면 | Sample dashboard (Korean) |
+
+Detail topic labels: Service `Overview / Examples / Journey / Devices`; System `Software / Hardware / Evidence / Next steps`; Uses `Practice / Training / Operations demo`. The reviewed source commit and review date are unchanged. English operations links explicitly indicate the separate Korean dashboard. The original screenshot is identified as a Korean UI capture; image pixels and external source documents are not translated. Exhibit-level English conversation support is not claimed.
+
+English links carry `?lang=en`; Korean links carry `?lang=ko`. Choosing a language preserves the current query (including education context) and fragment. Browser storage remembers only the language preference. Pages remain static client-rendered entries: social crawlers/no-JavaScript readers may still receive the original Korean HTML metadata and fallback message.
+
 ## Navigation and metadata
 
-- Hamburger navigation: `작품 소개` → `/service/`; `활용 장면` → `/use-cases/`; `기술과 발전 방향` → `/system/`. The toggle has only the icon; its accessible labels remain `메뉴 열기` / `메뉴 닫기`.
-- Homepage metadata describes a workplace-conversation role-play and 4-Fit feedback concept. No live event, date, location or booking claim.
-- Page navigation is consolidated in the hamburger menu; the footer contains project credit and a top link. There is no mobile-version selection. All pages adapt automatically to screen width; NFC/QR should use the public homepage.
+- Hamburger navigation: `작품 소개` → `/service/`; `활용 장면` → `/use-cases/`; `기술과 자료` → `/system/`. The toggle has only the icon; its accessible labels remain `메뉴 열기` / `메뉴 닫기`.
+- Homepage title is `4-Fit MirrorTing · CarpeDM`. Description: `면접·직업훈련·직장대화를 연습하는 AI 스마트 미러 프로젝트, 4-Fit MirrorTing. 제작팀 CarpeDM의 작품과 자료를 한눈에 만나보세요.` No live event, date, location or booking claim.
+- Detail pages have the three-item hamburger, mobile dock (명함, 작품 소개, 활용, 기술), project credit and top link. Home uses the card links instead of repeating this navigation. There is no mobile-version selection. All pages adapt automatically to screen width; NFC/QR should use the public homepage.
 
-## Homepage — mobile one-minute introduction
+## Homepage — digital project card
 
-- Hero lead: `말하기에도, 연습이 필요하니까.`
-- H1: `직장 대화, / 미리 연습하는 거울.`
-- Body: `보고와 질문을 역할극으로 연습하는 / AI 스마트 미러 프로젝트.`
-- Primary action: `어디에 활용할까요?` → `#home-uses`.
-- Concept caption: `디바이스 콘셉트 · 실제 촬영 이미지가 아닙니다.`
-- Static 4-Fit summary: `4-Fit 피드백 설계 / 응답 · 목소리 · 표정 · 자세`.
-- Applications: `활용 제안 / 어디에 쓰일까요? / 대학에서, 회사에서, 팀 안에서.`
-- `취업 준비` — `첫 보고와 질문을 미리 연습하는 대학 취업 교육.`
-- `신입 교육` — `실수 설명과 피드백 대응을 연습하는 신입사원 교육.`
-- `팀 대화 연습` — `다른 의견을 듣고 조율하는 팀 소통 워크숍.`
-- Development: `다음 발전 방향 · 제안 / 어떤 기술을 더할까요? / 아직 구현된 기능이 아닌, 다음에 검토할 기술입니다.`
-- `직무에 맞는 대화로` — `교육 자료 검색을 더해, 직무별 상황과 질문으로 확장.`
-- `말로 주고받는 역할극으로` — `음성 대화 기술을 더해, 답변에 따라 이어지는 질문으로.`
-- `내 모습을 돌아보는 피드백으로` — `영상 특징 추출을 더해, 표정과 자세의 변화를 살펴보기.`
-- Detailed development is accessible through `기술과 발전 방향` in the hamburger menu.
-- Footer: `CarpeDM · 동양미래대학교 EXPO`, `맨 위로`.
-- Hamburger order: 활용 장면, 기술과 발전 방향, 4-Fit 분석, 팀 소개, 서비스 소개. Detailed product/device/experience descriptions remain on detail pages.
+The mobile-app styling pass preserves all Korean/English wording and destinations. On phones, the introduction sentence now follows the identity/product row and spans the full card width. Do not add Apple branding or claim native-app installation in the public copy.
+
+- Identity: `CarpeDM` links to `/team/`; `동양미래대학교 EXPO`.
+- Definition: `AI 스마트 미러 프로젝트`.
+- H1: `4-Fit / MirrorTing`.
+- Body: `거울 앞에서 말하고, / 네 관점으로 돌아봅니다.`
+- Practice modes: `면접 · 직업훈련 · 직장대화`.
+- Primary link: `작품 알아보기` → `/service/`. Other links: `활용 장면` → `/use-cases/`; `기술과 자료` → `/system/`. Helpers under the three links: `작품과 체험 방식`, `연습과 교육`, `구조와 구현 근거`.
+- Product images have no visible caption. The descriptive image alternative still describes the drawing-based mirror. Only `작품 알아보기` retains a decorative arrow; other Home links are plain text.
+- Quiet footer text: `응답 · 목소리 · 표정 · 자세`. Secondary link: `샘플 운영 화면` with an accessible new-tab notice, using the validated existing dashboard destination.
+- Home has one card, with no application/4-Fit/development sections below it. Those explanations remain on the detail pages. Old home fragments redirect to their detailed destinations.
+- No contact details, QR target, verified metrics or hardware/AI completion claims have been invented.
 
 ## Detail pages
 
 ### 4-Fit
 
-- Detail H1: `4-Fit, 대화를 돌아보는 기준.`
-- Shared H2: `말의 내용부터, / 전달하는 태도까지.`
+- Detail H1: `4-Fit 피드백`. Description: `무슨 말을 했는지, 어떻게 전달했는지. 네 관점에서 다음 연습에 바꿀 한 가지를 찾아보세요.`
+- Shared H2: `무엇을 돌아볼까요?` The selected perspective includes a visible `다음 연습에서는` action, drawn from its existing retry guidance.
 - Four owner-confirmed names: Response/응답, Voice/목소리, Expression/표정, Posture/자세.
 - Definitions: Response = 상황에 맞는 답변과 내용; Voice = 말의 속도·크기·명료도; Expression = 시선·표정; Posture = 자세. Selecting a tab shows its definition, a reflection question and an authored practice point.
-- Expression's identity subtitle displays only `표정 분석 시각화 콘셉트`; omit the redundant `시선·표정` line so all four identities share one subtitle row. The definition remains in the explanatory copy.
+- Expression subtitle: `표정으로 전하는 태도`. The existing reflection questions/definitions remain.
 - Visible scope: actual analysis methods and implementation are pending verification.
 
 ### Service introduction
 
-- H1: `직장 대화, 실전 전에 연습합니다.`
-- Body: `보고와 질문을 역할극으로 연습하는 AI 스마트 미러 프로젝트. 연습할 대화와 체험 순서를 소개합니다.`
-- Native contents: 연습할 대화 → 미러로 연습하는 이유 → 체험 순서 → 키오스크 → 스마트 미러.
-- Shared situation H2: `이런 순간, / 어떻게 답할까요?` Four situation buttons switch the authored question, answer and practice point listed below, with implementation uncertainty visible.
+- H1: `작품 소개`.
+- Body: `어려운 대화를 거울 앞에서 미리 말해 보고, 내용과 전달하는 모습을 함께 돌아보는 프로젝트입니다.`
+- Topic tabs: `작품 이해 / 대화 예시 / 체험 순서 / 두 장치`. Default is 작품 이해; all previous fragment targets remain. Each topic includes one sentence describing what to read. Two-device roles are visible before their optional technical detail.
+- Situation H2: `어떤 대화를 연습할까요?` A labeled native select switches the authored question, answer and practice point, with implementation uncertainty visible.
 
 ### Experience
 
@@ -59,31 +75,34 @@ Korean is primary. Quoted wording is maintained against the current source; date
 
 - Smart Mirror H2: `직장 대화를 연습하는 / 스마트 미러.` Its display, sensing and voice parts are explained as intended roles.
 - ID Card Kiosk H2 stays `미러 앞에 서기 전, / 키오스크에서 시작합니다.` Its registration, printing and NFC linkage remain unconfirmed.
-- All three supplied images retain `디바이스 콘셉트 · 실제 촬영 이미지가 아닙니다.`
+- Product/scene/hardware imagery has no repeated AI/concept/non-photograph caption. Descriptive alternatives and project records retain its provenance.
 
 ### Uses
 
+- H1: `활용 장면`. Description: `면접과 현장 업무, 동료와의 대화. 현재 연습 종류를 살펴보고 교육에 적용할 방법을 만나보세요.`
 - Main: 직장 대화 연습.
 - Role-play situation examples: 업무 보고, 질문 대응, 실수 설명, 의견 조율. Each is described as an example; implementation status remains unconfirmed.
 - Current software modes: 면접, 직업훈련 and 직장대화. The 2026-10-14 repository review below supersedes the earlier future-only classification. Educational installations and benefits remain proposals.
 
 ### System and evidence
 
-- System H2: `키오스크에서 시작해 / 미러 앞에서 연습합니다.`
+- H1: `기술과 자료`. Description: `답변이 피드백으로 이어지는 구조와 미러를 이루는 장치, 확인할 수 있는 구현 근거를 담았습니다.`
+- Default System H2: `한눈에 보는 작동 구조.` Software comes before the hardware topics.
 - Intended visitor flow: 키오스크 · NFC → 스마트 미러 역할극 → 4-Fit 피드백 → 결과 확인 · 재도전. The employee result surface is unverified; operations is a separate fixed-example demo, not an automatic final stage or proof of integration.
 - Evidence distinguishes 설명 웹 / 장치 시각자료 / 체험 소개 UI / 운영 화면 / 실물 · 분석 연동. The local workplace UI capture and separate operations demo use illustrative content. Device/Hero renders remain concepts. Actual analysis results, assembled-device photos and video remain absent; broader implementation claims await feature-specific evidence.
 - Hardware model names remain in the expandable technical disclosure.
 
 ### Team
 
-- `4-Fit MirrorTing / by CarpeDM`. Shared closing H2: `처음 겪는 직장 대화도 / 미리 연습할 수 있도록.` Service and System links accompany the project purpose.
+- H1: `제작팀 CarpeDM`. Description: `처음 겪는 대화 앞에서 연습할 기회를 만들고자 합니다. 작품을 만든 이유와 설계에서 지킨 기준을 소개합니다.`
+- H2: `우리가 만든 이유`. The project purpose is followed by three visible design principles and the disclosure `프로젝트 공개 자료`. Team does not repeat the Home product image or closing pitch.
 - No assertion that physical demonstration is currently available.
 
 ## Page distribution and responsive entry
 
-The homepage follows hero → concise problem/doorway → four-icon 4-Fit overview → short application overview → two-device overview → compact closing. `/service/` follows introduction and anchor navigation → conversations → mirror-interface explanation → six-step experience → kiosk → Smart Mirror → 4-Fit detail link; `/four-fit/` contains the four perspectives, reflection points, authored comparison and retry guide; `/system/` contains drawing-based image assembly, camera/audio scroll assemblies and strengths, architecture, evidence and technology; `/use-cases/` contains three selectable proposed application contexts, four collapsed authored scenarios, a separate operations demo and collapsed expansion ideas; `/team/` contains design principles and project materials before the shared closing. Each detail page has its own H1, metadata and next-page link.
+The homepage is a single digital project card with identity, purpose and three detail links. Its sample operations link is secondary. Service has four topics (project understanding, dialogue, journey, devices); System has four (software, selected hardware, evidence, development). Uses has practice, education and operations topics, with long education text in six disclosures. Four-Fit keeps its dimension tabs and folds the longer comparison. Team exposes design principles and folds its evidence inventory. Every detail entry retains one H1 and all existing section fragments. Mobile shares the same pages; detail pages add a four-destination dock, while Home keeps the card alone.
 
-The same pages and content adapt to phone, tablet and desktop widths automatically. The separate 30-second mobile guide and `EXPO 모바일 안내` links are removed. Existing `/expo/` opens the same responsive homepage, preserving compatibility for older links. It does not provide a second mobile version or imply an NFC card has already been connected. Footer: `서비스 소개`; closing: `체험 설계 살펴보기` and `시스템 살펴보기`.
+The same pages and content adapt to phone, tablet and desktop widths automatically. The separate 30-second mobile guide and `EXPO 모바일 안내` links are removed. Existing `/expo/` opens the same responsive homepage, preserving compatibility for older links. It does not provide a second mobile version or imply an NFC card has already been connected. Detail footer: `CarpeDM · 동양미래대학교 EXPO` and `맨 위로`.
 
 ## Media needed before final review
 
@@ -576,8 +595,8 @@ This entry supersedes the future-only interview/job-training copy. Source refere
 - 직장대화: 출근·업무·퇴근의 상황을 이어가며 보고와 질문, 피드백과 협업 대화를 연습합니다.
 - Mode scope: 현재 소프트웨어 구성을 기준으로 안내합니다. 실제 장치 연동과 분석 정확도·교육 효과는 별도 검증이 필요합니다.
 
-- System H1: 연습은 어떻게 결과로 이어질까요?
-- Intro: 연습 선택에서 대화, 분석과 결과까지 소프트웨어의 흐름을 먼저 살펴봅니다. 장치 구성과 발전 방향도 이어서 소개합니다.
+- System H1 after concurrent topic integration: 연습을 결과로 연결하는 구조.
+- Intro: 소프트웨어, 장치, 구현 자료와 발전 방향을 나눠 정리했습니다.
 - Heading: 상황에 맞춰 답하고, / 결과의 근거를 확인합니다.
 - Body: 연습 종류와 상황을 고르고 질문에 답합니다. 대화의 진행 상태와 카메라·음성 관찰을 분석해, 근거와 측정 상태가 포함된 결과로 정리하는 구조입니다.
 - Steps: 연습 · 상황 선택 / 면접·직업훈련·직장대화와 해당 상황 선택; 질문 · 답변 / 음성·직접 입력과 카메라 관찰을 수집; 대화 진행 · 분석 / 질문·목표의 진행 상태와 네 관점을 분석; 결과 확인 · 재연습 / 발언 근거·측정 상태·다음에 바꿀 점 확인.
@@ -613,3 +632,48 @@ This entry supersedes the future-only interview/job-training copy. Source refere
 - Detail: 이미 연결한 표정·자세 분석을 조명과 가림, 사용자별 차이, 교육자의 관찰과 비교하는 발전안입니다. 모델의 출력값과 대화 상황에 맞는 피드백은 별도로 검증하며, 특정 감정이나 성격을 단정하지 않습니다.
 - Validation: 조명과 가림, 사용자별 차이, 오인식과 영상 처리 동의를 확인해야 합니다. 센서 입력과 피드백 기준은 별도로 검증해야 합니다.
 - Source: https://developers.google.com/edge/mediapipe/solutions/vision/pose_landmarker
+
+
+## 2026-10-14 — Mobile silver-glass presentation
+
+This owner-requested revision supersedes older dark-Home, tall-image and continuously stacked-detail compositions. Product facts and educational proposals remain unchanged.
+
+- Home uses the existing drawing-based mirror on a pale silver stage, with the caption `설계 도안 기반 AI 생성 3D 콘셉트 / 실물 사진이 아닙니다.` Application rows open their corresponding education guide. The final short development block reads `더 나은 연습을 준비합니다. / 교육 기준 · 음성 입출력 · 피드백 검증`, linking to `발전 방향 보기`.
+- Service H1: `말해 보고, 돌아보고, 다시 연습해요.` Intro: `면접·직업훈련·직장대화를 연습하는 AI 스마트 미러. 궁금한 항목부터 살펴보세요.` Topics: `대화 예시 / 체험 순서 / 두 장치`. Conversation heading: `어떤 대화를 연습할까요?`
+- System H1: `연습을 결과로 연결하는 구조.` Intro: `소프트웨어, 장치, 구현 자료와 발전 방향을 나눠 정리했습니다.` Topics: `작동 흐름 / 장치 구성 / 구현 자료 / 발전 방향`. Device topics: `스마트 미러 / 카메라 / 오디오`.
+- Uses topics: `연습 종류 / 교육 활용 / 운영 화면`. All six parts of each education guide and the authored dialogues remain available through native disclosures. No educational content was removed.
+- Four-Fit preserves all four definitions, reflection points, tab labels and scope notices. The longer comparison is under `대화 예시로 적용해 보기`. Vector symbols replace the cropped image atlas; they are conceptual decoration, not measurements.
+- Team H1: `CarpeDM, 대화의 다음을 준비합니다.` Intro: `처음 겪는 대화도 미리 연습할 수 있도록. 작품을 만들며 고민한 기준과 공개 자료입니다.` Materials are under `프로젝트 공개 자료`.
+- The dock's dashboard entry is labeled `운영 대시보드, 샘플 워크스페이스 (새 탭)` for assistive technology. The separate dashboard retains synthetic data, local-browser storage and its original operational boundaries.
+
+## 2026-10-15 — Business card wording and secondary demo
+
+Home now identifies the project and team directly. Team opens with `우리가 만든 이유`; `어떤 기준으로 만들었나요?` and `프로젝트 공개 자료` disclose the existing explanatory material. Repeated device imagery and the closing pitch are omitted on Team. The dashboard overview reads `운영 현황 / 명부·체험·출력 상태를 한눈에 확인하세요.` and the sidebar return link reads `프로젝트 명함`. Sample-data notices and all operational scope explanations remain.
+
+## 2026-10-15 — Remove image disclaimers and repetitive arrows
+
+- Home: no product caption; only `작품 알아보기` has an arrow. Team, secondary destinations and the sample-operations link retain their text and targets without decorative arrows.
+- ProductFrame/SceneFigure and mirror/camera/audio stages: remove visible AI/concept/non-photograph captions. Keep media alternatives and image-failure handling.
+- Ordinary menu/footer/detail links omit arrows; technical connection direction remains. Response retry wording: `진행 상황, 확인할 내용, 다음 행동 순서로 답변을 다시 구성해 보세요.`
+- Expression subtitle: `표정으로 전하는 태도`.
+- Team material record: `설계 자료 / 장치 시각자료 / 설계 도안을 바탕으로 미러와 부품의 구성을 정리했습니다.` Link: `장치 구성 보기`.
+- System material record: `설계 자료 / 미러·카메라·오디오와 키오스크의 구성과 배치를 설명하는 시각자료입니다.` Intro: `직접 둘러볼 수 있는 설명 웹과 운영 예시, 실행 화면과 장치 구성 자료.` Existing implementation/operational-data scope explanations remain.
+
+## 2026-10-15 — Black-glass presentation
+
+Only material colors and browser theme metadata change in this refinement. Public Korean wording, topic labels, authored-example scope, image alternatives, no-caption policy and one Home action arrow remain unchanged.
+
+## 2026-10-15 — Explain the work before asking visitors to explore
+
+Latest owner feedback: overly simple and unfriendly; strengthen exhibition/submission clarity while retaining the project-card entry and black-glass material. This supersedes hiding all basic project/team explanation. It does not authorize any award, measured effectiveness or integration claim.
+
+- Detail intros explain the purpose of the page; desktop eyebrows add context. A selected topic has a short reading hint, also attached to its tab with aria-describedby. Menu descriptions explain the three destinations. One quiet footer link offers a logical next subject, without another arrow/card CTA.
+- Service default H2: `미리 말해 보고, 돌아보세요.` Body: `내 말로 답하고, 목소리·표정·자세도 함께 돌아봅니다.` The product panel shows `상황을 고르고 / 내 말로 답하고 / 한 가지를 바꿔보고`. The rationale explains seeing the situation and oneself together, without claiming proven learning improvement.
+- Reading links: `질문 하나부터 읽어보기`, `내 대화를 돌아보는 기준`, `내 상황에 맞는 활용 찾기`. FAQ: `여기서 바로 대화를 체험할 수 있나요?`, `어디까지 구현됐는지 궁금해요.` These clarify the static introduction and link to evidence.
+- Authored answers gain a separate `이 답변은 어떻게 구성했나요?` disclosure. The three parts are: report — finished/current/next report; questions — reason/comparison/check; mistake — acknowledge/repair/prevention; alignment — understand/compare/decide together. They explain the existing authored examples, not generated AI reasoning.
+- Experience loop: `한 번에 모두 고치기보다, 다음에 바꿀 한 가지만.` The six intended steps remain; their scope appears once after a practical first-visit explanation.
+- System map: `상황 선택 / 답변 입력 / 대화 · 분석 / 결과 · 재연습`, beside the existing mirror art. A native disclosure explains each stage's input, processing and output. Visible groups distinguish `코드에서 확인` from `현장에서 검증할 부분`; the latter covers registration/NFC/output linkage, accuracy and educational effects.
+- Evidence source cards link to the reviewed mode catalog, interaction service and report service at commit adb9355b0da4ef69a6485811ec82ee46cf133239, rechecked 2026-10-15. They describe source structure, not a live device test. The former web/design/capture/operations inventory stays available in one disclosure, with #evidence-capture opening its owner.
+- Uses mode questions are authored illustrations: `경험을 어떤 순서로 설명하면 좋을까요?`, `고객이 주문을 바꾸면 어떻게 확인할까요?`, `일이 막혔을 때 어떻게 보고할까요?`. Each shows what to practice; installation/education text stays proposed.
+- Team shows the three actual design criteria directly, with links to their explanations. No member identities, roles or contact details were fabricated.
+- Detail browser/OG titles now match `작품 소개`, `4-Fit 피드백`, `기술과 자료`, `활용 장면`, `제작팀 CarpeDM`, followed by `· 4-Fit MirrorTing`. Descriptions and no-script fallback cover the three current software modes.
