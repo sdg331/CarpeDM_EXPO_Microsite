@@ -6,12 +6,10 @@ The owner selected light glass and requested its application across the actual w
 
 The local light theme supersedes black glass. The owner subsequently requested width/material refinement and public deployment with the dashboard; actual delivery evidence is recorded in qa.md. Keep the compact project card, guided detail explanations, factual scope, Korean/English content, local media, caption/arrow policy and existing interaction behavior. Dated sections below retain earlier design history; actual verification is recorded in `qa.md`.
 
-The later mobile-app refinement below is implemented and browser-checked in the source. Its Git publication is separate from the previous public Pages release; this pass does not update gh-pages.
-
 ## Visual treatment
 A product introduction with Apple-like restraint and Toss-like Korean clarity, using original assets and an original layout. Show the object before explaining the technology. No copied brand assets, fictitious product claims, metrics, dashboards, or interface simulations.
 
-Home uses a frosted white card on a quiet #f5f5f7 canvas. Details and the sample dashboard use stable white reading surfaces, charcoal type and fine gray/silver rules. Bounded blur enhances only the Home card, header and phone navigation; expanded menus and dense content remain opaque. The dark hardware artwork keeps its original appearance. No dependency, runtime logic, route, source copy or media asset is changed for this theme.
+Home uses a frosted white card on a quiet #f5f5f7 canvas. Details and the sample dashboard use stable white reading surfaces, charcoal type and fine gray/silver rules. Bounded blur enhances only the Home card, header and phone navigation; expanded menus and dense content remain opaque. The subsequent owner-requested image refresh uses a white Smart Mirror and black Kiosk, with consistent neutral studio light and genuine transparent backgrounds. Existing camera/audio technical artwork retains its component materials. No route, product capability or runtime dependency changes for the image refresh.
 
 | Element | Current treatment |
 | --- | --- |
@@ -20,7 +18,7 @@ Home uses a frosted white card on a quiet #f5f5f7 canvas. Details and the sample
 | Reading surfaces | Solid white, dark secondary copy, thin gray dividers |
 | Selection | White or pale-blue fill, dark-blue label and border, with existing semantic state |
 | Home card | White 88%–60% gradient frost, blur 24px desktop / 16px phone, 28px / 24px corners |
-| Product imagery | Existing drawing-based mirror, contained at its natural proportions |
+| Product imagery | White mirror and black kiosk, neutral studio light, complete silhouettes and transparent WebP |
 | Illustration | Native SVG silver-glass symbols; no cropped icon atlas or generated people in the primary flow |
 | Motion | Existing assembly in a bounded, selected normal-flow stage; reduced-motion and media failure stay static |
 
@@ -48,7 +46,7 @@ On detail pages, the icon-only hamburger exposes 작품 소개, 활용 장면 an
 - Home and detail content share a 1040 px maximum and the same fluid gutters. There is no fixed 420 px phone-card cap; the product column scales with the available width. Shared section spacing: 28–56 px according to content.
 
 ## Product imagery
-Use local WebP renders. Home and Service share the drawing-based completed mirror used in System, with complete proportions. Service uses its existing alpha on the white explanation panel; Home contains the mirror beside the project identity; System retains neutral stages. Team focuses on its purpose without repeating the product image. Hero reuses the drawing-based assembled mirror at its full proportions; Kiosk retains the supplied render. The monumental Hero source remains archived. No fake screen content or assembled-device photography claim.
+Use local WebP renders. Home, Service and System share `smart-mirror-white-studio-v2.webp`; Kiosk uses `kiosk-black-studio-v2.webp`. Both use matched neutral studio lighting, genuine alpha and complete silhouettes, with 544px alternatives supplied through native srcset. The mirror has a satin white outer frame, cabinet, speaker enclosure and caster base; its inner gasket, sensors, speaker grilles and wheel tires stay dark. The kiosk has a satin black cabinet, unlit glass and modest white light inserts. Technical assembly uses new white front/body layers with the existing internal display, offsets and motion. Keep the original camera/audio explanatory images and software capture. The mirror failure silhouette is also white. Team focuses on its purpose without repeating the product image. Old artwork remains archived; no fake screen content or assembled-device photography claim. Provenance and exact prompt set: `product-image-prompts-20261016.md`. Public deployment of these new images is not verified in this image-refresh pass.
 
 Product and scene images do not render AI/concept/non-photograph captions. Keep source classification and descriptive alternatives accurate; use neutral design-material wording in the evidence inventory. Missing media uses a labeled CSS silhouette; the mirror fallback reflects upper inputs, lower speakers and a broad base. Hero is eager-loaded; details are lazy-loaded. Intrinsic dimensions reserve space.
 

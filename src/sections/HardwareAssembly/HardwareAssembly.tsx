@@ -9,7 +9,13 @@ import './HardwareAssembly.css';
 
 const layers = ['body', 'display', 'front'] as const;
 const chapters = [t('후면 구조와 화면'), t('미러 프레임 결합'), t('하나의 스마트 미러')] as const;
-const asset = (name: string) => siteAsset('media/hardware/sm-' + name + '-v1.webp');
+const mirrorAssets = {
+  body: 'hardware/sm-body-white-v2.webp',
+  display: 'hardware/sm-display-v1.webp',
+  front: 'hardware/sm-front-white-v2.webp',
+  assembled: 'smart-mirror-white-studio-v2.webp',
+} as const;
+const asset = (name: keyof typeof mirrorAssets) => siteAsset(`media/${mirrorAssets[name]}`);
 
 export function HardwareAssembly() {
   const loaded = useRef(new Set<string>());

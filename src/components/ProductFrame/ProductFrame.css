@@ -49,11 +49,11 @@
   position: absolute;
   inset: 0 0 18%;
   padding: 3%;
-  border: 1px solid #62676c;
-  border-right: 5px solid #34373b;
+  border: 1px solid #bdc2c8;
+  border-right: 5px solid #dce0e4;
   border-radius: 4px;
-  background: linear-gradient(135deg, #323438, #121314 25%, #1d2023 80%, #393b3d);
-  box-shadow: 16px 12px 32px rgb(0 0 0 / 45%), inset 1px 0 1px #a0a4a6;
+  background: linear-gradient(135deg, #fff, #f1f2f4 60%, #dce0e4);
+  box-shadow: 12px 10px 28px rgb(29 39 55 / 12%), inset 1px 0 1px #fff;
 }
 
 .mirror-surface {
@@ -62,7 +62,7 @@
   height: 100%;
   overflow: hidden;
   border: 1px solid rgb(255 255 255 / 8%);
-  background: linear-gradient(120deg, #22272c 0%, #101418 33%, #090c0e 60%, #1f2327 100%);
+  background: linear-gradient(120deg, #d5dce3, #f4f6f8 33%, #b5c0cc 68%, #e4e9ef);
 }
 
 .mirror-surface::before {
@@ -115,7 +115,7 @@
   height: 16%;
   bottom: 3%;
   left: 7%;
-  background: linear-gradient(90deg, #151719, #363a3d, #111315);
+  background: linear-gradient(90deg, #dce0e4, #fff, #e5e8ec);
 }
 
 .mirror-stand::before, .mirror-stand::after { content: ''; position: absolute; top: 25%; width: 16%; height: 46%; border: 1px solid #62676c; background: #090c0e; }
@@ -128,10 +128,10 @@
   height: 4%;
   left: -4%;
   bottom: 0;
-  border-top: 1px solid #4c5155;
+  border-top: 1px solid #bdc2c8;
   transform: skewX(-30deg);
-  background: #202326;
-  box-shadow: 6px 9px 19px #000;
+  background: #f1f2f4;
+  box-shadow: 6px 9px 19px #1d27371a;
 }
 
 .device--kiosk {

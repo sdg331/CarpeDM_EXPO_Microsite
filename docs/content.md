@@ -39,7 +39,7 @@ The mobile-app styling pass preserves all Korean/English wording and destination
 - Body: `거울 앞에서 말하고, / 네 관점으로 돌아봅니다.`
 - Practice modes: `면접 · 직업훈련 · 직장대화`.
 - Primary link: `작품 알아보기` → `/service/`. Other links: `활용 장면` → `/use-cases/`; `기술과 자료` → `/system/`. Helpers under the three links: `작품과 체험 방식`, `연습과 교육`, `구조와 구현 근거`.
-- Product images have no visible caption. The descriptive image alternative still describes the drawing-based mirror. Only `작품 알아보기` retains a decorative arrow; other Home links are plain text.
+- Product images have no visible caption. Korean and English descriptive alternatives identify the white mirror and black kiosk as 3D concepts, with their existing component descriptions. Only `작품 알아보기` retains a decorative arrow; other Home links are plain text.
 - Quiet footer text: `응답 · 목소리 · 표정 · 자세`. Secondary link: `샘플 운영 화면` with an accessible new-tab notice, using the validated existing dashboard destination.
 - Home has one card, with no application/4-Fit/development sections below it. Those explanations remain on the detail pages. Old home fragments redirect to their detailed destinations.
 - No contact details, QR target, verified metrics or hardware/AI completion claims have been invented.

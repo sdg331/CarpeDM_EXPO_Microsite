@@ -35,7 +35,7 @@ for (const entry of entries) {
     await access(resolve(dirname(path), asset[1]));
   }
 }
-for (const asset of ['mirrorting-hero-monumental-v1.webp', 'kiosk-front.webp', 'workplace-ui-example.jpg', ...Object.values(scenes).map(scene => scene.file), 'four-fit-silver-glass-v2.webp', 'expression-face-mesh-glass-v2.webp', 'workplace-doors-glass-v1.webp', 'hardware/sm-assembled-v1.webp']) {
+for (const asset of ['smart-mirror-white-studio-v2.webp', 'smart-mirror-white-studio-v2-544.webp', 'kiosk-black-studio-v2.webp', 'kiosk-black-studio-v2-544.webp', 'hardware/sm-body-white-v2.webp', 'hardware/sm-front-white-v2.webp', 'hardware/sm-display-v1.webp', 'workplace-ui-example.jpg', ...Object.values(scenes).map(scene => scene.file), 'four-fit-silver-glass-v2.webp', 'expression-face-mesh-glass-v2.webp', 'workplace-doors-glass-v1.webp']) {
   await access(resolve('dist/media', asset));
 }
 console.log('Seven portable entries, distinct detail metadata and shared media passed');

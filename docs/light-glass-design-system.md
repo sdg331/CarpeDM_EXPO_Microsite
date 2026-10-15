@@ -1,10 +1,11 @@
 ---
 name: '4-Fit MirrorTing Light Glass'
-version: '1.3'
+version: '1.4'
 language: 'ko-KR'
 researched-at: '2026-10-16'
 status: 'implemented and publicly deployed; commit e8767bb; verification recorded in docs/qa.md'
 direction: 'light silver canvas, frosted reading surfaces, restrained glass navigation'
+image-refresh-status: 'white mirror and black kiosk applied locally; public image update unverified in this pass'
 direction-authority: 'owner selected light glass in the current conversation'
 composition-status: 'owner-selected frosted project card implemented; existing page composition retained'
 token-provenance: 'MirrorTing proposals, not measured Apple platform tokens'
@@ -519,10 +520,13 @@ AI 스마트 미러 프로젝트              제품 이미지
 
 ## 14. 제품 이미지와 아이콘
 
-### 14.1 확인한 기존 자산
+### 14.1 현재 제품 자산
 
-- 미러: `public/media/hardware/sm-assembled-v1.webp`.
-- 키오스크: `public/media/kiosk-front.webp`.
+- 미러: `public/media/smart-mirror-white-studio-v2.webp` — 흰색 프레임·후면·스피커 하우징·베이스, 검은색 센서·그릴·캐스터 타이어.
+- 키오스크: `public/media/kiosk-black-studio-v2.webp` — 검은색 본체, 꺼진 화면과 절제한 흰 조명.
+- 두 제품 모두 같은 중립색 스튜디오 조명·시점·투명 배경이며 544px 대체 자산을 제공한다. 완성 이미지는 1086×1448, 작은 이미지는 544×726다.
+- 미러 조립의 외부 프레임·후면 레이어도 흰색으로 맞춘다. 기존 검은 내부 디스플레이와 카메라·오디오 부품 자료는 유지한다.
+- 생성 방식·정확한 프롬프트: `product-image-prompts-20261016.md`. 이미지 변경은 로컬 적용과 공개 배포 증거를 구분한다.
 - 슬롯과 출처 분류: `src/data/media.ts`.
 - 제품 표시·실패 대체: `src/components/ProductFrame/`.
 - 네 관점 장식: `src/components/GlassIcon/`.

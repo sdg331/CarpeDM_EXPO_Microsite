@@ -1579,3 +1579,35 @@ This release verifies static delivery and browser behavior. Physical phones, scr
 최초 source push는 작업 기준 `984fa08` 이후의 기존 원격 커밋 `3df8ed4`, `bcd42d0`이 로컬 이력에 없어 fast-forward 보호로 거절됐다. 원격이 이 작업 중 새로 바뀐 것이 아니라 원본의 원격 추적 참조가 오래된 상태였다. 두 기존 커밋을 정상 병합해 이력을 보존했다. 이전 한국어/검은 글라스와 현재 한영/밝은 모바일 버전이 겹치는 41개 파일은 검증한 현재 버전을 유지했다. `git diff --cached HEAD --exit-code`로 병합 직후 전체 파일 트리가 검사한 후보와 정확히 같음을 확인했다. 강제 push나 원본 checkout의 브랜치/index 변경은 하지 않는다.
 
 샘플의 프로젝트 명함 링크는 새 Home 탭을 열었으며, 새 탭의 URL·제목·H1을 읽어 정상 복귀를 확인했다. 최종 소스 push 결과와 원격 SHA는 로컬 publication 기록과 작업 완료 응답에 남긴다.
+
+## 2026-10-16 — 흰색 스마트 미러 · 검은색 키오스크 이미지 통일
+
+### 변경 범위와 출처
+
+- 사용자가 이미지의 부조화를 지적한 뒤 스마트 미러는 흰색, 키오스크는 검은색으로 명시했다. 기존 도안 기반 형태·상단 입력·하단 두 스피커·이동식 베이스와 키오스크의 화면·출력구·NFC 배치를 참조해 내장 `image_gen`으로 다시 생성했다. 같은 중립색 조명, 절제한 반사와 실제 alpha로 밝은 실버·글래스 화면에 맞췄다. 실제 제품 촬영이나 제작·연동 증거로 분류하지 않는다.
+- 최종 자산은 `public/media/smart-mirror-white-studio-v2{,-544}.webp`, `kiosk-black-studio-v2{,-544}.webp`, `hardware/sm-front-white-v2.webp`, `hardware/sm-body-white-v2.webp`의 6개다. 완성 제품과 두 레이어 원본은 1086×1448, 작은 완성 제품은 544×726다. `sips`로 6개 모두 alpha와 치수를 확인했다. 총 320,084 bytes이며 초기 다운로드 성능을 실측한 지표는 아니다.
+- `cwebp`는 포맷 변환·작은 srcset 생성에만 사용했다. 생성형 도구 밖에서 제품을 다시 그리거나 색을 덧칠하지 않았다. 투명 추출 후 최종 이미지를 적용했으며 CSS 혼합/색 필터는 사용하지 않는다. 원본 PNG는 `_workspace/image-refresh-20261016/masters/`, 정확한 프롬프트는 `docs/product-image-prompts-20261016.md`에 보관한다. 초기 실버 시안과 흰 배경 시안은 사이트에서 참조하지 않는다.
+- 이번 런타임 수정은 `src/data/media.ts`, `src/data/en.json`, `src/components/ProductFrame/ProductFrame.css`, `src/sections/HardwareAssembly/HardwareAssembly.tsx`다. 기존 optional srcSet/sizes를 재사용하고, 미러의 실패 실루엣도 흰색으로 맞췄다. 조립은 새 흰색 전면·후면과 같은 완성 미러를 사용하며 기존 검은 내부 디스플레이, 카메라/오디오 자료, 보정값·모션 수식·로딩/실패 처리를 유지했다. `tests/site-build.mjs`는 현재 필수 자산 목록을 검사한다. 제품·디자인·문구·아키텍처·결정 기록과 디자인 MD를 동기화했다.
+- 기존 작업 트리의 수정과 작업 중 갱신된 별도 모바일 레이아웃은 보존했다. Hero·탐색 구조·폰트·대시보드 동작은 이 이미지 작업에서 수정하지 않았다. 수정 전 파일과 이전 dist는 `_workspace/before-image-refresh-20261016/`에 보관했다. 기존 이미지도 삭제하지 않았다.
+
+### 명령과 빌드 확인
+
+- `npm run lint`, `npm run typecheck`, `npm run build`, `npm test`, `git diff --check` 통과. 기존 테스트 17개가 모두 통과했다. Node의 기존 stripTypeScriptTypes 실험 안내는 기능 실패가 아니다. 의존성을 새로 추가하거나 설치하지 않았다.
+- 최종 production 출력의 새 이미지 6개는 public 원본과 SHA-256이 모두 일치했다. 검사한 JS 생성 시각 이후 변경된 런타임 TS/TSX/CSS/JSON 파일이 없음을 확인했다. UI 검사 대상은 이 최종 dist를 제공하는 `http://localhost:5191/`이다.
+
+### 실제 브라우저 확인
+
+- 소개 7개 진입점 × 한국어/영어 × **360, 390, 768, 1024, 1280, 1440 CSS px**, 높이 900px의 **84개 상태**에서 H1 하나, 가로 넘침 없음, 중복 ID 없음, 보이는 깨진 이미지 없음, 누락된 같은 문서 fragment 없음을 확인했다. 제품은 contain과 정상 로드를 확인했다. 초기 127.0.0.1의 67% 확대 상태는 검사값에서 제외하고 localhost의 실제 innerWidth가 요청 너비와 일치하는 조건에서 다시 검사했다.
+- 같은 여섯 너비와 두 언어에서 Service의 두 장치와 System의 미러 조립 **24개 상태**를 추가 확인했다. 키오스크는 검은색, 미러는 흰색 자산을 사용하며 조립은 data-render=ready다. 모바일 두 번째 이미지는 실제 표시와 지연 로딩 완료 후 검사했다. 데스크톱/모바일에서 전체 실루엣과 외곽 여백을 시각 확인했다. 정상 페이지 warning/error 로그는 비어 있었다.
+- 1440px에서 스크롤 후 미러가 phase 2, progress 1, ready 상태로 완성되고 흰색 전면/후면이 맞물리는 모습을 확인했다. 장치 탭 End로 Audio, ArrowLeft로 Camera, Home으로 Smart mirror 선택과 초점을 확인했다. 빠른 연속 조작 중 첫 Home 초점 표본 하나가 불일치해, 준비 완료된 Camera에서 Home을 독립 실행하여 선택·초점 일치를 재확인했다. 메뉴 Enter 열기와 Escape 닫기·버튼 초점·outline 복귀, 390px Service의 Home/End 선택·초점도 확인했다. 연속 키 입력 스트레스 검사나 전체 접근성 감사는 아니다.
+- 실제 화면 6개: `docs/screenshots/white-black-{home,devices,mirror-assembly}-{390,1440}-20261016.jpg`. Home 1440 캡처는 1440×1000, 나머지 검사는 높이 900px 기준이며 두 장치 캡처는 전체 페이지다. 캡처 해상도와 CSS viewport는 구분한다. 상세 측정값은 `_workspace/image-refresh-20261016/browser-qa.json`에 있다.
+
+### 하위 경로와 실패·설정 대체
+
+- 원본 dist를 바꾸지 않고 `_workspace/image-refresh-20261016/fixtures/`에 별도 복사본을 만들고 5192에서 제공했다. 390/1440px의 Home·두 장치·미러 조립에 대해 일반 하위 경로 6개, 이미지 누락 6개, 모션 감소 6개, 총 **18개 상태**를 검사했다.
+- `/CarpeDM_EXPO_Microsite/` 하위 경로에서 정상 이미지와 링크가 해당 접두 경로에 남는다. broken 복사본은 완성 제품의 두 크기와 미러 전면을 제외했다. 기존 접근 가능한 흰 미러/검은 키오스크 실루엣이 나타났으며 조립은 fallback·static·aria-busy=false다. 보이는 깨진 이미지나 가로 넘침은 없다. 의도적으로 발생한 404는 정상 로그 검사와 구분했다.
+- reduced 복사본은 모션 감소 CSS 두 규칙과 matchMedia 분기를 강제로 실행했다. 미러는 static, layers=none이고 새 흰색 완성 자산을 사용한다. 이 복사본 검사는 실제 OS 설정 전환이나 물리 기기 검증을 뜻하지 않는다. 일반/모션 감소 복사본의 warning/error는 비어 있었다.
+
+이번 이미지 작업에서는 commit·push·공개 release를 실행하지 않았으며 새 이미지의 공개 배포 상태도 확인하지 않았다. 실제 iPhone/Android·Safari, 스크린리더, 실제 OS 모션 설정과 실물 장치·NFC·AI/API 연결은 이번 정적 시각 검사 범위에 포함하지 않는다.
+
+마무리에서 기존 5174 개발 서버가 종료된 상태임을 확인하고, 포트가 비어 있는 것을 확인한 뒤 이 체크아웃의 Vite를 다시 실행했다. 실제 `http://localhost:5174/`의 대표 링크를 클릭해 Service로 이동하고 두 장치를 선택했다. 기본 1280px 화면에서 두 최종 제품 이미지의 정상 로드와 가로 넘침 없음을 확인하고 해당 화면을 열어 두었다. 현재 화면 캡처는 `docs/screenshots/white-black-devices-current-20261016.jpg`다. 임시 viewport는 해제했다. 마지막 메타데이터 검사에서 cwebp 자동 축소 결과가 544×726임을 확인해 기록을 실제 치수로 정정했다.
