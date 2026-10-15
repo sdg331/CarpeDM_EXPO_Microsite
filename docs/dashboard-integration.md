@@ -25,5 +25,20 @@
 
 - 소개 사이트의 현재 소스와 대시보드의 현재 로컬 UI를 각각 검사·빌드한 뒤 `dist/dashboard/`에 합칩니다. 대시보드의 환경 파일은 빌드 복사본에 포함하지 않았습니다.
 - 대시보드 기반 커밋: `3c39618acf0b4241021357864ce77d0c5f0381ad`. 미커밋 tracked diff SHA-256: `0edd9e6e400b8e9b1fee4b5ad4dfeb4182e3ac74e020042bf004b22a0f829ce6`. 별도 대시보드 소스 저장소는 이번 요청에서 커밋·push하지 않았습니다.
-- 소개 사이트 번들: `main-DeV0XBT5.js`, `main-DdCfdPHp.css`. 대시보드 번들: `index-Bw3mcNVk.js`, `index-BuD_RRWJ.css`. `.nojekyll`을 포함한 배포 파일은 64개입니다.
+- 소개 사이트 번들: `main-DgMtsyjB.js`, `main-DdCfdPHp.css`. 대시보드 번들: `index-Bw3mcNVk.js`, `index-BuD_RRWJ.css`. `.nojekyll`을 포함한 배포 파일은 64개입니다.
 - 예시 데이터와 브라우저 저장 범위를 그대로 유지합니다. 실제 운영 API·장치·AI 연동 검증을 의미하지 않습니다.
+
+
+## 2026-10-14 — Mobile silver-glass UI revision
+
+The separate dashboard source is `/Users/do_not_delay/Desktop/EXPO_분석/dashboard-app`. Mobile UI work was first staged in `/private/tmp/mirrorting-mobile-dashboard-orvgwewn`, excluding environment files and preserving original dirty changes. The existing data/local-storage boundary and the same-site production URL are retained. The microsite adds the validated dashboard destination to its mobile dock. A combined local production preview is used for path/visual verification; publishing requires a separate explicit request.
+
+Final UI source was applied to the original dashboard checkout with hash guards and backup. Original lint/typecheck/19 tests/build passed; dist/dashboard is combined locally. No public release in this UI task.
+
+## 2026-10-15 — Secondary destination from the digital card
+
+The public homepage is a digital business card. Its `샘플 운영 화면` link opens the validated existing dashboard URL in a new tab, with an accessible notice. The introductory dock no longer promotes operations beside project subjects. The dashboard returns via `프로젝트 명함`; its metrics share one compact divided panel, query filters lose the extra outer card and its light silver material matches the public entry. No operational data, routing, device safeguards, storage schema or actual integration changed. No new publication performed.
+
+## 2026-10-15 — Black-glass palette
+
+The latest owner direction replaces the light-silver material with black glass in both repositories. Dashboard changes are limited to its existing silver-mobile.css, browser theme-color metadata and documentation. The project-card link, hash routes, sample fixtures, CSV scope, local persistence and device safeguards remain unchanged. No live integration or publication is implied.

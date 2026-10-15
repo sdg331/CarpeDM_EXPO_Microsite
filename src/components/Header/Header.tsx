@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import type { PageKind } from '../../App';
-import { Arrow } from '../Arrow';
 import { navigation, siteRoot } from '../../data/paths';
 import './Header.css';
 
@@ -45,8 +44,8 @@ export function Header({ page }: { page: PageKind }) {
         <nav id="primary-navigation" className={`site-nav${isOpen ? ' site-nav--open' : ''}`} aria-label="주요 메뉴">
           <p className="site-nav__label" aria-hidden="true">프로젝트 살펴보기</p>
           <div className="site-nav__links">
-            {navigation.map(({ path, page: destination, label }) => (
-              <a key={path} href={`${siteRoot}${path}`} aria-current={page === destination ? 'page' : undefined} onClick={() => setIsOpen(false)}><span>{label}{page === destination && <small className="site-nav__current" aria-hidden="true">현재 페이지</small>}</span><Arrow /></a>
+            {navigation.map(({ path, page: destination, label, description }) => (
+              <a key={path} href={`${siteRoot}${path}`} aria-current={page === destination ? 'page' : undefined} onClick={() => setIsOpen(false)}><div><span>{label}{page === destination && <small className="site-nav__current" aria-hidden="true">현재 페이지</small>}</span><small className="site-nav__description">{description}</small></div></a>
             ))}
           </div>
         </nav>

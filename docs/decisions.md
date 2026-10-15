@@ -414,3 +414,34 @@ The owner requests very detailed utilization explanations. Expand the Uses page 
 ## 2026-10-14 — Correct scope from current GitHub evidence
 
 The owner confirms interview/job-training implementations and asks to analyze the public repository in light of differentiation, unclear deployment/system and hardware cost. Pin the review to main adb9355b0da4ef69a6485811ec82ee46cf133239. Supersede the future-only mode classification and the sensor-first System presentation. Show actual modes and software input→dialogue→analysis→results before hardware, and describe future work as improving the existing paths. Do not infer Kinect depth usage, gaze tracking, proven advantages, zero marginal cost, complete offline operation or established buyers. Keep venue/low-cost proposals in the analysis, not as confirmed public installations. Runtime and physical acceptance remain separate. No backend change, commit, push or public deployment.
+
+
+## 2026-10-14 — All-page mobile silver glass and bounded reading
+
+The latest owner asks for the dashboard and all introduction pages to use mobile UI, clean futuristic silver glass, better images and less scrolling. Use pale silver throughout, superseding the earlier mandatory dark Home, monumental Hero placement and raster icon atlas. Preserve those source assets but stop placing generated people/office scenes in the primary flow. Reuse the drawing-based product and native vectors.
+
+Keep the three-item hamburger and add a phone dock for direct access. This intentionally supersedes the previous prohibition on repeated navigation because switching between introduction and operations is now a primary mobile task. Divide long detail pages into topics; keep every explanation available via tabs/disclosures and preserve incoming fragments. Preserve assembly motion within one bounded selected stage; the existing curve replaces tall sticky tracking on desktop too. The dashboard retains its local sample data and operational safeguards, with shorter lists and optional detail. No framework, dependency, back-end work or deployment is required by this visual request.
+
+## 2026-10-15 — Make the entry a digital business card
+
+The owner explicitly clarified business-card usage after finding the overall UI awkward. This supersedes the 2026-10-14 Home section stack and five-destination Home dock. Use one compact project card: project/team identity, clear purpose, contained concept mirror and three detail destinations. Put the sample dashboard link below the primary actions. Detail pages retain a simpler four-destination dock, topic tabs and all substantive explanations. Shorten H1s and remove Team's repeated product/closing composition. This follows the newest owner direction while preserving old Home fragments and the accessible local demo. Contact identity/QR generation and public deployment remain separate because no new contact data or publication request was supplied.
+
+## 2026-10-15 — Remove visible image disclaimers and repetitive arrows
+
+The owner explicitly requests removing `도안 기반 AI 콘셉트 / 실물 사진 아님` and similar visitor text and asks for fewer arrows. This supersedes the prior always-visible caption requirement. Remove captions at their shared rendering sources and from hardware stages; use neutral design-material descriptions. Preserve provenance in internal records, media kind and descriptive alternatives, with no new photography or completion claim. Retain one Home primary-action arrow and meaningful connection direction, while ordinary links keep legible labels, touch targets and focus without repeated arrows. Image failures and assembly calibration are unchanged. No public deployment requested.
+
+## 2026-10-15 — Use black glass across the project card and dashboard
+
+Decision: Replace the pale canvas/white panels with a near-black canvas, light type, dark translucent surfaces and fine silver edges. Keep the digital card, responsive dimensions and native topic/disclosure controls; update the separate dashboard palette through its existing final stylesheet.
+
+Reason: The owner reviewed Service and explicitly requested a black background with glassmorphism. This supersedes the earlier pale-silver material direction, while retaining the compact business-card hierarchy and caption/arrow cleanup.
+
+Consequences: No new package, theme switch, generated artwork, behavior/data change or deployment. Existing assets, assembly calibration and truthful product scope remain.
+
+## 2026-10-15 — Restore explanation and a guided reading sequence
+
+Decision: Keep the mobile digital card and black glass, while exposing core project understanding before optional depth. Add Service's default project-understanding topic; show device roles, a four-stage software map, verified source links, direct retry guidance and Team's design criteria. Explain each selected topic and menu destination, with a quiet next-subject footer link.
+
+Reason: The owner reports that the simplified UI is too sparse and unfriendly, and asks for competition-quality completeness. This supersedes treating short screens as a reason to hide all basic rationale/team explanation or remove every onward reading hint. Short copy and bounded layouts remain; no return to a long repeated Home or dense button directory.
+
+Consequences: No guarantee/claim of an award or newly completed AI/device linkage. Preserve one Home arrow, no image-origin captions, existing media/calibration, all legacy fragment targets, native controls and accessible state. Main input/process/output presentation is static; authored examples are distinct from verified source. No dashboard behavior, dependency, commit or publication change.

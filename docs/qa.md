@@ -1006,8 +1006,273 @@ Files touched by this mobile revision (separate from pre-existing changes):
 - Owner requested redeployment including the dashboard. Kept the current microsite changes; copied the separate dirty dashboard checkout into `/private/tmp/mirrorting-dashboard-release-20261014` without environment files. Original dashboard source, dirty changes and branch remain untouched. Existing `gh-pages` history is preserved through a temporary clone and normal push.
 - Microsite: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3 test files) and `git diff --check` passed. Existing Node stripTypeScriptTypes experimental warning remains informational.
 - Dashboard copy: `npm run lint`, `npm run typecheck`, `npm test` (19/19), `npm run build -- --configLoader runner` passed. No new dependency or app feature was added for redeployment.
-- Combined output: 64 files including 21 dashboard files and `.nojekyll`. Microsite bundles `main-DeV0XBT5.js` / `main-DdCfdPHp.css`; dashboard bundles `index-Bw3mcNVk.js` / `index-BuD_RRWJ.css`. A SHA-256 output manifest was saved for checking the deployment checkout.
+- Combined output: 64 files including 21 dashboard files and `.nojekyll`. Microsite bundles `main-DgMtsyjB.js` / `main-DdCfdPHp.css`; dashboard bundles `index-Bw3mcNVk.js` / `index-BuD_RRWJ.css`. A SHA-256 output manifest was saved for checking the deployment checkout.
 - Final combined production build was served under `/CarpeDM_EXPO_Microsite/` on temporary local port 4186. Microsite's seven entries and dashboard's seven routes (overview/teams/sessions/reports/devices/incidents/settings) were each checked at 360, 390, 768, 1024, 1280 and 1440×900: 84 combinations, actual viewport widths matched, exactly one H1, no document overflow or broken loaded images. No missing microsite same-page anchors. Normal console warn/error logs were empty.
 - At 390×844, menu Enter opens and Escape closes/restores toggle focus. Uses' native select changes to the onboarding guide; Enter opens the dialogue disclosure. FourFit End selects Posture and ArrowRight wraps to Response. Uses' demo link targets the combined same-site dashboard. Dashboard team action opens the development-team employee view. Reduced-motion preference saves with `.reduce-motion` applied, then was restored. Service-introduction destination points to the existing public microsite.
 - In an isolated fallback copy, removed Hero and hardware images: Home displayed its concept silhouette; mirror/camera/audio displayed their fallback scenes with no visible broken images and no document overflow. Intentionally failed hidden layer requests were excluded from the normal-console check. Release/source assets were not removed. Microsite OS reduced-motion queries were reviewed in source; actual OS setting was not changed.
 - Physical mobile devices, screen reader, physical NFC, live device/API/AI integration and training effectiveness were not tested. The dashboard remains a fixed-example demo. Public release verification is recorded below after publication.
+
+### Public release result
+
+- Deployment commit: `7df10c5a8efb5fc237f19a7746d978438bb42983` on remote `gh-pages`, verified by `git ls-remote`. GitHub Pages latest build reports `built` with null error for this exact commit. All 64 deployment files match the final output SHA-256 manifest.
+- Public Home/Uses and all seven dashboard routes checked at 390 and 1280×900 (18 combinations): actual widths match, exactly one H1, no document overflow or broken loaded images, normal console warn/error logs empty. Public pages load `main-DgMtsyjB.js` and `index-Bw3mcNVk.js`. Uses has the correct absolute same-site dashboard destination; dashboard's service-introduction link targets the public microsite. The new-tab control was clicked, but the browser automation inventory did not expose a popup, so new-tab window creation is not claimed. Both destinations were verified directly.
+- Rebuild identified one concurrent disclosure wording correction (`아래 장치 구성` → `실물 장치`) in System. The committed build differs only by that phrase; final System was rechecked at all six required widths without overflow and the release manifest/bundle references updated.
+- Initial public navigation failed with a browser network error; recovered by opening a fresh background tab in the same browser. One later Pages API read hit automatic approval review timeout, then the permitted retry succeeded.
+- Public capture: `docs/screenshots/redeploy-dashboard-public-1280-20261014.jpg` (1280×900). Temporary viewport override reset.
+- Microsite UI/source snapshot is committed locally as `984fa08a87376f137cfe0b6b7f274a103311ffc5`. Automatic approval review rejected `git push origin main` because source publication to the default branch was not explicitly authorized by the deployment request. It was not retried or bypassed. The authorized deployment push to `gh-pages` succeeded; source commits stay local pending explicit approval. Separate dashboard source remains untouched and unpushed in this run.
+
+## 2026-10-14 — Current repository scope, software-first system and cost positioning
+
+- User confirms interview and job training exist, supplies DMUCarpeDM/2026CarpeDM_EXPO for analysis, and identifies hardware cost as a deployment concern. Read the public default main at adb9355b0da4ef69a6485811ec82ee46cf133239 through GitHub. Older local checkouts differed and Desktop/EXPO had dirty nonverbal changes; neither was used as the current published implementation. No source-repository writes or execution of its app/models/devices.
+- Source-confirmed modes: interview, training and workplace. Interview profiles include full-stack/marketing/sales; current training picker centers on cafe order-taking. Source review covers interaction, sessions, interview/cafe analyzers, analysis/report, voice/expression/posture and NFC/IDPrinter bridge. Presence of code is distinguished from E2E, model accuracy and physical acceptance. Expression remains provisional; current README excludes gaze. Browser pose/hand and local expression inference do not establish Kinect depth as a prerequisite.
+- Corrected future-only interview/training wording, moved the three-mode overview before educational proposals, and clarified Home scope. System now starts with software selection→input→dialogue/analysis→results, preserves hardware assemblies afterward, and distinguishes current software inputs from future/physical claims. Development is improvement/validation of existing capabilities, not a claim that voice/nonverbal paths are absent. No new controls, media, runtime dependencies, collection, backend or scoring logic.
+- Compared primary current Yoodli roleplay and VirtualSpeech interview/education descriptions. They already describe interview/roleplay/feedback. Institutional shared-space practice is a hypothesis to validate, not a proven market gap or competitive advantage. Old product-strategy zero marginal cost/entirely local claims do not describe current cloud/STT/API paths. Old 55-inch BOM estimates were not treated as current installed costs. Venue and lower-cost phased proposals remain analysis, not confirmed deployments/customers/prices.
+- Seven pages × 360/390/768/1024/1280/1440×900 (42) checked against actual dimensions: one H1, header 68 px, no overflow/missing fragment targets/bad loaded images. System's first content section is system; Uses has three current mode rows. At 390×844, context selection switched to onboarding, main button count remains zero, and menu has three links with Escape focus restoration.
+- Reordered mirror assembly checked at 390×844: scroll mode/ready and progress 0.000→1.000 without overflow. Other assembly geometry/hooks and Home door art unchanged. No new forced-media-failure or OS reduced-motion test; previous safeguards remain.
+- npm run lint, separate typecheck, build, three existing Node test files and final diff whitespace checks passed. Existing stripTypeScriptTypes experimental warning unchanged. Default-sandbox HTTP/dev attempts were unavailable; permitted launch reported the existing 5174 listener. Reused it and verified the exact updated page in the browser. No port switch or process termination.
+- Saved mobile-confirmed-practice-modes-390.jpg and mobile-software-system-390.jpg, both 390×844, under docs/screenshots/. Normal browser warn/error count checked separately. A browser approval review timed out; shorter read/capture/interaction calls succeeded. No rejected unsafe action or outstanding approval.
+- No physical NFC/camera/microphone capture, external AI calls, source-app test execution, education study, hardware costing, commit, push or public deployment. Tests above apply to the microsite only.
+- Changed code: src/App.tsx; src/data/content.ts, useCases.ts, development.ts; src/sections/UseCases.tsx/CSS, Development.tsx, SystemArchitecture/SystemArchitecture.tsx. Updated product/design/content/architecture/decisions/QA docs and two screenshots.
+
+### Concurrent UI integration and final refresh
+
+- During final verification, concurrent changes introduced PageTabs and native disclosures and changed the System H1 to “연습을 결과로 연결하는 구조.” Preserved that work. A wait for the prior H1 timed out; it was not a persistent blank-page error. Current full reload renders three practice modes with the correct default topic and no new console warnings/errors. One historical Vite HMR reload error remains from the editing period; total historical console count is not claimed as zero.
+- Fixed the Uses caller's exactOptionalPropertyTypes error by using explicit initialId=uses-practice when no context query is present. Behavior matches the prior default first tab. Final lint, build including typecheck and three existing Node test files passed after the integration.
+- Repeated all seven entries at six required widths (42): one H1, no overflow, valid fragment IDs, no bad loaded images, three Uses mode rows and System default 작동 흐름. ArrowRight selected 장치 구성 and focused its tab; direct #camera-assembly opened the owning topic and aligned its section near 92 px without overflow. The actor's nested hardware tabs are preserved.
+- Earlier software/motion checks describe the pre-tab snapshot. Final screenshots are refreshed against the current UI. This analysis turn did not issue Git commit/push/deploy commands; separate publishing recorded above belongs to concurrent work.
+
+
+## 2026-10-14 — All-page mobile silver glass
+
+- Owner asked to redesign all introduction pages and the separate dashboard for mobile, improve awkward imagery, use clean silver glass and shorten scrolling. Preserved initial dirty docs/screenshots and concurrent source-fact corrections. Initial source/docs backup: `/private/tmp/mirrorting-mobile-before-bpvna09e`. No Git commit, push or public deployment.
+- Unified pale silver canvas, graphite text, bounded full-proportion Hero product, native glass vectors, phone dock and touch controls. Removed generated office/person scenes and raster icon crops from primary reading; archived source assets remain. Service/System/Uses are topic-based; longer education, comparison, device and evidence text stays available in native disclosures.
+- Existing three-item hamburger is preserved. PageTabs supports roving keyboard focus, wrapping arrows, Home/End, one visible topic and fragment/popstate activation. Nested `#camera-assembly` opens both owning tabs and focuses the section at approximately 92 px. Native detail fragments open their ancestors; the skip link focuses main-content.
+- Assembly keeps calibrated assets and the existing curve in natural flow. The curve now follows the visible image stage so a short last section can finish before the document bottom. At 390×844: mirror 0.468→1.000, camera 0.318→1.000, audio 0.318→1.000, all ready. A root-based first attempt could not finish the short mirror topic and was corrected before completion.
+- Final microsite commands: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3), `git diff --check` passed. Node's existing experimental stripTypeScriptTypes warning remains. No dependency added. Final build: main-wuJuHpy3.js / main-RVCQHgGa.css.
+- Dashboard UI was staged and verified without environment files, then 13 reviewed files were applied with pre-write hash guards and backup at `/private/tmp/mirrorting-dashboard-before-mobile-bjiil3_k`. Existing src/components/UI.jsx, executive.css, data and state/model modules match the preserved staged originals. Actual original checkout then passed lint, typecheck, 19/19 tests, production build and diff whitespace check. Its build matches index-BctRIR4u.js / index-DN_bwuum.css. Dashboard typecheck covers existing checked JS modules, not every JSX screen.
+- Combined production output was served locally under `/CarpeDM_EXPO_Microsite/`. Seven introduction entries and seven dashboard routes at 360/390/768/1024/1280/1440×900: 84 combinations, actual dimensions matched, one H1, no document overflow, duplicate IDs, missing same-page fragments or broken loaded images. An early viewport batch affected the other tab and was discarded; only the corrected actual-width matrix is counted.
+- Additional Service/System/Uses/Four-Fit topic states at all six widths: 72 combinations, no overflow or broken loaded images. Visual screenshots were inspected at all six representative widths. Final static pages were fully reloaded after bundle changes; dashboard wordmark computes to rgb(45,64,90). Checked browser console warning/error capture was empty.
+- Interactions: Service arrows/Home and authored-situation selection; Four-Fit End and one visible panel; incoming onboarding query, team guide selection and situation disclosure; three-link menu Enter/Escape/focus restoration; dashboard modal menu/scroll lock/Escape, development-team disclosure→directory, all-team select, employee detail close/focus restoration, 1–4→5–8 pagination, session empty search and recovery, device/output switching, output pagination and report-average disclosure. No stored employee/operation records were edited.
+- Forced-media-failure build copy removes all hardware media, kiosk image and UI capture without touching source assets. Home uses its concept silhouette. Mirror/camera/audio report static/fallback, kiosk uses its silhouette, with no broken visible images or overflow. Reduced-motion CSS/hook handling was reviewed; actual OS preference switching was not emulated.
+- Calculated representative contrast: body #25303e/#f6f8fb 12.56:1; secondary #616d7b/#edf1f6 4.65:1; small Hero caption #586575/#e9edf2 5.05:1; dock #647183/#f1f5fa 4.53:1; dashboard secondary #53657d on silver 4.64–5.39:1. Targeted palette checks, not a full accessibility certification.
+
+Default 390×844 document heights (all detail content remains available through selection/disclosure):
+
+| Entry | Before | After |
+| --- | ---: | ---: |
+| Home | 2817 px | 2019 px |
+| Service | 7117 px | 1429 px |
+| Four-Fit | 2945 px | 1520 px |
+| System | 9564 px | 1638 px |
+| Uses | 6601 px | 1233 px |
+| Team | 3764 px | 2190 px |
+
+- Screenshots in docs/screenshots/: mobile-silver-home-390-20261014.jpg, mobile-silver-dashboard-390-20261014.jpg, silver-home-360-20261014.jpg, silver-service-768-20261014.jpg, silver-fit-1024-20261014.jpg, silver-dashboard-1280-20261014.jpg. Dashboard has its own two screenshots in its docs/screenshots/. Existing unrelated captures are preserved.
+- Local final output also contains the verified dashboard under dist/dashboard, ready for the existing manual combined-release workflow. Original dev addresses remain 5174 (introduction) and 4174 (dashboard); temporary QA server is separate. No deployment step was performed.
+- Limits: actual iPhone/Android, screen reader, 200% text zoom and OS reduced-motion switch remain untested. Hardware/NFC, live AI, real operational data and new education-effect validation were outside this UI work.
+
+Source changes (20 microsite files, compared with the initial backup):
+
+```text
+src/App.tsx
+src/components/MobileNav.tsx
+src/components/PageTabs/PageTabs.tsx
+src/components/PageTabs/PageTabs.css
+src/data/media.ts
+src/main.tsx
+src/sections/Development.tsx
+src/sections/ExperienceFlow/ExperienceFlow.tsx
+src/sections/FourFit.tsx
+src/sections/HardwareAssembly/HardwareAssembly.tsx
+src/sections/HardwareAssembly/HardwareDetailAssembly.tsx
+src/sections/HardwareAssembly/useAssemblyScroll.ts
+src/sections/Hero/Hero.tsx
+src/sections/Hero/Hero.css
+src/sections/SystemArchitecture/SystemArchitecture.tsx
+src/sections/TeamStory.tsx
+src/sections/UseCases.tsx
+src/sections/WorkplacePractice.tsx
+src/styles/showroom.css
+src/styles/silver.css
+```
+
+Product/design/content/architecture/decisions/dashboard-integration/QA documentation was synchronized. Separate dashboard: App.jsx, main.jsx, Overview/Teams/Sessions/Reports/Devices/Incidents pages, new silver-mobile.css, README/QA and two screenshots.
+
+## 2026-10-15 — Digital business card correction
+
+The owner reported awkward UI and explicitly clarified business-card usage. Home/EXPO now mount one compact silver card, with project/team identity, a plain purpose, three primary detail links and a secondary sample-operations link. Detail H1s are short, topic selections use thin underlines and Team folds its design/material explanations without repeating the device or closing pitch. The separate dashboard uses one divided metric panel and simpler filters. No contact details, product facts, measured results or hardware/live integration were invented.
+
+### Commands actually run
+
+- Microsite: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3), `git diff --check` — passed. The last build also re-runs TypeScript.
+- Dashboard staged and original checkout: `npm run lint`, `npm run typecheck`, `npm test` (19/19), `npm run build -- --configLoader runner`, `git diff --check` — passed. Existing typecheck covers the JS helper modules; JSX also passed ESLint and Vite's build. Original App/style hashes match the tested staging source.
+- No new dependencies, commit, push or public deployment. Dependencies were already installed. Original edits were backed up and hash-guarded before applying; company/storage/model/fixture and device-action code were untouched.
+
+### Browser results
+
+- Final combined production preview: `/CarpeDM_EXPO_Microsite/` and `/CarpeDM_EXPO_Microsite/dashboard/` on a temporary loopback QA server. Final bundles: microsite `main-B1fkolDy.js` / `main-GHGH6n9L.css`; dashboard `index-BCrLr7un.js` / `index-B32Kr1HI.css`.
+- Seven introduction entries plus seven dashboard routes, each at 360, 390, 768, 1024, 1280 and 1440 px: **84 combinations passed**. Actual viewport widths verified; no horizontal document overflow, duplicate IDs, missing native fragment targets, visible broken images or multiple H1s.
+- Eleven expanded detail/fragment states at those six widths: **66 combinations passed**, before the final Hero-only contrast/short-height refinement. Included Service journey/devices, 4-Fit comparison, three hardware stages, evidence/future, educational/operations uses and Team material disclosure. These detail styles/logic did not change afterward.
+- Home links to Service/Uses/System and CarpeDM tested by actual clicks. Three removed Home fragments (`home-uses`, `four-fit`, `development`) reach their detail destinations. Header Escape returns visible focus to the menu toggle; topic ArrowRight moves selection and focus. Team design-principle disclosure opens with Enter.
+- Dashboard drawer opens as an accessible dialog, closes with Escape and restores focus; underlying main loses its inert attribute when closed. AI-team and recent-seven-day filters, restoration to all teams/today, priorities/team switching and sample-data dialog work. CSV export and global team selector have explicit accessible names.
+- Dashboard `화면 움직임 줄이기` checked/saved: root `reduce-motion` class and 0s dock transition verified, then restored in the isolated QA origin. OS reduced-motion emulation was unavailable; microsite reduced-motion/static logic remains covered by existing source/tests.
+- Final 360×640 Home: document height **640 px**, all three primary links visible, card bottom at 629 px, horizontal overflow 0. Normal scrolling remains available on even shorter screens and larger text.
+- Existing mirror media removed only in an isolated copy: Home shows the intentional labeled concept silhouette, with no broken img and no horizontal overflow. Original asset preserved. Hero small-text color is #5C6876; it clears 4.5:1 against the conservative darkest #E9EDF2 card surface.
+- Normal production page checks captured no browser console warnings/errors. The intentionally missing fallback media is a separate expected failure test.
+
+390×844 default document heights, previous silver version → this revision:
+
+| Page | Before | After |
+| --- | ---: | ---: |
+| Home / EXPO | 2019 | 844 |
+| Service | 1429 | 1310 |
+| 4-Fit | 1520 | 1451 |
+| System | 1638 | 1529 |
+| Uses | 1233 | 1096 |
+| Team | 2190 | 844 |
+| Dashboard overview | 1740 | 1601 |
+
+### Files and evidence
+
+Source changes for this revision, relative to the turn-start backup:
+
+```text
+src/App.tsx
+src/components/MobileNav.tsx
+src/components/PageTabs/PageTabs.css
+src/data/content.ts
+src/data/media.ts
+src/data/paths.ts
+src/sections/Hero/Hero.css
+src/sections/Hero/Hero.tsx
+src/sections/TeamStory.css
+src/sections/TeamStory.tsx
+src/styles/mobile.css
+src/styles/silver.css
+```
+
+Also updated Home/EXPO HTML metadata, AGENTS.md and product/design/content/architecture/decisions/dashboard-integration/QA documentation. Separate dashboard: App.jsx, silver-mobile.css, README.md, docs/QA.md and one screenshot. The business-card requirement was also saved as a user-requested personal memory note.
+
+Screenshots: `business-card-home-360-20261015.jpg`, `business-card-home-390-20261015.jpg`, `business-card-home-1440-20261015.jpg`, `business-card-team-390-20261015.jpg`, `business-card-dashboard-390-20261015.jpg` under docs/screenshots.
+
+Limits: no real iPhone/Android device, screen reader, 200% browser/text zoom, OS reduced-motion switch, hardware/NFC/live AI, real operations data or new education-effect validation. Contact details and a verified public QR destination remain unsupplied. Local implementation is complete; public hosting was not changed.
+
+## 2026-10-15 — Remove image captions and reduce arrows
+
+- Owner request: remove `도안 기반 AI 콘셉트 / 실물 사진 아님` and similar visible text; use fewer arrows. Shared ProductFrame/SceneFigure and mirror/camera/audio image captions are deleted at the render source. Unused Media.caption data is removed. Neutral design-material wording replaces repeated image-origin warnings in the evidence/team inventory. Image kind/alternatives, asset files, load/error handling and assembly calibration are preserved.
+- Home decorative arrows: **5 → 1**, retained only on `작품 알아보기`. Ordinary menu/footer/detail links omit decorative SVG/Unicode arrows. The technical connection diagram retains its meaningful direction. Secondary card links are centered. Expression subtitle: `표정으로 전하는 태도`.
+- Commands: `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3), `git diff --check` — passed. No dependency change or new feature/state.
+- Production preview under `/CarpeDM_EXPO_Microsite/`: seven base entries plus eight expanded device/evidence states at 360, 390, 768, 1024, 1280 and 1440 px — **90 combinations passed**. Verified actual viewport width, no horizontal document overflow, one H1, no duplicate IDs or visible broken images, target visibility, zero shared/hardware captions and at most one Home arrow. Final bundle: `main-BKY70iFJ.js` / `main-rlvEiIO2.css`.
+- Actual interactions: Home primary link navigates correctly; Tab moves to the secondary link with visible focus; the three-item menu has zero link arrows and Escape restores toggle focus; ArrowRight still changes topic selection/focus; Expression selection shows the revised subtitle.
+- Final 360×640 Home: document height 640, one arrow, zero captions, three 50 px primary/secondary touch targets visible by y=491.
+- Missing mirror asset in an isolated copy: intentional ProductFrame silhouette appears, no broken image and no caption/overflow. Original media is untouched.
+- Normal page console warnings/errors: none captured before the intentional missing-media test. Existing reduced-motion source paths and pure hardware-motion tests remain unchanged; no OS preference emulation claimed.
+- Source hashes confirm useAssemblyScroll.ts, motion.ts, HardwareAssembly.css and scenes.ts unchanged. Separate dashboard source was not edited; its existing production output was restored under ignored dist/dashboard after the microsite build.
+- Screenshots: docs/screenshots/quiet-card-home-390-20261015.jpg and quiet-card-home-1440-20261015.jpg. Prior screenshots are preserved.
+
+Source files changed in this revision:
+
+```text
+src/App.tsx
+src/components/Header/Header.tsx
+src/components/ProductFrame/ProductFrame.css
+src/components/ProductFrame/ProductFrame.tsx
+src/components/SceneFigure/SceneFigure.css
+src/components/SceneFigure/SceneFigure.tsx
+src/data/media.ts
+src/sections/Development.tsx
+src/sections/Evidence.tsx
+src/sections/FourFit.tsx
+src/sections/HardwareAssembly/HardwareAssembly.tsx
+src/sections/HardwareAssembly/HardwareDetailAssembly.tsx
+src/sections/Hero/Hero.css
+src/sections/Hero/Hero.tsx
+src/sections/Problem.tsx
+src/sections/SystemArchitecture/SystemArchitecture.tsx
+src/sections/TeamStory.tsx
+src/sections/UseCases.tsx
+src/styles/silver.css
+```
+
+Updated README.md, AGENTS.md and product/design/content/architecture/decisions/QA records to supersede the earlier visible-caption requirement. No commit, push or public deployment. Real device, screen-reader and 200% zoom checks were not run in this refinement.
+
+## 2026-10-15 — Black-glass visual refinement
+
+- Owner requested a black-background glassmorphism UI after reviewing Service. Changed only seven existing CSS files and theme-color metadata in seven HTML entries. Digital-card dimensions, readable topic/disclosure flow, no image captions and one Home primary arrow remain. Existing dirty work was backed up under `/private/tmp/mirrorting-black-glass-before-ze2hgy38`; no TS/TSX or media changed in this refinement.
+- Material: #06080c canvas, dark translucent gradients, thin silver edges, #f2f4f8 text and #b0b8c6 secondary text. Main action has dark ink on silver. Reading panels and native controls use the same dark palette. Dashboard mirrors this through its existing final stylesheet, with status colors retained semantically.
+- `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3) and `git diff --check` passed. Final microsite bundle: `main-GPP5UoSQ.js` / `main-Cc5-7uac.css`. Existing Node stripTypeScriptTypes experimental warnings are not app/browser errors.
+- Combined production preview: 21 microsite states (seven base entries plus 14 expanded topics/targets) and seven dashboard routes × 360, 390, 768, 1024, 1280, 1440 × 900: **168 combinations passed**. Actual widths matched; one H1, no horizontal document overflow, duplicate IDs, visible broken images, missing selected fragment targets or repeated image captions. Home arrow count remains one.
+- Inspected material/foreground styles, including below-fold rendered text and expanded device explanations. Fixed the remaining dark specification link, assembly hint/feature labels, white incident cards, selected incident filter and muted report labels. A read-only contrast screen found no flagged rendered HTML text in the matrix; gradient blending was approximated, so this is not a complete WCAG audit. Targeted flat pairs: #b0b8c6 / #1c222c = 8.00:1; #9ba6b7 / #1c222c = 6.49:1; #151a23 / #c8d0dc = 11.22:1.
+- Production CSS initially retained only the WebKit backdrop alias. Put the prefixed declaration before the standard declaration, keep valid feature queries and confirm the compiled standard property. After rebuilding, actual computed effects: card blur(24px), header blur(24px) saturate(1.3), dialogue panel blur(16px). Post-build representative screenshots and the dashboard guide dialog were rechecked; its step counter was corrected to the shared readable color.
+- Actual interactions at 390 px: native conversation select, topic ArrowRight/focus ring, menu opening/Escape/focus return, Expression tab and observation disclosure, dashboard drawer modal semantics/Escape/focus return, data dialog/Escape/focus return, session empty search/clear recovery and page 1–4 → 5–8. Dashboard data/privacy settings and desktop guide dialog also retain dark surfaces/readable text. No operational record edits or resets.
+- Dashboard QA-origin movement preference was enabled/saved, computed transition duration 0s verified, then disabled/saved back to the original state. Microsite hardware source paths for reduced motion/failure and all calibrated transforms remain unchanged; motion tests pass. No OS preference test is claimed.
+- Final 360×640 card: document height 640; three action targets 50 px high, all visible by y=491. Isolated missing mirror asset: intentional CSS silhouette, zero visible broken images/captions/overflow. Original media is preserved. Normal-page console warn/error capture was empty before the expected missing-asset 404.
+- Screenshots: `black-glass-home-360-20261015.jpg`, `black-glass-home-390-20261015.jpg`, `black-glass-home-1440-20261015.jpg`, `black-glass-service-390-20261015.jpg`, `black-glass-dashboard-390-20261015.jpg`, `black-glass-dashboard-1440-20261015.jpg` under docs/screenshots.
+- Updated current design/architecture, content/product scope, decisions, dashboard-integration, README and repository instructions. No contact details or capability claims added. No commit, push or public deployment.
+- Limits: no physical iPhone/Android, screen reader, 200% zoom or OS reduced-motion test; no hardware/NFC/live AI/API validation. Browser checks cover the local static introduction and sample dashboard.
+
+Files in this refinement: `src/styles/{tokens,globals,showroom,silver}.css`, `src/sections/{Hero/Hero,WorkplacePractice}.css`, `src/components/PageTabs/PageTabs.css`, seven HTML entries, the documents listed above and new screenshots. Separate dashboard source changes: `src/styles/silver-mobile.css`, `index.html`, README and QA record.
+
+Original dashboard validation: applied four reviewed files/two screenshots with pre-write hashes and backup `/private/tmp/mirrorting-black-dashboard-before-vyi8clt8`. Original lint/typecheck/19 tests/build/diff checks passed; source and bundle bytes match the reviewed stage. Kept the tested dashboard output under ignored `dist/dashboard/`. Original-source 5174 Home/Service and 4174 overview were inspected after applying: dark canvas, dark color-scheme and computed glass materials are active. No public hosting changed.
+
+## 2026-10-15 — Guided exhibition introduction and implementation evidence
+
+### Problem and scope
+
+Owner feedback: the simplified presentation is too sparse and unfriendly. Keep the compact digital business card, black-glass palette, no repeated image-origin captions and one Home primary arrow, while restoring purpose, first-visit guidance, meaningful process detail and verifiable sources. Existing src/docs/README/instructions were backed up at `/private/tmp/mirrorting-friendly-before-sxwhwsb0`; prior dirty work is preserved. No dashboard source or runtime dependency changed.
+
+### What changed
+
+- Home explains speaking at the mirror and reflecting through four perspectives. Each of its three destinations has a helper describing what the visitor can read.
+- Service defaults to `작품 이해`: purpose, a three-step visual practice loop, mirror rationale, a suggested reading path and two optional FAQs. The two-device topic shows device roles/images before detailed disclosures. Old fragments including #project/#practice/#kiosk/#mirror still open the owning topic.
+- Outer topic descriptions explain the selected subject and supply aria-describedby. Menus describe their destinations; one quiet onward-reading link connects the details. Existing tab focus/history/fragment code stays.
+- System combines the existing mirror illustration and four software stages in one bounded panel. Detailed input/processing/output stays accessible in a native disclosure. The visible source-versus-onsite scope is clear.
+- Evidence links directly to setupCatalog.js, interaction.py and report.py at the reviewed commit adb9355b0da4ef69a6485811ec82ee46cf133239. The three files were read through the GitHub connector on 2026-10-15; a services directory listing confirmed the exact report path. Source structure is distinct from hardware/accuracy validation. The general web opener was unavailable; no runtime/source claim relies on its failed fetch.
+- Authored answer explanations follow all four conversation choices. FourFit exposes existing retry guidance. Uses adds authored mode questions/practice goals. Team's three design criteria are visible by default with references. No invented people, contact, customer, outcome or award data.
+- Browser/OG titles and descriptions match the visible detail subjects; no-script copy covers all three source-confirmed software modes.
+
+### Checks actually run
+
+- `npm run lint`, `npm run typecheck`, `npm run build`, `node --test tests/*.mjs` (3/3) and `git diff --check` passed. Final bundle: `main-XusuAFll.js` / `main-9_Eell8k.css`; 78 modules. No added package. Node's existing stripTypeScriptTypes experimental notices are separate from browser errors.
+- Final combined static preview under `/CarpeDM_EXPO_Microsite/`: 24 public states × 360/390/768/1024/1280/1440×900 = **144 combinations**. Seven default entries plus 17 selected/expanded/legacy targets. Actual viewport dimensions matched; each had one H1, no horizontal document overflow, duplicate IDs, visible broken images or missing/hidden URL targets. Shared/hardware origin captions remain absent; Home retains one arrow.
+- Read-only foreground/surface screening covered rendered HTML, including expanded sections; no low-contrast flag in that screen. Gradient blending is approximate, so this is not a complete WCAG audit. Existing dark/silver palette is retained.
+- 390×844 reading flow: Home primary link → Service's `작품 이해` → `질문 하나부터 읽어보기` opens/focuses #service-practice. All four native situation options change the question and matching three-part explanation, with no overflow. PageTabs End/Home selects/focuses the correct topic and exposes its description. Menu descriptions are present; links are at least 87 px high; Escape returns focus to the toggle.
+- System source link opens the evidence topic; three direct code URLs match the reviewed files/commit. Source inventory disclosure opens the capture. The four stage explanations each include 입력/처리/결과. FourFit End selects Posture and its concrete next-practice text. All three education contexts update the selected guide.
+- Final fresh production tab captured **zero console warnings/errors** across defaults, evidence, capture and the full 144-state matrix. Earlier development HMR briefly reported the not-yet-written DeviceOverview export during incremental editing; completed source, clean build and final production tab resolve it.
+- Home at 360×640: document height 640, one arrow; all three 67 px action targets are visible by y=505. The 390×844 card also stays within one screen. No copy clipping or fixed-height reading container added.
+- Isolated fallback build omitted the assembled mirror, kiosk and workplace capture. Home, Service overview/device topic, System overview and capture target show the intended silhouettes or accessible capture fallback, with no visible broken image, overflow or flagged text. Original media is intact; expected 404s are separate from normal console checks.
+- SHA comparison against the current-task backup confirms ProductFrame.tsx, media.ts and every file under HardwareAssembly are unchanged. Existing reduced-motion/static/failure paths and calibrated transforms stay; motion tests pass. New explanation panels are static. OS reduced-motion, real phone browsers, screen reader and 200% zoom were not exercised.
+- Existing dashboard build was restored under ignored `dist/dashboard/` after the main build. No new dashboard behavior or live integration check is claimed. No commit, push or public release.
+
+### Files in this refinement
+
+```text
+src/App.tsx
+src/components/Header/Header.tsx
+src/components/PageTabs/PageTabs.tsx
+src/components/PageTabs/PageTabs.css
+src/data/content.ts
+src/data/experience.ts
+src/data/paths.ts
+src/data/projectEvidence.ts
+src/data/useCases.ts
+src/sections/Evidence.tsx
+src/sections/ExperienceFlow/ExperienceFlow.tsx
+src/sections/FourFit.tsx
+src/sections/Hero/Hero.tsx
+src/sections/Hero/Hero.css
+src/sections/Introduction/Introduction.tsx
+src/sections/Introduction/Introduction.css
+src/sections/SystemArchitecture/SystemArchitecture.tsx
+src/sections/SystemArchitecture/SystemArchitecture.css
+src/sections/TeamStory.tsx
+src/sections/UseCases.tsx
+src/sections/WorkplacePractice.tsx
+src/styles/silver.css
+```
+
+Seven HTML entries receive aligned metadata/no-script text. Updated AGENTS, README and product/design/content/architecture/decisions/QA records. Screenshots: `project-guide-{home,service,system,evidence,team,uses}-390-20261015.jpg` and `project-guide-{home,system}-1440-20261015.jpg`.
+
+Limits for competition submission: real assembled-device photos, actual analysis/result evidence and a cleared experience video remain unsupplied. This local UI revision does not establish hardware/AI acceptance, validated educational effects or an award.
+
+Final verification note: after the last no-script/metadata alignment and 16 px experience-step body correction, all six experience-flow widths were rechecked and replaced in the 144-state matrix (no overflow/contrast flags). Actual original-source 5174 /system/ was reloaded: correct title/H1 and all four map stages are present. Home's original-source tab also reloads successfully. Existing live previews remain available; temporary QA surfaces are separate.

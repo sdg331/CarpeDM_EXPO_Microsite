@@ -20,7 +20,7 @@ body {
 
 ::selection {
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-bg);
 }
 
 a {
@@ -87,14 +87,7 @@ summary[id] {
 }
 
 .section--light {
-  --color-bg: #fff;
-  --color-surface: #f5f7fa;
-  --color-text: #101828;
-  --color-secondary: #475467;
-  --color-subtle: #667085;
-  --color-border: #e4e7ec;
-  --color-border-strong: #d0d5dd;
-  background: var(--color-bg);
+  background: transparent;
   color: var(--color-text);
 }
 
@@ -166,7 +159,7 @@ summary[id] {
 }
 
 .section-title > span {
-  color: #69717e;
+  color: var(--color-secondary);
 }
 
 .text-link .arrow-icon {
@@ -183,8 +176,8 @@ summary[id] {
   height: 24px;
   flex: 0 0 24px;
   border-radius: 50%;
-  background: #e9ebef;
-  color: #555f70;
+  background: var(--color-surface-strong);
+  color: var(--color-text);
 }
 
 .disclosure-plus::before, .disclosure-plus::after {
@@ -215,7 +208,7 @@ details[open] > summary .disclosure-plus::after {
   border: 1px solid var(--color-border);
   border-left: 3px solid var(--color-accent);
   border-radius: 0;
-  background: #fff;
+  background: var(--color-surface);
   color: var(--color-secondary);
 }
 

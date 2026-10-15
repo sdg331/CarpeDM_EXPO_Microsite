@@ -1,4 +1,3 @@
-import { Arrow } from '../components/Arrow';
 import { siteRoot } from '../data/paths';
 import { DoorTransition } from './DoorTransition/DoorTransition';
 
@@ -12,7 +11,7 @@ export function Problem() {
         </div>
         <div className="story-section__body">
           <p className="body-copy">첫 보고를 하거나 갑작스러운 질문을 받으면 무슨 말을 해야 할지 막막할 때가 있습니다. 실수를 설명할 때도 그렇습니다. 이 작품은 그런 대화를 역할극으로 연습하는 데서 출발했습니다.</p>
-          <a className="text-link" href={`${siteRoot}service/#practice`}>어떤 대화를 연습하나요<Arrow /></a>
+          <a className="text-link" href={`${siteRoot}service/#practice`}>어떤 대화를 연습하나요</a>
         </div>
         <DoorTransition />
       </div>

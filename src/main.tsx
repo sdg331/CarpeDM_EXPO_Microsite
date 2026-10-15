@@ -7,6 +7,7 @@ import App, { type PageKind } from './App';
 import './sections/WorkplacePractice.css';
 import './styles/showroom.css';
 import './styles/mobile.css';
+import './styles/silver.css';
 
 const root = document.getElementById('root');
 if (!root) throw new Error('Missing application root');

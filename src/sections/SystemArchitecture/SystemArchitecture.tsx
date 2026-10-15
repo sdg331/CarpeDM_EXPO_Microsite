@@ -1,5 +1,7 @@
 import { Arrow } from '../../components/Arrow';
 import { Reveal } from '../../components/Reveal/Reveal';
+import { ProductFrame } from '../../components/ProductFrame/ProductFrame';
+import { media } from '../../data/media';
 import { siteRoot } from '../../data/paths';
 import './SystemArchitecture.css';
 
@@ -35,10 +37,10 @@ const hardwareReferences = [
 ] as const;
 
 const systemJourney = [
-  ['01', '연습 · 상황 선택', '면접·직업훈련·직장대화와 해당 상황 선택'],
-  ['02', '질문 · 답변', '음성·직접 입력과 카메라 관찰을 수집'],
-  ['03', '대화 진행 · 분석', '질문·목표의 진행 상태와 네 관점을 분석'],
-  ['04', '결과 확인 · 재연습', '발언 근거·측정 상태·다음에 바꿀 점 확인'],
+  { title: '상황 선택', role: '연습할 종류와 장면', input: '면접·직업훈련·직장대화 중 선택한 모드와 상황', process: '모드에 맞는 질문·목표와 대화 흐름을 준비합니다.', output: '어떤 상대와 무엇을 연습할지 정한 대화 맥락' },
+  { title: '답변 입력', role: '말·글·카메라 관찰', input: '사용자의 음성 또는 직접 입력, 유효한 영상 관찰', process: '답변 내용과 음성·표정·자세의 관찰 정보를 구분해 다룹니다.', output: '답변 기록과 분석에 사용할 수 있는 입력 정보' },
+  { title: '대화 · 분석', role: '진행 상태와 네 관점', input: '질문·목표, 답변과 수집된 관찰 정보', process: '대화가 어디까지 진행됐는지와 4-Fit 관점을 각각 정리합니다.', output: '대화 진행 기록, 분석 근거와 측정 상태' },
+  { title: '결과 · 재연습', role: '근거와 다음 연습 문장', input: '대화·분석 결과와 측정 가능한 항목', process: '관찰한 내용, 해석, 다음에 시도할 문장을 리포트로 구성합니다.', output: '돌아볼 지점과 다음 연습에 참고할 제안' },
 ] as const;
 
 const feedbackInputs = [
@@ -53,15 +55,25 @@ export function SystemArchitecture() {
     <section id="system" className="section section--light system-section" tabIndex={-1} aria-labelledby="system-heading">
       <div className="container">
         <Reveal className="system-section__heading">
-          <div><p className="section-kicker">연습 소프트웨어의 흐름</p><h2 id="system-heading" className="section-title">상황에 맞춰 답하고,<br /><span>결과의 근거를 확인합니다.</span></h2></div>
-          <p className="body-copy">연습 종류와 상황을 고르고 질문에 답합니다. 대화의 진행 상태와 카메라·음성 관찰을 분석해, 근거와 측정 상태가 포함된 결과로 정리하는 구조입니다.</p>
+          <div><h2 id="system-heading" className="section-title">한눈에 보는 작동 구조.</h2></div>
         </Reveal>
 
-        <ol className="system-journey" aria-label="코드에서 확인한 연습 소프트웨어 흐름">
-          {systemJourney.map(([number, title, role]) => <li key={number}><span>{number}</span><strong>{title}</strong><small>{role}</small></li>)}
-        </ol>
+        <div className="system-map">
+          <div className="system-map__device"><ProductFrame kind="mirror" media={media.mirror} /><p>화면 · 마이크 · 카메라<small>연습을 마주하는 공간</small></p></div>
+          <div className="system-map__flow"><ol className="system-journey" aria-label="코드에서 확인한 연습 소프트웨어 흐름">
+            {systemJourney.map((step, index) => <li key={step.title}><span aria-hidden="true">0{index + 1}</span><div><strong>{step.title}</strong><small>{step.role}</small></div></li>)}
+          </ol><p className="system-map__perspectives">응답 · 목소리 · 표정 · 자세</p></div>
+        </div>
 
-        <Reveal className="system-diagram-wrap">
+        <div className="system-status" aria-label="구현 근거와 검증 범위">
+          <div><span>코드에서 확인</span><p>연습 모드, 대화 진행 관리,<br />4-Fit 리포트 구조</p></div>
+          <div><span>현장에서 검증할 부분</span><p>등록·NFC·출력의 연결,<br />분석 정확도와 교육 효과</p></div>
+        </div>
+        <a className="text-link system-source-link" href="#system-evidence">확인한 코드와 자료 보기</a>
+
+        <details className="compact-disclosure"><summary>각 단계에서 무엇이 오가나요?<span className="disclosure-plus" aria-hidden="true" /></summary><div className="system-stage-details">{systemJourney.map((step, index) => <article key={step.title}><h3><span aria-hidden="true">0{index + 1}</span>{step.title}</h3><dl><div><dt>입력</dt><dd>{step.input}</dd></div><div><dt>처리</dt><dd>{step.process}</dd></div><div><dt>결과</dt><dd>{step.output}</dd></div></dl></article>)}</div></details>
+
+        <details className="compact-disclosure"><summary>키오스크와 미러의 연결 구조<span className="disclosure-plus" aria-hidden="true" /></summary><Reveal className="system-diagram-wrap">
           <ol className="system-diagram">
             <li className="system-device">
               <p className="eyebrow">01 / ENTRY</p>
@@ -95,17 +107,17 @@ export function SystemArchitecture() {
               </ul>
             </li>
           </ol>
-        </Reveal>
+        </Reveal></details>
 
-        <p className="scope-note system-section__scope">소프트웨어의 흐름은 프로젝트 코드에서 확인했습니다. 실물 장치의 현장 연동과 분석 정확도·교육 효과는 별도 검증이 필요합니다. 운영 관리 화면은 독립된 예시 데모입니다.</p>
+        <p className="scope-note system-section__scope">공개된 프로젝트 코드를 기준으로 정리했습니다. 이 소개 페이지에서 음성·영상을 수집하거나 AI 분석을 실행하지 않습니다. 운영 관리 화면은 독립된 예시 데모입니다.</p>
 
-        <div className="system-feedback" aria-labelledby="system-feedback-heading">
+        <details className="compact-disclosure"><summary>입력과 4-Fit 분석의 관계<span className="disclosure-plus" aria-hidden="true" /></summary><div className="system-feedback" aria-labelledby="system-feedback-heading">
           <div className="system-feedback__heading"><div><p className="section-kicker">입력에서 피드백으로</p><h3 id="system-feedback-heading">입력과 4-Fit 분석의 관계</h3></div><p className="body-copy">현재 분석 경로의 입력과 돌아볼 내용을 정리했습니다. 시선 측정은 사용하지 않으며, 참고값과 미측정 상태를 구분합니다.</p></div>
           <dl className="system-feedback__list">
             {feedbackInputs.map(([name, label, input, reflection]) => <div key={name}><dt><strong lang="en">{name}</strong><span>{label}</span></dt><dd><div><span>입력 · 맥락</span><p>{input}</p></div><div><span>돌아볼 내용</span><p>{reflection}</p></div></dd></div>)}
           </dl>
-          <div className="section-end"><p className="scope-note">센서 입력과 해석은 별도 단계입니다. 음성 인식, 표정·신체 분석, 모델과 판단 기준은 실제 동작 검증이 필요합니다.</p><a className="text-link" href={`${siteRoot}four-fit/`}>4-Fit 설명과 대화 예시 보기<Arrow /></a></div>
-        </div>
+          <div className="section-end"><p className="scope-note">센서 입력과 해석은 별도 단계입니다. 음성 인식, 표정·신체 분석, 모델과 판단 기준은 실제 동작 검증이 필요합니다.</p><a className="text-link" href={`${siteRoot}four-fit/`}>4-Fit 설명과 대화 예시 보기</a></div>
+        </div></details>
 
         <details className="hardware-details">
           <summary id="hardware-details">
@@ -137,7 +149,7 @@ export function SystemArchitecture() {
               <p className="scope-note">상단 중앙 카메라와 왼쪽 마이크, 우측 NFC, 후면 PC BOX, 하단 두 스피커와 이동식 베이스의 배치를 표현했습니다. 도안 수치는 프레임 폭 890 mm, 바닥부터 상단까지 1705 mm, 베이스 950 × 600 mm입니다. 최종 제작 치수와 설치 상태를 보증하지 않습니다.</p>
               <h3 className="hardware-references__spec-heading">제조사 공개 사양과 설계 역할</h3>
               <p className="scope-note">제조사가 공개한 장비 사양입니다. 실제 분석 성능이나 프로젝트에서 활성화된 기능을 의미하지 않습니다.</p>
-              <dl>{hardwareReferences.map(item => <div key={item.name}><dt>{item.name}</dt><dd><p>{item.fact}</p><a href={item.url} target="_blank" rel="noreferrer">{item.source} <span aria-hidden="true">↗</span></a></dd></div>)}</dl>
+              <dl>{hardwareReferences.map(item => <div key={item.name}><dt>{item.name}</dt><dd><p>{item.fact}</p><a href={item.url} target="_blank" rel="noreferrer">{item.source}</a></dd></div>)}</dl>
             </div>
           </div>
         </details>

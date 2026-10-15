@@ -3,56 +3,56 @@
 ## Direction
 A product introduction with Apple-like restraint and Toss-like Korean clarity, using original assets and an original layout. Show the object before explaining the technology. No copied brand assets, fictitious product claims, metrics, dashboards, or interface simulations.
 
-The current owner direction separates atmosphere from explanation: Home retains its approved dark silver-glass showroom; all five detail pages use a restrained silver-glass treatment with opaque reading surfaces. The current owner request on 2026-10-13 supersedes the previous flat blue-control direction. Historical entries below record past decisions, not exceptions to this rule.
+The latest owner direction (2026-10-15) uses one mobile-first black-glass system across Home, all five detail pages and the separate dashboard. Home remains a digital business card. This supersedes the earlier pale-silver canvas and white reading surfaces. Use a near-black canvas, light readable type, dark translucent panels and fine silver edges. Bounded blur progressively enhances the card, navigation and reading panels; text stays fully opaque and every surface has a non-blur fallback.
 
-| Element | Home / EXPO home | Service, Four-Fit, System, Uses, Team |
-| --- | --- | --- |
-| Canvas | Black / charcoal with silver highlights | White / cool grey, dark readable text |
-| Header | Dark translucent glass, silver service action | Translucent pale silver, thin divider, silver service action |
-| Reading surfaces | Short visual introduction | Opaque reading surfaces; glass edges and gradients on navigation and selections |
-| Selection and actions | Silver emphasis | Graphite selection rule and text, silver selected surfaces; selection also identified semantically |
-| Typography and spacing | Large expressive promise, minimal copy | Clear hierarchy, Korean copy, open spacing and thin rules |
-| Artwork | Approved silver-glass scenes, icons and physical products | Same approved artwork in bounded image stages; dark imagery may not turn explanatory sections dark |
-| Motion | Existing doorway reveal | Existing hardware assembly only; no additional decoration |
+| Element | Current treatment |
+| --- | --- |
+| Canvas | Near-black #06080C with quiet graphite linear gradients |
+| Header and phone dock | Dark translucent glass with a non-blur fallback |
+| Reading surfaces | Dark glass, light secondary copy, thin silver dividers |
+| Selection | Subtle light fill and border for selected topic/dock controls, with semantic state |
+| Product imagery | Existing drawing-based mirror, contained at its natural proportions |
+| Illustration | Native SVG silver-glass symbols; no cropped icon atlas or generated people in the primary flow |
+| Motion | Existing assembly in a bounded, selected normal-flow stage; reduced-motion and media failure stay static |
 
-Functional arrows, menu controls and focus indicators stay simple on every page. Artwork remains conceptual and captions stay visible. Do not copy Apple/Toss assets or add their brand names to visitor UI.
+Use one decorative arrow on the main Home action. Ordinary links rely on clear text, styling and visible focus; menu and disclosure controls remain. Technical connection diagrams may retain a meaningful direction arrow. Remove repeated image captions. Artwork provenance remains in metadata, descriptive alternatives and project documentation. Do not copy Apple/Toss assets or add their brand names to visitor UI.
 
-Text selection on Home uses dark #15171B text against the silver highlight. The light Service mirror explanation uses the shared #1963DA action link, without the previous pale link override intended for a dark canvas.
+Text selection uses dark text against a silver highlight. Reading text and links inherit the dark theme; the main Home action uses dark text on a silver surface.
 
 ## Page structure
-1. Home: mobile-first introduction, applications with the existing opening-door scene, proposed development directions, and the restored compact four-icon 4-Fit visual. Detailed dialogue, reflection questions and six-step journey belong to detail pages. The unavailable video control is omitted; footage remains in the System evidence inventory.
-2. Service: native contents, four selectable authored conversations, the moved mirror-interface rationale, six designed steps and retry guidance, then Kiosk → Smart Mirror roles in experience order.
-3. Four Fit: four accessible tabs, dimension-specific reflection points, an authored answer comparison and three retry steps. No score or measured result.
-4. System: software selection/input/dialogue/analysis/results first, then the preserved mirror → camera → audio assemblies, evidence, proposed improvements and technology. The device diagram and input/reflection descriptions distinguish source-confirmed software from physical integration and accuracy validation. Operations remains a separate example demo.
-5. Uses: three source-confirmed software modes first, then three proposed educational application contexts selected with one native select. One visible guide contains three situations, four proposed training steps, four reflection questions, learner/educator takeaways, preparation and development needs. Four shared dialogue examples sit in one native disclosure; operations remains a separate example demo.
-6. Team: CarpeDM's purpose, three design principles, the drawing-based device concept and an honest project-material inventory.
+1. Home: a single compact project card with CarpeDM/team link, 4-Fit MirrorTing name, AI smart mirror description, three practice modes and the contained drawing-based mirror. Main links are 작품 알아보기, 활용 장면 and 기술과 자료. The sample operations link is secondary. No header/dock/repeated sections compete with the card. Keep a horizontal card on desktop and a compact portrait composition on phones; allow normal scrolling on short screens and zoom.
+2. Service: four topics, beginning with project understanding and a short visual practice loop, then authored dialogue, the six-step designed journey and two devices. Longer device roles expand on demand.
+3. Four Fit: four accessible tabs with dimension-specific reflection. The authored comparison and retry steps are available in a native disclosure. No score or measured result.
+4. System: software selection/input/dialogue/analysis/results first, with separate topics for selected mirror/camera/audio assemblies, evidence and proposed improvements/technology. The device diagram and input/reflection descriptions distinguish source-confirmed software from physical integration and accuracy validation. Operations remains a separate example demo.
+5. Uses: three source-confirmed software modes first, then three proposed educational application contexts selected with one native select. One selected education guide retains three situations, four training steps, reflection questions, takeaways, preparation and development in six disclosures. Four shared dialogue examples sit in one native disclosure; operations remains a separate example demo.
+6. Team: CarpeDM's purpose followed by three visible design principles and one disclosure for project materials. Avoid repeating the Home device and closing pitch.
 
-The icon-only hamburger exposes 작품 소개, 활용 장면 and 기술과 발전 방향. The brand returns home; Service has quiet text references to Four-Fit and Team. Every page adapts automatically to viewport width. Remove mobile-version selection links; `/expo/` is only a compatibility entry displaying the same responsive homepage. Labels can be refined after visitor testing.
+On detail pages, the icon-only hamburger exposes 작품 소개, 활용 장면 and 기술과 자료. The phone dock returns to 명함 and those three subjects; dashboard access stays on the card and Uses operations topic. The brand returns home; Service has quiet text references to Four-Fit and Team. Every page adapts automatically to viewport width. Remove mobile-version selection links; `/expo/` is only a compatibility entry displaying the same responsive homepage. Labels can be refined after visitor testing.
 
 ## Foundations
-- Detail text: #1D1D1F, body #606773. Home text: #F4F5F7, secondary #B8BDC5.
-- Detail canvas: #FFFFFF, alternate surface #F1F2F4. Home canvas: #050506 / #101114, monumental dark Hero and light HTML copy. Service Smart Mirror explanation is white; dark source imagery remains in bounded media stages.
-- Detail primary action/selection: #39465A, hover #202B3B; silver actions use dark text. Home actions use the scoped silver surface with dark text.
-- Graphite rules and semantic attributes indicate detail-page action/selection. Four approved silver-glass icons keep their existing artwork, Korean/English labels and conceptual scope on every page.
+- Shared text: #F2F4F8; secondary #B0B8C6; subtle #9BA6B7. Keep normal-text contrast on the darkest and lightest reading panels.
+- Shared canvas: #06080C, #11151C surfaces, white-alpha glass gradients and thin white-alpha rules. Source imagery remains inside bounded media stages.
+- Primary Home action: satin silver with dark text. Secondary links and selected controls use light text on dark glass; hover increases the surface brightness slightly.
+- Silver rules and semantic attributes indicate detail-page action/selection. Four approved silver-glass icons keep their existing artwork, Korean/English labels and conceptual scope on every page.
 - Font: existing local Pretendard/system stack. No remote fonts or new runtime dependencies.
-- Hero promise: 29–64 px with a smaller lead-in; section titles roughly 30–60 px; body 16–17 px. Keep readable Korean line lengths and intentional line breaks.
-- Content width: 1216 px; fluid 20–80 px gutters. Shared section spacing: 72–112 px according to content rather than identical blocks.
+- Project name: 32–56 px; compact detail H1s 27–46 px; section titles roughly 26–36 px; body 16–17 px. Keep readable Korean line lengths and intentional line breaks.
+- Detail content width: 1216 px with fluid gutters. Card width: up to 900 px, up to 420 px on phones. Shared section spacing: 28–56 px according to content.
 
 ## Product imagery
-Use local WebP renders. Home, Service and Team share the drawing-based completed mirror used in System, with complete proportions. Service uses its existing alpha directly on the white explanation section; Home retains its dark showroom, while Team and System retain neutral stages. The monumental Hero keeps its separately approved concept; Kiosk retains the supplied render. No fake screen content or assembled-device photography claim.
+Use local WebP renders. Home and Service share the drawing-based completed mirror used in System, with complete proportions. Service uses its existing alpha directly on the dark explanation section; Home uses the contained mirror beside the project identity; System retains neutral stages. Team focuses on its purpose without repeating the product image. Hero reuses the drawing-based assembled mirror at its full proportions; Kiosk retains the supplied render. The monumental Hero source remains archived. No fake screen content or assembled-device photography claim.
 
-Always show the concept caption. Drawing-based media specifies “설계 도안 기반 AI 생성 3D 콘셉트 · 실제 촬영 이미지가 아닙니다.” Other concepts retain the generic caption. Missing media uses a labeled CSS silhouette; the mirror fallback reflects upper inputs, lower speakers and a broad base. Hero is eager-loaded; details are lazy-loaded. Intrinsic dimensions reserve space.
+Product and scene images do not render AI/concept/non-photograph captions. Keep source classification and descriptive alternatives accurate; use neutral design-material wording in the evidence inventory. Missing media uses a labeled CSS silhouette; the mirror fallback reflects upper inputs, lower speakers and a broad base. Hero is eager-loaded; details are lazy-loaded. Intrinsic dimensions reserve space.
 
 ## Original glass icons
-`GlassIcon` implements three SVG illustrations: identification card, mirror and voice bubbles. Overlapping translucent shapes, white edge highlights, gentle color gradients, and a small shadow convey glass without blurring text. SVG IDs use React `useId` so instances cannot collide. Icons are decorative, marked `aria-hidden`, and paired with meaningful text. No raster asset, WebGL, icon package or looping animation is needed.
+`GlassIcon` implements the four decorative 4-Fit vectors: Response, Voice, Expression and Posture. Overlapping translucent shapes, white edge highlights, gentle color gradients, and a small shadow convey glass without blurring text. SVG IDs use React `useId` so instances cannot collide. Icons are decorative, marked `aria-hidden`, and paired with meaningful text. No raster asset, WebGL, icon package or looping animation is needed.
 
 ## Interaction and accessibility
-- Compact translucent sticky header, four real section links, and an accessible mobile disclosure.
-- Pill primary CTA; simple blue text links. At least 44 px action targets and visible keyboard focus.
+- Compact translucent sticky header and an accessible three-link disclosure on details; four direct links in the phone dock.
+- A silver primary action with dark ink on Home; light text links on dark detail pages. At least 44 px action targets and visible keyboard focus.
 - The homepage shows a concise visual introduction; Service carries the conversation selector, mirror rationale, six-step intended flow and device detail. Conversation selection uses native buttons with aria-pressed and a polite live region. 4-Fit uses roving-focus tabs, ArrowLeft/ArrowRight wrapping, Home/End, and hidden inactive panels. Both interactions explain authored content without simulating AI. Native `details/summary` remains for hardware and technology, with visible plus/minus affordances.
 - One-time progressive reveals only. Content stays visible before initialization; reduced-motion removes transitions and smooth scroll.
 - Semantic landmarks, one H1, logical headings, descriptive image alternatives and Korean document language.
-- Mobile stacks copy and devices; situation options form a 2×2 grid, while all four 4-Fit tabs remain visible above one stacked panel. Tablet preserves layout without truncating headlines or navigation.
+- Home pairs identity and a contained device on phones. Practice situations use one labeled native select; all four 4-Fit tabs remain visible above one stacked panel. Tablet preserves layout without truncating headlines or navigation.
 - Validate 360, 390, 768, 1024, 1280 and 1440 px. Record actual results and limitations in `qa.md`.
 
 ## 2026-10-05 — Monumental Hero
@@ -261,3 +261,36 @@ The utilization expansion adds detail after the existing context selector. Use t
 ## 2026-10-14 — Show implemented modes and software flow first
 
 Correct interview and job training as current software modes following owner confirmation and repository review. Uses shows three quiet static mode rows before educational proposals. System begins with the source-confirmed software flow and preserves all later assemblies; development is refinement/validation of existing capabilities. Home stays concise with one action and the same cinematic/glass assets. No new control, visual asset or animation.
+
+
+## 2026-10-14 — Short mobile topics and silver materials
+
+The latest user request asks for all screens, including the dashboard, to feel natural on mobile and avoid long scrolling. Keep the three-item hamburger; add a compact bottom dock with safe-area clearance and 54 px targets. Hero uses a full-proportion drawing-based product stage, a short explanation and two clear destinations. It no longer crops a monumental room scene. Source art remains archived locally.
+
+Split Service and System into accessible topic tabs. Uses separates practice modes, education proposals and operations. Keep content mounted and reveal the owning tab for incoming fragments. Expandable copy must remain natural-height and unclipped. The education details, system connections/inputs, extra device roles, Four-Fit comparison and Team materials use native details/summary.
+
+Hardware selects one mirror/camera/audio stage, reusing calibrated layers and the existing progress curve within natural flow on all widths. This resolves the previous desktop scroll length while preserving the earlier requested effect. Do not regenerate or change sensor geometry.
+
+The independent dashboard shares the silver palette and mobile dock. Overview alternates team comparison and follow-up; phone team rows disclose metrics. Team selection becomes a native phone select. Record pages show four items per page, retaining pagination and full CSV scope. Device fleet and output records are separate phone views; reports and audit extras are native disclosures. No dataset, scoring, storage or hardware-control behavior changes.
+
+## 2026-10-15 — Digital card correction
+
+The owner reported the overall UI still felt awkward and clarified business-card usage. Reduce competing decoration and repeated navigation. Center one satin silver card on the entry; identify the project before the slogan and place three plain-language destinations immediately below it. Shorten detail H1s, use thin topic underlines and keep the separate operations demo visually related but secondary. Dashboard metrics share one compact divided panel and its period/team filters no longer sit in another outer card. No new artwork or invented contact details.
+
+## 2026-10-15 — Quiet image presentation and links
+
+The latest owner request supersedes the mandatory visible image-caption policy. Delete caption markup for ProductFrame/SceneFigure and the hardware stages, remove unused caption styling, and retain their exact media/error/motion logic. Keep one Home primary-action arrow; remove ordinary-link arrows from the card, shared menu/footer and detail links. A technical connection diagram keeps its direction indicator. Neutral Expression subtitle: `표정으로 전하는 태도`. No new image, layout framework, capability claim or deployment.
+
+## 2026-10-15 — Black-glass correction
+
+The owner explicitly requested a black background and glassmorphism after reviewing Service. Change material/colors in existing CSS and browser theme-color metadata, retaining the card composition, short topic/disclosure flow, local assets, one Home arrow and no repeated image captions. The dashboard shares the palette, including tables, native controls, semantic status badges, drawer and dialogs. No theme switch, new illustration, motion, dependency or content/state behavior is introduced.
+
+## 2026-10-15 — Friendly exhibition depth
+
+The newest feedback asks for a more complete and welcoming introduction. Keep one compact Home card, but give its three destinations clear helpers and replace the abstract body with a concrete mirror/four-perspective explanation. Preserve the black palette, one Home arrow and existing local artwork.
+
+Basic understanding belongs in the default view: why this practice exists, how to start reading, the two device roles, a visible four-stage system map, code evidence and team design criteria. Optional technical/educational depth stays in native disclosures. Avoid stacking repeated large headings, generic instructions and scope warnings ahead of the main image/diagram. Phone intros omit only the redundant desktop eyebrow. Core copy remains 16 px; control hints are secondary, with readable contrast.
+
+Use one bounded product-and-process panel on Service/System rather than empty rules or repeated generic cards. The image is contained within an explicit-width stage, preserving aspect/proportions and leaving the reading column clear. Source cards are editorial rows, with direct human-readable code links; no fake terminal, telemetry or completion badge. The 6-step visitor design becomes a compact 2-column phone / 3-column desktop grid. No added animation or artwork generation.
+
+A small description under each selected outer topic explains what the user can read. Menu descriptions and one quiet next-subject footer link make the reading sequence discoverable. Existing keyboard, fragment, mounted-panel and reduced-motion behavior stays. Newly authored practice explanations are disclosed as editorial examples; evidence is pinned to inspected source, and onsite acceptance remains separate.

@@ -1,18 +1,17 @@
 import { useRef, useState, type KeyboardEvent } from 'react';
 import { workplaceMoments } from '../data/experience';
-import { siteAsset } from '../data/paths';
 import { GlassIcon } from '../components/GlassIcon/GlassIcon';
 import './FourFit.css';
 
 const fitDimensions = [
   { english: 'Response', korean: '응답', description: '상황에 맞는 답변과 내용', question: '상대가 궁금해하는 내용을 먼저 전달했나요?', detail: '질문의 의도를 이해하고 현재 상황과 필요한 내용을 구분해 답했는지 돌아봅니다.', example: '업무 보고라면 진행 상황, 막힌 부분, 다음 조치가 답변에 담겼는지 돌아봅니다.' },
   { english: 'Voice', korean: '목소리', description: '말의 속도·크기·명료도', question: '상대가 듣고 이해하기 편한 말하기였나요?', detail: '무슨 말을 했는지와 함께 얼마나 분명하게 전달했는지 돌아봅니다.', example: '너무 빠르게 말하지 않았는지, 문장 끝까지 또렷하게 전달했는지 생각해 봅니다.' },
-  { english: 'Expression', korean: '표정', description: '표정 분석 시각화 콘셉트', question: '듣는 태도와 말하는 표정은 어땠나요?', detail: '답변하는 동안 시선과 표정이 어땠는지 돌아봅니다.', example: '질문을 듣는 동안 상대를 바라보았는지, 대화에 맞는 표정을 유지했는지 생각해 봅니다.' },
+  { english: 'Expression', korean: '표정', description: '표정으로 전하는 태도', question: '듣는 태도와 말하는 표정은 어땠나요?', detail: '답변하는 동안 시선과 표정이 어땠는지 돌아봅니다.', example: '질문을 듣는 동안 상대를 바라보았는지, 대화에 맞는 표정을 유지했는지 생각해 봅니다.' },
   { english: 'Posture', korean: '자세', description: '자세', question: '대화에 집중하는 자세였나요?', detail: '대화 중 몸의 자세를 돌아봅니다.', example: '몸을 과하게 움츠리거나 기울이지 않았는지, 편안하고 안정적인 자세였는지 생각해 봅니다.' },
 ] as const;
 
 const reflectionPoints = {
-  Response: { points: [['진행 상황', '무엇을 마쳤고 무엇을 진행 중인지 구분합니다.'], ['확인할 내용', '모르는 부분은 숨기지 않고 확인할 내용으로 남깁니다.'], ['다음 행동', '다음에 할 일과 다시 전달할 내용을 덧붙입니다.']], retry: '진행 상황 → 확인할 내용 → 다음 행동의 순서로 답변을 다시 구성해 보세요.' },
+  Response: { points: [['진행 상황', '무엇을 마쳤고 무엇을 진행 중인지 구분합니다.'], ['확인할 내용', '모르는 부분은 숨기지 않고 확인할 내용으로 남깁니다.'], ['다음 행동', '다음에 할 일과 다시 전달할 내용을 덧붙입니다.']], retry: '진행 상황, 확인할 내용, 다음 행동 순서로 답변을 다시 구성해 보세요.' },
   Voice: { points: [['말의 속도', '상대가 따라올 수 있도록 문장 사이에 여유를 둡니다.'], ['목소리의 크기', '대화하는 거리와 공간에 맞는 편안한 크기를 생각합니다.'], ['명료한 전달', '핵심 단어와 문장 끝이 분명하게 들리는지 돌아봅니다.']], retry: '내용을 바꾸기 전에 한 문장씩 여유 있게 말하며 중요한 부분을 분명하게 전달해 보세요.' },
   Expression: { points: [['듣는 순간', '질문을 끝까지 듣고 여유 있게 답변을 준비합니다.'], ['시선의 방향', '자신에게 편안한 방식으로 상대에게 주의를 기울입니다.'], ['표정의 맥락', '내용과 표정이 어울렸는지 자신의 모습을 돌아봅니다.']], retry: '억지로 표정을 만들기보다 질문을 듣는 순간과 답변하는 순간의 자신의 모습을 살펴보세요.' },
   Posture: { points: [['편안한 중심', '자신의 몸이 편안하고 안정적인 자세를 찾습니다.'], ['몸의 방향', '대화에 주의를 기울이는 자세인지 돌아봅니다.'], ['불필요한 긴장', '어깨나 몸에 힘이 들어갔다면 편하게 풀어 봅니다.']], retry: '하나의 정답 자세를 따라 하기보다 대화를 이어가기 편한 자신만의 자세를 찾아보세요.' },
@@ -20,12 +19,11 @@ const reflectionPoints = {
 
 export function FourFit({ detailed = false, compact = false }: { detailed?: boolean; compact?: boolean }) {
   const [selected, setSelected] = useState(0);
-  const [failedIcons, setFailedIcons] = useState<string[]>([]);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
 
   function illustration(kind: (typeof fitDimensions)[number]['english']) {
     return <div className="fit-illustration" data-icon={kind} aria-hidden="true">
-      {failedIcons.includes(kind) ? <GlassIcon kind={kind} /> : <img src={siteAsset(`media/${kind === 'Expression' ? 'expression-face-mesh-glass-v2.webp' : 'four-fit-silver-glass-v2.webp'}`)} alt="" width={1254} height={1254} loading="lazy" decoding="async" onError={() => setFailedIcons(current => [...current, kind])} />}
+      <GlassIcon kind={kind} />
     </div>;
   }
 
@@ -54,8 +52,8 @@ export function FourFit({ detailed = false, compact = false }: { detailed?: bool
     <section id="four-fit" className={`story-section story-section--fit${detailed ? ' four-fit--detailed' : ''}`} tabIndex={-1} aria-labelledby="fit-title">
       <div className="container">
         <div className="section-editorial">
-          <div><p className="section-kicker"><span className="chapter-number" aria-hidden="true">04</span>4-Fit · 네 가지 관점</p><h2 id="fit-title" className="section-title">말의 내용부터,<br /><span>전달하는 태도까지.</span></h2></div>
-          <p className="body-copy">응답·목소리·표정·자세를 함께 돌아보는 피드백 설계입니다. 항목을 선택해 각 관점을 살펴보세요.</p>
+          <div><h2 id="fit-title" className="section-title">무엇을 돌아볼까요?</h2></div>
+          <p className="body-copy">관점을 고르면 돌아볼 질문과 다음에 해볼 연습을 볼 수 있어요.</p>
         </div>
         <div className="fit-tabs" role="tablist" aria-label="4-Fit 관점 선택">
           {fitDimensions.map((item, index) => <button key={item.english} ref={element => { tabs.current[index] = element; }} id={`fit-tab-${index}`} type="button" role="tab" aria-label={`${item.english} ${item.korean}`} aria-selected={selected === index} aria-controls={`fit-panel-${index}`} tabIndex={selected === index ? 0 : -1} onClick={() => setSelected(index)} onKeyDown={event => onKeyDown(event, index)}><span lang="en"><small aria-hidden="true">0{index + 1}</small>{item.english}</span><strong>{item.korean}</strong></button>)}
@@ -66,7 +64,7 @@ export function FourFit({ detailed = false, compact = false }: { detailed?: bool
             {illustration(item.english)}
             <div className="fit-panel__name"><span lang="en">{item.english}</span><strong>{item.korean}</strong><small>{item.description}</small></div>
           </div>
-          <div className="fit-panel__copy"><p className="section-kicker">돌아볼 질문</p><h3>{item.question}</h3><p>{item.detail}</p><div className="fit-panel__example"><span>연습할 때 생각해 볼 점</span><p>{item.example}</p></div></div>
+          <div className="fit-panel__copy"><p className="section-kicker">돌아볼 질문</p><h3>{item.question}</h3><p>{item.detail}</p><div className="fit-panel__example"><span>연습할 때 생각해 볼 점</span><p>{item.example}</p></div><div className="fit-panel__practice"><span>다음 연습에서는</span><p>{reflectionPoints[item.english].retry}</p></div></div>
           {detailed && <details className="fit-observation"><summary>업무 보고에 적용해 보기<span className="disclosure-plus" aria-hidden="true" /></summary><div className="fit-observation__content">
             <div className="fit-observation__heading"><p className="section-kicker">업무 보고에서 살펴본다면</p><p>같은 대화도 관점에 따라<br />돌아볼 지점이 달라집니다.</p></div>
             <dl>{reflectionPoints[item.english].points.map(([title, description]) => <div key={title}><dt>{title}</dt><dd>{description}</dd></div>)}</dl>
@@ -75,7 +73,7 @@ export function FourFit({ detailed = false, compact = false }: { detailed?: bool
         </div>)}
         <div className="section-end"><p className="scope-note">설명용 관점과 예시입니다. 실제 분석 방식·평가 기준·구현 범위는 확인 중입니다.</p></div>
       </div>
-      {detailed && <div id="fit-practice" className="fit-retry" tabIndex={-1} aria-labelledby="fit-practice-title">
+      {detailed && <details className="compact-disclosure container"><summary>대화 예시로 적용해 보기<span className="disclosure-plus" aria-hidden="true" /></summary><div id="fit-practice" className="fit-retry" tabIndex={-1} aria-labelledby="fit-practice-title">
         <div className="container">
           <div className="fit-retry__heading"><div><p className="section-kicker">피드백에서 다음 연습으로</p><h2 id="fit-practice-title" className="section-title">답을 외우기보다<br /><span>대화를 더 분명하게.</span></h2></div><p className="body-copy">답변이 길었다면 요점부터, 목소리가 작았다면 조금 더 분명하게. 다음 연습에서 바꿀 한 가지를 골라 보세요.</p></div>
           <div className="fit-retry__scene"><span>설명용 대화 · {workplaceMoments[0].title}</span><p>“{workplaceMoments[0].question}”</p></div>
@@ -91,7 +89,7 @@ export function FourFit({ detailed = false, compact = false }: { detailed?: bool
           </ol>
 
         </div>
-      </div>}
+      </div></details>}
     </section>
   );
 }

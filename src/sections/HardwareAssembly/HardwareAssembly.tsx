@@ -3,6 +3,7 @@ import { ProductFrame } from '../../components/ProductFrame/ProductFrame';
 import { siteAsset } from '../../data/paths';
 import { useAssemblyScroll } from './useAssemblyScroll';
 import { HardwareDetailAssembly } from './HardwareDetailAssembly';
+import { PageTabs } from '../../components/PageTabs/PageTabs';
 import './HardwareAssembly.css';
 
 const layers = ['body', 'display', 'front'] as const;
@@ -14,20 +15,21 @@ export function HardwareAssembly() {
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [completeFailed, setCompleteFailed] = useState(false);
-  const section = useAssemblyScroll(failed, ready);
+  const section = useAssemblyScroll(failed, ready, true);
 
   function imageLoaded(name: string) {
     loaded.current.add(name);
     if (loaded.current.size === 4) setReady(true);
   }
 
-  return <>
+  return <div id="hardware-inputs"><PageTabs label="살펴볼 장치" tabs={[
+    { id: 'hardware-mirror', label: '스마트 미러', content:
     <section ref={section} id="hardware-assembly" tabIndex={-1} className={'hardware-assembly' + (ready ? ' hardware-assembly--ready' : '')} data-phase="0" data-render="loading" aria-labelledby="assembly-title">
       <div className="hardware-assembly__sticky">
-        <div className="hardware-assembly__top container"><p>4-FIT MIRRORTING · HARDWARE</p><a href="#system">시스템 구성 보기 <span aria-hidden="true">↗</span></a></div>
+        <div className="hardware-assembly__top container"><p>4-FIT MIRRORTING · HARDWARE</p><a href="#system">시스템 구성 보기</a></div>
         <div className="hardware-assembly__heading container">
           <h2 id="assembly-title">화면과 센서를<br /><span>한 미러 안에.</span></h2>
-          <div><p>거울과 화면. 카메라와 오디오.<br />설계 도안에 따라 구성한 하나의 스마트 미러.</p><span className="hardware-assembly__hint">스크롤하며 조립 과정을 살펴보세요 <i aria-hidden="true">↓</i></span></div>
+          <div><p>거울과 화면. 카메라와 오디오.<br />설계 도안에 따라 구성한 하나의 스마트 미러.</p><span className="hardware-assembly__hint">스크롤하며 조립 과정을 살펴보세요</span></div>
         </div>
         <div className="hardware-assembly__stage container" role="img" aria-label="설계 도안 기반 AI 생성 3D 콘셉트. 거울 프레임과 모니터, 스피커·PC BOX·베이스가 결합합니다." aria-busy="true">
           <div className="hardware-assembly__shadow" aria-hidden="true" />
@@ -40,12 +42,13 @@ export function HardwareAssembly() {
         </div>
         <div className="hardware-assembly__bottom container">
           <div className="hardware-assembly__steps" aria-hidden="true">{chapters.map((chapter, i) => <span key={chapter} data-chapter={i}><b>0{i + 1} / 03</b> {chapter}</span>)}</div>
-          <p>설계 도안 기반 AI 생성 3D 콘셉트 · 실제 촬영 이미지가 아닙니다.</p>
           <div className="hardware-assembly__track" aria-hidden="true"><i /></div>
         </div>
       </div>
       <p className="sr-only">미러 프레임에는 상단 카메라·마이크와 측면 NFC를 배치합니다. 내부 모니터와 후면 PC BOX, 하단 두 스피커와 캐스터 베이스가 결합하는 설계입니다. 이미지의 마감과 반사는 표현용이며 실제 제작 및 연동 완료를 의미하지 않습니다.</p>
     </section>
-    <div id="hardware-inputs"><HardwareDetailAssembly kind="camera" /><HardwareDetailAssembly kind="audio" /></div>
-  </>;
+    },
+    { id: 'hardware-camera', label: '카메라', content: <HardwareDetailAssembly kind="camera" /> },
+    { id: 'hardware-audio', label: '오디오', content: <HardwareDetailAssembly kind="audio" /> },
+  ]} /></div>;
 }

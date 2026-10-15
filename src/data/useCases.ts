@@ -130,7 +130,7 @@ export const applications: readonly Application[] = [
 // Scope checked against 2026CarpeDM_EXPO main at adb9355b0da4ef69a6485811ec82ee46cf133239.
 // Source implementation is distinct from hardware acceptance and validated training effects.
 export const practiceModes = [
-  { title: '면접', description: '풀스택 개발자·마케팅·영업관리의 질문과 답변 확인 기준을 갖춘 모의면접입니다.' },
-  { title: '직업훈련', description: '현재 선택 화면은 카페 주문 응대 중심입니다. 주문 항목 확인, 변경 반영과 마지막 복창을 연습합니다.' },
-  { title: '직장대화', description: '출근·업무·퇴근의 상황을 이어가며 보고와 질문, 피드백과 협업 대화를 연습합니다.' },
+  { title: '면접', description: '풀스택 개발자·마케팅·영업관리의 질문과 답변 확인 기준을 갖춘 모의면접입니다.', question: '경험을 어떤 순서로 설명하면 좋을까요?', focus: '자기소개와 직무 질문에 근거를 들어 답하기' },
+  { title: '직업훈련', description: '현재 선택 화면은 카페 주문 응대 중심입니다. 주문 항목 확인, 변경 반영과 마지막 복창을 연습합니다.', question: '고객이 주문을 바꾸면 어떻게 확인할까요?', focus: '요청을 정확히 듣고 변경한 내용을 다시 확인하기' },
+  { title: '직장대화', description: '출근·업무·퇴근의 상황을 이어가며 보고와 질문, 피드백과 협업 대화를 연습합니다.', question: '일이 막혔을 때 어떻게 보고할까요?', focus: '진행 상황과 확인할 일, 다음 행동을 구분하기' },
 ] as const;

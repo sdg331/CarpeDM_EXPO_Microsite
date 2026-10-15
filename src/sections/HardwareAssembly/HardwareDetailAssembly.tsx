@@ -19,7 +19,7 @@ const content = {
       ['1 MP ToF 깊이', '거리 정보를 깊이 영상으로 다루기 위한 센서.'],
       ['7개의 마이크', '상단에 배치된 마이크 어레이. 미러의 별도 음성 장비와는 구분합니다.'],
     ],
-    next: '#audio-assembly', nextLabel: '오디오 살펴보기', fallback: '카메라 형태 콘셉트',
+    next: '#audio-assembly', nextLabel: '오디오 살펴보기', fallback: '카메라',
   },
   audio: {
     label: '음성 입력 · 소리 출력', mark: 'AUDIO · VOICE + SOUND',
@@ -32,7 +32,7 @@ const content = {
       ['빔포밍 · 에코 제거', '말하는 방향에 집중하고 스피커 에코를 줄이기 위한 처리.'],
       ['소음 억제', '주변 소음을 줄이도록 설계된 제조사 음성 처리 기능.'],
     ],
-    next: '#system', nextLabel: '시스템 구성 보기', fallback: '마이크·스피커 형태 콘셉트',
+    next: '#system', nextLabel: '시스템 구성 보기', fallback: '마이크·스피커',
   },
 } as const;
 
@@ -42,7 +42,7 @@ export function HardwareDetailAssembly({ kind }: { kind: keyof typeof content })
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
   const [completeFailed, setCompleteFailed] = useState(false);
-  const section = useAssemblyScroll(failed, ready);
+  const section = useAssemblyScroll(failed, ready, true);
   const asset = (part?: string) => siteAsset(kind === 'camera' ? 'media/hardware/sm-camera-atlas-v4.webp' : `media/hardware/sm-${kind}${part ? '-' + part : ''}-v1.webp`);
   function imageLoaded(name: string) {
     loaded.current.add(name);
@@ -54,7 +54,7 @@ export function HardwareDetailAssembly({ kind }: { kind: keyof typeof content })
     className={`hardware-assembly hardware-detail-assembly hardware-detail-assembly--${kind}${ready ? ' hardware-assembly--ready' : ''}`}
     data-phase="0" data-render="loading" aria-labelledby={kind + '-assembly-title'}>
     <div className="hardware-assembly__sticky">
-      <div className="hardware-assembly__top container"><p>{data.mark}</p><a href={data.next}>{data.nextLabel} <span aria-hidden="true">↗</span></a></div>
+      <div className="hardware-assembly__top container"><p>{data.mark}</p><a href={data.next}>{data.nextLabel}</a></div>
       <div className="hardware-detail-assembly__main container">
         <div className="hardware-detail-assembly__copy"><p>{data.label}</p><h2 id={kind + '-assembly-title'}>{data.title}</h2><p>{data.intro}</p></div>
         <div className="hardware-assembly__stage hardware-detail-assembly__stage" role="img" aria-label={'AI 생성 3D 콘셉트. ' + data.description} aria-busy="true">
@@ -75,9 +75,9 @@ export function HardwareDetailAssembly({ kind }: { kind: keyof typeof content })
       </div>
       <div className="hardware-assembly__bottom container">
         <div className="hardware-assembly__steps" aria-hidden="true">{data.chapters.map((chapter, i) => <span key={chapter} data-chapter={i}><b>0{i + 1} / 03</b> {chapter}</span>)}</div>
-        <p>AI 생성 3D 구조 콘셉트 · 내부 형상은 설명용</p><div className="hardware-assembly__track" aria-hidden="true"><i /></div>
+        <div className="hardware-assembly__track" aria-hidden="true"><i /></div>
       </div>
-      <p className="hardware-detail-assembly__scope container">제조사 공개 사양을 소개합니다. 실제 프로젝트의 분석 성능·기능 활성화·장치 연동을 의미하지 않습니다. <a href="#hardware-details">장비 사양과 출처 보기 ↗</a></p>
+      <p className="hardware-detail-assembly__scope container">제조사 공개 사양을 소개합니다. 실제 프로젝트의 분석 성능·기능 활성화·장치 연동을 의미하지 않습니다. <a href="#hardware-details">장비 사양과 출처 보기</a></p>
     </div>
     <p className="sr-only">{data.description} {kind === 'camera' ? '스크롤하면 위쪽 내부 센서는 내려오고 아래쪽 전면부는 올라와 가운데 외장에 결합합니다.' : '스크롤하면 부품이 조립되며 음성 처리의 강점을 강조합니다.'} 내부 부품의 형상과 배치는 설명용 AI 생성 콘셉트이며 제조사의 실제 분해도나 제작 도면이 아닙니다.</p>
   </section>;

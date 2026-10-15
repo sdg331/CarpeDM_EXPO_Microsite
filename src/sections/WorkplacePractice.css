@@ -28,4 +28,4 @@
   .practice-example { border-radius: 12px; }
 }
 
-.practice-options button[aria-pressed='true'] { border-radius: 8px; background: var(--surface-silver); box-shadow: inset 0 1px 0 #fff; }
+.practice-options button[aria-pressed='true'] { border-radius: 8px; background: var(--color-surface-strong); box-shadow: inset 0 1px 0 #ffffff0d; }

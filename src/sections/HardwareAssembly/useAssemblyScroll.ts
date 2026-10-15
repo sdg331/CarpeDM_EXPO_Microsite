@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { assemblyPose, assemblyRenderState, cameraStageProgress, dampedProgress, scrollProgress } from './motion';
 
-export function useAssemblyScroll(failed: boolean, ready: boolean) {
+export function useAssemblyScroll(failed: boolean, ready: boolean, flowView = false) {
   const section = useRef<HTMLElement>(null);
   useEffect(() => {
     const root = section.current;
@@ -23,10 +23,12 @@ export function useAssemblyScroll(failed: boolean, ready: boolean) {
       root.querySelector('.hardware-assembly__stage')?.setAttribute('aria-busy', String(rendered === 'loading'));
       const bounds = root.getBoundingClientRect();
       if (!compact && (bounds.bottom < 0 || bounds.top > window.innerHeight)) { displayed = undefined; previousTime = 0; return; }
-      const header = shortViewport.matches
+      const header = flowView || shortViewport.matches
         ? document.querySelector('.site-header')?.getBoundingClientRect().height || 0
         : parseFloat(getComputedStyle(sticky).top) || 0;
-      const target = compact ? 1 : shortViewport.matches
+      const target = compact ? 1 : flowView
+        ? cameraStageProgress(root.querySelector('.hardware-assembly__stage')?.getBoundingClientRect().top ?? bounds.top, window.innerHeight)
+        : shortViewport.matches
         ? cameraStageProgress(bounds.top + window.innerHeight * .8 - header, window.innerHeight)
         : scrollProgress(bounds.top, root.offsetHeight, sticky.offsetHeight, header);
       const elapsed = previousTime ? time - previousTime : 1000 / 60;
@@ -61,6 +63,6 @@ export function useAssemblyScroll(failed: boolean, ready: boolean) {
       reduce.removeEventListener('change', requestUpdate);
       shortViewport.removeEventListener('change', requestUpdate);
     };
-  }, [failed, ready]);
+  }, [failed, ready, flowView]);
   return section;
 }
